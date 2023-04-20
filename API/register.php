@@ -1,6 +1,6 @@
 <?php
 
-    require_once"index.php";
+    require_once "index.php";
 
     if ($request_method == "POST") 
     {    
@@ -27,10 +27,10 @@
                 $highest_id = $user["id"];
             }
         }
-        $next_id = $highest_id + 1;
+        $user_id = $highest_id + 1;
 
         //Creates the user
-        $new_user = ["id" => $next_id, "username" => $un, "password" => $pw];
+        $new_user = ["id" => $user_id, "username" => $un, "password" => $pw];
 
         //Checking if the user forgot to type
         if ($un == "" && $pw =="") 

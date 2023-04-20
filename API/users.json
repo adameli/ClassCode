@@ -2,36 +2,11 @@
     {
         "id": 1,
         "username": "Isak",
-        "password": "123"
+        "password": "$2y$10$a4CfXmD5K0nvUDRcqeXyh.VZmzzjGMNITXA9tsqRGSjVxeJU1p396"
     },
     {
         "id": 2,
-        "username": "adde",
-        "password": "sam"
-    },
-    {
-        "id": 3,
-        "username": "java",
-        "password": "dog"
-    },
-    {
-        "id": 4,
-        "username": "addes",
-        "password": "$2y$10$nohwuDEaJSfxIduBCfpHDuAFXAFMrHTVl25yFUEfGvTTTcmdG.oou"
-    },
-    {
-        "id": 5,
-        "username": "alles",
-        "password": "$2y$10$1ztsHfFNmeICECZCsYUqPOrqtnjdNOMytI6cZBWHyuwiWkngztXoK"
-    },
-    {
-        "id": 6,
-        "username": "abbe",
-        "password": "$2y$10$wSmVnWqAZL\/W5qQTU0XMROR5BPSQJcsR\/IDgL2CCCspwK9znKxNtK"
-    },
-    {
-        "id": 7,
-        "username": "albin",
-        "password": "$2y$10$a4Yrhj6GjeebGdPRJszNH.pyZIbdZ1uvZqhZJD6mrGH9JlmGckD2O"
+        "username": "Erik",
+        "password": "$2y$10$t3AeBW\/25vs0Z3HgkmDmFudrMUuJUCd8HENe.yT6fo9wA4Ae9\/d0a"
     }
 ]
