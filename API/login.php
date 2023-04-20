@@ -1,10 +1,11 @@
 <?php
 
-    require_once"index.php";
+    require_once "index.php";
 
     if ($request_method == "POST") 
     {   
-        foreach($users as $user) {
+        foreach($users as $user) 
+        {
 
             $un = $request_data["username"];
             $pw = $request_data["password"];

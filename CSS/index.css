@@ -2,6 +2,7 @@
     font-family: 'Rubik-Bold', sans-serif;
     src: url("../RESOURCES/Rubik-Regular.ttf");
 }
+
 @font-face {
     font-family: 'Rubik', sans-serif;
     src: url("../RESOURCES/Rubik-Light.ttf");
@@ -13,7 +14,7 @@
     --mainBackgroundColor: #0d1116;
     --textColor: #f5f5f5;
     --glassMorphism: rgba(255, 255, 255, 0.12);
-    
+
     /* FONTSIZES______________________________________________________________ */
     --titles: 52px;
     --bodyText: 24px;
@@ -39,7 +40,7 @@
     color: var(--textColor);
 
     font-family: 'Rubik', sans-serif;
-    
+
     /* border: 1px solid white; */
 }
 
@@ -54,7 +55,7 @@
 }
 
 body {
-    background-color: var( --mainBackgroundColor);
+    background-color: var(--mainBackgroundColor);
     margin: 0 2%;
     height: 100vh;
 }
@@ -92,4 +93,9 @@ section p {
     cursor: pointer;
     background-color: var(--glassMorphism);
     border-radius: var(--borderradiusSmall);
+}
+
+
+form * {
+    color: black;
 }
