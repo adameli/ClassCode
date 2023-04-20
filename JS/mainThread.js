@@ -1,6 +1,6 @@
-function renderMainThread() {
-    let currentUser = JSON.parse(window.localStorage.getItem("user"));
+async function renderMainThread() {
 
+    let currentUser = JSON.parse(window.localStorage.getItem("user"));
     main.innerHTML = `
     <div>
         <div id="profilepick"></div>
@@ -13,6 +13,26 @@ function renderMainThread() {
         <button type=submit>Post!</button>
     </form>
     `;
+
+    let allThreadsRequest = new Request("../API/thread.php?threads=all");
+    let allThreads = await fetchFunction(allThreadsRequest);
+    console.log(allThreads.resource);
+    allThreads.resource.forEach(thredObject => {
+        console.log("hej");
+        main.innerHTML += `
+        <div id="thred">
+            <div id="threadheader">
+                <div id="user_icon">${thredObject.username}</div>
+                <div id="thread_title">${thredObject.title}</div>
+                <div id="time_stamp">${thredObject.timestamp["date"]} ${thredObject.timestamp["time"]}</div>
+            </div>
+            <div id="description">${thredObject.content}</div>
+            <div id="code"></div>
+        </div>
+        `;
+    });
+
+
 
     // These variables are the input elements where we will get the users credentials
     let titleInput = document.getElementById("title");

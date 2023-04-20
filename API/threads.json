@@ -86,5 +86,16 @@
             "date": "20-04-2023",
             "time": "15:00:37"
         }
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 9,
+        "title": "problem",
+        "content": "n\u00e5gon hjlp mig!",
+        "timestamp": {
+            "date": "20-04-2023",
+            "time": "15:48:21"
+        }
     }
 ]
