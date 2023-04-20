@@ -1,4 +1,4 @@
-function feedpage() {
+function renderMainThread() {
     let currentUser = JSON.parse(window.localStorage.getItem("user"));
 
     main.innerHTML = `
