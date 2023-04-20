@@ -13,5 +13,20 @@
         "id": 3,
         "username": "java",
         "password": "dog"
+    },
+    {
+        "id": 4,
+        "username": "addes",
+        "password": "$2y$10$nohwuDEaJSfxIduBCfpHDuAFXAFMrHTVl25yFUEfGvTTTcmdG.oou"
+    },
+    {
+        "id": 5,
+        "username": "alles",
+        "password": "$2y$10$1ztsHfFNmeICECZCsYUqPOrqtnjdNOMytI6cZBWHyuwiWkngztXoK"
+    },
+    {
+        "id": 6,
+        "username": "abbe",
+        "password": "$2y$10$wSmVnWqAZL\/W5qQTU0XMROR5BPSQJcsR\/IDgL2CCCspwK9znKxNtK"
     }
 ]

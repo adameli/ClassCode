@@ -1,3 +1,16 @@
+async function fetchFunction(request) {
+
+    try {
+
+        const serverResponse = await fetch(request);
+        const resource = await serverResponse.json();
+        return { response: serverResponse, resource: resource };
+
+    } catch (e) {
+        feedbackAnswer.textContent = "NetworkError! Please try again."
+    };
+};
+
 function registerpage() {
     // redners the register page with new html
     main.innerHTML = `
@@ -17,13 +30,14 @@ function registerpage() {
 
     let button = document.getElementById("login");
 
+    // get the format wich we send the request to register a new user
     let registerForm = main.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         let message = main.querySelector("#message");
 
         try {
-            let response = await fetch("../API/register.php", {
+            let registerRequest = new Request("../API/register.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -32,12 +46,15 @@ function registerpage() {
                 }),
             });
 
-            let responseData = await response.json();
-            console.log(responseData);
-            if (!responseData.ok) {
-                message.innerHTML = `Something went wrong, ${responseData.message}`;
+            let post = await fetchFunction(registerRequest);
+
+            console.log(post);
+            console.log(post.response.ok);
+
+            if (post.response.ok) {
+                message.innerHTML = `The registration was a success, welcome to ClassCode ${post.resource}`;
             } else {
-                message.innerHTML = `The registration was a success, welcome to ClassCode ${responseData.username}`;
+                message.innerHTML = `Something went wrong, ${post.resource.message}`;
             }
         } catch (error) {
 
