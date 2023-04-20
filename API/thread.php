@@ -5,13 +5,21 @@
     $threads_file = "threads.json";
     $threads = [];
 
-    if (file_exists($threads_file)) 
+    if(file_exists($threads_file)) 
     {
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
 
-    if ($request_method == "POST") 
+    if($request_method == "GET") 
+    {
+        if ($_GET["threads"] == "all") 
+        {
+            send_JSON($threads);
+        }
+    } 
+
+    if($request_method == "POST") 
     {
         $username = $request_data["username"];
         $title = $request_data["title"];
