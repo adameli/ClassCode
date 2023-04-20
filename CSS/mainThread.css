@@ -1,0 +1,7 @@
+.profileImg {
+    height: 50px;
+    width: 50px;
+    border-radius: var(--CIRKLE);
+    object-fit: cover;
+    cursor: pointer;
+}

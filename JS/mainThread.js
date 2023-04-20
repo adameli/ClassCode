@@ -1,6 +1,18 @@
 async function renderMainThread() {
+   
+    document.querySelector( ".modularCss").setAttribute( "href", "CSS/mainThread.css");
 
     let currentUser = JSON.parse(window.localStorage.getItem("user"));
+
+    // Create logged in User section_________________________________________________
+    document.querySelector( ".userInformation").innerHTML = `
+        <div class="profile">
+            <img class="profileImg" src="RESOURCES/userimg.jpg">
+        </div>
+    `;
+    
+
+
     main.innerHTML = `
     <div>
         <div id="profilepick"></div>

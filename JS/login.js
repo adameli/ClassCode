@@ -1,7 +1,7 @@
 function loginpage() {
-    //remove LoginButton
-    document.querySelector( ".userInformation").innerHTML = "";
-
+    // change Css href and add HOME button
+    prepareLoginRegister();
+    
     // Redners the loginpage with new html
     main.innerHTML = `
         <h2>Login</h2>

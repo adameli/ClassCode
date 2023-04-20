@@ -1,7 +1,9 @@
 function registerpage() {
-    // Redners the registerpage with new html
-    document.querySelector( ".userInformation").innerHTML = "";
     
+    // change Css href and add HOME button
+    prepareLoginRegister();
+    
+    // Redners the registerpage with new html
     main.innerHTML = `
         <h2>Register</h2>
         <p id=message></p>

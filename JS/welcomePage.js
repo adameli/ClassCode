@@ -1,4 +1,6 @@
 function renderWelcomePage() {
+    document.querySelector( ".modularCss").setAttribute( "href", "CSS/welcomePage.css");
+
     document.querySelector( "main").innerHTML = `
     <section>
         <h1>Welcome to CodeClass!</h1>
