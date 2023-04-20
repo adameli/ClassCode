@@ -4,4 +4,6 @@ console.log("Hello from ISAK");
 
 const main = document.querySelector("main");
 
-registerpage()
+// feedpage();
+// loginpage()
+// registerpage()
