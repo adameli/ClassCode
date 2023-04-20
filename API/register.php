@@ -5,7 +5,7 @@
     if ($request_method == "POST") 
     {    
         $un = $request_data["username"];
-        $pw = $request_data["password"];
+        $pw = password_hash($request_data["password"], PASSWORD_DEFAULT);
 
         //Checking for an identical username, not allowed
         foreach ($users as $user) 
@@ -59,6 +59,6 @@
         $users[] = $new_user;
         $json = json_encode($users, JSON_PRETTY_PRINT);
         file_put_contents($users_file, $json);
-        send_JSON($new_user);
+        send_JSON($new_user["username"]);
     }
 ?>
