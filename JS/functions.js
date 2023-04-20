@@ -158,7 +158,7 @@ function feedpage() {
 
         try {
             // We make an Requst that we will send to the fetchFunction
-            let registerRequest = new Request("../API/thred.php", {
+            let registerRequest = new Request("../API/thread.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -176,6 +176,8 @@ function feedpage() {
 
             // controlls if the serverresponse is ok (true or false)
             if (post.response.ok) {
+                console.log("du är inne");
+                // main.innerHTML += `<div>hej hopp</div>`;
                 main.innerHTML += `
                 <div id="thred">
                     <div id="threadheader">
@@ -187,7 +189,7 @@ function feedpage() {
                     <div id="code"></div>
                 </div>
                 `;
-                feedpage();
+                // feedpage();
             } else {
                 message.innerHTML = `Hmm! Something did not work, ${post.resource.message}`;
             }

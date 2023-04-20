@@ -50,6 +50,6 @@
         $threads[] = $thread;
         $json = json_encode($threads, JSON_PRETTY_PRINT);
         file_put_contents($threads_file, $json);
-        send_JSON($threads);
+        send_JSON($thread);
     }
 ?>
