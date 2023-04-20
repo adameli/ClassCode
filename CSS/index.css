@@ -23,7 +23,7 @@
     /* Padding General________________________________________________________ */
     --paddingCardContainer: 5px;
     --paddingButtons: 10px;
-    --paddingSections: 14px;
+    --paddingSections: 25px;
 
     /* BorderRadius____________________________________________________________ */
     --borderradiusSmall: 5px;
@@ -46,8 +46,8 @@
 .backgroundImage {
     top: 0;
     height: 100%;
-    width: 100%;
-    position: absolute;
+    width: 95%;
+    position: fixed;
     z-index: -1;
     filter: blur(35px);
     object-fit: cover;
@@ -68,7 +68,25 @@ header {
     /* grid-area: 1 / span 2; */
 }
 
-.loginButtonHeader {
+section {
+    height: 100vh;
+    padding: var(--paddingSections);
+}
+
+section h1 {
+    font-size: var(--titles);
+}
+
+section p {
+    font-size: var(--bodyText);
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.loginButtonHeader, 
+.registerButtonHeader {
     font-size: var(--usernames);
     padding: var(--paddingButtons);
     cursor: pointer;
