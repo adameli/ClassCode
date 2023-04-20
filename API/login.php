@@ -12,9 +12,9 @@
             //Searching for a user 
             foreach ($users as $user) 
             {
-                if ($un == $user["username"] && $pw == $user["password"]) 
+                if ($un == $user["username"] && password_verify( $pw, $user["password"])) 
                 {
-                    send_JSON($user);
+                    send_JSON($user["username"]);
                 }
             }
 
