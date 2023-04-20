@@ -1,5 +1,7 @@
 function registerpage() {
     // Redners the registerpage with new html
+    document.querySelector( ".userInformation").innerHTML = "";
+    
     main.innerHTML = `
         <h2>Register</h2>
         <p id=message></p>
