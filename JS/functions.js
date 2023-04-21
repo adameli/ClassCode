@@ -15,7 +15,14 @@ function prepareLoginRegister() {
     // Changes css file & adds home button to return to WelcomeScreen
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/loginRegister.css");
     document.querySelector( ".userInformation").innerHTML = `<div class="returnHome">HOME</div>`;
+    
+    // Reloads the page and in turn returns to homescreen ( Welcome or mainThread)
     document.querySelector( ".returnHome").addEventListener( "click", event => {
         location.reload();
     })
+}
+
+function removeUserLocalStorage() {
+    localStorage.removeItem( "user");
+    location.reload();
 }

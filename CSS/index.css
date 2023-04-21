@@ -13,17 +13,20 @@
     /* COLORS________________________________________________________________ */
     --mainBackgroundColor: #0d1116;
     --textColor: #f5f5f5;
-    --glassMorphism: rgba(255, 255, 255, 0.12);
+
+    --darkMorphism: #100f15af;
+    --glassMorphism: #ffffff1f;
 
     /* FONTSIZES______________________________________________________________ */
     --titles: 52px;
     --bodyText: 24px;
     --usernames: 18px;
     --smallText: 14px;
+    --modularSmallText: 1vw;
 
     /* Padding General________________________________________________________ */
-    --paddingCardContainer: 5px;
-    --paddingButtons: 10px;
+    --paddingCardContainer: 10px;
+    --paddingButtons: 15px;
     --paddingSections: 25px;
 
     /* BorderRadius____________________________________________________________ */
@@ -66,4 +69,56 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: var(--paddingSections);
+}
+
+/* UserNavigation___________________________________________________________________ */
+
+.profileMenuNav-shortcut {
+    position: absolute;
+    right: 15px;
+    top: 85px;
+    width: 20rem;
+
+    background-color: var(--darkMorphism);
+    padding: var(--paddingCardContainer);
+    border-radius: var(--borderradiusMedium);
+}
+
+.profileMenuNav-loggedInUser {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: var(--paddingCardContainer);
+    padding-bottom: calc( var(--paddingCardContainer) * 2);
+    border-bottom: 2px solid var( --glassMorphism);
+    border-radius: var(--borderradiusSmall);
+    background-color: var(--darkMorphism);
+}
+
+.profile-loggedInAs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: var(--smallText);
+}
+
+.profileMenuNav-userOptionsContainer {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    
+    padding: var(--paddingSections);
+    gap: 15px;
+}
+
+.profileMenuNav-userOptions {
+    border-bottom: 2px solid var(--glassMorphism);
+    border-radius: var(--borderradiusSmall);
+    padding: var(--paddingButtons);
+    cursor: pointer;
+}
+
+.profileMenuNav-userOptions:hover {
+    background: var(--darkMorphism);
 }
