@@ -14,32 +14,48 @@ async function renderMainThread() {
 
 
     main.innerHTML = `
-    <div>
-        <div id="profilepick"></div>
-        <h3>${currentUser}</h3>
-    </div>
-    <p> You are know in the feedpage </p>
-    <form>
-        <input type=text id=title placeholder=Title>
-        <input type=text id=content placeholder=Content!>
-        <button type=submit>Post!</button>
-    </form>
+    <section>
+        <div class="profile">
+            <h2>Hello ${currentUser}!</h2>
+        </div>
+        <p> You are know in the feedpage </p>
+        
+        <form>
+            <input type=text id=title placeholder=Title>
+            <div class="createPost-mainThread">
+                <button>Add a Codeblock</button>
+                <textarea type=text id=content placeholder=Content!></textarea>
+            </div>
+            <button type=submit>Post!</button>
+        </form>
+    </section>
+
+    <section>
+        <div class="mainThread-allThreads"><div>
+    </section>
     `;
 
     let allThreadsRequest = new Request("../API/thread.php?threads=all");
     let allThreads = await fetchFunction(allThreadsRequest);
     console.log(allThreads.resource);
+
     allThreads.resource.forEach(thredObject => {
-        console.log("hej");
-        main.innerHTML += `
-        <div id="thred">
-            <div id="threadheader">
-                <div id="user_icon">${thredObject.username}</div>
-                <div id="thread_title">${thredObject.title}</div>
-                <div id="time_stamp">${thredObject.timestamp["date"]} ${thredObject.timestamp["time"]}</div>
+        document.querySelector( ".mainThread-allThreads").innerHTML += `
+        <div class="postContainer-mainThread">
+
+            <div class="userInfoContainer-mainThread">
+                <div class"postTitleContainer-mainThread">
+                    <h3 class="post_title-mainThread">${thredObject.title}</h3>
+                    <div class="time_stamp-mainThread"> ${thredObject.timestamp["time"]} - ${thredObject.timestamp["date"]}</div>
+                </div>
+                
+                <div class="usersPost-mainThread">
+                    <img class="profileImg userInfoPostPicture" src="RESOURCES/userimg.jpg">
+                    <div class="user_name-mainThread">${thredObject.username}</div>
+                </div>                    
             </div>
-            <div id="description">${thredObject.content}</div>
-            <div id="code"></div>
+
+            <div class="postContent-mainThread">${thredObject.content}</div>
         </div>
         `;
     });
