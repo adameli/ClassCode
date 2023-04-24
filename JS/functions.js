@@ -29,7 +29,6 @@ function removeUserLocalStorage() {
 
 function checkIfLoggedIn() {
     if( !localStorage.getItem( "user")) {
-        endpoint = "http://localhost:9999";
-        window.location = `${endpoint}`;
+        window.location = `${serverEndpoint}`;
     }
 }

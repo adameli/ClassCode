@@ -22,29 +22,5 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         }
-    },
-    {
-        "username": "hej",
-        "username_id": 6,
-        "thread_id": 3,
-        "title": "isak",
-        "description": "adam",
-        "content": "teo",
-        "timestamp": {
-            "date": "24-04-2023",
-            "time": "14:50:23"
-        }
-    },
-    {
-        "username": "hej",
-        "username_id": 6,
-        "thread_id": 4,
-        "title": "isak",
-        "description": "adam",
-        "content": "teo",
-        "timestamp": {
-            "date": "24-04-2023",
-            "time": "14:51:59"
-        }
     }
 ]

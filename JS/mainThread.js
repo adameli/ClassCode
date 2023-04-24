@@ -13,7 +13,7 @@ async function renderMainThread() {
     renderNavigationLoggedIn( currentUser);
 
 
-    main.innerHTML = `
+    document.querySelector( "main").innerHTML = `
     <section>
         <div class="profile">
             <h2>Hello ${currentUser}!</h2>

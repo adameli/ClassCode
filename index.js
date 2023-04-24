@@ -1,0 +1,1 @@
+const serverEndpoint = "http://localhost:9999";
