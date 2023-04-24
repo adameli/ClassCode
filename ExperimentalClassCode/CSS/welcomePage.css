@@ -1,0 +1,25 @@
+section {
+    height: 100vh;
+    padding: var(--paddingSections);
+}
+
+section h1 {
+    font-size: var(--titles);
+}
+
+section p {
+    font-size: var(--bodyText);
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.loginButtonHeader, 
+.registerButtonHeader {
+    font-size: var(--usernames);
+    padding: var(--paddingButtons);
+    cursor: pointer;
+    background-color: var(--glassMorphism);
+    border-radius: var(--borderradiusSmall);
+}

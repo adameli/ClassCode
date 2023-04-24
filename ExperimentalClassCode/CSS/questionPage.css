@@ -1,0 +1,23 @@
+.createPost {
+    /* height: 80vh; */
+    /* overflow: scroll; */
+    border: 1px solid white;
+
+    padding: var(--paddingSections);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.holderCard {
+    padding: var( --paddingCardContainer);
+    background-color: var( --darkMorphism);
+}
+
+input,
+textarea {
+    width: 100%;
+}

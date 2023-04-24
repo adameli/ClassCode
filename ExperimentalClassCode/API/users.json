@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "username": "Isak",
+        "password": "$2y$10$a4CfXmD5K0nvUDRcqeXyh.VZmzzjGMNITXA9tsqRGSjVxeJU1p396"
+    },
+    {
+        "id": 2,
+        "username": "Erik",
+        "password": "$2y$10$t3AeBW\/25vs0Z3HgkmDmFudrMUuJUCd8HENe.yT6fo9wA4Ae9\/d0a"
+    },
+    {
+        "id": 3,
+        "username": "test",
+        "password": "$2y$10$Tlq\/XMCd8C.RMZt1daeXauY4ecegNJSYhXFdA5\/Pm6L8jv5xTp6CW"
+    },
+    {
+        "id": 4,
+        "username": "teo",
+        "password": "$2y$10$8hSNqFZrimXRIWE0\/9hJfuB75XZ7ZB8TiqIIML3weAO95DtmyRJAK"
+    },
+    {
+        "id": 5,
+        "username": "LazyCake",
+        "password": "$2y$10$HOs7BIW0ncyEADZDwwVo8.WpnxWA2W4Llg1Jks3waIAAkhdkihWYK"
+    },
+    {
+        "id": 6,
+        "username": "hej",
+        "password": "$2y$10$SiEyUwNh7LVuso5hoJ17ZO5c7FFfDZsUVxcqqjQP5kJ\/\/nMuq66TG"
+    }
+]
