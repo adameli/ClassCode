@@ -1,3 +1,5 @@
+renderNavigationLoggedIn();
+
 function renderAccountPage( Username) {
 
     // temp

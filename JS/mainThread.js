@@ -57,7 +57,7 @@ async function renderMainThread() {
                 </div>                    
             </div>
 
-            <div class="postContent-mainThread">${thredObject.content}</div>
+            <div class="postContent-mainThread">${thredObject.description}</div>
         </div>
         `;
     });

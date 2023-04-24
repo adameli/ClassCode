@@ -2,22 +2,37 @@
     /* height: 80vh; */
     /* overflow: scroll; */
     border: 1px solid white;
-
     padding: var(--paddingSections);
+
+    /* display: grid; */
+    /* justify-content: center; */
 }
 
 form {
     display: flex;
     flex-direction: column;
+    
     gap: 50px;
+    max-width: 65rem;
+    /* margin: 0 auto; */
+    padding: var(--paddingSections);
+    background-color: var(--lightMorphism);
 }
 
 .holderCard {
-    padding: var( --paddingCardContainer);
+    padding: var( --paddingSections);
     background-color: var( --darkMorphism);
+    display: flex;
+    flex-direction: column;
+}
+
+.holderCard p {
+    font-size: var(--smallText);
 }
 
 input,
 textarea {
     width: 100%;
+    resize: vertical;
+    /* margin: 10px auto; */
 }

@@ -1,4 +1,4 @@
-// renderNavigationLoggedIn();
+renderNavigationLoggedIn();
 function renderNavigationLoggedIn( user) {
     const parentContainer = document.querySelector( ".userInformation")
     
@@ -6,10 +6,10 @@ function renderNavigationLoggedIn( user) {
     <div class="profile">
         <img class="profileImg" src="RESOURCES/userimg.jpg">
     </div>
-`; 
+    `; 
 
-const profileButton = document.querySelector(".profile");
-parentContainer.addEventListener( "click", event => {
+    const profileButton = document.querySelector(".profile");
+    parentContainer.addEventListener( "click", event => {
     
     if( !document.querySelector( ".profileMenuNav-shortcut")) {
         parentContainer.innerHTML += `

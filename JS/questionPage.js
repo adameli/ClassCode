@@ -1,20 +1,8 @@
 function questionPageTempName( event) {
-    const popupContainerDOM = document.querySelector( ".createQuestionContainer");
-    if( !document.querySelector( "form")) {
-        popupContainerDOM.innerHTML += `
-            <form>
-                <input type=text id=title placeholder=Title>
-                <div class="createPost-mainThread">
-                    <p class="addCodeField-event">Add a Codeblock</p>
-                    <textarea type=text id=content placeholder=Content!></textarea>
-                </div>
-                <button type=submit>Post!</button>
-            </form>
-        `;
+    document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
-        document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
-
-        let titleInput = document.getElementById("title");
+    let titleInput = document.getElementById("title");
+    let description = document.getElementById("description")
     let contentInput = document.getElementById("content");
 
     // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
@@ -31,6 +19,7 @@ function questionPageTempName( event) {
                 body: JSON.stringify({
                     username: currentUser,
                     title: titleInput.value,
+                    description: description.value,
                     content: contentInput.value,
                 }),
             });
@@ -43,31 +32,16 @@ function questionPageTempName( event) {
 
             // controlls if the serverresponse is ok (true or false)
             if (post.response.ok) {
-                // If the post was a success we print the thread direct to the feed
-                main.innerHTML += `
-                <div id="thred">
-                    <div id="threadheader">
-                        <div id="user_icon">${post.resource.username}</div>
-                        <div id="thread_title">${post.resource.title}</div>
-                        <div id="time_stamp">${post.resource.timestamp["date"]} ${post.resource.timestamp["time"]}</div>
-                    </div>
-                    <div id="description">${post.resource.content}</div>
-                    <div id="code"></div>
-                </div>
-                `;
-                // feedpage();
+                
+                window.location = `${serverEndpoint}index.html`;
             } else {
-                message.innerHTML = `Hmm! Something did not work, ${post.resource.message}`;
+                // message.innerHTML = `Hmm! Something did not work, ${post.resource.message}`;
             }
 
         } catch (error) {
 
         }
-        location.reload();
     });
-    }else {
-        document.querySelector( "form").remove();
-    }
 }
 
 function addCodeBlocktoTextArea( event) {

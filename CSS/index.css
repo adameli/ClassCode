@@ -44,10 +44,11 @@
     color: var(--textColor);  
     font-family: 'Rubik', sans-serif;
 }
-/* 
-form * {
+
+input,
+textarea {
     color: black;
-} */
+}
 
 .backgroundImage {
     top: 0;
