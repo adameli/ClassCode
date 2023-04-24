@@ -1,4 +1,4 @@
-renderNavigationLoggedIn();
+// renderNavigationLoggedIn();
 
 function renderAccountPage( Username) {
 

@@ -7,7 +7,7 @@ async function fetchFunction(request) {
         return { response: serverResponse, resource: resource };
 
     } catch (e) {
-
+        console.log( "error in fetch func");
     };
 };
 
@@ -25,4 +25,11 @@ function prepareLoginRegister() {
 function removeUserLocalStorage() {
     localStorage.removeItem( "user");
     location.reload();
+}
+
+function checkIfLoggedIn() {
+    if( !localStorage.getItem( "user")) {
+        endpoint = "http://localhost:9999";
+        window.location = `${endpoint}`;
+    }
 }
