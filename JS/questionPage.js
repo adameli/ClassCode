@@ -33,7 +33,7 @@ function questionPageTempName( event) {
             // controlls if the serverresponse is ok (true or false)
             if (post.response.ok) {
                 
-                window.location = `${serverEndpoint}index.html`;
+                window.location = `${serverEndpoint}/index.html`;
             } else {
                 // message.innerHTML = `Hmm! Something did not work, ${post.resource.message}`;
             }
