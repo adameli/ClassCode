@@ -1,7 +1,6 @@
 <?php
     
     require_once "index.php";
-    require_once "functions.php";
 
     $threads_file = "threads.json";
     $threads = [];
@@ -11,7 +10,6 @@
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
-
 
     // Return all posts
     if($request_method == "GET") 
@@ -27,6 +25,7 @@
     {
         $username = $request_data["username"];
         $title = $request_data["title"];
+        $description = $request_data["description"];
         $content = $request_data["content"];
 
         date_default_timezone_set("Europe/Stockholm");
@@ -55,16 +54,10 @@
             "username_id" => $username_id,
             "thread_id" => $next_id,
             "title" => $title,
+            "description" => $description,
             "content" => $content,
             "timestamp" => $timestamp
         ];
-
-        $userPage = "../PAGE/THREAD/$next_id.html";
-        $fileContent = generateThreadEndpoint();
-        // file_put_contents( $userPage, "");
-        $handle = fopen( $userPage, "w+");
-        fwrite( $handle, $fileContent);
-        fclose( $handle);
 
         $threads[] = $thread;
         $json = json_encode($threads, JSON_PRETTY_PRINT);

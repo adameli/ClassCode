@@ -1,7 +1,6 @@
 <?php
 
     require_once "index.php";
-    require_once "functions.php";
 
     if ($request_method == "POST") {    
         $un = $request_data["username"];
@@ -47,14 +46,6 @@
             $message = ["message" => 'The username can not start or end with a "space"']; 
             send_JSON($message, 403);           
         }
-        
-        // Generate unique site for new account
-        $userPage = "../PAGE/USER/$un.html";
-        $fileContent = generateUserEndpoint();
-        // file_put_contents( $userPage, "");
-        $handle = fopen( $userPage, "w+");
-        fwrite( $handle, $fileContent);
-        fclose( $handle);
 
         $users[] = $new_user;
         $json = json_encode($users, JSON_PRETTY_PRINT);

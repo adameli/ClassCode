@@ -3,7 +3,7 @@ console.log("Hello from TEO!");
 console.log("Hello from ISAK");
 
 // Change when uploaded
-const serverEndpoint = "http://localhost:9999";
+const serverEndpoint = "http://localhost:8888";
 
 const header = document.querySelector("header");
 const main = document.querySelector("main");
