@@ -1,3 +1,4 @@
+// renderNavigationLoggedIn();
 function renderNavigationLoggedIn( user) {
     const parentContainer = document.querySelector( ".userInformation")
     

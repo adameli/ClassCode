@@ -2,6 +2,9 @@ console.log("hello world");
 console.log("Hello from TEO!");
 console.log("Hello from ISAK");
 
+// Change when uploaded
+const serverEndpoint = "http://localhost:9999";
+
 const header = document.querySelector("header");
 const main = document.querySelector("main");
 

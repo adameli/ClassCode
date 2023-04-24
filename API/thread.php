@@ -1,6 +1,7 @@
 <?php
     
     require_once "index.php";
+    require_once "functions.php";
 
     $threads_file = "threads.json";
     $threads = [];
@@ -11,6 +12,8 @@
         $threads = json_decode($json, true);
     }
 
+
+    // Return all posts
     if($request_method == "GET") 
     {
         if ($_GET["threads"] == "all") 
@@ -19,6 +22,7 @@
         }
     } 
 
+    // Create Post
     if($request_method == "POST") 
     {
         $username = $request_data["username"];
@@ -54,6 +58,13 @@
             "content" => $content,
             "timestamp" => $timestamp
         ];
+
+        $userPage = "../PAGE/THREAD/$next_id.html";
+        $fileContent = generateThreadEndpoint();
+        // file_put_contents( $userPage, "");
+        $handle = fopen( $userPage, "w+");
+        fwrite( $handle, $fileContent);
+        fclose( $handle);
 
         $threads[] = $thread;
         $json = json_encode($threads, JSON_PRETTY_PRINT);
