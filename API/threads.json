@@ -22,5 +22,29 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         }
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 3,
+        "title": "Arrow functions are Confusing",
+        "description": "I need help with understanding how arrow functions => work in JavaScript... Its so confusing.",
+        "content": "I accually know how arrow functions work ;) i just wanted to write something in here.",
+        "timestamp": {
+            "date": "25-04-2023",
+            "time": "12:34:30"
+        }
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 4,
+        "title": "AMELIE \u00c4R B\u00c4ST",
+        "description": "ingen protest",
+        "content": "content",
+        "timestamp": {
+            "date": "25-04-2023",
+            "time": "13:25:46"
+        }
     }
 ]

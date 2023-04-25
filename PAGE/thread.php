@@ -44,19 +44,12 @@
     <img src="../RESOURCES/backgroundImageBlur.jpg" alt="Hand on a electrical lamp" class="backgroundImage">
     <header>
         <div>
-            <div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 12H15M3 6H21M3 18H21" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" id="id_218"></path>
-                </svg></div>
-            <nav>
-                <!-- fill on click? -->
-            </nav>
+            <div class="homebutton-navigation">
+                <img src="../RESOURCES/home.png" alt="HOMEBUTTON">
+            </div>
         </div>
-        
+        <h3>ClassCode</h3>
         <div class="userInformation">
-            <!-- LoginButton Or UserInformation -->
-            <div class="loginButtonHeader">Login</div>
         </div>
 
     </header>
@@ -72,12 +65,7 @@
 
     <script src="../JS/functions.js"></script>
     <script src="../JS/navigation.js"></script>
-    <!-- <script src="JS/welcomePage.js"></script> -->
-    <!-- <script src="JS/login.js"></script> -->
-    <!-- <script src="JS/register.js"></script> -->
-    <!-- <script src="JS/mainThread.js"></script> -->
-    <!-- <script src="JS/accountPage.js"></script> -->
-    <!-- <script src="JS/index.js"></script> -->
+    <script src="../index.js"></script>
 </body>
 
 </html>

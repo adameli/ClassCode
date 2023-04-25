@@ -8,10 +8,16 @@
     src: url("../RESOURCES/Rubik-Light.ttf");
 }
 
+@font-face {
+    font-family: 'MINIMALHARD2';
+    src: url("../RESOURCES/MINIMALHARD2\ Regular.ttf");
+}
+
 :root {
 
     /* COLORS________________________________________________________________ */
     --mainBackgroundColor: #0d1116;
+    --lightModeBackgroundColor: #ededed;
     --textColor: #f5f5f5;
 
     --darkMorphism: #100f15af;
@@ -57,12 +63,14 @@ textarea {
     position: fixed;
     z-index: -1;
     filter: blur(35px);
+    
+    /* mix-blend-mode: difference; */
     object-fit: cover;
 }
 
 body {
     background-color: var(--mainBackgroundColor);
-    margin: 0 2%;
+    margin: 0;
     height: 100vh;
 }
 
@@ -71,9 +79,30 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: var(--paddingSections);
+    /* background-color: var(--glassMorphism); */
+    background: linear-gradient( var(--glassMorphism), #ffffff00);
+}
+
+main {
+    margin: 2%;
 }
 
 /* UserNavigation___________________________________________________________________ */
+
+header > h3 {
+    font-family: 'MINIMALHARD2';
+    font-size: calc( var(--titles) - 10px);
+}
+
+.homebutton-navigation img {
+    height: 50px;
+    width: 50px;
+
+    object-fit: cover;
+    cursor: pointer;
+    background-color: var( --textColor);
+    border-radius: var(--CIRKLE);
+}
 
 .profileMenuNav-shortcut {
     position: absolute;

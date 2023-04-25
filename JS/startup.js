@@ -9,7 +9,7 @@ const main = document.querySelector( "main");
 
 function registerpage() {
     
-    // change Css href and add HOME button
+    // change Css href
     prepareLoginRegister();
     
     // Redners the registerpage with new html

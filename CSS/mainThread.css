@@ -5,6 +5,7 @@ main {
 
 .mainThread-allThreads {
     padding: var( --paddingSections);
+    background-color: var(--lightMorphism);
     max-width: 50rem;
     margin: 0 auto;
 }
