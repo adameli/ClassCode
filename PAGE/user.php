@@ -86,7 +86,7 @@
                 echo "<div class='time_stamp-mainThread'> $time - $date</div>";
                 echo "</div>";        
                 echo "<div class='usersPost-mainThread'>";
-                echo "<img class='profileImg userInfoPostPicture' src='RESOURCES/userimg.jpg'>";    
+                echo "<img class='profileImg userInfoPostPicture' src='../../RESOURCES/userimg.jpg'>";    
                 echo "<div class='user_name-mainThread'>$username</div>";    
                 echo "</div>";        
                 echo "</div>";        
