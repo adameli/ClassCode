@@ -28,7 +28,6 @@
             });
             
             // We fetch and get back an object with {response: serversresponse and resource: the data the server sent back(username)}
-            console.log( "here");
             let post = await fetchFunction(registerRequest);
 
             console.log(post);

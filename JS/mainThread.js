@@ -27,7 +27,7 @@ async function renderMainThread() {
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
         window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
     });
-    //when event is triggered (onclick button), its adds syntax in textarea wich will later be converted to <pre>+<code>
+    //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
     // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
     let allThreadsRequest = new Request("../API/thread.php?threads=all");
@@ -56,14 +56,3 @@ async function renderMainThread() {
         `;
     });
 }
-
-
-
-/* <form>
-            <input type=text id=title placeholder=Title>
-            <div class="createPost-mainThread">
-                <p class="addCodeField-event">Add a Codeblock</p>
-                <textarea type=text id=content placeholder=Content!></textarea>
-            </div>
-            <button type=submit>Post!</button>
-</form> */
