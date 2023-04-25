@@ -36,7 +36,6 @@
             }
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +55,7 @@
 </head>
 
 <body>
+
     <img src="../../RESOURCES/backgroundImageBlur.jpg" alt="Hand on a electrical lamp" class="backgroundImage">
     <header>
         <div>
@@ -70,13 +70,27 @@
     </header>
 
     <main>
-        <h1>Hello <?php echo $currentUser ?>!</h1>
-        <h2>Here are all your threads:<br></h2>
         <?php 
             foreach ($current_user_threads as $thread) 
-            {
-                echo "<div>";
-                echo $thread["title"] . "..........." . "Posted: " . $thread['timestamp']['date'];
+            {   
+                $title = $thread["title"];
+                $time = $thread["timestamp"]["time"];
+                $date = $thread["timestamp"]["date"];
+                $username = $thread["username"];
+                $description = $thread["description"];
+
+                echo "<div class='postContainer-mainThread'>";
+                echo "<div class='userInfoContainer-mainThread'>";
+                echo "<div class='postTitleContainer-mainThread'>";
+                echo "<h3 class='post_title-mainThread'>$title</h3>";
+                echo "<div class='time_stamp-mainThread'> $time - $date</div>";
+                echo "</div>";        
+                echo "<div class='usersPost-mainThread'>";
+                echo "<img class='profileImg userInfoPostPicture' src='RESOURCES/userimg.jpg'>";    
+                echo "<div class='user_name-mainThread'>$username</div>";    
+                echo "</div>";        
+                echo "</div>";        
+                echo "<div class='postContent-mainThread'>$description</div>";            
                 echo "</div>";
             }
         ?>
@@ -85,8 +99,11 @@
     <footer></footer>
 
     <!-- Highlights.js SourceCode -->
+    
+    <script>
+        document.querySelector( ".modularCss").setAttribute( "href", "../../CSS/mainThread.css");
+    </script>
     <script src="../../RESOURCES/highlight.min.js"></script>
-
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
