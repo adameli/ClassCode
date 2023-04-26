@@ -48,27 +48,27 @@
         }
     },
     {
-        "username": "hej",
-        "username_id": 6,
+        "username": "Isak",
+        "username_id": 1,
         "thread_id": 5,
-        "title": "Testing Prepending ",
-        "description": "Using the js method .prepend() you can place elements at the top of the hierarchy using JS DOM, short for Document Object Model\nVery Cool!",
-        "content": "Here is the code i used:\n    <pre><code>\n         allThreads.resource.forEach(thredObject => {\n        const postContainerDOM = document.createElement( \"div\");\n        postContainerDOM.classList.add( \"postContainer-mainThread\");\n        postContainerDOM.innerHTML = `\n            <div class=\"userInfoContainer-mainThread\">\n                <div class\"postTitleContainer-mainThread\">\n                    <h3 class=\"post_title-mainThread\">${thredObject.title}<\/h3>\n                    <div class=\"time_stamp-mainThread\"> ${thredObject.timestamp[\"time\"]} - ${thredObject.timestamp[\"date\"]}<\/div>\n                <\/div>\n                \n                <div class=\"usersPost-mainThread\">\n                    <img class=\"profileImg userInfoPostPicture\" src=\"RESOURCES\/userimg.jpg\">\n                    <div class=\"user_name-mainThread\">${thredObject.username}<\/div>\n                <\/div>                    \n            <\/div>\n\n            <div class=\"postContent-mainThread\">${thredObject.description}<\/div>\n        `;\n        document.querySelector( \".mainThread-allThreads\").prepend( postContainerDOM);\n    });\n    <\/code><\/pre>",
+        "title": "Hello",
+        "description": "Hello",
+        "content": "Hello",
         "timestamp": {
             "date": "25-04-2023",
-            "time": "15:46:22"
+            "time": "17:40:16"
         }
     },
     {
-        "username": "hej",
-        "username_id": 6,
+        "username": "OHLEG",
+        "username_id": 7,
         "thread_id": 6,
-        "title": "Adam",
-        "description": "Coolaste snubben i klassen :)",
-        "content": "djebkjdbebdl-jkb\u00f6dkj.asb",
+        "title": "HOW DO I MAKE AN ARRAY GUYS?",
+        "description": "IM HAVING TROUBLE CREATING AN ARRAY. CAN SOMEONE HELP?",
+        "content": "HELP!",
         "timestamp": {
             "date": "25-04-2023",
-            "time": "16:00:04"
+            "time": "19:54:28"
         }
     }
 ]
