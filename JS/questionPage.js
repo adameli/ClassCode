@@ -1,19 +1,26 @@
 
-    // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
-   
-    checkIfLoggedIn();
-    renderNavigationLoggedIn();
-    // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
 
-    let currentUser = JSON.parse(window.localStorage.getItem("user"));
-    let postContentForm = document.querySelector(".form > button");
+checkIfLoggedIn();
+renderNavigationLoggedIn();
+// We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
+
+let currentUser = JSON.parse(window.localStorage.getItem("user"));
+let postContentForm = document.querySelector(".form > button");
+document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
+
+
+    
     postContentForm.addEventListener( "click", async function (event) {
         
-        let titleInput = document.getElementById("title");
-        let descriptionInput = document.getElementById("description")
-        let contentInput = document.getElementById("content");
+        let titleInput = document.getElementById("title").value;
+        let descriptionInput = document.getElementById("description").value;
+        let unconvertedContentInput = document.getElementById("content").value;
 
-        
+        // Convert all "CODE" to <pre><code></code></pre> tags:
+        let firstStageConversion = unconvertedContentInput.replaceAll( "*+*", "<pre><code>");
+        let contentInput = firstStageConversion.replaceAll( "*-*", "</code></pre>");
+
+
         try {
             // We make an Requst that we will send to the fetchFunction
             let registerRequest = new Request("../API/thread.php", {
@@ -21,9 +28,9 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     username: currentUser,
-                    title: titleInput.value,
-                    description: descriptionInput.value,
-                    content: contentInput.value,
+                    title: titleInput,
+                    description: descriptionInput,
+                    content: contentInput,
                 }),
             });
             

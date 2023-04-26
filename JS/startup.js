@@ -14,14 +14,16 @@ function registerpage() {
     
     // Redners the registerpage with new html
     main.innerHTML = `
-        <h2>Register</h2>
-        <p id=message></p>
-        <form>
-            <input type=text id=username placeholder=Username>
-            <input type=password id=password placeholder=Password>
-            <button type=submit>Register</button>
-        </form>
-        <button id=login>Already got an account? Login here</button>
+        <div class="loginRegisterContainer">
+            <h2>Register</h2>
+            <p id=message></p>
+            <form>
+                <input type=text id=username placeholder=Username>
+                <input type=password id=password placeholder=Password>
+                <button type=submit>Register</button>
+            </form>
+            <button id=login>Already got an account? Login here</button>
+        </div>
     `;
 
     // These variables are the input elements where we will get the users credentials
@@ -74,14 +76,16 @@ function loginpage() {
     
     // Redners the loginpage with new html
     main.innerHTML = `
-        <h2>Login</h2>
-        <p id=message></p>
-        <form>
-            <input type=text id=username placeholder=Username>
-            <input type=password id=password placeholder=Password>
-            <button type=submit>Log in</button>
-        </form>
-        <button id=register>Not a user? Register here!</button>
+        <div class="loginRegisterContainer">
+            <h2>Login</h2>
+            <p id=message></p>
+            <form>
+                <input type=text id=username placeholder=Username>
+                <input type=password id=password placeholder=Password>
+                <button type=submit>Log in</button>
+            </form>
+            <button id=register>Not a user? Register here!</button>
+        </div>
     `;
 
     // These variables are the input elements where we will get the users credentials

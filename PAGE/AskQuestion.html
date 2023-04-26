@@ -36,21 +36,31 @@
         <section class="createPost">
             <div class="form">
                 <div class="titleContainer holderCard">
-                    <h2>Title</h2>
-                    <p>A title that summarizes your question in 4 - 5 words</p>
+                    <div class="headerContainer-holderCard">
+                        <h2>Title</h2>
+                        <p>A title that summarizes your question in 4 - 5 words</p>
+                    </div>
                     <input type="text" id="title" placeholder="Title">
                 </div>
 
                 <div class="descriptionContainer holderCard">
-                    <h3>Describe Question</h3>
-                    <p>Give a smaller description of your question so anyone who quickly views it can understand and get invested.</p>
+                    <div class="headerContainer-holderCard">
+                        <h3>Describe Question</h3>
+                        <p>Give a smaller description of your question so anyone who quickly views it can understand and get invested.</p>
+                    </div>
+
                     <textarea type="text" id="description"></textarea>
                 </div>
 
-                <div class="questionCard holderCard">
-                    <h3>Question</h3>
-                    <p>Explain Your problem in full detail,<br>Include Code by pressing button and show what you've done, what isn't working & what you want to do.</p>
-                    <!-- <p class="addCodeField-event">Add a Codeblock</p> -->
+                <div class="questionContainer holderCard">
+                    <div class="headerContainer-holderCard">
+                        <h3>Question</h3>
+                        <p>Explain Your problem in full detail,<br>Include Code by pressing button and show what you've done, what isn't working & what you want to do.</p>
+                    </div>
+                    
+                    <div class="addCodeField-event">
+                        <p>Add a Codeblock</p>
+                    </div>
                     <textarea type=text id=content placeholder=Content!></textarea>
                 </div>
                 <button>Post!</button>
@@ -65,8 +75,8 @@
 
     <script src="../JS/functions.js"></script>
     <script src="../JS/navigation.js"></script>
-    <script src="../JS/questionPage.js"></script>
     <script src="../index.js"></script>
+    <script src="../JS/questionPage.js"></script>
 
 </body>
 

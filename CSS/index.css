@@ -24,6 +24,11 @@
     --glassMorphism: #ffffff0c;
     --lightMorphism: #100f156f;
 
+    --DarkerBlueDetailColor: #07091f;
+    --blueDetailColor: #242b69;
+    --redDetailColor: #b6263429;
+    --lightPurpleDetailColor: #cebeed;
+
     /* FONTSIZES______________________________________________________________ */
     --titles: 52px;
     --bodyText: 24px;
@@ -49,6 +54,7 @@
     margin: 0;
     color: var(--textColor);  
     font-family: 'Rubik', sans-serif;
+    scroll-behavior: smooth;
 }
 
 input,
@@ -80,7 +86,7 @@ header {
     justify-content: space-between;
     padding: var(--paddingSections);
     /* background-color: var(--glassMorphism); */
-    background: linear-gradient( var(--glassMorphism), #ffffff00);
+    /* background: linear-gradient( var( --redDetailColor), #ffffff00, #ffffff00); */
 }
 
 main {

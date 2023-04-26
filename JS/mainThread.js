@@ -36,9 +36,9 @@ async function renderMainThread() {
 
     //loops all users and creates postContainers
     allThreads.resource.forEach(thredObject => {
-        document.querySelector( ".mainThread-allThreads").innerHTML += `
-        <div class="postContainer-mainThread">
-
+        const postContainerDOM = document.createElement( "div");
+        postContainerDOM.classList.add( "postContainer-mainThread");
+        postContainerDOM.innerHTML = `
             <div class="userInfoContainer-mainThread">
                 <div class"postTitleContainer-mainThread">
                     <h3 class="post_title-mainThread">${thredObject.title}</h3>
@@ -52,8 +52,8 @@ async function renderMainThread() {
             </div>
 
             <div class="postContent-mainThread">${thredObject.description}</div>
-        </div>
         `;
+        document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
     });
 }
 
