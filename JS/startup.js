@@ -27,22 +27,22 @@ function registerpage() {
     `;
 
     // These variables are the input elements where we will get the users credentials
-    let usernameInput = document.getElementById("username");
-    let passwordInput = document.getElementById("password");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
 
     // We add a click function to the "alredy user button" so the user can navigate back to the loginpage
-    let loginButton = document.getElementById("login");
-    loginButton.addEventListener("click", loginpage);
+    let loginButton = document.getElementById( "login");
+    loginButton.addEventListener( "click", loginpage);
 
     // We add a submit function to the form element, when the user submits we send the a new Request to register a new user
-    let registerForm = main.querySelector("form");
-    registerForm.addEventListener("submit", async function (event) {
+    let registerForm = main.querySelector( "form");
+    registerForm.addEventListener( "submit", async function (event) {
         event.preventDefault();
-        let message = main.querySelector("#message");
+        let message = main.querySelector( "#message");
 
         try {
             // We make an Requst that we will send to the fetchFunction
-            let registerRequest = new Request("../API/register.php", {
+            const registerRequest = new Request( "../API/register.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

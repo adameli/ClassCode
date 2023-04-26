@@ -4,26 +4,26 @@ checkIfLoggedIn();
 renderNavigationLoggedIn();
 // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
 
-let currentUser = JSON.parse(window.localStorage.getItem("user"));
-let postContentForm = document.querySelector(".form > button");
+const currentUser = JSON.parse( window.localStorage.getItem("user"));
+const postContentForm = document.querySelector(".form > button");
 document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
 
     
     postContentForm.addEventListener( "click", async function (event) {
         
-        let titleInput = document.getElementById("title").value;
-        let descriptionInput = document.getElementById("description").value;
-        let unconvertedContentInput = document.getElementById("content").value;
-
+        const titleInput = document.getElementById( "title").value;
+        const descriptionInput = document.getElementById( "description").value;
+        
         // Convert all "CODE" to <pre><code></code></pre> tags:
+        let unconvertedContentInput = document.getElementById( "content").value;
         let firstStageConversion = unconvertedContentInput.replaceAll( "*+*", "<pre><code>");
-        let contentInput = firstStageConversion.replaceAll( "*-*", "</code></pre>");
+        const contentInput = firstStageConversion.replaceAll( "*-*", "</code></pre>");
 
 
         try {
             // We make an Requst that we will send to the fetchFunction
-            let registerRequest = new Request("../API/thread.php", {
+            const registerRequest = new Request( "../API/thread.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -51,12 +51,3 @@ document.querySelector( ".addCodeField-event").addEventListener( "click", addCod
             console.log( "error");
         }
     });
-
-function addCodeBlocktoTextArea( event) {
-    codeBlock = `
-    *+*
-        write Code Here
-    *-*`;
-    codefield = document.querySelector( "#content");
-    codefield.value += codeBlock;
-}

@@ -2,7 +2,7 @@ async function renderMainThread() {
    
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/mainThread.css");
 
-    let currentUser = JSON.parse(window.localStorage.getItem("user"));
+    const currentUser = JSON.parse(window.localStorage.getItem( "user"));
 
     // create logged in user button
     renderNavigationLoggedIn( currentUser);
@@ -30,29 +30,44 @@ async function renderMainThread() {
     //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
     // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
-    let allThreadsRequest = new Request("../API/thread.php?threads=all");
-    let allThreads = await fetchFunction(allThreadsRequest);
-    console.log(allThreads.resource);
+    const allThreadsRequest = new Request( "../API/thread.php?threads=all");
+    let allThreads = await fetchFunction( allThreadsRequest);
 
     //loops all users and creates postContainers
-    allThreads.resource.forEach(thredObject => {
+    allThreads.resource.forEach(threadObject => {
         const postContainerDOM = document.createElement( "div");
         postContainerDOM.classList.add( "postContainer-mainThread");
+        postContainerDOM.dataset.thread_id = threadObject.thread_id;
+
         postContainerDOM.innerHTML = `
             <div class="userInfoContainer-mainThread">
                 <div class"postTitleContainer-mainThread">
-                    <h3 class="post_title-mainThread">${thredObject.title}</h3>
-                    <div class="time_stamp-mainThread"> ${thredObject.timestamp["time"]} - ${thredObject.timestamp["date"]}</div>
+                    <h3 class="post_title-mainThread">${threadObject.title}</h3>
+                    <div class="time_stamp-mainThread"> ${threadObject.timestamp["time"]} - ${threadObject.timestamp["date"]}</div>
                 </div>
                 
                 <div class="usersPost-mainThread">
                     <img class="profileImg userInfoPostPicture" src="RESOURCES/userimg.jpg">
-                    <div class="user_name-mainThread">${thredObject.username}</div>
+                    <p class="user_name-mainThread">${threadObject.username}</p>
                 </div>                    
             </div>
 
-            <div class="postContent-mainThread">${thredObject.description}</div>
+            <div class="postContent-mainThread">${threadObject.description}</div>
         `;
+        
         document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
+
+        // create link to threadPage
+        // postContainerDOM.addEventListener( "click", event => {
+        //     console.log( event);
+        //     // const threadID = event.postContainerDOM.dataset.thread_id;
+        //     // console.log( threadID); 
+        // })
+
+        // // create link to userpage
+        // document.querySelector( `${postContainerDOM} .usersPost-mainThread`).addEventListener( "click", event => {
+        //     console.log( event);
+        // })
+        
     });
 }

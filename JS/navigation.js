@@ -8,7 +8,7 @@ function renderNavigationLoggedIn( user) {
     </div>
     `; 
 
-    const profileButton = document.querySelector(".profile");
+    const profileButton = document.querySelector( ".profile");
     parentContainer.addEventListener( "click", event => {
     
     if( !document.querySelector( ".profileMenuNav-shortcut")) {

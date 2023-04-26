@@ -17,7 +17,7 @@ function renderWelcomePage() {
     </section>
     `;
 
-    document.querySelector(".loginButtonHeader").addEventListener("click", loginpage);
-    document.querySelector(".registerButtonHeader").addEventListener("click", registerpage);
+    document.querySelector( ".loginButtonHeader").addEventListener("click", loginpage);
+    document.querySelector( ".registerButtonHeader").addEventListener("click", registerpage);
 
 }

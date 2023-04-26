@@ -1,8 +1,8 @@
-async function fetchFunction(request) {
+async function fetchFunction( request) {
 
     try {
 
-        const serverResponse = await fetch(request);
+        const serverResponse = await fetch( request);
         const resource = await serverResponse.json();
         return { response: serverResponse, resource: resource };
 
@@ -26,4 +26,13 @@ function checkIfLoggedIn() {
     if( !localStorage.getItem( "user")) {
         window.location = `${serverEndpoint}`;
     }
+}
+
+function addCodeBlocktoTextArea( event) {
+    codeBlock = `
+    *+*
+        write Code Here
+    *-*`;
+    codefield = document.querySelector( "#content");
+    codefield.value += codeBlock;
 }
