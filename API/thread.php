@@ -56,7 +56,8 @@
             "title" => $title,
             "description" => $description,
             "content" => $content,
-            "timestamp" => $timestamp
+            "timestamp" => $timestamp,
+            "views" => 0,
         ];
 
         $threads[] = $thread;

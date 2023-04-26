@@ -9,9 +9,10 @@
         $threads = json_decode($json, true);
     }
 
-    //URL - GET. PAGE/thread.php?thread_id=...
-    foreach($threads as $thread) 
+    //URL - GET. PAGE/thread.php?thread_id=thread_id
+    foreach($threads as $index => $thread) 
     {
+
         if($thread["thread_id"] == $_GET["thread_id"]) 
         {
             $un = $thread["username"];
@@ -19,6 +20,11 @@
             $description = $thread["description"];
             $content = $thread["content"];
             $timestamp = $thread["timestamp"];
+
+            //Adds 0.5 views because 2 GET occurs by default
+            $threads[$index]["views"] += 0.5;
+            $json = json_encode($threads, JSON_PRETTY_PRINT);
+            file_put_contents($threads_file, $json);
         }
     }
 
