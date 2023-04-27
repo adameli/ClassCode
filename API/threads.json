@@ -10,8 +10,25 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 5,
-        "comments": []
+        "views": 37,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "Hej",
+                "timestamp": {
+                    "date": "27-04-2023",
+                    "time": "20:40:05"
+                }
+            },
+            {
+                "username": "Isak",
+                "content": "hows it goin?",
+                "timestamp": {
+                    "date": "27-04-2023",
+                    "time": "20:40:35"
+                }
+            }
+        ]
     },
     {
         "username": "hej",
@@ -24,7 +41,7 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         },
-        "views": 1
+        "views": 5
     },
     {
         "username": "hej",

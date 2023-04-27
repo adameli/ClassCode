@@ -1,50 +1,40 @@
 <?php
-    
     require_once "index.php";
 
-    $threads_file = "threads.json";
-    $threads = [];
-
-    if(file_exists($threads_file)) 
-    {
-        $json = file_get_contents($threads_file);
-        $threads = json_decode($json, true);
-    }
-
     // Return all posts
-    if($request_method == "GET") 
+    if( $request_method == "GET") 
     {
-        if ($_GET["threads"] == "all") 
+        if( $_GET[ "threads"] == "all") 
         {
-            send_JSON($threads);
+            send_JSON( $threads);
         }
     } 
 
     // Create Post
-    if($request_method == "POST") 
+    if( $request_method == "POST") 
     {
-        $username = $request_data["username"];
-        $title = $request_data["title"];
-        $description = $request_data["description"];
-        $content = $request_data["content"];
+        $username = $request_data[ "username"];
+        $title = $request_data[ "title"];
+        $description = $request_data[ "description"];
+        $content = $request_data[ "content"];
 
-        date_default_timezone_set("Europe/Stockholm");
-        $timestamp = ["date" => date("d-m-Y"), "time" => date("H:i:s")];
+        date_default_timezone_set( "Europe/Stockholm");
+        $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
 
-        foreach($users as $user) 
+        foreach( $users as $user) 
         {
-            if($user["username"] == $request_data["username"]) 
+            if( $user[ "username"] == $request_data[ "username"]) 
             {
-                $username_id = $user["id"];
+                $username_id = $user[ "id"];
             }
         }
 
         $highest_id = 0;
-        foreach($threads as $thread) 
+        foreach( $threads as $thread) 
         {
-            if($thread["thread_id"] > $highest_id)
+            if( $thread[ "thread_id"] > $highest_id)
             {
-                $highest_id = $thread["thread_id"];
+                $highest_id = $thread[ "thread_id"];
             }
         }
         $next_id = $highest_id + 1;
@@ -61,8 +51,8 @@
         ];
 
         $threads[] = $thread;
-        $json = json_encode($threads, JSON_PRETTY_PRINT);
-        file_put_contents($threads_file, $json);
-        send_JSON($thread);
+        $json = json_encode( $threads, JSON_PRETTY_PRINT);
+        file_put_contents( $threads_file, $json);
+        send_JSON( $thread);
     }
 ?>
