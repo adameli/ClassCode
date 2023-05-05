@@ -12,7 +12,6 @@ document.querySelector(".addCodeField-event").addEventListener("click", addCodeB
 
 
 postContentForm.addEventListener("click", async function (event) {
-
     const titleInput = document.getElementById("title").value;
     const descriptionInput = document.getElementById("description").value;
 
@@ -32,6 +31,7 @@ postContentForm.addEventListener("click", async function (event) {
                 title: titleInput,
                 description: descriptionInput,
                 content: contentInput,
+                tags: tagsArray,
             }),
         });
 
