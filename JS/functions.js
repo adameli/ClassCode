@@ -31,8 +31,9 @@ function checkIfLoggedIn() {
 function addCodeBlocktoTextArea( event) {
     codeBlock = `
     *+*
-        write Code Here
+        <span>write Code Here</span>
     *-*`;
     codefield = document.querySelector( "#content");
     codefield.value += codeBlock;
+    document.querySelector( "span").focus();
 }

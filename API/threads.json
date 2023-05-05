@@ -10,7 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 41,
+        "views": 43,
         "comments": [
             {
                 "username": "Isak",
@@ -158,7 +158,7 @@
             "date": "03-05-2023",
             "time": "09:47:26"
         },
-        "views": 1
+        "views": 22
     },
     {
         "username": "hej",
@@ -171,7 +171,7 @@
             "date": "03-05-2023",
             "time": "09:49:24"
         },
-        "views": 1
+        "views": 4
     },
     {
         "username": "hej",
@@ -184,7 +184,7 @@
             "date": "03-05-2023",
             "time": "09:51:41"
         },
-        "views": 5
+        "views": 8
     },
     {
         "username": "hej",
@@ -197,7 +197,7 @@
             "date": "03-05-2023",
             "time": "10:47:37"
         },
-        "views": 0
+        "views": 1
     },
     {
         "username": "test",
@@ -210,6 +210,123 @@
             "date": "05-05-2023",
             "time": "11:14:45"
         },
-        "views": 0
+        "views": 5
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 14,
+        "title": "Testing Highlight JS",
+        "description": "Highlight JS is a premade function\/plugin that we use to highlight the code you write in your questions, its a really good addition and the creators forever have our gratitude <3",
+        "content": "this is the content here: \nunder this line i will write the code.\n    <pre><code>\n        const teo = \"teo\";\n        const adam = \"Adam\";\n        const Isak = \"Isak\";\n        \n        let arr = [ teo, adam, isak];\n    <\/code><\/pre>\n\nThat was it, Goodbye :)",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "12:05:20"
+        },
+        "views": 29
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 15,
+        "title": "Testing content input",
+        "description": "with this change the programme will convert all \/n (standing for new line in chars) to html: <br><br>, this functions the same but will be readable for the browser.",
+        "content": "here i am testing the new line<br><br>this will now become a new line<br><br><br><br>but does this go down two steps two much?<br><br>    <pre><code><br><br>        const message = \"there should be spacing between this code and above\";<br><br>    <\/code><\/pre><br><br><br><br>and there should be space beetween me and the top",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:05:02"
+        },
+        "views": 3
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 16,
+        "title": "Testing again for greater clarity",
+        "description": "nothing new here, same old same old",
+        "content": "this is the first line<br>one linebreak, no space beetween top<br><br>two linebreak, one empty row between paragraphs<br><br><br>three linebreak, two empty rows beetween linebreaks<br><br><br><br>four linebreak, you know the pattern now",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:13:12"
+        },
+        "views": 2
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 17,
+        "title": "Final test of new line conversions",
+        "description": "testing here<br>one<br><br>two",
+        "content": "zero<br>one<br><br>two<br><br><br>three<br><br><br><br>four",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:24:59"
+        },
+        "views": 1
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 18,
+        "title": "Javascript dom within updated html",
+        "description": "I am using javascript to update a templated html page. Inside the page is a div with the id \"boilerplate\". Depending on the choices the user makes, different snippets of html load into boilerplate. This works well.",
+        "content": "I now have the need to access elements inside the imported html, add a users name for example. I cannot find a way to do this, whatever I use gives me an element with null inside.<br><br>I can manipulate the html from the server end before it loads, but I would prefer to do it in the browser. How can I do it please?<br><br>    <pre><code><br>        let unconvertedContentInput = document.getElementById( \"content\").value;<br>        let firstStageConversion = unconvertedContentInput.replaceAll( \"<pre><code>\", \"<pre><code>\");<br>        let secondStageConversion = firstStageConversion.replaceAll( \"<\/code><\/pre>\", \"<\/code><\/pre>\");<br>    <\/code><\/pre>",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:28:49"
+        },
+        "views": 4
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 19,
+        "title": "why does this not work correctly",
+        "description": "testing testing<br><br>houston we have a problem",
+        "content": "<br>this is the code im trying to copy and paste:<br>    <pre><code><br>                let unconvertedContentInput = document.getElementById( \"content\").value;<br>        let firstStageConversion = unconvertedContentInput.replaceAll( \"<pre><code>\", \"<pre><code>\");<br>        let secondStageConversion = firstStageConversion.replaceAll( \"<\/code><\/pre>\", \"<\/code><\/pre>\");<br>    <\/code><\/pre><br><br>but if i want it to be correct ill have to manually convert it....<br><br><br>    <pre><code><br>        let unconvertedContentInput = document.getElementById( \"content\").value;<br>        let firstStageConversion = unconvertedContentInput.replaceAll( \"<pre><code>\", \"<pre><code>\");<br>        let secondStageConversion = firstStageConversion.replaceAll( \"<\/code><\/pre>\", \"<\/code><\/pre>\");<br>    <\/code><\/pre>",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:32:35"
+        },
+        "views": 1
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 20,
+        "title": "codeblock",
+        "description": "dnekpdkenpkdnekdn<br><br>kenlkdenlkndlekndle",
+        "content": "\n    <pre><code>\nconst a = b;\nB = \"string\";\n\n\/\/please be spacing between here\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "14:36:56"
+        },
+        "views": 1
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 21,
+        "title": "Testing GPt",
+        "description": "i dont think this will work<br><br>do you?<br><br>",
+        "content": "this is text and should not be altered,<br><br>this is a new line, i want a linebreak beetween this and the one on top<br><br><br>    <pre><code>\nconst a = \"bb\";\nb = \"string\";\nconst arr = [ 0, 1, 2, 3, 4, 5];\n    <\/code><\/pre><br><br>new line here",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "15:14:53"
+        },
+        "views": 1
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 22,
+        "title": "testing for how many times",
+        "description": "fbekjbdejbdlkend<br>felkbf,en\u00f6de<br>flekbflkenf\u00f6kde",
+        "content": "skriva h\u00e4r<br><br>    <pre><code>\n       \/\/code here\n      let a = 2;\n    <\/code><\/pre><br><br>djlebkdjebld<br>    <pre><code>\n        \/\/comment\nconst b = 2323;\n    <\/code><\/pre><br><br>dle lde",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "15:18:08"
+        },
+        "views": 3
     }
 ]
