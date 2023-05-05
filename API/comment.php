@@ -41,4 +41,26 @@
             } 
         }
     }
+
+    // if( $request_method == "PATCH") 
+    // {
+    //     $thread_id = $request_data[ "thread_id"];
+    //     $comment_id = $request_data[ "comment_id"];
+
+    //     foreach( $threads as $index => $thread) 
+    //     {
+    //         if( $thread_id == $thread["thread_id"])
+    //         {
+    //             $comments = $thread["comments"];
+                
+    //             foreach($comments as $index => $comment) 
+    //             {   
+    //                 if( $comment_id == $comment[ "id"])
+    //                 {
+                        
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 ?>

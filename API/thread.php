@@ -48,6 +48,7 @@
             "content" => $content,
             "timestamp" => $timestamp,
             "views" => 0,
+            "comments" => []
         ];
 
         $threads[] = $thread;

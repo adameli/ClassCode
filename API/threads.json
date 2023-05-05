@@ -10,7 +10,8 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 41
+        "views": 45,
+        "comments": []
     },
     {
         "username": "hej",
@@ -23,7 +24,8 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         },
-        "views": 5
+        "views": 5,
+        "comments": []
     },
     {
         "username": "hej",
@@ -36,7 +38,8 @@
             "date": "25-04-2023",
             "time": "12:34:30"
         },
-        "views": 18
+        "views": 18,
+        "comments": []
     },
     {
         "username": "hej",
@@ -49,7 +52,8 @@
             "date": "25-04-2023",
             "time": "13:25:46"
         },
-        "views": 1
+        "views": 1,
+        "comments": []
     },
     {
         "username": "Isak",
@@ -62,7 +66,8 @@
             "date": "25-04-2023",
             "time": "17:40:16"
         },
-        "views": 5
+        "views": 5,
+        "comments": []
     },
     {
         "username": "OHLEG",
@@ -75,7 +80,8 @@
             "date": "25-04-2023",
             "time": "19:54:28"
         },
-        "views": 1
+        "views": 1,
+        "comments": []
     },
     {
         "username": "OHLEG",
@@ -88,7 +94,8 @@
             "date": "26-04-2023",
             "time": "13:24:21"
         },
-        "views": 3
+        "views": 3,
+        "comments": []
     },
     {
         "username": "Isak",
@@ -101,7 +108,8 @@
             "date": "26-04-2023",
             "time": "14:01:25"
         },
-        "views": 0
+        "views": 0,
+        "comments": []
     },
     {
         "username": "hej",
@@ -114,7 +122,8 @@
             "date": "03-05-2023",
             "time": "09:47:26"
         },
-        "views": 2
+        "views": 2,
+        "comments": []
     },
     {
         "username": "hej",
@@ -127,7 +136,8 @@
             "date": "03-05-2023",
             "time": "09:49:24"
         },
-        "views": 1
+        "views": 1,
+        "comments": []
     },
     {
         "username": "hej",
@@ -140,7 +150,8 @@
             "date": "03-05-2023",
             "time": "09:51:41"
         },
-        "views": 5
+        "views": 5,
+        "comments": []
     },
     {
         "username": "hej",
@@ -153,7 +164,8 @@
             "date": "03-05-2023",
             "time": "10:47:37"
         },
-        "views": 1
+        "views": 1,
+        "comments": []
     },
     {
         "username": "test",
@@ -166,6 +178,18 @@
             "date": "05-05-2023",
             "time": "11:14:45"
         },
-        "views": 15
+        "views": 29,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "how u doin?",
+                "timestamp": {
+                    "date": "05-05-2023",
+                    "time": "15:40:55"
+                },
+                "likes": 0,
+                "id": 1
+            }
+        ]
     }
 ]
