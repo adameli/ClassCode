@@ -35,5 +35,5 @@ function addCodeBlocktoTextArea( event) {
     *-*`;
     codefield = document.querySelector( "#content");
     codefield.value += codeBlock;
-    document.querySelector( "span").focus();
+    // document.querySelector( "span").focus();
 }
