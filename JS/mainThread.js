@@ -5,7 +5,7 @@ async function renderMainThread() {
     const currentUser = JSON.parse(window.localStorage.getItem( "user"));
 
     // create logged in user button
-    renderNavigationLoggedIn( currentUser);
+    // renderNavigationLoggedIn( currentUser);
 
     document.querySelector( "main").innerHTML = `
     <section>
@@ -37,14 +37,13 @@ async function renderMainThread() {
     allThreads.resource.forEach(threadObject => {
         const postContainerDOM = document.createElement( "div");
         postContainerDOM.classList.add( "postContainer-mainThread");
-        postContainerDOM.dataset.thread_id = threadObject.thread_id;
-
+        
         postContainerDOM.innerHTML = `
-            <div class="userInfoContainer-mainThread">
+        <div class="userInfoContainer-mainThread">
                 <div class"postTitleContainer-mainThread">
                     <h3 class="post_title-mainThread">${threadObject.title}</h3>
                     <div class="time_stamp-mainThread"> ${threadObject.timestamp["time"]} - ${threadObject.timestamp["date"]}</div>
-                </div>
+                    </div>
                 
                 <div class="usersPost-mainThread">
                     <img class="profileImg userInfoPostPicture" src="RESOURCES/userimg.jpg">
@@ -54,17 +53,20 @@ async function renderMainThread() {
 
             <div class="postContent-mainThread">${threadObject.description}</div>
         `;
-        
         document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
+        
+        const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
+        linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
+
 
         // create link to threadPage
-        // postContainerDOM.addEventListener( "click", event => {
-        //     console.log( event);
-        //     // const threadID = event.postContainerDOM.dataset.thread_id;
-        //     // console.log( threadID); 
-        // })
+        linkToThreadpageElement.addEventListener( "click", event => {
+            event.stopPropagation();
+            const threadID = event.explicitOriginalTarget.dataset.thread_id;
+            window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
+        })
 
-        // // create link to userpage
+        // create link to userpage
         // document.querySelector( `${postContainerDOM} .usersPost-mainThread`).addEventListener( "click", event => {
         //     console.log( event);
         // })
