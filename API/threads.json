@@ -10,7 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 37,
+        "views": 41,
         "comments": [
             {
                 "username": "Isak",
@@ -27,6 +27,22 @@
                     "date": "27-04-2023",
                     "time": "20:40:35"
                 }
+            },
+            {
+                "username": "Isak",
+                "content": "hej",
+                "timestamp": {
+                    "date": "05-05-2023",
+                    "time": "11:36:53"
+                }
+            },
+            {
+                "username": "Isak",
+                "content": "hej",
+                "timestamp": {
+                    "date": "05-05-2023",
+                    "time": "11:37:00"
+                }
             }
         ]
     },
@@ -41,7 +57,17 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         },
-        "views": 5
+        "views": 5,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "hej",
+                "timestamp": {
+                    "date": "05-05-2023",
+                    "time": "11:36:38"
+                }
+            }
+        ]
     },
     {
         "username": "hej",
@@ -133,5 +159,18 @@
             "time": "17:52:34"
         },
         "views": 0
+    },
+    {
+        "username": "Isak",
+        "username_id": 1,
+        "thread_id": 10,
+        "title": "Math",
+        "description": "What is math?",
+        "content": "\n    <pre><code>\n        let a = 3;\n       let b = a+1;\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "11:42:26"
+        },
+        "views": 4
     }
 ]
