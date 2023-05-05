@@ -1,0 +1,31 @@
+.loginRegisterContainer {
+    background-color: var(--mainBackgroundColor);
+    padding: var(--paddingSections);
+    border-radius: var(--borderradiusMedium);
+
+    height: 30rem;
+    width: 45rem;
+    margin: 25px auto;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
+.loginRegisterContainer > form {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--paddingButtons);
+    gap: var(--paddingButtons);
+    
+}
+
+.loginRegisterContainer > form input {
+    padding: 7px;
+}
+
+.loginRegisterContainer h2 {
+    font-size: var(--bodyText);
+}

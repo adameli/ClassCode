@@ -148,6 +148,7 @@
         "views": 0
     },
     {
+<<<<<<< Updated upstream
         "username": "test",
         "username_id": 3,
         "thread_id": 9,
@@ -157,10 +158,22 @@
         "timestamp": {
             "date": "04-05-2023",
             "time": "17:52:34"
+=======
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 9,
+        "title": "My Nav-Menu is supposed to move off screen when closed, but instead shifts to the right and extends the screen",
+        "description": "\n\nI created a nav menu which is supposed to move off screen to the right when I close it, and return back on screen when I click the menu button. However, in the opened state, it is in the expected position on screen, but when I close it, instead of disappearing to the right, it shifts to the right zooming the whole screen out and revealing a white space at the bottom of the screen. I tried moving it to the left side instead and that seems to work just fine, I'm a beginner at this stuff and very confused now.",
+        "content": "My JS code:\n   \n\n   <pre><code>\n  var navLinks = document.getElementById(\"navLinks\");\n\n  function showMenu(){\n    navLinks.style.right = \"0\";\n  }\n\n  function hideMenu(){\n    navLinks.style.right = \"-200px\";\n  }\n    <\/code><\/pre>\n\ncss code:\n\n    <pre><code>\n        `@media(max-width: 700px){\n\n  .text-box h1{\n    font-size: 20px;\n  }\n  .nav-links ul li{\n    display: block;\n  }\n  .nav-links{\n    position: absolute;\n    background: #ec1212ca;\n    height: 100vh;\n    width: 200px;\n    top: 0;\n    right: -200px;\n    text-align: left;\n    z-index: 2;\n    transition: 1s;\n  }\n\n  nav .fa{\n    display: block;\n    color: #fff;\n    margin: 10px;\n    font-size: 22px;\n    cursor: pointer;\n  }\n\n  .nav-links ul{\n    padding: 30px;\n  }\n}`\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "03-05-2023",
+            "time": "09:47:26"
+>>>>>>> Stashed changes
         },
         "views": 0
     },
     {
+<<<<<<< Updated upstream
         "username": "Isak",
         "username_id": 1,
         "thread_id": 10,
@@ -172,5 +185,44 @@
             "time": "11:42:26"
         },
         "views": 4
+=======
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 10,
+        "title": "Why does this javascript code loop endlessly?",
+        "description": "When I run the following function, it loops endlessly. Where's the problem?",
+        "content": "\n    <pre><code>\n        function GenerateShape() {\n  Getevenodd = Evenodd(); \/\/-------Get odd or even value\n\n  h = heightlimit + 1;\n  while (h > heightlimit) {\n    \/\/Get random height\n    h = Math.floor(Math.random() * 10 + 1);\n  }\n  ChristmasTree.innerHTML = \"The h is \" + h;\n\n  for (i = 0; i < h; i++) {\n    w = shapelimit + 1;\n    while (w > shapelimit) {\n      \/\/Get random shape\n      w = Math.floor(Math.random() * 10 + 1);\n    }\n    ChristmasTree.innerHTML = \"The w is \" + w;\n\n    randomshape = w;\n    if (randomshape == 1) {\n      Body1(Getevenodd);\n      Rectan(Getevenodd);\n    } else if (randomshape == 2) {\n      Body2(Getevenodd);\n      Rectan(Getevenodd);\n    } else if (randomshape == 3) {\n      Doublemirror();\n      Rectan(Getevenodd);\n    }\n  }\n  treeleg(Getevenodd);\n}\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "03-05-2023",
+            "time": "09:49:24"
+        },
+        "views": 1
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 11,
+        "title": "How to access objects in an array [closed]",
+        "description": "help me im having trouble accesing objects in an array, what am i doing wrong, pls help pls help. ",
+        "content": "I am trying to access the first email field (s@example.com) in this array:\n\n    <pre><code>\n       const email_array = [{\n    \"id\": \"110\",\n    \"cid\": \"1\",\n    \"did\": \"10\",\n    \"email\": \"s@example.com\"\n  },\n  {\n    \"id\": \"12\",\n    \"cid\": \"1\",\n    \"did\": \"2\",\n    \"email\": \"\"\n  }\n];\n\nconsole.log(email_array[0][\"email\"]);\n    <\/code><\/pre>\n\nI tried email_value=email_array[0][\"email\"]; but I got undefined value in the console.",
+        "timestamp": {
+            "date": "03-05-2023",
+            "time": "09:51:41"
+        },
+        "views": 3
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 12,
+        "title": "ihegjhdbke",
+        "description": "d,jwjbjkldwbkjwbdjlw",
+        "content": "\ninte kod\n\n    <pre><code>\n        write Code Here\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "03-05-2023",
+            "time": "10:47:37"
+        },
+        "views": 0
+>>>>>>> Stashed changes
     }
 ]
