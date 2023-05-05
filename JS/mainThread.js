@@ -4,11 +4,7 @@ async function renderMainThread() {
 
     const currentUser = JSON.parse(window.localStorage.getItem("user"));
     // create logged in user button
-<<<<<<< Updated upstream
     // renderNavigationLoggedIn( currentUser);
-=======
-    renderNavigationLoggedIn(currentUser);
->>>>>>> Stashed changes
 
     document.querySelector("main").innerHTML = `
     <section>
@@ -39,9 +35,9 @@ async function renderMainThread() {
     //loops all users and creates postContainers
     allThreads.resource.forEach(threadObject => {
 <<<<<<< Updated upstream
-        const postContainerDOM = document.createElement( "div");
-        postContainerDOM.classList.add( "postContainer-mainThread");
-        
+        const postContainerDOM = document.createElement("div");
+        postContainerDOM.classList.add("postContainer-mainThread");
+
 =======
         const postContainerDOM = document.createElement("div");
         postContainerDOM.classList.add("postContainer-mainThread");
@@ -64,9 +60,9 @@ async function renderMainThread() {
             <div class="postContent-mainThread">${threadObject.description}</div>
         `;
 <<<<<<< Updated upstream
-        document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
-        
-        const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
+        document.querySelector(".mainThread-allThreads").prepend(postContainerDOM);
+
+        const linkToThreadpageElement = document.querySelector(".post_title-mainThread");
         linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
 
 =======
@@ -75,7 +71,7 @@ async function renderMainThread() {
 >>>>>>> Stashed changes
 
         // create link to threadPage
-        linkToThreadpageElement.addEventListener( "click", event => {
+        linkToThreadpageElement.addEventListener("click", event => {
             event.stopPropagation();
             const threadID = event.explicitOriginalTarget.dataset.thread_id;
             window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
