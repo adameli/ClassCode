@@ -34,16 +34,9 @@ async function renderMainThread() {
 
     //loops all users and creates postContainers
     allThreads.resource.forEach(threadObject => {
-<<<<<<< Updated upstream
         const postContainerDOM = document.createElement("div");
         postContainerDOM.classList.add("postContainer-mainThread");
 
-=======
-        const postContainerDOM = document.createElement("div");
-        postContainerDOM.classList.add("postContainer-mainThread");
-        postContainerDOM.dataset.thread_id = threadObject.thread_id;
-
->>>>>>> Stashed changes
         postContainerDOM.innerHTML = `
         <div class="userInfoContainer-mainThread">
                 <div class"postTitleContainer-mainThread">
@@ -59,16 +52,11 @@ async function renderMainThread() {
 
             <div class="postContent-mainThread">${threadObject.description}</div>
         `;
-<<<<<<< Updated upstream
         document.querySelector(".mainThread-allThreads").prepend(postContainerDOM);
 
         const linkToThreadpageElement = document.querySelector(".post_title-mainThread");
         linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
 
-=======
-
-        document.querySelector(".mainThread-allThreads").prepend(postContainerDOM);
->>>>>>> Stashed changes
 
         // create link to threadPage
         linkToThreadpageElement.addEventListener("click", event => {
