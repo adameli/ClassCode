@@ -11,12 +11,6 @@ document.querySelector(".addCodeField-event").addEventListener("click", addCodeB
 
 
     
-    postContentForm.addEventListener( "click", async function (event) {
-        
-        const titleInput = document.getElementById( "title").value;
-        let unconvertedDescription = document.getElementById( "description").value;
-        const descriptionInput = unconvertedDescription.replaceAll( "\n", "<br>");
-
 postContentForm.addEventListener("click", async function (event) {
     const titleInput = document.getElementById("title").value;
     const descriptionInput = document.getElementById("description").value;
