@@ -4,7 +4,7 @@ async function renderMainThread() {
 
     const currentUser = JSON.parse(window.localStorage.getItem("user"));
     // create logged in user button
-    // renderNavigationLoggedIn( currentUser);
+    renderNavigationLoggedIn(currentUser);
 
     document.querySelector("main").innerHTML = `
     <section>
