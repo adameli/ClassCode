@@ -148,17 +148,6 @@
         "views": 0
     },
     {
-<<<<<<< Updated upstream
-        "username": "test",
-        "username_id": 3,
-        "thread_id": 9,
-        "title": "settimeout how does it work?",
-        "description": "Jag har problem att f\u00f6rst\u00e5 settimeout funktionen hur g\u00f6r jag??",
-        "content": "\n  ",
-        "timestamp": {
-            "date": "04-05-2023",
-            "time": "17:52:34"
-=======
         "username": "hej",
         "username_id": 6,
         "thread_id": 9,
@@ -168,24 +157,10 @@
         "timestamp": {
             "date": "03-05-2023",
             "time": "09:47:26"
->>>>>>> Stashed changes
         },
         "views": 0
     },
     {
-<<<<<<< Updated upstream
-        "username": "Isak",
-        "username_id": 1,
-        "thread_id": 10,
-        "title": "Math",
-        "description": "What is math?",
-        "content": "\n    <pre><code>\n        let a = 3;\n       let b = a+1;\n    <\/code><\/pre>",
-        "timestamp": {
-            "date": "05-05-2023",
-            "time": "11:42:26"
-        },
-        "views": 4
-=======
         "username": "hej",
         "username_id": 6,
         "thread_id": 10,
@@ -223,6 +198,5 @@
             "time": "10:47:37"
         },
         "views": 0
->>>>>>> Stashed changes
     }
 ]
