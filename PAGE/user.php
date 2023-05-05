@@ -19,6 +19,7 @@
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
+    $currentUser = "name";
 
     foreach ($users as $user) 
     {
@@ -103,6 +104,10 @@
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
+    <script>
+        const currentUser = JSON.parse(window.localStorage.getItem("user"));
+        renderNavigationLoggedIn(currentUser);
+    </script>
 </body>
 
 </html>

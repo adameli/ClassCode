@@ -33,5 +33,10 @@
         "id": 7,
         "username": "OHLEG",
         "password": "$2y$10$NjI.pLD.WMPxWGrhf.lpc.jnuOb\/X1v7Ma18RJExgaMbdI7spihae"
+    },
+    {
+        "id": 8,
+        "username": "fbas\u00e4k",
+        "password": "$2y$10$PpB45fudXeJ.k8uUcl3lxe2yE1wCRzbftRqmTs9LINtKZQClrVX0O"
     }
 ]

@@ -28,7 +28,7 @@
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
             file_put_contents( $threads_file, $json);
 
-            if( isset( $threads[ $index][ "comments"])) 
+            if( count( $threads[ $index][ "comments"]) != 0) 
             {
                 $comments_exist = true;
             }

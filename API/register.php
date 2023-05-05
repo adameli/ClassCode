@@ -49,6 +49,6 @@
         $users[] = $new_user;
         $json = json_encode( $users, JSON_PRETTY_PRINT);
         file_put_contents( $users_file, $json);
-        send_JSON( $new_user[" username"]);
+        send_JSON( $new_user[ "username"]);
     }
 ?>

@@ -1,18 +1,18 @@
 
-function renderNavigationLoggedIn( user) {
-    const parentContainer = document.querySelector( ".userInformation")
-    
+function renderNavigationLoggedIn(user) {
+    const parentContainer = document.querySelector(".userInformation")
+
     parentContainer.innerHTML = `
     <div class="profile">
         <img class="profileImg" src="../RESOURCES/userimg.jpg">
     </div>
-    `; 
+    `;
 
-    const profileButton = document.querySelector( ".profile");
-    parentContainer.addEventListener( "click", event => {
-    
-    if( !document.querySelector( ".profileMenuNav-shortcut")) {
-        parentContainer.innerHTML += `
+    const profileButton = document.querySelector(".profile");
+    parentContainer.addEventListener("click", event => {
+
+        if (!document.querySelector(".profileMenuNav-shortcut")) {
+            parentContainer.innerHTML += `
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
@@ -32,17 +32,17 @@ function renderNavigationLoggedIn( user) {
             </nav>
         `;
 
-        document.querySelector( ".profileMenuNav-logoutButton").addEventListener( "click", removeUserLocalStorage);
-        document.querySelector( ".profileMenuNav-accountPage").addEventListener( "click", event => {
-            window.location = `${serverEndpoint}/PAGE/user.php/?un=${user}`;
-        });
-        document.querySelector( ".profileMenuNav-questionPage").addEventListener( "click", event => {
-            window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
-        });
+            document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
+            document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
+                window.location = `${serverEndpoint}/PAGE/user.php/?un=${user}`;
+            });
+            document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
+                window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
+            });
 
-    }else {
-        document.querySelector( ".profileMenuNav-shortcut").remove();
-    }
+        } else {
+            document.querySelector(".profileMenuNav-shortcut").remove();
+        }
 
-})
+    })
 }
