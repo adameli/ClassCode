@@ -10,6 +10,12 @@ const postContentForm = document.querySelector(".form > button");
 document.querySelector(".addCodeField-event").addEventListener("click", addCodeBlocktoTextArea);
 
 
+    
+    postContentForm.addEventListener( "click", async function (event) {
+        
+        const titleInput = document.getElementById( "title").value;
+        let unconvertedDescription = document.getElementById( "description").value;
+        const descriptionInput = unconvertedDescription.replaceAll( "\n", "<br>");
 
 postContentForm.addEventListener("click", async function (event) {
     const titleInput = document.getElementById("title").value;
@@ -20,6 +26,23 @@ postContentForm.addEventListener("click", async function (event) {
     let firstStageConversion = unconvertedContentInput.replaceAll("*+*", "<pre><code>");
     const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
 
+        function replaceNewLinesWithExceptions( input) { 
+            const placeholderPrefix = "PLACEHOLDER"; 
+            const codeBlocks = []; 
+            
+            let index = 0; 
+            input = input.replace(/<pre><code>[\s\S]*?<\/code><\/pre>/g, (match) => { 
+                const placeholder = `${placeholderPrefix}${index}`;
+                codeBlocks[index] = match; index++; 
+                return placeholder; 
+            }); 
+            input = input.replace(/\n/g, '<br>'); 
+            
+            codeBlocks.forEach((codeBlock, i) => { 
+                input = input.replace(`${placeholderPrefix}${i}`, codeBlock);
+            }); 
+            return input;
+        }
 
     try {
         // We make an Requst that we will send to the fetchFunction

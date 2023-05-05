@@ -24,14 +24,15 @@
             $time = $thread[ "timestamp"][ "time"];
 
             //Adds 0.5 views because 2 GET occurs by default
-            $threads[ $index][ "views"] += 0.5;
+            $threads[ $index][ "views"] += 1;
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
             file_put_contents( $threads_file, $json);
 
-            if( isset( $threads[ $index][ "comments"])) 
+            if( count( $threads[ $index][ "comments"]) != 0) 
             {
                 $comments_exist = true;
             }
+            $views = $thread[ "views"];
         }
     }
 
@@ -43,8 +44,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/index.css">
-    <link rel="stylesheet" href="#" class="modularCss">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/threadPage.css">
 
     <!-- Highlight.js Style-->
     <link rel="stylesheet" href="../../RESOURCES/github-dark-dimmed.min.css">
@@ -66,19 +67,31 @@
     </header>
     <main>
         <?php
-            echo "<div class='postContainer-mainThread'>";
-            echo "<div class='userInfoContainer-mainThread'>";
-            echo "<div class='postTitleContainer-mainThread'>";
-            echo "<h3 class='post_title-mainThread'>$title</h3>";
-            echo "<div class='time_stamp-mainThread'> $time - $date</div>";
-            echo "</div>";        
-            echo "<div class='usersPost-mainThread'>";
-            echo "<img class='profileImg userInfoPostPicture' src='../../RESOURCES/userimg.jpg'>";    
-            echo "<div class='user_name-mainThread'>$username</div>";                    
-            echo "</div>";        
-            echo "</div>";        
-            echo "<div class='postContent-mainThread'>$description</div>";
-            echo "<div class='postContent-mainThread'>$content</div>";           
+            echo "<div class='postContainer-pageThread'>";
+
+                echo "<div class='topInfoFlexContainer-pageThread'>";
+                    echo "<div class='userInfoContainer-pageThread'>";
+                        echo "<img class='profileImg userInfoPostPicture' src='../../RESOURCES/userimg.jpg'>";    
+                        echo "<div class='user_name-pageThread'>$username</div>";                    
+                    echo "</div>"; 
+                    
+                    echo "<div class='postInformationZone-pageThread'>";
+                    echo "<div class='views><span class='InformationText-tread'>Views: $views</span></div>";
+                        echo "<div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: $time</span><br>
+                        <span class='InformationText-tread'>Date: $date</span></div>";
+                    echo "</div>";
+                echo "</div>";
+                    
+                
+                echo "<div class='usersPost-pageThread'>";
+                    echo "<div class='postTitleContainer-pageThread'>";
+                    echo "<h3 class='post_title-pageThread'>$title</h3>";
+                echo "</div>";   
+
+                echo "</div>";
+
+                echo "<p class='postDescription-pageThread'>$description</p>";
+                echo "<p class='postContent-pageThread'>$content</p>";           
             echo "</div>";
 
             if( $comments_exist) 
@@ -106,6 +119,7 @@
     <script src="../../RESOURCES/highlight.min.js"></script>
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
+    <script src="../../JS/thread.js"></script>
     <script src="../../index.js"></script>
 </body>
 </html>

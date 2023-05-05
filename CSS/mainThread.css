@@ -34,3 +34,13 @@ main {
 .postContent-mainThread {
     padding: var(--paddingCardContainer);
 }
+
+.post_title-mainThread {
+    cursor: pointer;
+    padding-bottom: var(--paddingCardContainer);
+    color: var(--pointOfInterest);
+}
+
+.post_title-mainThread:hover {
+    color: var(--pointOfInterestHover);
+}

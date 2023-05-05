@@ -4,7 +4,7 @@ async function renderMainThread() {
 
     const currentUser = JSON.parse(window.localStorage.getItem("user"));
     // create logged in user button
-    renderNavigationLoggedIn(currentUser);
+    renderNavigationLoggedIn( currentUser);
 
     document.querySelector("main").innerHTML = `
     <section>
@@ -52,23 +52,27 @@ async function renderMainThread() {
 
             <div class="postContent-mainThread">${threadObject.description}</div>
         `;
-        document.querySelector(".mainThread-allThreads").prepend(postContainerDOM);
-
-        const linkToThreadpageElement = document.querySelector(".post_title-mainThread");
+        document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
+        
+        // create link to threadPage
+        const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
         linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
 
-
-        // create link to threadPage
-        linkToThreadpageElement.addEventListener("click", event => {
+        linkToThreadpageElement.addEventListener( "click", event => {
             event.stopPropagation();
             const threadID = event.explicitOriginalTarget.dataset.thread_id;
             window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
         })
 
         // create link to userpage
-        // document.querySelector( `${postContainerDOM} .usersPost-mainThread`).addEventListener( "click", event => {
-        //     console.log( event);
-        // })
+        const linkToUserPage = document.querySelector( ".userInfoPostPicture");
+        linkToUserPage.dataset.username = threadObject.username;
 
+        linkToUserPage.addEventListener( "click", event => {
+            event.stopPropagation();
+            const dataUsername = event.explicitOriginalTarget.dataset.username;
+            window.location = `${serverEndpoint}/PAGE/user.php?un=${dataUsername}`;
+        })
+        
     });
 }

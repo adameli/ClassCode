@@ -1,0 +1,13 @@
+.postContainer-pageThread {
+    padding: var(--paddingSections);
+    background-color: var(--darkMorphism);
+}
+
+.topInfoFlexContainer-pageThread {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: var(--paddingButtons);
+    background-color: var(--glassMorphism);
+}
