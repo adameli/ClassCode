@@ -10,41 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 41,
-        "comments": [
-            {
-                "username": "Isak",
-                "content": "Hej",
-                "timestamp": {
-                    "date": "27-04-2023",
-                    "time": "20:40:05"
-                }
-            },
-            {
-                "username": "Isak",
-                "content": "hows it goin?",
-                "timestamp": {
-                    "date": "27-04-2023",
-                    "time": "20:40:35"
-                }
-            },
-            {
-                "username": "Isak",
-                "content": "hej",
-                "timestamp": {
-                    "date": "05-05-2023",
-                    "time": "11:36:53"
-                }
-            },
-            {
-                "username": "Isak",
-                "content": "hej",
-                "timestamp": {
-                    "date": "05-05-2023",
-                    "time": "11:37:00"
-                }
-            }
-        ]
+        "views": 41
     },
     {
         "username": "hej",
@@ -57,17 +23,7 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         },
-        "views": 5,
-        "comments": [
-            {
-                "username": "Isak",
-                "content": "hej",
-                "timestamp": {
-                    "date": "05-05-2023",
-                    "time": "11:36:38"
-                }
-            }
-        ]
+        "views": 5
     },
     {
         "username": "hej",
@@ -210,6 +166,7 @@
             "date": "05-05-2023",
             "time": "11:14:45"
         },
-        "views": 4
+        "views": 13,
+        "comments": []
     }
 ]
