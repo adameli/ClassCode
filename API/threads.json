@@ -198,5 +198,18 @@
             "time": "10:47:37"
         },
         "views": 0
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 13,
+        "title": "New function",
+        "description": "what is a function",
+        "content": "function a1 (post) {}",
+        "timestamp": {
+            "date": "05-05-2023",
+            "time": "11:14:45"
+        },
+        "views": 0
     }
 ]
