@@ -5,7 +5,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    
+
     gap: 50px;
     max-width: 65rem;
     /* margin: 0 auto; */
@@ -15,8 +15,8 @@
 }
 
 .holderCard {
-    padding: var( --paddingSections);
-    background-color: var( --mainBackgroundColor);
+    padding: var(--paddingSections);
+    background-color: var(--mainBackgroundColor);
     border-radius: var(--borderradiusSmall);
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 input,
 textarea {
     resize: vertical;
-    padding: var( --paddingCardContainer);
+    padding: var(--paddingCardContainer);
 }
 
 .questionContainer textarea {
@@ -57,4 +57,24 @@ textarea {
 
 .descriptionContainer textarea {
     min-height: 100px;
+}
+
+#tagsListParent {
+    padding: 10px;
+    background-color: rgb(62, 62, 2);
+    display: flex;
+}
+
+.listTags {
+    list-style: none;
+    background-color: teal;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.removeTag {
+    padding-left: 5px;
+    cursor: pointer;
 }
