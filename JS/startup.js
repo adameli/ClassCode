@@ -7,7 +7,7 @@ if( !localStorage.getItem( "user")) {
 
 const main = document.querySelector( "main");
 
-function loginRegisterPage(type, changeType) {
+function loginRegisterPage(type, changeTypeMessage) {
     
     // change Css href
     prepareLoginRegister();
@@ -22,7 +22,7 @@ function loginRegisterPage(type, changeType) {
                 <input type=password id=password placeholder=Password>
                 <button type=submit>${type}</button>
             </form>
-            <button id=change>${changeType}</button>
+            <button id=change>${changeTypeMessage}</button>
         </div>
     `;
 
@@ -35,81 +35,64 @@ function loginRegisterPage(type, changeType) {
     if( type === "Login") {
         button.addEventListener( "click", () => loginRegisterPage("Register", "Already got an account? Login here"));
         
+        loginRegisterSubmit("login.php");
+ 
+    }
+    else if( type === "Register") {
+        button.addEventListener( "click", () => loginRegisterPage("Login", "Not a user? Register here!"));
+
+        loginRegisterSubmit("register.php");
+        
+    }
+    
+    function loginRegisterSubmit(phpFileName) {
         // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
-        let loginForm = main.querySelector("form");
-        loginForm.addEventListener("submit", async function (event) {
+        let form = main.querySelector("form");
+        form.addEventListener("submit", async function (event) {
             event.preventDefault();
             let message = main.querySelector("#message");
 
             try {
                 // We make an Requst that we will send to the fetchFunction
-                let registerRequest = new Request("../API/login.php", {
+                let request = new Request(`../API/${phpFileName}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         username: usernameInput.value,
                         password: passwordInput.value
-                    }),
+                    })
                 });
 
                 // We fetch and get back an object with {response: serversresponse and resource: the data the server sent back(username)}
-                let post = await fetchFunction(registerRequest);
+                let post = await fetchFunction(request);
 
-                console.log(post);
-                console.log(post.response.ok);
+                console.log( post);
+                console.log( post.response.ok);
 
                 // controlls if the serverresponse is ok (true or false)
                 // if the users credentials is correct, they access their account and lands on to the feedpage
-                // else will we send that the credentials are wrong 
-                if (post.response.ok) {
-                    window.localStorage.setItem("user", JSON.stringify(post.resource));
-
-                    renderMainThread();
-                } else {
-                    message.innerHTML = `${post.resource.message}, please try agin`;
+                // else will we send that the credentials are wrong
+                
+                if( phpFileName === "login.php"){
+                    if( post.response.ok) {
+                        window.localStorage.setItem( "user", JSON.stringify( post.resource));
+    
+                        renderMainThread();
+                    } else {
+                        message.innerHTML = `${ post.resource.message}, please try agin`;
+                    }
+                }
+                else if( phpFileName === "register.php"){ 
+                    if (post.response.ok) {
+                        message.innerHTML = `The registration was a success, welcome to ClassCode ${post.resource}`;
+                    } else {
+                        message.innerHTML = `Something went wrong, ${post.resource.message}`;
+                    }
                 }
 
             } catch (error) {
 
             }
-        });    
-    }
-    else if( type === "Register") {
-        button.addEventListener( "click", () => loginRegisterPage("Login", "Not a user? Register here!"));
-
-        // We add a submit function to the form element, when the user submits we send the a new Request to register a new user
-        let registerForm = main.querySelector( "form");
-        registerForm.addEventListener( "submit", async function (event) {
-            event.preventDefault();
-            let message = main.querySelector( "#message");
-
-            try {
-                // We make an Requst that we will send to the fetchFunction
-                const registerRequest = new Request( "../API/register.php", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        username: usernameInput.value,
-                        password: passwordInput.value
-                    }),
-                });
-
-                // We fetch and get back an object with {response: serversresponse and resource: the data the server sent back(username)}
-                let post = await fetchFunction(registerRequest);
-
-                console.log(post);
-                console.log(post.response.ok);
-
-                // controlls if the serverresponse is ok (true or false)
-                if (post.response.ok) {
-                    message.innerHTML = `The registration was a success, welcome to ClassCode ${post.resource}`;
-                } else {
-                    message.innerHTML = `Something went wrong, ${post.resource.message}`;
-                }
-
-            } catch (error) {
-
-            }
-        });    
+        });   
     }
 }
