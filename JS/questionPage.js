@@ -8,8 +8,6 @@ renderNavigationLoggedIn(currentUser);
 
 const postContentForm = document.querySelector(".form > button");
 document.querySelector(".addCodeField-event").addEventListener("click", addCodeBlocktoTextArea);
-
-
     
 postContentForm.addEventListener("click", async function (event) {
     const titleInput = document.getElementById("title").value;

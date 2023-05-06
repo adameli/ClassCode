@@ -60,9 +60,10 @@ textarea {
 }
 
 #tagsListParent {
-    padding: 10px;
-    background-color: rgb(56, 56, 54);
     display: flex;
+    background-color: rgb(56, 56, 54);
+    height: 60px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -73,17 +74,23 @@ textarea {
     margin-right: 5px;
     border-radius: 10px;
     display: flex;
+    align-items: center;
 }
 
-#tagInput {
+#tagInput{
+    width: 100%;
     background-color: rgb(56, 56, 54);
-    border: none;
     color: white;
+    border: none;
     font-size: 16px;
 }
 
 #tagInput:focus {
     outline: none;
+}
+
+#tagErrorMessage {
+    height: 20px;
 }
 
 .removeTag {
