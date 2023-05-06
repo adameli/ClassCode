@@ -42,25 +42,28 @@
         }
     }
 
-    // if( $request_method == "PATCH") 
-    // {
-    //     $thread_id = $request_data[ "thread_id"];
-    //     $comment_id = $request_data[ "comment_id"];
+    if( $request_method == "PATCH") 
+    {
+        $thread_id = $request_data[ "thread_id"];
+        $comment_id = $request_data[ "comment_id"];
 
-    //     foreach( $threads as $index => $thread) 
-    //     {
-    //         if( $thread_id == $thread["thread_id"])
-    //         {
-    //             $comments = $thread["comments"];
+        foreach( $threads as $thread_index => $thread) 
+        {
+            if( $thread_id == $thread["thread_id"])
+            {
+                $comments = $thread["comments"];
                 
-    //             foreach($comments as $index => $comment) 
-    //             {   
-    //                 if( $comment_id == $comment[ "id"])
-    //                 {
-                        
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+                foreach($comments as $comment_index => $comment) 
+                {   
+                    if( $comment_id == $comment[ "id"])
+                    {
+                        $likes_total = $threads[$thread_index]["comments"][$comment_index]["likes"] += 1;
+                        $json = json_encode($threads, JSON_PRETTY_PRINT);
+                        file_put_contents($threads_file, $json);
+                        send_JSON($likes_total);
+                    }
+                }
+            }
+        }
+    }
 ?>

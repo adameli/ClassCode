@@ -10,7 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 45,
+        "views": 46,
         "comments": []
     },
     {
@@ -304,7 +304,28 @@
             "date": "05-05-2023",
             "time": "15:18:08"
         },
-        "views": 4,
-        "comments": []
+        "views": 17,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "hmmmm",
+                "timestamp": {
+                    "date": "06-05-2023",
+                    "time": "13:07:56"
+                },
+                "likes": 4,
+                "id": 1
+            },
+            {
+                "username": "Isak",
+                "content": "i dont know man",
+                "timestamp": {
+                    "date": "06-05-2023",
+                    "time": "13:31:39"
+                },
+                "likes": 1,
+                "id": 2
+            }
+        ]
     }
 ]
