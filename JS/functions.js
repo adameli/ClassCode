@@ -31,9 +31,16 @@ function checkIfLoggedIn() {
 function addCodeBlocktoTextArea( event) {
     codeBlock = `
     *+*
-        <span>write Code Here</span>
+        Write Code Here
     *-*`;
     codefield = document.querySelector( "#content");
     codefield.value += codeBlock;
-    // document.querySelector( "span").focus();
+   
+    // Get the index of the start and end symbols
+    const startIndex = codefield.value.lastIndexOf("*+*") + 3;
+    const endIndex = codefield.value.lastIndexOf("*-*");
+
+    // Set the selection range to focus on the text between the start and end symbols
+    codefield.setSelectionRange(startIndex, endIndex);
+    codefield.focus();
 }
