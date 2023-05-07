@@ -17,6 +17,7 @@
         $title = $request_data[ "title"];
         $description = $request_data[ "description"];
         $content = $request_data[ "content"];
+        $tags = $request_data[ "tags"];
 
         date_default_timezone_set( "Europe/Stockholm");
         $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
@@ -48,7 +49,8 @@
             "content" => $content,
             "timestamp" => $timestamp,
             "views" => 0,
-            "comments" => []
+            "comments" => [],
+            "tags" => $tags,
         ];
 
         $threads[] = $thread;

@@ -29,6 +29,7 @@ async function renderMainThread() {
     //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
     // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
+
     const allThreadsRequest = new Request("../API/thread.php?threads=all");
     let allThreads = await fetchFunction(allThreadsRequest);
 
@@ -51,6 +52,7 @@ async function renderMainThread() {
             </div>
 
             <div class="postContent-mainThread">${threadObject.description}</div>
+            <div class="postContent-mainThread">#${threadObject.tags.join(" #")}</div>
         `;
         document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
         
