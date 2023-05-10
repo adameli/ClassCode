@@ -43,6 +43,7 @@ async function renderMainThread() {
     async function loadThreads (arrayOfThreads) {
         
         //loops all users and creates postContainers
+        document.querySelector( ".mainThread-allThreads").innerHTML = "";
         arrayOfThreads.resource.forEach(threadObject => {
             const postContainerDOM = document.createElement("div");
             postContainerDOM.classList.add("postContainer-mainThread");
@@ -98,7 +99,7 @@ async function renderMainThread() {
     // When the user click the searchButton, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 
     searchButton.addEventListener("click", async event => {
         const searchInputValue = searchInput.value;
-        const requestString = new Request("../API/search_bar.php?s=" + searchInputValue);
+        const requestString = new Request("../API/search_bar.php?s=" + searchInputValue + "&f");
         let thredResults = await fetchFunction(requestString);
         // Here we call the loadthread function to uppdate the new threads that match the search
         loadThreads(thredResults);
@@ -108,7 +109,7 @@ async function renderMainThread() {
         let searchValue = event.currentTarget.value;
         let key = event.key;
         if (key === "Enter") {
-            const requestString = new Request("../API/search_bar.php?s=" + searchValue);
+            const requestString = new Request("../API/search_bar.php?s=" + searchValue + "&f");
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         }
