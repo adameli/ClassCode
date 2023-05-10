@@ -18,6 +18,11 @@ async function renderMainThread() {
         </div>
     </section>
 
+    <div id="searchContainer">
+            <label for="searchbar">Search threads!</label>
+            <input type="search" id="searchbar" placeholder="Javascript, Arrayfilter, etc">
+    </div>
+
     <section>
         <div class="mainThread-allThreads"><div>
     </section>
