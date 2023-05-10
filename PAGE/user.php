@@ -108,6 +108,7 @@
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
+    <script src="../../JS/account.js"></script>
     <script>
         const currentUser = JSON.parse(window.localStorage.getItem("user"));
         renderNavigationLoggedIn(currentUser);
