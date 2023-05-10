@@ -1,0 +1,26 @@
+.profilSettings-accountPage {
+    display: flex;
+    margin: 2%;
+}
+
+.profilePicture-accountPage {
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 15px;
+}
+
+.profilePicture-accountPage img {
+    height: 200px;
+}
+
+.userCredntials-accountPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.userInfo {
+    display: flex;
+    justify-content: space-around;
+}

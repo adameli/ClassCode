@@ -25,7 +25,7 @@
     {
         if($_GET["un"] == $user["username"]) 
         {
-            $currentUser = $user["username"];
+            $currentUser = $user;
 
             foreach ($threads as $thread) 
             {
@@ -48,6 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/index.css">
     <link rel="stylesheet" href="../../CSS/mainThread.css">
+    <link rel="stylesheet" href="../../CSS/accountPage.css">
     <link rel="stylesheet" href="#" class="modularCss">
     <link rel="apple-touch-icon" sizes="180x180" href="/RESOURCES/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/RESOURCES/favicon/favicon-32x32.png">
@@ -72,6 +73,29 @@
         </div>
 
     </header>
+    <section class="profilSettings-accountPage">
+        <?php
+        $imgurl = $currentUser["imgurl"];
+        $username = $currentUser["username"];
+        $school = $currentUser["school"];
+        $discord = $currentUser["discord"];
+        $bio = $currentUser["bio"];
+        $fullname = $currentUser["fullname"];
+
+        echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+        echo "<div class='userCredntials-accountPage'>";
+            echo "<div class='userInfo'>";
+                echo "<div class='info'>$fullname</div>";
+                echo "<div class='info'>$school</div>";
+                echo "<div class='info'>$discord</div>";
+            echo "</div>";
+            echo "<div class='secondDiv'>";
+                echo "<div class='profileBi0'>$bio</div>";
+                echo "<button>Edit profile</button>";
+            echo "</div>";
+        echo "</div>";
+        ?>
+    </section>
 
     <main>
         <?php 
