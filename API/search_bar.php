@@ -52,6 +52,11 @@
                         $search_points += strlen( $word);
                     }
 
+                    if( str_contains( $username, $word) && str_contains( $title, $word)) 
+                    {
+                        $search_points += 10;
+                    }
+
                     //Checks if search words match/are similar with a tag
                     foreach( $thread[ "tags"] as $tag) 
                     {
@@ -60,7 +65,7 @@
                         
                         if( str_contains( $tag, $word))
                         {
-                            $search_points += strlen( $word);
+                            $search_points += 10;
                         }
                     }
                 }
