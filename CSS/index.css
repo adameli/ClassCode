@@ -84,6 +84,12 @@ button {
     border-radius: var(--borderradiusSmall);
     border: none;
     cursor: pointer;
+
+    transition: background-color .5s;
+}
+
+button:hover {
+    background-color: var( --pointOfInterestHover);
 }
 
 .backgroundImage {
@@ -193,7 +199,7 @@ header > h3 {
 }
 
 /* Animations GENERAL __________________________________________________*/
-.buttonAnimation {
+/* .buttonAnimation {
     transition: all .3 ease-in-out;
     overflow: hidden;
 }
@@ -202,9 +208,9 @@ header > h3 {
     content: '';
     width: 100%;
     height: 100%;
-    background-color: var(--pointOfInterestHover);
+    background-color: var(--pointOfInterestHover); */
     /* transform: translateX( -100%); */
-}
+/* } */
 
 /* .buttonAnimation:hover::before {
     transform: translateX( 0);

@@ -20,7 +20,7 @@ async function renderMainThread() {
 
     <div class="searchContainer">
             <input type="search" id="searchbar" placeholder="Search here">
-            <button type="submit"><img id="search_img" src="/RESOURCES/search.png" alt=""></button>
+            <button type="submit"></button>
     </div>
     <div class="filterButtonsContainer-mainThread">
         <button class="filterButtons-mainThread" data-filtervalue="views">Most views</button>
