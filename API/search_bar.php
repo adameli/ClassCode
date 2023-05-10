@@ -7,6 +7,13 @@
         {
             $search = $_GET[ "s"];
             $filter = $_GET[ "f"];
+            $allowed_filters = [ "views", "comments", "oldest", "latest", ""];
+
+            if( !in_array($filter, $allowed_filters)) 
+            {
+                $message = [ "message" => "Error, incorrect GET parameters"];
+                send_JSON( $message, 400);
+            }
 
             $search_lowercase = strtolower( $search);
             $filter_lowercase = strtolower( $filter);
@@ -45,14 +52,20 @@
                         $search_points += strlen( $word);
                     }
 
+                    if( str_contains( $username, $word) && str_contains( $title, $word)) 
+                    {
+                        $search_points += 10;
+                    }
+
                     //Checks if search words match/are similar with a tag
                     foreach( $thread[ "tags"] as $tag) 
                     {
                         //Lowercase
                         $tag = strtolower( $tag);
+                        
                         if( str_contains( $tag, $word))
                         {
-                            $search_points += strlen( $word);
+                            $search_points += 10;
                         }
                     }
                 }
@@ -65,21 +78,30 @@
                 {
                     unset($threads[$index]);
                 }
-                
             }
             
-            //Sorts the thread array by most search points
-            function sort_by_search_points( $thread_1, $thread_2) 
+            usort( $threads, "sort_by_most_search_points");
+
+            if( $filter == "oldest") 
             {
-                return $thread_2[ "search_points"] - $thread_1[ "search_points"];
+                usort( $threads, "sort_by_date");
             }
 
-            usort( $threads, "sort_by_search_points");
+            if( $filter == "latest") 
+            {
+                send_JSON( $threads);
+            }
 
-            
-            //$_GET["f"]... views, comments, oldest, latest
+            if( $filter == "views") {
+                usort( $threads, "sort_by_most_views");
+            }
 
-            send_JSON( $threads);
+            if( $filter == "comments") {
+                usort( $threads, "sort_by_most_comments");
+            }
+
+            //array_reverse because we use prepend in mainThread.js
+            send_JSON( array_reverse($threads));
         }
         else
         {
