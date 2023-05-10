@@ -12,29 +12,10 @@ document.querySelector(".addCodeField-event").addEventListener("click", addCodeB
 postContentForm.addEventListener("click", async function (event) {
     const titleInput = document.getElementById("title").value;
     const descriptionInput = document.getElementById("description").value;
+    let unconvertedContentInput = document.getElementById("content").value;
 
     // Convert all "CODE" to <pre><code></code></pre> tags:
-    let unconvertedContentInput = document.getElementById("content").value;
-    let firstStageConversion = unconvertedContentInput.replaceAll("*+*", "<pre><code>");
-    const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
-
-        function replaceNewLinesWithExceptions( input) { 
-            const placeholderPrefix = "PLACEHOLDER"; 
-            const codeBlocks = []; 
-            
-            let index = 0; 
-            input = input.replace(/<pre><code>[\s\S]*?<\/code><\/pre>/g, (match) => { 
-                const placeholder = `${placeholderPrefix}${index}`;
-                codeBlocks[index] = match; index++; 
-                return placeholder; 
-            }); 
-            input = input.replace(/\n/g, '<br>'); 
-            
-            codeBlocks.forEach((codeBlock, i) => { 
-                input = input.replace(`${placeholderPrefix}${i}`, codeBlock);
-            }); 
-            return input;
-        }
+    const contentInput = convertToCodeblock( unconvertedContentInput);
 
     try {
         // We make an Requst that we will send to the fetchFunction

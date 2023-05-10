@@ -61,28 +61,21 @@ textarea {
 
 #tagsListParent {
     display: flex;
-    background-color: rgb(56, 56, 54);
+    background-color: var( --mainBackgroundColor);
     height: 60px;
     padding: 10px;
     border-radius: 10px;
+    overflow: scroll;
 }
 
 .listTags {
     list-style: none;
-    background-color: teal;
+    background-color: var(--pointOfInterest);
     padding: 10px;
     margin-right: 5px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-}
-
-#tagInput{
-    width: 100%;
-    background-color: rgb(56, 56, 54);
-    color: white;
-    border: none;
-    font-size: 16px;
 }
 
 #tagInput:focus {

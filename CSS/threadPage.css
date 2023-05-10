@@ -1,4 +1,5 @@
-.postContainer-pageThread {
+.postContainer-pageThread, 
+.commentsContainer-threadPage {
     padding: var(--paddingSections);
     background-color: var(--darkMorphism);
 }
@@ -19,7 +20,8 @@
 
 }
 
-.userInfoContainer-pageThread {
+.userInfoContainer-pageThread,
+.userInfoContainer-comment {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
@@ -27,12 +29,15 @@
     padding: 5px;
 }
 
-.postInformationZone-pageThread {
+.postInformationZone-pageThread,
+.information-comment {
     background-color: var(--darkMorphism);
 }
 
-.InformationText-tread {
-    color: var(--glassMorphism);
+.InformationText-tread,
+.information-comment > p {
+    color: var(--pointOfInterest);
+    font-size: var(--smallText);
 }
 
 .postTitleContainer-pageThread {
@@ -60,3 +65,48 @@
     max-height: 450px;
     overflow: scroll;
 }
+
+/* COMMENT CSS ____________________________________________________________ */
+
+.commentsContainer-threadPage {
+    margin-top: 5px;
+}
+
+.comment-threadPage {
+    background-color: var( --glassMorphism);
+    border-radius: var( --borderradiusSmall);
+    /* border: 1px solid var(--pointOfInterest); */
+    margin-top: 10px;
+    
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+}
+
+.likeContainer-comment, 
+.commentContainer-comment {
+    padding: var( --paddingButtons);
+}
+
+.likeContainer-comment {
+    background-color: var(--darkMorphism);
+    color: var(--pointOfInterest);
+    border-left: 2px solid var( --pointOfInterest);
+}
+
+.createCommentModal-comment {
+    /* min-height: 200px; */
+    width: 95%;
+    margin: 25px auto;
+    border: none;
+    
+    background-color: var(--glassMorphism);
+}
+
+.createCommentModal-comment textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    padding: var(--paddingCardContainer);   
+}
+
+

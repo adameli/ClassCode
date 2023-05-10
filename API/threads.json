@@ -110,7 +110,7 @@
             "date": "25-04-2023",
             "time": "19:54:28"
         },
-        "views": 1,
+        "views": 2,
         "comments": [],
         "tags": [
             "html",
@@ -210,7 +210,7 @@
             "date": "03-05-2023",
             "time": "09:51:41"
         },
-        "views": 5,
+        "views": 9,
         "comments": [],
         "tags": [
             "html",
@@ -310,7 +310,7 @@
             "date": "05-05-2023",
             "time": "14:13:12"
         },
-        "views": 2,
+        "views": 3,
         "comments": [],
         "tags": [
             "html",
@@ -330,7 +330,7 @@
             "date": "05-05-2023",
             "time": "14:24:59"
         },
-        "views": 1,
+        "views": 2,
         "comments": [],
         "tags": [
             "html",
@@ -350,7 +350,7 @@
             "date": "05-05-2023",
             "time": "14:28:49"
         },
-        "views": 4,
+        "views": 5,
         "comments": [],
         "tags": [
             "html",
@@ -390,7 +390,7 @@
             "date": "05-05-2023",
             "time": "14:36:56"
         },
-        "views": 1,
+        "views": 2,
         "comments": [],
         "tags": [
             "html",
@@ -410,7 +410,7 @@
             "date": "05-05-2023",
             "time": "15:14:53"
         },
-        "views": 3,
+        "views": 4,
         "comments": [],
         "tags": [
             "html",
@@ -430,7 +430,7 @@
             "date": "05-05-2023",
             "time": "15:18:08"
         },
-        "views": 19,
+        "views": 97,
         "comments": [
             {
                 "username": "Isak",
@@ -471,13 +471,74 @@
             "date": "07-05-2023",
             "time": "10:57:00"
         },
-        "views": 5,
-        "comments": [],
+        "views": 54,
+        "comments": [
+            {
+                "username": "\"hej\"",
+                "content": "<br>Is this real?<br>    <pre><code>\n        It is in fact Real!\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "10-05-2023",
+                    "time": "16:27:15"
+                },
+                "likes": 0,
+                "id": 1
+            },
+            {
+                "username": "\"hej\"",
+                "content": "What no way its real, i dont believe youuu!",
+                "timestamp": {
+                    "date": "10-05-2023",
+                    "time": "16:37:55"
+                },
+                "likes": 0,
+                "id": 2
+            },
+            {
+                "username": "\"hej\"",
+                "content": "Testing Async",
+                "timestamp": {
+                    "date": "10-05-2023",
+                    "time": "16:52:26"
+                },
+                "likes": 0,
+                "id": 3
+            }
+        ],
         "tags": [
             "html",
             "java",
             "css",
             "php"
+        ]
+    },
+    {
+        "username": "hej",
+        "username_id": 6,
+        "thread_id": 24,
+        "title": "Testing Moved conversion function",
+        "description": "This is how we convert all your code into a visual spectacle\n\nwe strongly recommend you to read the code and try to understand it, it will be helpful :)",
+        "content": "content here <br><br>first conversion<br>    <pre><code>\nfunction convertToCodeblock( input) {\n    let firstStageConversion = input.replaceAll(\"<pre><code>\", \"<pre><code>\");\n    const contentInput = firstStageConversion.replaceAll(\"<\/code><\/pre>\", \"<\/code><\/pre>\");<br>    <br>    function replaceNewLinesWithExceptions( input) { <br>        const placeholderPrefix = \"PLACEHOLDER\"; <br>        const codeBlocks = []; <br>        <br>        let index = 0; <br>        input = input.replace(\/<pre><code>[\\s\\S]*?<\\\/code><\\\/pre>\/g, (match) => { \n                const placeholder = `${placeholderPrefix}${index}`;\n                codeBlocks[index] = match; index++; \n                return placeholder; \n            }); \n            input = input.replace(\/\\n\/g, '<br>'); \n            \n            codeBlocks.forEach((codeBlock, i) => { \n                input = input.replace(`${placeholderPrefix}${i}`, codeBlock);\n            }); \n            return input;\n        }\n    const finalOutput = replaceNewLinesWithExceptions( contentInput);\n    return finalOutput;\n}\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "10-05-2023",
+            "time": "15:54:40"
+        },
+        "views": 6,
+        "comments": [
+            {
+                "username": "\"hej\"",
+                "content": "Hello World",
+                "timestamp": {
+                    "date": "10-05-2023",
+                    "time": "16:52:49"
+                },
+                "likes": 0,
+                "id": 1
+            }
+        ],
+        "tags": [
+            "javascript",
+            "js",
+            "conversion"
         ]
     }
 ]

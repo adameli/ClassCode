@@ -25,9 +25,9 @@ function renderNavigationLoggedIn(user) {
                 </div>
     
                 <div class="profileMenuNav-userOptionsContainer">
-                    <div class="profileMenuNav-userOptions profileMenuNav-accountPage">Account Page</div>
-                    <div class="profileMenuNav-userOptions profileMenuNav-questionPage">Ask a Question</div>
-                    <div class="profileMenuNav-userOptions profileMenuNav-logoutButton">Logout</div>
+                    <button class="profileMenuNav-userOptions profileMenuNav-accountPage">Account Page</button>
+                    <button class="profileMenuNav-userOptions profileMenuNav-questionPage">Ask a Question</button>
+                    <button class="profileMenuNav-userOptions profileMenuNav-logoutButton">Logout</button>
                 </div>
             </nav>
         `;

@@ -19,17 +19,13 @@
     --mainBackgroundColor: #0d1116;
     --lightModeBackgroundColor: #ededed;
     --textColor: #f5f5f5;
+    
     --pointOfInterest: #576CBC;
     --pointOfInterestHover: #A5D7E8; 
 
     --darkMorphism: #100f15af;
     --glassMorphism: #ffffff0c;
     --lightMorphism: #100f156f;
-
-    --DarkerBlueDetailColor: #07091f;
-    --blueDetailColor: #242b69;
-    --redDetailColor: #b6263429;
-    --lightPurpleDetailColor: #cebeed;
 
     /* FONTSIZES______________________________________________________________ */
     --titles: 52px;
@@ -47,7 +43,7 @@
     --borderradiusSmall: 5px;
     --borderradiusMedium: 15px;
     --borderradiusLarge: 25px;
-    --CIRKLE: 50%;
+    --CIRKLE: 25%;
 }
 
 
@@ -62,6 +58,32 @@
 input,
 textarea {
     color: black;
+    width: 100%;
+    background-color: var(--glassMorphism);
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+/* #tagInput{
+    width: 100%;
+    background-color: rgb(56, 56, 54);
+    color: white;
+    border: none;
+    font-size: 16px;
+} */
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+button {
+    padding: var( --paddingButtons);
+    background-color: var( --pointOfInterest);
+    border-radius: var(--borderradiusSmall);
+    border: none;
+    cursor: pointer;
 }
 
 .backgroundImage {
