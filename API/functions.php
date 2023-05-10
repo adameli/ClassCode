@@ -1,5 +1,4 @@
 <?php 
-
     function send_JSON( $data, $status_code = 200) 
     {
         header( "Content-Type: application/json");
@@ -8,5 +7,4 @@
         echo $json;
         exit();
     }
-
 ?>
