@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="../CSS/questionPage.css" class="modularCss">
+    <link rel="apple-touch-icon" sizes="180x180" href="/RESOURCES/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/RESOURCES/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/RESOURCES/favicon/favicon-16x16.png">
 
     <!-- Highlight.js Style-->
     <!-- <link rel="stylesheet" href="RESOURCES/github-dark-dimmed.min.css"> -->
@@ -40,13 +43,14 @@
                         <h2>Title</h2>
                         <p>A title that summarizes your question in 4 - 5 words</p>
                     </div>
-                    <input type="text" id="title" placeholder="Title">
+                    <input type="text" id="title" placeholder="Title" >
                 </div>
 
                 <div class="descriptionContainer holderCard">
                     <div class="headerContainer-holderCard">
                         <h3>Describe Question</h3>
-                        <p>Give a smaller description of your question so anyone who quickly views it can understand and get invested.</p>
+                        <p>Give a smaller description of your question so anyone who quickly views it can understand and
+                            get invested.</p>
                     </div>
 
                     <textarea type="text" id="description"></textarea>
@@ -55,17 +59,25 @@
                 <div class="questionContainer holderCard">
                     <div class="headerContainer-holderCard">
                         <h3>Question</h3>
-                        <p>Explain Your problem in full detail,<br>Include Code by pressing button and show what you've done, what isn't working & what you want to do.</p>
+                        <p>Explain Your problem in full detail,<br>Include Code by pressing button and show what you've
+                            done, what isn't working & what you want to do.</p>
                     </div>
-                    
+
                     <div class="addCodeField-event">
                         <p>Add a Codeblock</p>
                     </div>
                     <textarea type=text id=content placeholder=Content!></textarea>
                 </div>
+                <div class="tagsContainer">
+                    <h3>Tags</h3>
+                    <p id="tagErrorMessage"></p>
+                    <ul id="tagsListParent">
+                    </ul>
+                </div>
                 <button>Post!</button>
             </div>
         </section>
+        
     </main>
 
     <footer></footer>
@@ -76,6 +88,7 @@
     <script src="../JS/functions.js"></script>
     <script src="../JS/navigation.js"></script>
     <script src="../index.js"></script>
+    <script src="../JS/tags.js"></script>
     <script src="../JS/questionPage.js"></script>
 
 </body>

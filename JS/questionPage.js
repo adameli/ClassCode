@@ -5,26 +5,18 @@ checkIfLoggedIn();
 
 const currentUser = JSON.parse(window.localStorage.getItem("user"));
 renderNavigationLoggedIn(currentUser);
+
 const postContentForm = document.querySelector(".form > button");
 document.querySelector(".addCodeField-event").addEventListener("click", addCodeBlocktoTextArea);
-
-
     
-    postContentForm.addEventListener( "click", async function (event) {
-        
-        const titleInput = document.getElementById( "title").value;
-        let unconvertedDescription = document.getElementById( "description").value;
-        const descriptionInput = unconvertedDescription.replaceAll( "\n", "<br>");
+postContentForm.addEventListener("click", async function (event) {
+    const titleInput = document.getElementById("title").value;
+    const descriptionInput = document.getElementById("description").value;
 
-        
-        // Convert all "CODE" to <pre><code></code></pre> tags:
-        let unconvertedContentInput = document.getElementById( "content").value;
-        let firstStageConversion = unconvertedContentInput.replaceAll( "*+*", "<pre><code>");
-        let secondStageConversion = firstStageConversion.replaceAll( "*-*", "</code></pre>");
-        // ConvertLinebreaks
-
-        // const contentInput = secondStageConversion.replaceAll( "\n", "<br>");
-        let contentInput = replaceNewLinesWithExceptions( secondStageConversion);
+    // Convert all "CODE" to <pre><code></code></pre> tags:
+    let unconvertedContentInput = document.getElementById("content").value;
+    let firstStageConversion = unconvertedContentInput.replaceAll("*+*", "<pre><code>");
+    const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
 
         function replaceNewLinesWithExceptions( input) { 
             const placeholderPrefix = "PLACEHOLDER"; 
@@ -54,6 +46,7 @@ document.querySelector(".addCodeField-event").addEventListener("click", addCodeB
                 title: titleInput,
                 description: descriptionInput,
                 content: contentInput,
+                tags: tagsArray,
             }),
         });
 
