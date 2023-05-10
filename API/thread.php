@@ -1,7 +1,7 @@
 <?php
     require_once "index.php";
 
-    // Return all posts
+    // Get all threads
     if( $request_method == "GET") 
     {
         if( $_GET[ "threads"] == "all") 
@@ -10,7 +10,7 @@
         }
     } 
 
-    // Create Post
+    // Create thread
     if( $request_method == "POST") 
     {
         $username = $request_data[ "username"];

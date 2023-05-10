@@ -42,7 +42,7 @@
 
         //Checking if your username starts or ends with "space"
         if( str_starts_with( $new_user[ "username"], " ") || str_ends_with( $new_user[ "username"], " ")) {
-            $message = [ "message" => 'The username can not start or end with a "space"']; 
+            $message = [ "message" => 'The username can not start or end with a spacebar-input']; 
             send_JSON( $message, 403);           
         }
 

@@ -98,7 +98,7 @@ async function renderMainThread() {
     // When the user click the searchButton, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 
     searchButton.addEventListener("click", async event => {
         const searchInputValue = searchInput.value;
-        const requestString = new Request("../API/search_bar.php?q=" + searchInputValue);
+        const requestString = new Request("../API/search_bar.php?s=" + searchInputValue);
         let thredResults = await fetchFunction(requestString);
         // Here we call the loadthread function to uppdate the new threads that match the search
         loadThreads(thredResults);
@@ -108,7 +108,7 @@ async function renderMainThread() {
         let searchValue = event.currentTarget.value;
         let key = event.key;
         if (key === "Enter") {
-            const requestString = new Request("../API/search_bar.php?q=" + searchValue);
+            const requestString = new Request("../API/search_bar.php?s=" + searchValue);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         }
@@ -117,7 +117,7 @@ async function renderMainThread() {
     document.querySelectorAll(".filterButtons-mainThread").forEach(element => {
         element.addEventListener("click", async event =>{
             let filterValue = event.currentTarget.dataset.filtervalue;
-            const requestString = new Request ("../API/search_bar.php?q=" + searchInput.value + "&filter=" + filterValue);
+            const requestString = new Request ("../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         });
