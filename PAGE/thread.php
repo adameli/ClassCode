@@ -76,22 +76,22 @@
                     echo "</div>"; 
                     
                     echo "<div class='postInformationZone-pageThread'>";
-                    echo "<div class='views><span class='InformationText-tread'>Views: $views</span></div>";
+                    echo "<div class='views'><span class='InformationText-tread'>Views: $views</span></div>";
                         echo "<div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: $time</span><br>
                         <span class='InformationText-tread'>Date: $date</span></div>";
                     echo "</div>";
                 echo "</div>";
                     
                 
+                echo "<div class='postTitleContainer-pageThread'>";
+                    echo "<h2 class='post_title-pageThread'>$title</h2>";
+                echo "</div>";
+                
                 echo "<div class='usersPost-pageThread'>";
-                    echo "<div class='postTitleContainer-pageThread'>";
-                    echo "<h3 class='post_title-pageThread'>$title</h3>";
+                    echo "<p class='postDescription-pageThread'>$description</p>";
+                    echo "<div class='postContent-pageThread'>$content</div>";           
                 echo "</div>";   
 
-                echo "</div>";
-
-                echo "<p class='postDescription-pageThread'>$description</p>";
-                echo "<p class='postContent-pageThread'>$content</p>";           
             echo "</div>";
 
             if( $comments_exist) 

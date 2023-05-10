@@ -8,9 +8,7 @@ if( !localStorage.getItem( "user")) {
 const main = document.querySelector( "main");
 
 function loginRegisterPage(type, changeTypeMessage) {
-    
-    // change Css href
-    prepareLoginRegister();
+    document.querySelector( ".userInformation").innerHTML = ``;
     
     // Redners the registerpage with new html
     main.innerHTML = `
@@ -95,4 +93,27 @@ function loginRegisterPage(type, changeTypeMessage) {
             }
         });   
     }
+}
+
+function renderWelcomePage() {
+    document.querySelector( ".modularCss").setAttribute( "href", "CSS/welcomePage.css");
+
+    document.querySelector( "main").innerHTML = `
+    <section>
+        <h1>Welcome to ClassCode!</h1>
+        <p class="hidden">The place where WDU helps You!<br>Let's Get Going.</p>
+    </section>
+
+    <section class="hidden">
+        <h1>The AIT HELPER</h1>
+    </section>
+
+    <section class="hidden">
+        <h1>Join the community</h1>
+        <div class="registerButtonHeader buttonAnimation">Sign Up</div>
+    </section>
+    `;
+
+    document.querySelector( ".loginButtonHeader").addEventListener("click", () => loginRegisterPage( "Login", "Not a user? Register here!"));
+    document.querySelector( ".registerButtonHeader").addEventListener("click", () => loginRegisterPage( "Register", "Already got an account? Login here"));
 }

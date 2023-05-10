@@ -11,12 +11,6 @@ async function fetchFunction( request) {
     };
 };
 
-function prepareLoginRegister() {
-    // Changes css file & adds home button to return to WelcomeScreen
-    document.querySelector( ".modularCss").setAttribute( "href", "CSS/loginRegister.css");
-    document.querySelector( ".userInformation").innerHTML = ``;
-}
-
 function removeUserLocalStorage() {
     localStorage.removeItem( "user");
     window.location = `${serverEndpoint}`;
@@ -37,3 +31,4 @@ function addCodeBlocktoTextArea( event) {
     codefield.value += codeBlock;
     // document.querySelector( "span").focus();
 }
+

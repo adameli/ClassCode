@@ -23,3 +23,49 @@ section p {
     background-color: var(--glassMorphism);
     border-radius: var(--borderradiusSmall);
 }
+
+.hidden {
+    opacity: 0;
+    filter: blur( 5px);
+    transform: translateX( -100%);
+    transition: all 1s;
+
+}
+
+.show {
+    opacity: 1;
+    filter: blur( 0);
+    transform: translateX( 0);
+}
+
+.loginRegisterContainer {
+    background-color: var(--mainBackgroundColor);
+    padding: var(--paddingSections);
+    border-radius: var(--borderradiusMedium);
+
+    height: 30rem;
+    width: 45rem;
+    margin: 25px auto;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
+.loginRegisterContainer > form {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--paddingButtons);
+    gap: var(--paddingButtons);
+    
+}
+
+.loginRegisterContainer > form input {
+    padding: 7px;
+}
+
+.loginRegisterContainer h2 {
+    font-size: var(--bodyText);
+}

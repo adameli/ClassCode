@@ -8,6 +8,55 @@
     align-items: center;
     justify-content: space-between;
     
-    padding: var(--paddingButtons);
+    /* padding: var(--paddingButtons); */
     background-color: var(--glassMorphism);
+    border-radius: var(--borderradiusSmall);
+    margin-bottom: var(--paddingButtons); 
+}
+
+.topInfoFlexContainer-pageThread > div {
+    padding: var(--paddingButtons);
+
+}
+
+.userInfoContainer-pageThread {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px;
+}
+
+.postInformationZone-pageThread {
+    background-color: var(--darkMorphism);
+}
+
+.InformationText-tread {
+    color: var(--glassMorphism);
+}
+
+.postTitleContainer-pageThread {
+    /* margin: 1.5rem 0; */
+    border-bottom: 1.5px solid var(--pointOfInterest);
+    padding: var(--paddingButtons) var(--paddingButtons) 0 0;
+    border-radius: var(--borderradiusSmall);
+
+}
+
+
+.postDescription-pageThread {
+    padding: var(--paddingSections);
+
+}
+
+.postContent-pageThread {
+    background-color: var(--lightMorphism);
+    margin-top: 2.5rem;
+    padding: var(--paddingSections);
+}
+
+.postContainer-pageThread pre {
+    margin: 10px 0;
+    max-height: 450px;
+    overflow: scroll;
 }
