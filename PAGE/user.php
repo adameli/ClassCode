@@ -74,35 +74,43 @@
 
     </header>
     <section class="profilSettings-accountPage">
-    <dialog id="accountDialog">
-        <form>
-            <input id="name" type="text" />
-            <input id="city" type="text" />
-            <button type="submit">Submit</button>
-          </form>
-    </dialog>
-        <?php
+    <div class="imgEditContainer">
+        <dialog id="accountDialog">
+            <form>
+                <div class="inputContainer">
+                    <input id="name" type="text" />
+                    <input id="school" type="text" />
+                    <input id="discord" type="text" />
+                </div>
+                <textarea name="bio" id="accountBio" cols="30" rows="5"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </dialog>
+        <?php 
         $imgurl = $currentUser["imgurl"];
+        echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>"
+        ?>
+        <button id='editButton'>Edit profile</button>
+    </div>
+        <?php
         $username = $currentUser["username"];
         $school = $currentUser["school"];
         $discord = $currentUser["discord"];
         $bio = $currentUser["bio"];
         $fullname = $currentUser["fullname"];
 
-        echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
-        echo "<button id='editButton'>Edit profile</button>";
-        // echo "<div class='userCredntials-accountPage'>";
-        //     echo "<div class='userInfo'>";
-        //         echo "<div class='info'>$fullname</div>";
-        //         echo "<div class='info'>$school</div>";
-        //         echo "<div class='info'>$discord</div>";
-        //     echo "</div>";
-        //     echo "<div class='secondDiv'>";
-        //         echo "<div class='profileBio'>$bio</div>";
-        //         echo "<button>Edit profile</button>";
-        //     echo "</div>";
-        // echo "</div>";
+            echo "<div class='userInfo'>";
+                echo "<div class='infoParent'>";
+                    echo "<div class='info'>$fullname</div>";
+                    echo "<div class='info'>$school</div>";
+                    echo "<div class='info'>$discord</div>";
+                echo "</div>";
+                echo "<div class='profileBio'>$bio</div>";
+            echo "</div>";
+        echo "</div>";
         ?>
+
+        <!-- <div class="userInfo"></div> -->
     </section>
 
     <main>

@@ -6,9 +6,20 @@ document.querySelector("#editButton").addEventListener("click", () => {
 })
 let form = document.querySelector("form");
 form.addEventListener("submit",  function (event) {
-                event.preventDefault();
-                modal.close();
-                console.log(form.querySelector("input"));
+    event.preventDefault();
+    modal.close();
+    const values = form.querySelectorAll("input");
+    const bioText = form.querySelector("textarea").value;
+    console.log(bioText);
+    document.querySelector(".userInfo").innerHTML = `
+        <div class="infoParent">
+            <div class="info">${values[0].value}</div>
+            <div class="info">${values[1].value}</div>
+            <div class="info">${values[2].value}</div>
+        </div>
+        <div class='profileBio'>${bioText}</div>
+    `;
+            
 })
 
 modal.addEventListener("click", e => {
