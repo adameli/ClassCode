@@ -6,7 +6,7 @@ main {
 .mainThread-allThreads {
     padding: var( --paddingSections);
     background-color: var(--lightMorphism);
-    max-width: 50rem;
+    max-width: var(--maxWidthMainThread);
     margin: 0 auto;
 }
 
@@ -45,10 +45,42 @@ main {
     color: var(--pointOfInterestHover);
 }
 
-.searchContainer {
+/* Search Section _________________________________________________________ */
+.sortSearchContainer-mainThread {
+    padding: var(--paddingSections); 
+    gap: var(--paddingButtons);
+    max-width: var(--maxWidthMainThread);
+
+    display: grid;
+    grid-template-columns: 9fr 1fr;
     margin: 0 auto;
+}
+
+.filterButtonsContainer-mainThread {
+    position: relative;
     width: 100%;
-    max-width: 600px;
+    background-color: transparent;
+    border: none;
+
+    grid-area: 2 / span 2;
+}
+
+.filterbuttons-FlexContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--paddingCardContainer);
+}
+
+.filterButtons-mainThread {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var( --pointOfInterestHover);
+
+    display: flex;
+}
+
+.searchContainer {
+    width: 100%;
     background: var( --glassMorphism);
     border-radius: var(--borderradiusLarge);
     
@@ -77,12 +109,27 @@ main {
     height: 25px;
     width: 25px;
     background-image: url( "../RESOURCES/search.png");
-    background-position: center;
     background-size: cover;
 }
 
+.sortIcon::after {
+    content: '';
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-image: url( "../RESOURCES/sort.png");
+    background-size: cover;
+}
 
-.filterButtonsContainer-mainThread {
+.filterModalActive { 
+    border: 2px solid var( --pointOfInterest);
+}
+
+
+
+
+
+/* .filterButtonsContainer-mainThread {
     margin: 10px auto;
 }
 
@@ -92,8 +139,4 @@ main {
     border-radius: 20px;
     border: none;
     font-size: 18px;
-}
-
-.filterButtons-mainThread:hover {
-    box-shadow: 1px 1px 8px white;
-}
+} */

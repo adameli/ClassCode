@@ -110,7 +110,7 @@ function renderWelcomePage() {
 
     <section class="hidden">
         <h1>Join the community</h1>
-        <div class="registerButtonHeader buttonAnimation">Sign Up</div>
+        <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
     </section>
     `;
 

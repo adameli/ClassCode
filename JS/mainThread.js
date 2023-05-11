@@ -7,7 +7,7 @@ async function renderMainThread() {
     renderNavigationLoggedIn( currentUser);
 
     document.querySelector("main").innerHTML = `
-    <section>
+    <section class="topInformation-mainThread">
         <div class="profile">
             <h2>Hello ${currentUser}!</h2>
         </div>
@@ -17,17 +17,24 @@ async function renderMainThread() {
             <p>Ask a Question</p>
         </div>
     </section>
-
-    <div class="searchContainer">
-            <input type="search" id="searchbar" placeholder="Search here">
-            <button type="submit"></button>
-    </div>
-    <div class="filterButtonsContainer-mainThread">
-        <button class="filterButtons-mainThread" data-filtervalue="views">Most views</button>
-        <button class="filterButtons-mainThread" data-filtervalue="comments">Most comments</button>
-        <button class="filterButtons-mainThread" data-filtervalue="oldest">Oldest</button>
-        <button class="filterButtons-mainThread" data-filtervalue="latest">Latest</button>
-    </div>
+    <section>
+        <div class="sortSearchContainer-mainThread">
+            <div class="searchContainer">
+                    <input type="search" id="searchbar" placeholder="Search here">
+                    <button type="submit"></button>
+            </div>
+            
+            <div class="sortingFiltersShow sortIcon clearButton buttonAnimation"></div>
+            <dialog class="filterButtonsContainer-mainThread">
+                <div class="filterbuttons-FlexContainer">
+                    <div class="clearButton filterButtons-mainThread buttonAnimation" data-filtervalue="views">Most views</div>
+                    <div class="clearButton filterButtons-mainThread buttonAnimation" data-filtervalue="comments">Most comments</div>
+                    <div class="clearButton filterButtons-mainThread buttonAnimation" data-filtervalue="oldest">Oldest</div>
+                    <div class="clearButton filterButtons-mainThread buttonAnimation" data-filtervalue="latest">Latest</div>
+                </div>
+            </dialog>
+        </div>
+    </section>
     
     <section>
         <div class="mainThread-allThreads"><div>
@@ -37,6 +44,22 @@ async function renderMainThread() {
     document.querySelector(".createQuestionContainer").addEventListener("click", event => {
         window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
     });
+
+
+    // SearchBar Open + Close
+    const showFilterButton = document.querySelector( ".sortingFiltersShow");
+    const filterModal = document.querySelector( ".filterButtonsContainer-mainThread");
+    showFilterButton.addEventListener( "click", () => {
+        if( document.querySelector( ".filterModalActive")) {
+            showFilterButton.classList.remove( "filterModalActive");
+            filterModal.close();
+            
+        }else {
+            showFilterButton.classList.add( "filterModalActive");
+            filterModal.show();
+        }
+    })
+
     //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
     // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
@@ -62,7 +85,7 @@ async function renderMainThread() {
                 </div>
 
                 <div class="postContent-mainThread">${threadObject.description}</div>
-                <div class="postContent-mainThread">#${threadObject.tags.join(" #")}</div>
+                <div class="threadTags">#${threadObject.tags.join(" #")}</div>
             `;
             document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
             
