@@ -38,3 +38,28 @@ function addCodeBlocktoTextArea( event) {
     codefield.setSelectionRange(startIndex, endIndex);
     codefield.focus();
 }
+
+function convertToCodeblock( input) {
+    let firstStageConversion = input.replaceAll("*+*", "<pre><code>");
+    const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
+    
+    function replaceNewLinesWithExceptions( input) { 
+        const placeholderPrefix = "PLACEHOLDER"; 
+        const codeBlocks = []; 
+        
+        let index = 0; 
+        input = input.replace(/<pre><code>[\s\S]*?<\/code><\/pre>/g, (match) => { 
+                const placeholder = `${placeholderPrefix}${index}`;
+                codeBlocks[index] = match; index++; 
+                return placeholder; 
+            }); 
+            input = input.replace(/\n/g, '<br>'); 
+            
+            codeBlocks.forEach((codeBlock, i) => { 
+                input = input.replace(`${placeholderPrefix}${i}`, codeBlock);
+            }); 
+            return input;
+        }
+    const finalOutput = replaceNewLinesWithExceptions( contentInput);
+    return finalOutput;
+}

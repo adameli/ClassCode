@@ -2,7 +2,8 @@
     require_once "../API/index.php";
     $threads_file = "../API/threads.json";
     $comments_exist = false;
-
+    
+    
     if( file_exists( $threads_file)) 
     {
         $json = file_get_contents( $threads_file);
@@ -93,7 +94,10 @@
                 echo "</div>";   
 
             echo "</div>";
-
+        ?>
+        
+        <div class="commentsContainer-threadPage">
+        <?php 
             if( $comments_exist) 
             {
                 foreach( $selected_thread[ "comments"] as $comment) 
@@ -102,10 +106,30 @@
                     $content = $comment[ "content"];
                     $date = $comment[ "timestamp"][ "date"];
                     $time = $comment[ "timestamp"][ "time"];
-                    echo "<div class='comment'>";
-                    echo "<p>$username<p/>";
-                    echo "<p>$content</p>";
-                    echo "<p>$date - $time<p/>";
+                    $likes = $comment[ "likes"];
+                    echo "<div class='comment-threadPage'>";
+                        echo "<div class='likeContainer-comment'>";
+                            echo "<div class='numberLikes-comment'>$likes</div>";
+                        echo "</div>";
+                        
+                        echo "<div class='commentContainer-comment'>";
+
+                            echo "<div class='topInfoFlexContainer-pageThread'>";
+
+                                echo "<div class='userInfoContainer-comment'>";
+                                    echo "<img class='profileImg userInfoPostPicture-comment' src='../../RESOURCES/userimg.jpg'>";    
+                                    echo "<div class='user_name-comment'>$username</div>";                    
+                                echo "</div>"; 
+
+                                echo "<div class='information-comment'>";
+                                    echo "<p>Posted: $time<br>Date: $date</p>";
+                                echo "</div>";
+
+                            echo "</div>";
+                            echo "<p>$content</p>";
+                        
+                        echo "</div>";
+                    echo "</div>";
                 }
             }
             else
@@ -113,6 +137,15 @@
                 echo "<p class='no_comments_exists'>No comments exists on this thread.</p>";
             }
         ?>
+        <button class="openModalButton-comment">Write a Comment!</button>
+        <dialog class="createCommentModal-comment" -data-thread-id="">
+            <h3>Create Comment</h3>
+            <button class="addCodeField-event">Add Code</button>
+                <textarea type=text id=content placeholder=Content!></textarea>
+                <button class="closeCommentModal">Close</button>
+                <button class="sendComment-modal">Post</button>
+        </dialog>
+        </div>
     </main>
     <footer></footer>
     <!-- Highlights.js SourceCode -->
