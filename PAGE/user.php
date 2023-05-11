@@ -74,6 +74,13 @@
 
     </header>
     <section class="profilSettings-accountPage">
+    <dialog id="accountDialog">
+        <form>
+            <input id="name" type="text" />
+            <input id="city" type="text" />
+            <button type="submit">Submit</button>
+          </form>
+    </dialog>
         <?php
         $imgurl = $currentUser["imgurl"];
         $username = $currentUser["username"];
@@ -83,22 +90,25 @@
         $fullname = $currentUser["fullname"];
 
         echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
-        echo "<div class='userCredntials-accountPage'>";
-            echo "<div class='userInfo'>";
-                echo "<div class='info'>$fullname</div>";
-                echo "<div class='info'>$school</div>";
-                echo "<div class='info'>$discord</div>";
-            echo "</div>";
-            echo "<div class='secondDiv'>";
-                echo "<div class='profileBi0'>$bio</div>";
-                echo "<button>Edit profile</button>";
-            echo "</div>";
-        echo "</div>";
+        echo "<button id='editButton'>Edit profile</button>";
+        // echo "<div class='userCredntials-accountPage'>";
+        //     echo "<div class='userInfo'>";
+        //         echo "<div class='info'>$fullname</div>";
+        //         echo "<div class='info'>$school</div>";
+        //         echo "<div class='info'>$discord</div>";
+        //     echo "</div>";
+        //     echo "<div class='secondDiv'>";
+        //         echo "<div class='profileBio'>$bio</div>";
+        //         echo "<button>Edit profile</button>";
+        //     echo "</div>";
+        // echo "</div>";
         ?>
     </section>
 
     <main>
-        <?php 
+        <section>
+            <div class="mainThread-allThreads">
+            <?php 
             foreach ($current_user_threads as $thread) 
             {   
                 $title = $thread["title"];
@@ -122,6 +132,8 @@
                 echo "</div>";
             }
         ?>
+            </div>
+        </section>
     </main>
 
     <footer></footer>

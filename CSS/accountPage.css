@@ -1,5 +1,5 @@
 .profilSettings-accountPage {
-    display: flex;
+    /* display: flex; */
     margin: 2%;
 }
 
@@ -7,10 +7,15 @@
     border-radius: 50%;
     overflow: hidden;
     margin: 15px;
+    max-width: 200px;
 }
 
 .profilePicture-accountPage img {
     height: 200px;
+}
+
+.profilSettings-accountPage button {
+    width: 200px;
 }
 
 .userCredntials-accountPage {
@@ -22,5 +27,19 @@
 
 .userInfo {
     display: flex;
-    justify-content: space-around;
+    gap: 120px;
+}
+
+.info {
+    padding: 10px;
+    background-color: #ffffff0c;
+    width: 100%;
+}
+
+.secondDiv {
+    display: flex;
+}
+
+.profileBio {
+    max-width: 600px;
 }
