@@ -1,8 +1,6 @@
 <?php
     require_once "index.php";
 
-    sleep( $sleep_time);
-
     if( $request_method == "POST") 
     {   
         foreach( $users as $user) 

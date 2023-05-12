@@ -3,8 +3,6 @@
 
     if( $request_method == "POST") 
     {    
-        sleep( $sleep_time);
-
         $un = $request_data[ "username"];
         $pw = password_hash( $request_data[ "password"], PASSWORD_DEFAULT);
 
@@ -69,8 +67,6 @@
 
     if( $request_method == "PATCH") 
     {
-        sleep( $sleep_time);
-
         $profile_info = $request_data[ "profile_info"];
         $username = $request_data[ "user"];
 

@@ -3,8 +3,6 @@
     
     if( $request_method == "POST") 
     {   
-        sleep( $sleep_time);
-
         $username = $request_data[ "username"];
         $content = $request_data[ "content"];
         $thread_id = $request_data[ "thread_id"];

@@ -3,8 +3,6 @@
 
     if( $request_method == "GET") 
     {   
-        sleep($sleep_time);
-        
         if( isset( $_GET[ "s"]) && isset($_GET[ "f"]))
         {
             $search = $_GET[ "s"];

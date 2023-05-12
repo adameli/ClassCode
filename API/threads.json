@@ -522,7 +522,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 12,
+        "views": 15,
         "comments": [
             {
                 "username": "\"hej\"",
@@ -543,6 +543,16 @@
                 },
                 "likes": 0,
                 "id": 2
+            },
+            {
+                "username": "\"Isak\"",
+                "content": "cool bro",
+                "timestamp": {
+                    "date": "12-05-2023",
+                    "time": "12:48:16"
+                },
+                "likes": 0,
+                "id": 3
             }
         ],
         "tags": [
