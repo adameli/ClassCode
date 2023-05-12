@@ -3,6 +3,8 @@
 
     if( $request_method == "POST") 
     {    
+        sleep(3);
+
         $un = $request_data[ "username"];
         $pw = password_hash( $request_data[ "password"], PASSWORD_DEFAULT);
 
@@ -25,7 +27,16 @@
         $user_id = $highest_id + 1;
 
         //Creates the user
-        $new_user = [ "id" => $user_id, "username" => $un, "password" => $pw];
+        $new_user = [ 
+            "id" => $user_id, 
+            "username" => $un, 
+            "password" => $pw,
+            "profile_info" => [
+                "fullname" => "",
+                "bio" => "",
+                "discord" => ""
+            ]
+        ];
 
         //Checking if the user forgot to type
         if( $un == "" && $pw =="") 
