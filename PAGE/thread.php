@@ -26,8 +26,6 @@
             $time = $thread[ "timestamp"][ "time"];
             $creator_img_url = $thread[ "img_url"];
             
-
-            //Adds 0.5 views because 2 GET occurs by default
             $threads[ $index][ "views"] += 1;
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
             file_put_contents( $threads_file, $json);
@@ -110,7 +108,9 @@
                     $date = $comment[ "timestamp"][ "date"];
                     $time = $comment[ "timestamp"][ "time"];
                     $likes = $comment[ "likes"];
-                    $img_url = $comment[ "img_url"];
+                    
+                    $commenter_img_url = $comment[ "img_url"];
+
                     echo "<div class='comment-threadPage'>";
                         echo "<div class='likeContainer-comment'>";
                             echo "<div class='numberLikes-comment'>$likes</div>";
@@ -121,7 +121,7 @@
                             echo "<div class='topInfoFlexContainer-pageThread'>";
 
                                 echo "<div class='userInfoContainer-comment'>";
-                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$img_url'>";    
+                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$commenter_img_url'>";    
                                     echo "<div class='user_name-comment'>$username</div>";                    
                                 echo "</div>"; 
 

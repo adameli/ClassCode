@@ -493,7 +493,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 15,
+        "views": 16,
         "comments": [],
         "tags": [
             "javascript",
@@ -513,29 +513,18 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 23,
+        "views": 28,
         "comments": [
             {
-                "username": "\"Isak\"",
-                "content": "Hello",
+                "username": "Isak",
+                "content": "Interesting Stuff!",
                 "timestamp": {
                     "date": "12-05-2023",
-                    "time": "15:31:00"
+                    "time": "18:24:04"
                 },
                 "likes": 0,
                 "id": 1,
-                "img_url": null
-            },
-            {
-                "username": "\"Isak\"",
-                "content": "Hello",
-                "timestamp": {
-                    "date": "12-05-2023",
-                    "time": "15:31:32"
-                },
-                "likes": 0,
-                "id": 2,
-                "img_url": null
+                "img_url": "default.jpg"
             }
         ],
         "tags": [

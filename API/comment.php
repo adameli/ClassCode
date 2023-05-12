@@ -8,12 +8,11 @@
         $thread_id = $request_data[ "thread_id"];
 
         foreach( $users as $user) {
-            if( $user[ "username"] == $username) 
+            if( $username == $user[ "username"]) 
             {
-                $user_img = $user[ "img_url"];
+                $comment_img = $user[ "img_url"];
             }
         }
-
 
         date_default_timezone_set( "Europe/Stockholm");
         $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
@@ -40,7 +39,7 @@
                     "timestamp" => $timestamp,
                     "likes" => 0,
                     "id" => $next_id,
-                    "img_url" => $user_img
+                    "img_url" => $comment_img
                 ];
 
                 $threads[ $index][ "comments"][] = $comment;
@@ -68,10 +67,10 @@
                 {   
                     if( $comment_id == $comment[ "id"])
                     {
-                        $likes_total = $threads[$thread_index]["comments"][$comment_index]["likes"] += 1;
-                        $json = json_encode($threads, JSON_PRETTY_PRINT);
-                        file_put_contents($threads_file, $json);
-                        send_JSON($likes_total);
+                        $likes_total = $threads[ $thread_index][ "comments"][ $comment_index][ "likes"] += 1;
+                        $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                        file_put_contents( $threads_file, $json);
+                        send_JSON( $likes_total);
                     }
                 }
             }

@@ -26,7 +26,7 @@ document.querySelector( ".addCodeField-event").addEventListener( "click", addCod
 document.querySelector( ".sendComment-modal").addEventListener( "click", postComment);
 
 async function postComment() {
-    const user = localStorage.getItem( "user");
+    const currentUser = JSON.parse(window.localStorage.getItem("user"));
 
     // convert codeblocks and retain new lines \n
     let unconvertedContentInput = document.getElementById( "content").value;
@@ -35,14 +35,14 @@ async function postComment() {
     const searchQuery = window.location.search;
     const urlParams = new URLSearchParams( searchQuery);
     const threadId = urlParams.get( "thread_id");
-
+    
     const commentPost = new Request(`${serverEndpoint}/API/comment.php`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: user, 
+                username: currentUser, 
                 content: convertedComment, 
                 thread_id: threadId
             })
