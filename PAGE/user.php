@@ -69,11 +69,14 @@
 <dialog id="accountDialog">
             <form>
                 <div class="inputContainer">
-                    <input id="name" type="text" />
-                    <input id="school" type="text" />
-                    <input id="discord" type="text" />
+                <?php
+                echo "<input value='$fullname' id='name' type='text' />";
+                echo "<input value='$discord' id='discord' type='text' />";
+                ?>
                 </div>
-                <textarea name="bio" id="accountBio" cols="30" rows="5"></textarea>
+                <?php
+                echo "<textarea name='bio' id='accountBio' cols='30' rows='5'>$bio</textarea>";
+                ?>
                 <button type="submit">Submit</button>
             </form>
         </dialog>

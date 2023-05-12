@@ -28,7 +28,7 @@ form.addEventListener("submit",  function (event) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           user: currentUser,
-          profileinfo: {
+          profile_info: {
             fullname: values[0].value,
             discord: values[1].value,
             bio: bioText,
