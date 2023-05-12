@@ -67,6 +67,9 @@
 
 <body>
 <dialog id="accountDialog">
+<?php
+    echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+    ?>
             <form>
                 <div class="inputContainer">
                 <?php
@@ -94,6 +97,10 @@
     </header>
     <section class="profilSettings-accountPage">
     <div class="imgEditContainer"> 
+    <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button type="submit">Upload</button>
+        </form>
     <?php
     echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
     ?>

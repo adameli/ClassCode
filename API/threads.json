@@ -10,7 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 47,
+        "views": 49,
         "comments": [],
         "tags": [
             "html",
@@ -30,7 +30,7 @@
             "date": "24-04-2023",
             "time": "14:46:35"
         },
-        "views": 5,
+        "views": 6,
         "comments": [],
         "tags": [
             "html",
@@ -90,7 +90,7 @@
             "date": "25-04-2023",
             "time": "17:40:16"
         },
-        "views": 5,
+        "views": 6,
         "comments": [],
         "tags": [
             "html",
@@ -569,6 +569,36 @@
             "javascript",
             "js",
             "conversion"
+        ]
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 25,
+        "title": "Array functions (filter, map, reduce)",
+        "description": "I can't get my head around this new methodes on the arry. what should i do??\nthis is my progress so far",
+        "content": "<br>    <pre><code>\nconst newarry = a1.map(element => what)\n<\/code><\/pre>",
+        "timestamp": {
+            "date": "12-05-2023",
+            "time": "12:58:01"
+        },
+        "views": 4,
+        "comments": [
+            {
+                "username": "\"test\"",
+                "content": "Jag har ocks\u00e5 problem",
+                "timestamp": {
+                    "date": "12-05-2023",
+                    "time": "12:58:27"
+                },
+                "likes": 0,
+                "id": 1
+            }
+        ],
+        "tags": [
+            "javascript",
+            "code",
+            "help"
         ]
     }
 ]

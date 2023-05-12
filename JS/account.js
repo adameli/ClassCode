@@ -56,3 +56,19 @@ modal.addEventListener("click", e => {
       modal.close()
     }
   })
+
+
+  const form_dom = document.getElementById("formUpload");
+  form_dom.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const formData = new FormData(form_dom);
+    const profileImgRequest = new Request("../../API/register.php", {
+        method: "POST",
+        body: formData,
+    });
+
+    let patchToImage = await fetchFunction(profileImgRequest);
+    
+  })
