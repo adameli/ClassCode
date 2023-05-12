@@ -28,7 +28,7 @@ form.addEventListener("submit",  function (event) {
         <div class='profileBio'>${bioText}</div>
     `;
 
-    const userPatchRequest = new Request("../../API/register.php", {
+    const userPatchRequest = new Request("../../API/account.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -64,7 +64,7 @@ modal.addEventListener("click", e => {
     event.preventDefault();
 
     const formData = new FormData(form_dom);
-    const profileImgRequest = new Request("../../API/register.php", {
+    const profileImgRequest = new Request("../../API/account.php", {
         method: "POST",
         body: formData,
     });
