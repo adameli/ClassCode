@@ -10,7 +10,7 @@
             "date": "24-04-2023",
             "time": "14:41:57"
         },
-        "views": 46,
+        "views": 47,
         "comments": [],
         "tags": [
             "html",
@@ -471,7 +471,7 @@
             "date": "07-05-2023",
             "time": "10:57:00"
         },
-        "views": 54,
+        "views": 56,
         "comments": [
             {
                 "username": "\"hej\"",
@@ -502,6 +502,16 @@
                 },
                 "likes": 0,
                 "id": 3
+            },
+            {
+                "username": "\"hej\"",
+                "content": "hello from maja",
+                "timestamp": {
+                    "date": "11-05-2023",
+                    "time": "21:46:33"
+                },
+                "likes": 0,
+                "id": 4
             }
         ],
         "tags": [
@@ -522,7 +532,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 12,
+        "views": 15,
         "comments": [
             {
                 "username": "\"hej\"",
@@ -543,6 +553,26 @@
                 },
                 "likes": 0,
                 "id": 2
+            },
+            {
+                "username": "\"hej\"",
+                "content": "<br>    <pre><code>\n        <div>hello world<\/div>\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "12-05-2023",
+                    "time": "10:21:46"
+                },
+                "likes": 0,
+                "id": 3
+            },
+            {
+                "username": "\"hej\"",
+                "content": "<div>hello<\/div><br>    <pre><code>\n        <div>hello world<\/div>\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "12-05-2023",
+                    "time": "10:22:29"
+                },
+                "likes": 0,
+                "id": 4
             }
         ],
         "tags": [

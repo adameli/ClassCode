@@ -122,21 +122,8 @@ main {
 }
 
 .filterModalActive { 
-    border: 2px solid var( --pointOfInterest);
+    /* border: 2px solid var( --pointOfInterest); */
+    transition: transform .2s;
+    background-color: var( --pointOfInterestHover);
+    transform: scale(1.1);
 }
-
-
-
-
-
-/* .filterButtonsContainer-mainThread {
-    margin: 10px auto;
-}
-
-.filterButtons-mainThread {
-    background-color: var(--pointOfInterest);
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    font-size: 18px;
-} */
