@@ -19,14 +19,14 @@
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
-    $currentUser = "name";
+    $current_user = "name";
 
     foreach( $users as $user) 
     {
         if( $_GET[ "un"] == $user[ "username"]) 
         {
-            $currentUser = $user;
-
+            $current_user = $user;
+            $logged_in = true;
             foreach( $threads as $thread) 
             {
                 if( $user[ "id"] == $thread[ "username_id"]) 
@@ -38,11 +38,11 @@
         }
     }
 
-    $username = $currentUser["username"];
-    $imgurl = $currentUser["imgurl"];
-    $discord = $currentUser["profile_info"]["discord"];
-    $bio = $currentUser["profile_info"]["bio"];
-    $fullname = $currentUser["profile_info"]["fullname"];
+    $username = $current_user["username"];
+    $imgurl = $current_user["imgurl"];
+    $discord = $current_user["profile_info"]["discord"];
+    $bio = $current_user["profile_info"]["bio"];
+    $fullname = $current_user["profile_info"]["fullname"];
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +97,6 @@
     <?php
     echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
     ?>
-        <button id='editButton'>Edit profile</button>
     </div>
         <?php
             echo "<div class='userInfo'>";
@@ -151,8 +150,8 @@
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
     <script>
-        const currentUser = JSON.parse(window.localStorage.getItem("user"));
-        renderNavigationLoggedIn(currentUser);
+        const current_user = JSON.parse(window.localStorage.getItem("user"));
+        renderNavigationLoggedIn(current_user);
     </script>
     <script src="../../JS/account.js"></script>
 </body>
