@@ -555,24 +555,14 @@
                 "id": 2
             },
             {
-                "username": "\"hej\"",
-                "content": "<br>    <pre><code>\n        <div>hello world<\/div>\n    <\/code><\/pre>",
+                "username": "\"Isak\"",
+                "content": "cool bro",
                 "timestamp": {
                     "date": "12-05-2023",
-                    "time": "10:21:46"
+                    "time": "12:48:16"
                 },
                 "likes": 0,
                 "id": 3
-            },
-            {
-                "username": "\"hej\"",
-                "content": "<div>hello<\/div><br>    <pre><code>\n        <div>hello world<\/div>\n    <\/code><\/pre>",
-                "timestamp": {
-                    "date": "12-05-2023",
-                    "time": "10:22:29"
-                },
-                "likes": 0,
-                "id": 4
             }
         ],
         "tags": [

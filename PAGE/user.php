@@ -14,22 +14,22 @@
 
     $current_user_threads = [];
 
-    if(file_exists($threads_file)) 
+    if(file_exists ( $threads_file)) 
     {
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
     $currentUser = "name";
 
-    foreach ($users as $user) 
+    foreach( $users as $user) 
     {
-        if($_GET["un"] == $user["username"]) 
+        if( $_GET[ "un"] == $user[ "username"]) 
         {
             $currentUser = $user;
 
-            foreach ($threads as $thread) 
+            foreach( $threads as $thread) 
             {
-                if ($user["id"] == $thread["username_id"]) 
+                if( $user[ "id"] == $thread[ "username_id"]) 
                 {
                     $current_user_threads[] = $thread;
                 }
@@ -37,6 +37,12 @@
             }
         }
     }
+
+    $username = $currentUser["username"];
+    $imgurl = $currentUser["imgurl"];
+    $discord = $currentUser["profile_info"]["discord"];
+    $bio = $currentUser["profile_info"]["bio"];
+    $fullname = $currentUser["profile_info"]["fullname"];
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +62,24 @@
 
     <!-- Highlight.js Style-->
     <link rel="stylesheet" href="../../RESOURCES/github-dark-dimmed.min.css">
-
     <title>ClassCode</title>
 </head>
 
 <body>
+<dialog id="accountDialog">
+            <form>
+                <div class="inputContainer">
+                <?php
+                echo "<input value='$fullname' id='name' type='text' />";
+                echo "<input value='$discord' id='discord' type='text' />";
+                ?>
+                </div>
+                <?php
+                echo "<textarea name='bio' id='accountBio' cols='30' rows='5'>$bio</textarea>";
+                ?>
+                <button type="submit">Submit</button>
+            </form>
+        </dialog>
     <img src="../../RESOURCES/backgroundImageBlur.jpg" alt="Hand on a electrical lamp" class="backgroundImage">
     <header>
         <div>
@@ -74,31 +93,28 @@
 
     </header>
     <section class="profilSettings-accountPage">
+    <div class="imgEditContainer"> 
+    <?php
+    echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+    ?>
+        <button id='editButton'>Edit profile</button>
+    </div>
         <?php
-        $imgurl = $currentUser["imgurl"];
-        $username = $currentUser["username"];
-        $school = $currentUser["school"];
-        $discord = $currentUser["discord"];
-        $bio = $currentUser["bio"];
-        $fullname = $currentUser["fullname"];
-
-        echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
-        echo "<div class='userCredntials-accountPage'>";
             echo "<div class='userInfo'>";
-                echo "<div class='info'>$fullname</div>";
-                echo "<div class='info'>$school</div>";
-                echo "<div class='info'>$discord</div>";
-            echo "</div>";
-            echo "<div class='secondDiv'>";
-                echo "<div class='profileBi0'>$bio</div>";
-                echo "<button>Edit profile</button>";
+                echo "<div class='infoParent'>";
+                    echo "<div class='info'>$fullname</div>";
+                    echo "<div class='info'>$discord</div>";
+                echo "</div>";
+                echo "<div class='profileBio'>$bio</div>";
             echo "</div>";
         echo "</div>";
         ?>
     </section>
 
     <main>
-        <?php 
+        <section>
+            <div class="mainThread-allThreads">
+            <?php 
             foreach ($current_user_threads as $thread) 
             {   
                 $title = $thread["title"];
@@ -122,6 +138,8 @@
                 echo "</div>";
             }
         ?>
+            </div>
+        </section>
     </main>
 
     <footer></footer>
@@ -132,11 +150,11 @@
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
-    <script src="../../JS/account.js"></script>
     <script>
         const currentUser = JSON.parse(window.localStorage.getItem("user"));
         renderNavigationLoggedIn(currentUser);
     </script>
+    <script src="../../JS/account.js"></script>
 </body>
 
 </html>

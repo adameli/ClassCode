@@ -2,7 +2,7 @@
     require_once "index.php";
     
     if( $request_method == "POST") 
-    {
+    {   
         $username = $request_data[ "username"];
         $content = $request_data[ "content"];
         $thread_id = $request_data[ "thread_id"];
@@ -39,7 +39,7 @@
                 $json = json_encode( $threads, JSON_PRETTY_PRINT);
                 file_put_contents( $threads_file, $json);
                 $message = ["message" => "Post Success"];
-                send_JSON($message);
+                send_JSON( $message);
             } 
         }
     }
