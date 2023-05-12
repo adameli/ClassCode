@@ -63,3 +63,17 @@ function convertToCodeblock( input) {
     const finalOutput = replaceNewLinesWithExceptions( contentInput);
     return finalOutput;
 }
+
+function AppendLoadingAnimation( AnimContainer) {
+    AnimContainer.innerHTML = `
+        <div class="loadingAnimationContainer">
+            <div class="loading--animation loading--animationDelay--1ms"></div>
+            <div class="loading--animation loading--animationDelay--3ms"></div>
+            <div class="loading--animation loading--animationDelay--6ms"></div>
+        </div>
+    `;
+
+    setTimeout( () => { 
+        console.log( "PAUSE")
+    }, 5000);
+}

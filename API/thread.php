@@ -3,7 +3,7 @@
 
     // Get all threads
     if( $request_method == "GET") 
-    {
+    {   
         if( $_GET[ "threads"] == "all") 
         {
             send_JSON( $threads);

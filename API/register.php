@@ -3,8 +3,6 @@
 
     if( $request_method == "POST") 
     {    
-        sleep(3);
-
         $un = $request_data[ "username"];
         $pw = password_hash( $request_data[ "password"], PASSWORD_DEFAULT);
 

@@ -20,7 +20,7 @@ async function renderMainThread() {
     <section>
         <div class="sortSearchContainer-mainThread">
             <div class="searchContainer">
-                    <input type="search" id="searchbar" placeholder="Search here">
+                    <input type="search" id="searchbar" placeholder="Search...">
                     <button type="submit"></button>
             </div>
             
@@ -63,10 +63,16 @@ async function renderMainThread() {
     //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
     // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 
+    const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     async function loadThreads (arrayOfThreads) {
         
+        mainThreadAllThreads.innerHTML = ``;
+        
+        if( arrayOfThreads.resource.length === 0) {
+            mainThreadAllThreads.innerHTML = `No Search Results...`;
+        }
+        
         //loops all users and creates postContainers
-        document.querySelector( ".mainThread-allThreads").innerHTML = "";
         arrayOfThreads.resource.forEach(threadObject => {
             const postContainerDOM = document.createElement("div");
             postContainerDOM.classList.add("postContainer-mainThread");
@@ -123,25 +129,30 @@ async function renderMainThread() {
     searchButton.addEventListener("click", async event => {
         const searchInputValue = searchInput.value;
         const requestString = new Request("../API/search_bar.php?s=" + searchInputValue + "&f");
+        AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction(requestString);
         // Here we call the loadthread function to uppdate the new threads that match the search
         loadThreads(thredResults);
     })
+
     // When the user clicks on the "Enter" key, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 
     searchInput.addEventListener( "keyup", async event => {
         let searchValue = event.currentTarget.value;
         let key = event.key;
         if (key === "Enter") {
             const requestString = new Request("../API/search_bar.php?s=" + searchValue + "&f");
+            AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         }
     });
+
     // This function adds a click on the filterButtons. when clicked, the searchvalue and filterValue is sent to the server and we get back an array that match the searchValue and filterValue
     document.querySelectorAll(".filterButtons-mainThread").forEach(element => {
         element.addEventListener("click", async event =>{
             let filterValue = event.currentTarget.dataset.filtervalue;
             const requestString = new Request ("../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
+            AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         });

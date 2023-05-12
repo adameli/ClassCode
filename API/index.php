@@ -1,5 +1,6 @@
 <?php
     require_once "functions.php";
+    
     $request_method = $_SERVER[ "REQUEST_METHOD"];
 
     //CORS
