@@ -1,6 +1,7 @@
 <?php
     require_once "../API/index.php";
     $threads_file = "../API/threads.json";
+    $users_file = "../API/users.json";
     $comments_exist = false;
     
     
@@ -23,6 +24,8 @@
             $content = $thread[ "content"];
             $date = $thread[ "timestamp"][ "date"];
             $time = $thread[ "timestamp"][ "time"];
+            $creator_img_url = $thread[ "img_url"];
+            
 
             //Adds 0.5 views because 2 GET occurs by default
             $threads[ $index][ "views"] += 1;
@@ -72,7 +75,7 @@
 
                 echo "<div class='topInfoFlexContainer-pageThread'>";
                     echo "<div class='userInfoContainer-pageThread'>";
-                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$img_url";    
+                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_url'>";    
                         echo "<div class='user_name-pageThread'>$username</div>";                    
                     echo "</div>"; 
                     
@@ -118,7 +121,7 @@
                             echo "<div class='topInfoFlexContainer-pageThread'>";
 
                                 echo "<div class='userInfoContainer-comment'>";
-                                    echo "<img class='profileImg userInfoPostPicture-comment' src='../../API/userimg.jpg'>";    
+                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$img_url'>";    
                                     echo "<div class='user_name-comment'>$username</div>";                    
                                 echo "</div>"; 
 

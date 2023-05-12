@@ -7,13 +7,13 @@
         $content = $request_data[ "content"];
         $thread_id = $request_data[ "thread_id"];
 
-        foreach( $users as $user) 
-        {
-            if( $username == $user["username"])
+        foreach( $users as $user) {
+            if( $user[ "username"] == $username) 
             {
                 $user_img = $user[ "img_url"];
             }
         }
+
 
         date_default_timezone_set( "Europe/Stockholm");
         $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
