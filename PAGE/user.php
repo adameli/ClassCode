@@ -40,9 +40,9 @@
 
     $username = $currentUser["username"];
     $imgurl = $currentUser["imgurl"];
-    $discord = $currentUser["discord"];
-    $bio = $currentUser["bio"];
-    $fullname = $currentUser["fullname"];
+    $discord = $currentUser["profile_info"]["discord"];
+    $bio = $currentUser["profile_info"]["bio"];
+    $fullname = $currentUser["profile_info"]["fullname"];
 ?>
 
 <!DOCTYPE html>
