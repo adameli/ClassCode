@@ -37,6 +37,12 @@
             }
         }
     }
+
+    $username = $currentUser["username"];
+    $imgurl = $currentUser["imgurl"];
+    $discord = $currentUser["discord"];
+    $bio = $currentUser["bio"];
+    $fullname = $currentUser["fullname"];
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +62,21 @@
 
     <!-- Highlight.js Style-->
     <link rel="stylesheet" href="../../RESOURCES/github-dark-dimmed.min.css">
-
     <title>ClassCode</title>
 </head>
 
 <body>
+<dialog id="accountDialog">
+            <form>
+                <div class="inputContainer">
+                    <input id="name" type="text" />
+                    <input id="school" type="text" />
+                    <input id="discord" type="text" />
+                </div>
+                <textarea name="bio" id="accountBio" cols="30" rows="5"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </dialog>
     <img src="../../RESOURCES/backgroundImageBlur.jpg" alt="Hand on a electrical lamp" class="backgroundImage">
     <header>
         <div>
@@ -74,43 +90,22 @@
 
     </header>
     <section class="profilSettings-accountPage">
-    <div class="imgEditContainer">
-        <dialog id="accountDialog">
-            <form>
-                <div class="inputContainer">
-                    <input id="name" type="text" />
-                    <input id="school" type="text" />
-                    <input id="discord" type="text" />
-                </div>
-                <textarea name="bio" id="accountBio" cols="30" rows="5"></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </dialog>
-        <?php 
-        $imgurl = $currentUser["imgurl"];
-        echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>"
-        ?>
+    <div class="imgEditContainer"> 
+    <?php
+    echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+    ?>
         <button id='editButton'>Edit profile</button>
     </div>
         <?php
-        $username = $currentUser["username"];
-        $school = $currentUser["school"];
-        $discord = $currentUser["discord"];
-        $bio = $currentUser["bio"];
-        $fullname = $currentUser["fullname"];
-
             echo "<div class='userInfo'>";
                 echo "<div class='infoParent'>";
                     echo "<div class='info'>$fullname</div>";
-                    echo "<div class='info'>$school</div>";
                     echo "<div class='info'>$discord</div>";
                 echo "</div>";
                 echo "<div class='profileBio'>$bio</div>";
             echo "</div>";
         echo "</div>";
         ?>
-
-        <!-- <div class="userInfo"></div> -->
     </section>
 
     <main>
@@ -152,11 +147,11 @@
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
-    <script src="../../JS/account.js"></script>
     <script>
         const currentUser = JSON.parse(window.localStorage.getItem("user"));
         renderNavigationLoggedIn(currentUser);
     </script>
+    <script src="../../JS/account.js"></script>
 </body>
 
 </html>
