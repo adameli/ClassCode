@@ -1,14 +1,21 @@
 <?php
     require_once "../API/index.php";
+
     $threads_file = "../API/threads.json";
     $users_file = "../API/users.json";
+
     $comments_exist = false;
-    
     
     if( file_exists( $threads_file)) 
     {
         $json = file_get_contents( $threads_file);
         $threads = json_decode( $json, true);
+    }
+
+    if( file_exists( $users_file)) 
+    {
+        $json = file_get_contents( $users_file);
+        $users = json_decode( $json, true);
     }
 
     //URL - GET. PAGE/thread.php?thread_id=thread_id

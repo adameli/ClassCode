@@ -1,25 +1,23 @@
 <?php
-
-    $users_file = "../API/users.json";
-    $users = [];
-
-    if(file_exists($users_file)) 
-    {
-        $json = file_get_contents($users_file);
-        $users = json_decode($json, true);
-    }
+    require_once "../API/index.php";
 
     $threads_file = "../API/threads.json";
-    $threads = [];
+    $users_file = "../API/users.json";
+
+    if( file_exists( $threads_file)) 
+    {
+        $json = file_get_contents( $threads_file);
+        $threads = json_decode( $json, true);
+    }
+
+    if( file_exists( $users_file)) 
+    {
+        $json = file_get_contents( $users_file);
+        $users = json_decode( $json, true);
+    }
+
 
     $current_user_threads = [];
-
-    if(file_exists ( $threads_file)) 
-    {
-        $json = file_get_contents($threads_file);
-        $threads = json_decode($json, true);
-    }
-    $current_user = "name";
 
     foreach( $users as $user) 
     {
@@ -38,11 +36,11 @@
         }
     }
 
-    $username = $current_user["username"];
-    $img_url = $current_user["img_url"];
-    $discord = $current_user["profile_info"]["discord"];
-    $bio = $current_user["profile_info"]["bio"];
-    $fullname = $current_user["profile_info"]["fullname"];
+    $username = $current_user[ "username"];
+    $img_url = $current_user[ "img_url"];
+    $discord = $current_user[ "profile_info"][ "discord"];
+    $bio = $current_user[ "profile_info"][ "bio"];
+    $fullname = $current_user[ "profile_info"][ "fullname"];
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +66,7 @@
 <body>
 <dialog id="accountDialog">
 <?php
-    echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+    echo "<div class='profilePicture-accountPage'><img src='$server_endpoint/API/PROFILE_IMG/$img_url'></div>";
     ?>
             <form>
                 <div class="inputContainer">
@@ -102,7 +100,7 @@
             <button type="submit">Upload</button>
         </form>
     <?php
-    echo "<div class='profilePicture-accountPage'><img src=$img_url></div>";
+    echo "<div class='profilePicture-accountPage'><img src=$server_endpoint/API/PROFILE_IMG/$img_url></div>";
     ?>
     </div>
         <?php
@@ -136,7 +134,7 @@
                 echo "<div class='time_stamp-mainThread'> $time - $date</div>";
                 echo "</div>";        
                 echo "<div class='usersPost-mainThread'>";
-                echo "<img class='profileImg userInfoPostPicture' src='../../RESOURCES/userimg.jpg'>";    
+                echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$img_url'>";    
                 echo "<div class='user_name-mainThread'>$username</div>";    
                 echo "</div>";        
                 echo "</div>";        
