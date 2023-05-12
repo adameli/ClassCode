@@ -39,7 +39,7 @@
                 $json = json_encode( $threads, JSON_PRETTY_PRINT);
                 file_put_contents( $threads_file, $json);
                 $message = ["message" => "Post Success"];
-                send_JSON($message);
+                send_JSON( $message);
             } 
         }
     }

@@ -1,7 +1,8 @@
 <?php
     require_once "index.php";
 
-    if( $request_method == "POST") {    
+    if( $request_method == "POST") 
+    {    
         $un = $request_data[ "username"];
         $pw = password_hash( $request_data[ "password"], PASSWORD_DEFAULT);
 
@@ -27,15 +28,18 @@
         $new_user = [ "id" => $user_id, "username" => $un, "password" => $pw];
 
         //Checking if the user forgot to type
-        if( $un == "" && $pw =="") {
+        if( $un == "" && $pw =="") 
+        {
             $message = [ "message" => "You forgot to type username and password"];
             send_JSON( $message, 404);                                                
         }
-        else if( $un == "") {
+        else if( $un == "") 
+        {
             $message = [ "message" => "You forgot to type username"];
             send_JSON( $message, 404); 
         }
-        else if( $pw == "") {
+        else if( $pw == "") 
+        {
             $message = [ "message" => "You forgot to type password"];
             send_JSON( $message, 404); 
         }
@@ -50,5 +54,24 @@
         $json = json_encode( $users, JSON_PRETTY_PRINT);
         file_put_contents( $users_file, $json);
         send_JSON( $new_user[ "username"]);
+    }
+
+    if( $request_method == "PATCH") 
+    {
+        $profile_info = $request_data[ "profile_info"];
+        $username = $request_data[ "user"];
+
+        foreach( $users as $index => $user) 
+        {
+            if( $username == $user[ "username"]) 
+            {
+                $users[ $index]["profile_info"] = $profile_info;
+                $json = json_encode($users, JSON_PRETTY_PRINT);
+                file_put_contents($users_file, $json);
+
+                $message = ["message" => "Profile Updated"];
+                send_JSON( $message);
+            }
+        }
     }
 ?>
