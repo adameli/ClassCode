@@ -522,7 +522,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 10,
+        "views": 12,
         "comments": [
             {
                 "username": "\"hej\"",
@@ -535,11 +535,11 @@
                 "id": 1
             },
             {
-                "username": "\"test\"",
-                "content": "this is great",
+                "username": "\"hej\"",
+                "content": "Adding a comment with a codeblock in order to display the html elements<br><br><br>    <pre><code>\nconst message = \"in order to display html i dont think you can accually write real html since it will be lost within the appending\"\n\ndocument.body.innerHTML = ` \n     <!div> this is the way divs should be written unless we change the appending of the code <\/div!>\n`\n    <\/code><\/pre>",
                 "timestamp": {
                     "date": "11-05-2023",
-                    "time": "13:52:07"
+                    "time": "11:11:13"
                 },
                 "likes": 0,
                 "id": 2

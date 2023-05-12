@@ -24,6 +24,7 @@ document.querySelector( ".addCodeField-event").addEventListener( "click", addCod
 
 // Post Comment
 document.querySelector( ".sendComment-modal").addEventListener( "click", postComment);
+
 async function postComment() {
     const user = localStorage.getItem( "user");
 
@@ -49,22 +50,5 @@ async function postComment() {
         const response = await fetchFunction( commentPost);
         setTimeout( () => {
                 location.reload();
-            }, 1000);
-    
-    
-            // fetch(`${serverEndpoint}/API/comment.php`, {
-    //     method: "POST",
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         username: user, 
-    //         content: convertedComment, 
-    //         thread_id: threadId
-    //     })
-    // }).then(r => r.json())
-    // .then( setTimeout( () => {
-    //     location.reload();
-    // }, 1000));
-    
+            }, 1000);  
 }

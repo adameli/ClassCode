@@ -71,9 +71,9 @@ textarea {
 .listTags {
     list-style: none;
     background-color: var(--pointOfInterest);
-    padding: 10px;
+    padding: var(--paddingCardContainer);
     margin-right: 5px;
-    border-radius: 10px;
+    border-radius: var(--borderradiusMedium);
     display: flex;
     align-items: center;
 }

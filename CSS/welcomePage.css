@@ -15,14 +15,14 @@ section p {
     cursor: pointer;
 }
 
-.loginButtonHeader, 
+/* .loginButtonHeader, 
 .registerButtonHeader {
     font-size: var(--usernames);
     padding: var(--paddingButtons);
     cursor: pointer;
     background-color: var(--glassMorphism);
     border-radius: var(--borderradiusSmall);
-}
+} */
 
 .hidden {
     opacity: 0;

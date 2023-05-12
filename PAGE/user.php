@@ -14,22 +14,22 @@
 
     $current_user_threads = [];
 
-    if(file_exists($threads_file)) 
+    if(file_exists ( $threads_file)) 
     {
         $json = file_get_contents($threads_file);
         $threads = json_decode($json, true);
     }
     $currentUser = "name";
 
-    foreach ($users as $user) 
+    foreach( $users as $user) 
     {
-        if($_GET["un"] == $user["username"]) 
+        if( $_GET[ "un"] == $user[ "username"]) 
         {
             $currentUser = $user;
 
-            foreach ($threads as $thread) 
+            foreach( $threads as $thread) 
             {
-                if ($user["id"] == $thread["username_id"]) 
+                if( $user[ "id"] == $thread[ "username_id"]) 
                 {
                     $current_user_threads[] = $thread;
                 }
