@@ -10,7 +10,7 @@
         foreach( $users as $user) {
             if( $username == $user[ "username"]) 
             {
-                $comment_img = $user[ "img_url"];
+                $comment_img = $user[ "img_name"];
             }
         }
 
@@ -39,7 +39,7 @@
                     "timestamp" => $timestamp,
                     "likes" => 0,
                     "id" => $next_id,
-                    "img_url" => $comment_img
+                    "img_name" => $comment_img
                 ];
 
                 $threads[ $index][ "comments"][] = $comment;

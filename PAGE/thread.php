@@ -31,7 +31,7 @@
             $content = $thread[ "content"];
             $date = $thread[ "timestamp"][ "date"];
             $time = $thread[ "timestamp"][ "time"];
-            $creator_img_url = $thread[ "img_url"];
+            $creator_img_name = $thread[ "img_name"];
             
             $threads[ $index][ "views"] += 1;
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
@@ -80,7 +80,7 @@
 
                 echo "<div class='topInfoFlexContainer-pageThread'>";
                     echo "<div class='userInfoContainer-pageThread'>";
-                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_url'>";    
+                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_name'>";    
                         echo "<div class='user_name-pageThread'>$username</div>";                    
                     echo "</div>"; 
                     
@@ -116,7 +116,7 @@
                     $time = $comment[ "timestamp"][ "time"];
                     $likes = $comment[ "likes"];
                     
-                    $commenter_img_url = $comment[ "img_url"];
+                    $commenter_img_name = $comment[ "img_name"];
 
                     echo "<div class='comment-threadPage'>";
                         echo "<div class='likeContainer-comment'>";
@@ -128,7 +128,7 @@
                             echo "<div class='topInfoFlexContainer-pageThread'>";
 
                                 echo "<div class='userInfoContainer-comment'>";
-                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$commenter_img_url'>";    
+                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$commenter_img_name'>";    
                                     echo "<div class='user_name-comment'>$username</div>";                    
                                 echo "</div>"; 
 

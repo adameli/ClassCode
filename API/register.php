@@ -34,7 +34,7 @@
                 "bio" => "",
                 "discord" => ""
             ],
-            "img_url" => "default.jpg"
+            "img_name" => "default.jpg"
         ];
 
         //Checking if the user forgot to type

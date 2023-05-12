@@ -5,6 +5,15 @@ const searchQuery = window.location.search;
 
     if(current_user === userPageName){
       document.querySelector(".imgEditContainer").innerHTML += `
+      <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <button type="submit">Upload</button>
+      </form>
+      `
+    }
+
+    if(current_user === userPageName){
+      document.querySelector(".imgEditContainer").innerHTML += `
       <button id='editButton'> Edit profile </button>
       `
     }
@@ -64,6 +73,7 @@ modal.addEventListener("click", e => {
     event.preventDefault();
 
     const formData = new FormData(form_dom);
+    formData.append("username", JSON.parse(window.localStorage.getItem("user")));
     const profileImgRequest = new Request("../../API/account.php", {
         method: "POST",
         body: formData,
@@ -71,4 +81,7 @@ modal.addEventListener("click", e => {
 
     let patchToImage = await fetchFunction(profileImgRequest);
     
+    setTimeout( () => {
+      location.reload();
+    }, 1000);  
   })

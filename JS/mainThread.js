@@ -85,7 +85,7 @@ async function renderMainThread() {
                         </div>
                     
                     <div class="usersPost-mainThread">
-                        <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_url}">
+                        <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_name}">
                         <p class="user_name-mainThread">${threadObject.username}</p>
                     </div>                    
                 </div>

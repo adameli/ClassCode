@@ -8,7 +8,7 @@
             "discord": "isakmakra01",
             "bio": "hello, my name is Isak"
         },
-        "img_url": "default.jpg"
+        "img_name": "Isak.jpg"
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
             "discord": "Adamski1",
             "bio": "Hej jag gillar att spela fotboll och titta p\u00e5 hockey"
         },
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "id": 4,
@@ -41,7 +41,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "id": 5,
@@ -52,7 +52,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
             "discord": "Lazy#2211",
             "bio": "MEDIETEKNIK KAN SUGA MIN ****"
         },
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_url": "default.jpg"
+        "img_name": "OHLEG.jpg"
     },
     {
         "id": 8,
@@ -85,6 +85,6 @@
             "discord": "",
             "bio": ""
         },
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     }
 ]

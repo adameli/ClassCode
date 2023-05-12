@@ -37,7 +37,7 @@
     }
 
     $username = $current_user[ "username"];
-    $img_url = $current_user[ "img_url"];
+    $img_name = $current_user[ "img_name"];
     $discord = $current_user[ "profile_info"][ "discord"];
     $bio = $current_user[ "profile_info"][ "bio"];
     $fullname = $current_user[ "profile_info"][ "fullname"];
@@ -66,7 +66,7 @@
 <body>
 <dialog id="accountDialog">
 <?php
-    echo "<div class='profilePicture-accountPage'><img src='$server_endpoint/API/PROFILE_IMG/$img_url'></div>";
+    echo "<div class='profilePicture-accountPage'><img src='$server_endpoint/API/PROFILE_IMG/$img_name'></div>";
     ?>
             <form>
                 <div class="inputContainer">
@@ -95,12 +95,8 @@
     </header>
     <section class="profilSettings-accountPage">
     <div class="imgEditContainer"> 
-    <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <button type="submit">Upload</button>
-        </form>
     <?php
-    echo "<div class='profilePicture-accountPage'><img src=$server_endpoint/API/PROFILE_IMG/$img_url></div>";
+    echo "<div class='profilePicture-accountPage'><img src=$server_endpoint/API/PROFILE_IMG/$img_name></div>";
     ?>
     </div>
         <?php
@@ -134,7 +130,7 @@
                 echo "<div class='time_stamp-mainThread'> $time - $date</div>";
                 echo "</div>";        
                 echo "<div class='usersPost-mainThread'>";
-                echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$img_url'>";    
+                echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$img_name'>";    
                 echo "<div class='user_name-mainThread'>$username</div>";    
                 echo "</div>";        
                 echo "</div>";        

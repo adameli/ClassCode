@@ -18,7 +18,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -39,7 +39,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -60,7 +60,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -81,7 +81,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "Isak",
@@ -102,7 +102,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "Isak.jpg"
     },
     {
         "username": "OHLEG",
@@ -123,7 +123,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "OHLEG",
@@ -144,7 +144,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "Isak",
@@ -165,7 +165,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "Isak.jpg"
     },
     {
         "username": "hej",
@@ -186,7 +186,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -207,7 +207,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -228,7 +228,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -249,7 +249,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "test",
@@ -270,7 +270,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "username": "hej",
@@ -291,7 +291,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -312,7 +312,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -333,7 +333,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -354,7 +354,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -375,7 +375,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -396,7 +396,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -417,7 +417,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -438,7 +438,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "hej",
@@ -459,7 +459,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "test",
@@ -480,7 +480,7 @@
             "css",
             "php"
         ],
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     },
     {
         "username": "hej",
@@ -500,7 +500,7 @@
             "js",
             "conversion"
         ],
-        "img_url": "default.jpg"
+        "img_name": "hej.jpg"
     },
     {
         "username": "test",
@@ -513,7 +513,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 30,
+        "views": 34,
         "comments": [
             {
                 "username": "Isak",
@@ -524,7 +524,7 @@
                 },
                 "likes": 0,
                 "id": 1,
-                "img_url": "default.jpg"
+                "img_name": "Isak.jpg"
             }
         ],
         "tags": [
@@ -532,6 +532,6 @@
             "code",
             "help"
         ],
-        "img_url": "default.jpg"
+        "img_name": "default.jpg"
     }
 ]
