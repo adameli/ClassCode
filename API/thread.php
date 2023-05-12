@@ -27,6 +27,7 @@
             if( $user[ "username"] == $request_data[ "username"]) 
             {
                 $username_id = $user[ "id"];
+                $user_img = $user[ "img_url"];
             }
         }
 
@@ -51,6 +52,7 @@
             "views" => 0,
             "comments" => [],
             "tags" => $tags,
+            "img_url" => $user_img
         ];
 
         $threads[] = $thread;

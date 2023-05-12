@@ -33,7 +33,8 @@
                 "fullname" => "",
                 "bio" => "",
                 "discord" => ""
-            ]
+            ],
+            "img_url" => "deafult.jpg"
         ];
 
         //Checking if the user forgot to type
@@ -67,6 +68,7 @@
 
     if( $request_method == "PATCH") 
     {
+
         $profile_info = $request_data[ "profile_info"];
         $username = $request_data[ "user"];
 

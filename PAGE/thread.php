@@ -72,7 +72,7 @@
 
                 echo "<div class='topInfoFlexContainer-pageThread'>";
                     echo "<div class='userInfoContainer-pageThread'>";
-                        echo "<img class='profileImg userInfoPostPicture' src='../../RESOURCES/userimg.jpg'>";    
+                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$img_url";    
                         echo "<div class='user_name-pageThread'>$username</div>";                    
                     echo "</div>"; 
                     
@@ -107,6 +107,7 @@
                     $date = $comment[ "timestamp"][ "date"];
                     $time = $comment[ "timestamp"][ "time"];
                     $likes = $comment[ "likes"];
+                    $img_url = $comment[ "img_url"];
                     echo "<div class='comment-threadPage'>";
                         echo "<div class='likeContainer-comment'>";
                             echo "<div class='numberLikes-comment'>$likes</div>";
@@ -117,7 +118,7 @@
                             echo "<div class='topInfoFlexContainer-pageThread'>";
 
                                 echo "<div class='userInfoContainer-comment'>";
-                                    echo "<img class='profileImg userInfoPostPicture-comment' src='../../RESOURCES/userimg.jpg'>";    
+                                    echo "<img class='profileImg userInfoPostPicture-comment' src='../../API/userimg.jpg'>";    
                                     echo "<div class='user_name-comment'>$username</div>";                    
                                 echo "</div>"; 
 

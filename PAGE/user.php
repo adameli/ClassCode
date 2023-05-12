@@ -39,7 +39,7 @@
     }
 
     $username = $current_user["username"];
-    $imgurl = $current_user["imgurl"];
+    $img_url = $current_user["img_url"];
     $discord = $current_user["profile_info"]["discord"];
     $bio = $current_user["profile_info"]["bio"];
     $fullname = $current_user["profile_info"]["fullname"];
@@ -102,7 +102,7 @@
             <button type="submit">Upload</button>
         </form>
     <?php
-    echo "<div class='profilePicture-accountPage'><img src=$imgurl></div>";
+    echo "<div class='profilePicture-accountPage'><img src=$img_url></div>";
     ?>
     </div>
         <?php

@@ -7,7 +7,8 @@
             "fullname": "Isak Makra",
             "discord": "i dont know bro",
             "bio": "hello"
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
             "fullname": "",
             "discord": "",
             "bio": ""
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 3,
@@ -28,7 +30,7 @@
             "discord": "Adamski1",
             "bio": "Hej jag gillar att spela fotboll och titta p\u00e5 hockey"
         },
-        "imgurl": "https:\/\/images.unsplash.com\/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        "img_url": "https:\/\/images.unsplash.com\/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
     },
     {
         "id": 4,
@@ -38,7 +40,8 @@
             "fullname": "",
             "discord": "",
             "bio": ""
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 5,
@@ -48,7 +51,8 @@
             "fullname": "",
             "discord": "",
             "bio": ""
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 6,
@@ -58,7 +62,8 @@
             "fullname": "Teo Hardemo",
             "discord": "Lazy#2211",
             "bio": "MEDIETEKNIK KAN SUGA MIN ****"
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 7,
@@ -68,7 +73,8 @@
             "fullname": "",
             "discord": "",
             "bio": ""
-        }
+        },
+        "img_url": "deafult.jpg"
     },
     {
         "id": 8,
@@ -78,6 +84,7 @@
             "fullname": "",
             "discord": "",
             "bio": ""
-        }
+        },
+        "img_url": "deafult.jpg"
     }
 ]

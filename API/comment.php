@@ -7,6 +7,14 @@
         $content = $request_data[ "content"];
         $thread_id = $request_data[ "thread_id"];
 
+        foreach( $users as $user) 
+        {
+            if( $username == $user["username"])
+            {
+                $user_img = $user[ "img_url"];
+            }
+        }
+
         date_default_timezone_set( "Europe/Stockholm");
         $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
 
@@ -31,7 +39,8 @@
                     "content" => $content,
                     "timestamp" => $timestamp,
                     "likes" => 0,
-                    "id" => $next_id
+                    "id" => $next_id,
+                    "img_url" => $user_img
                 ];
 
                 $threads[ $index][ "comments"][] = $comment;
