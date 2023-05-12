@@ -24,6 +24,8 @@
         }
         $user_id = $highest_id + 1;
 
+        copy("PROFILE_IMG/default.jpg", "PROFILE_IMG/$un.jpg");
+
         //Creates the user
         $new_user = [ 
             "id" => $user_id, 
@@ -34,7 +36,7 @@
                 "bio" => "",
                 "discord" => ""
             ],
-            "img_name" => "default.jpg"
+            "img_name" => "$un.jpg"
         ];
 
         //Checking if the user forgot to type

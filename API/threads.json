@@ -493,8 +493,20 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 16,
-        "comments": [],
+        "views": 18,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "I dunno bro",
+                "timestamp": {
+                    "date": "12-05-2023",
+                    "time": "22:07:57"
+                },
+                "likes": 0,
+                "id": 1,
+                "img_name": "Isak.jpg"
+            }
+        ],
         "tags": [
             "javascript",
             "js",
@@ -513,7 +525,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 34,
+        "views": 35,
         "comments": [
             {
                 "username": "Isak",
@@ -533,5 +545,23 @@
             "help"
         ],
         "img_name": "default.jpg"
+    },
+    {
+        "username": "123",
+        "username_id": 9,
+        "thread_id": 26,
+        "title": "123",
+        "description": "123",
+        "content": "123",
+        "timestamp": {
+            "date": "12-05-2023",
+            "time": "22:08:33"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "123"
+        ],
+        "img_name": "123.jpg"
     }
 ]

@@ -1,10 +1,9 @@
-
 function renderNavigationLoggedIn(user) {
     const parentContainer = document.querySelector(".userInformation")
 
     parentContainer.innerHTML = `
     <div class="profile">
-        <img class="profileImg" src="../RESOURCES/userimg.jpg">
+        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${user}.jpg">
     </div>
     `;
 
@@ -16,7 +15,7 @@ function renderNavigationLoggedIn(user) {
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
-                        <img class="profileImg" src="../RESOURCES/userimg.jpg">
+                        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${user}.jpg">
                     </div>
                     <div class="profile-loggedInAs">
                         <p>Account:</p>
