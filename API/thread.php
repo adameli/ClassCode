@@ -4,6 +4,8 @@
     // Get all threads
     if( $request_method == "GET") 
     {
+        sleep( $sleep_time);
+        
         if( $_GET[ "threads"] == "all") 
         {
             send_JSON( $threads);
@@ -13,6 +15,8 @@
     // Create thread
     if( $request_method == "POST") 
     {
+        sleep( $sleep_time);
+
         $username = $request_data[ "username"];
         $title = $request_data[ "title"];
         $description = $request_data[ "description"];

@@ -1,5 +1,7 @@
 <?php
     require_once "functions.php";
+    
+    $sleep_time = 3;
     $request_method = $_SERVER[ "REQUEST_METHOD"];
 
     //CORS
