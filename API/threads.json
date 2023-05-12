@@ -545,23 +545,5 @@
             "help"
         ],
         "img_name": "default.jpg"
-    },
-    {
-        "username": "123",
-        "username_id": 9,
-        "thread_id": 26,
-        "title": "123",
-        "description": "123",
-        "content": "123",
-        "timestamp": {
-            "date": "12-05-2023",
-            "time": "22:08:33"
-        },
-        "views": 0,
-        "comments": [],
-        "tags": [
-            "123"
-        ],
-        "img_name": "123.jpg"
     }
 ]
