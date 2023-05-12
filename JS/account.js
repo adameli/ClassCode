@@ -1,8 +1,13 @@
-console.log("hello");
 
-// const currentUser = JSON.parse(window.localStorage.getItem("user"));
+const searchQuery = window.location.search;
+    const urlParams = new URLSearchParams( searchQuery);
+    const userPageName = urlParams.get( "un");
 
-console.log(currentUser);
+    if(current_user === userPageName){
+      document.querySelector(".imgEditContainer").innerHTML += `
+      <button id='editButton'> Edit profile </button>
+      `
+    }
 
 const modal = document.querySelector("#accountDialog");
 document.querySelector("#editButton").addEventListener("click", () => {
@@ -23,11 +28,11 @@ form.addEventListener("submit",  function (event) {
         <div class='profileBio'>${bioText}</div>
     `;
 
-    const userPatchRequest = new Request("../API/register.php", {
+    const userPatchRequest = new Request("../../API/register.php", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          user: currentUser,
+          user: current_user,
           profile_info: {
             fullname: values[0].value,
             discord: values[1].value,
