@@ -64,7 +64,7 @@ function convertToCodeblock( input) {
     return finalOutput;
 }
 
-function AppendLoadingAnimation( AnimContainer) {
+async function AppendLoadingAnimation( AnimContainer) {
     AnimContainer.innerHTML = `
         <div class="loadingAnimationContainer">
             <div class="loading--animation loading--animationDelay--1ms"></div>
@@ -74,6 +74,8 @@ function AppendLoadingAnimation( AnimContainer) {
     `;
 
     setTimeout( () => { 
-        console.log( "PAUSE")
+        return;
     }, 5000);
+
+    return;
 }

@@ -129,7 +129,7 @@ async function renderMainThread() {
     searchButton.addEventListener("click", async event => {
         const searchInputValue = searchInput.value;
         const requestString = new Request("../API/search_bar.php?s=" + searchInputValue + "&f");
-        AppendLoadingAnimation( mainThreadAllThreads);
+        await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction(requestString);
         // Here we call the loadthread function to uppdate the new threads that match the search
         loadThreads(thredResults);
@@ -141,7 +141,7 @@ async function renderMainThread() {
         let key = event.key;
         if (key === "Enter") {
             const requestString = new Request("../API/search_bar.php?s=" + searchValue + "&f");
-            AppendLoadingAnimation( mainThreadAllThreads);
+            await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         }
@@ -152,7 +152,7 @@ async function renderMainThread() {
         element.addEventListener("click", async event =>{
             let filterValue = event.currentTarget.dataset.filtervalue;
             const requestString = new Request ("../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
-            AppendLoadingAnimation( mainThreadAllThreads);
+            await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction(requestString);
             loadThreads(thredResults);
         });
