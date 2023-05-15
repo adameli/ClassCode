@@ -18,6 +18,10 @@ function removeUserLocalStorage() {
     window.location = `${serverEndpoint}`;
 }
 
+ function getCurrentUserLocalStorage() {
+    return localStorage.getItem( "user");
+ }
+
 function checkIfLoggedIn() {
     if( !localStorage.getItem( "user")) {
         window.location = `${serverEndpoint}`;
@@ -41,6 +45,7 @@ function addCodeBlocktoTextArea( event) {
     codefield.focus();
 }
 
+// Converts *-* & *+* into pre code tags, later converted into hljs higlights.
 function convertToCodeblock( input) {
     let firstStageConversion = input.replaceAll("*+*", "<pre><code>");
     const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
@@ -66,6 +71,7 @@ function convertToCodeblock( input) {
     return finalOutput;
 }
 
+// Appends loadingAnimation in given recieved queryselector 
 async function AppendLoadingAnimation( AnimContainer) {
     AnimContainer.innerHTML = `
         <div class="loadingAnimationContainer">
@@ -80,4 +86,12 @@ async function AppendLoadingAnimation( AnimContainer) {
     }, 5000);
 
     return;
+}
+
+// Fetch GetParams value Via javascript, recieves stringquery returns value in get param
+function getGetSearchParam( searchParam) {
+    const searchQuery = window.location.search;
+    const urlParams = new URLSearchParams( searchQuery);
+    const searchParamValue = urlParams.get( searchParam);
+    return searchParamValue;
 }

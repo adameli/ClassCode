@@ -75,87 +75,47 @@
 
     </header>
     <main>
-        <?php
-            echo "<div class='postContainer-pageThread'>";
+        
+        <div class='postContainer-pageThread'>
 
-                echo "<div class='topInfoFlexContainer-pageThread'>";
-                    echo "<div class='userInfoContainer-pageThread'>";
-                        echo "<img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_name'>";    
-                        echo "<div class='user_name-pageThread'>$username</div>";                    
-                    echo "</div>"; 
+            <!-- <div class='topInfoFlexContainer-pageThread'>
+                <div class='userInfoContainer-pageThread'>
+                    <img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_name'>
+                    <div class='user_name-pageThread'>$username</div>                 
+                </div>
                     
-                    echo "<div class='postInformationZone-pageThread'>";
-                    echo "<div class='views'><span class='InformationText-tread'>Views: $views</span></div>";
-                        echo "<div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: $time</span><br>
+                <div class='postInformationZone-pageThread'>
+                    <div class='views'><span class='InformationText-tread'>Views: $views</span></div>
+                    <div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: $time</span><br>
                         <span class='InformationText-tread'>Date: $date</span></div>";
-                    echo "</div>";
-                echo "</div>";
+                    </div>
+                </div>
                     
                 
-                echo "<div class='postTitleContainer-pageThread'>";
-                    echo "<h2 class='post_title-pageThread'>$title</h2>";
-                echo "</div>";
+                <div class='postTitleContainer-pageThread'>
+                    <h2 class='post_title-pageThread'>$title</h2>
+                </div>
                 
-                echo "<div class='usersPost-pageThread'>";
-                    echo "<p class='postDescription-pageThread'>$description</p>";
-                    echo "<div class='postContent-pageThread'>$content</div>";           
-                echo "</div>";   
+                <div class='usersPost-pageThread'>
+                    <p class='postDescription-pageThread'>$description</p>
+                    <div class='postContent-pageThread'>$content</div>           
+                </div>    
 
-            echo "</div>";
-        ?>
+            </div> -->
+        </div>
         
         <div class="commentsContainer-threadPage">
-        <?php 
-            if( $comments_exist) 
-            {
-                foreach( $selected_thread[ "comments"] as $comment) 
-                {
-                    $username = $comment[ "username"];
-                    $content = $comment[ "content"];
-                    $date = $comment[ "timestamp"][ "date"];
-                    $time = $comment[ "timestamp"][ "time"];
-                    $likes = $comment[ "likes"];
-                    
-                    $commenter_img_name = $comment[ "img_name"];
 
-                    echo "<div class='comment-threadPage'>";
-                        echo "<div class='likeContainer-comment'>";
-                            echo "<div class='numberLikes-comment'>$likes</div>";
-                        echo "</div>";
-                        
-                        echo "<div class='commentContainer-comment'>";
-
-                            echo "<div class='topInfoFlexContainer-pageThread'>";
-
-                                echo "<div class='userInfoContainer-comment'>";
-                                    echo "<img class='profileImg userInfoPostPicture-comment' src='$server_endpoint/API/PROFILE_IMG/$commenter_img_name'>";    
-                                    echo "<div class='user_name-comment'>$username</div>";                    
-                                echo "</div>"; 
-
-                                echo "<div class='information-comment'>";
-                                    echo "<p>Posted: $time<br>Date: $date</p>";
-                                echo "</div>";
-
-                            echo "</div>";
-                            echo "<p>$content</p>";
-                        
-                        echo "</div>";
-                    echo "</div>";
-                }
-            }
-            else
-            { 
-                echo "<p class='no_comments_exists'>No comments exists on this thread.</p>";
-            }
-        ?>
-        <button class="openModalButton-comment">Write a Comment!</button>
-        <dialog class="createCommentModal-comment" -data-thread-id="">
-            <h3>Create Comment</h3>
-            <button class="addCodeField-event">Add Code</button>
-                <textarea type=text id=content placeholder=Content!></textarea>
-                <button class="closeCommentModal">Close</button>
-                <button class="sendComment-modal">Post</button>
-        </dialog>
+            <button class="openModalButton-comment">Write a Comment!</button>
+            
+            <dialog class="createCommentModal-comment" -data-thread-id="">
+                <h3>Create Comment</h3>
+                <button class="addCodeField-event">Add Code</button>
+                    <textarea type=text id=content placeholder=Content!></textarea>
+                    <button class="closeCommentModal">Close</button>
+                    <button class="sendComment-modal">Post</button>
+            </dialog>
+            
         </div>
     </main>
     <footer></footer>

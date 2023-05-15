@@ -430,7 +430,7 @@
             "date": "05-05-2023",
             "time": "15:14:53"
         },
-        "views": 4,
+        "views": 5,
         "comments": [],
         "tags": [
             "html",
@@ -472,7 +472,7 @@
             "date": "07-05-2023",
             "time": "10:57:00"
         },
-        "views": 56,
+        "views": 57,
         "comments": [],
         "tags": [
             "html",
@@ -493,7 +493,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 18,
+        "views": 19,
         "comments": [
             {
                 "username": "Isak",
@@ -525,7 +525,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 35,
+        "views": 65,
         "comments": [
             {
                 "username": "Isak",
@@ -545,5 +545,101 @@
             "help"
         ],
         "img_name": "test.jpg"
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 26,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "13:55:26"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 27,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "14:05:10"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 28,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "14:06:30"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 29,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "14:06:32"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 30,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "14:06:34"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
+    },
+    {
+        "username": "\"hej\"",
+        "username_id": null,
+        "thread_id": 31,
+        "title": null,
+        "description": null,
+        "content": null,
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "14:06:37"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": null,
+        "img_name": null
     }
 ]
