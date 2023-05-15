@@ -19,52 +19,87 @@ const searchQuery = window.location.search;
     }
 
 const modal = document.querySelector("#accountDialog");
-document.querySelector("#editButton").addEventListener("click", () => {
-    modal.showModal();
-})
-let form = document.querySelector("form");
-form.addEventListener("submit",  function (event) {
-    event.preventDefault();
-    modal.close();
-    const values = form.querySelectorAll("input");
-    const bioText = form.querySelector("textarea").value;
-    console.log(bioText);
-    document.querySelector(".userInfo").innerHTML = `
-        <div class="infoParent">
-            <div class="info">${values[0].value}</div>
-            <div class="info">${values[1].value}</div>
-        </div>
-        <div class='profileBio'>${bioText}</div>
-    `;
 
-    const userPatchRequest = new Request("../../API/account.php", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          user: current_user,
-          profile_info: {
-            fullname: values[0].value,
-            discord: values[1].value,
-            bio: bioText,
-          },
-        }),
+const profileButton = document.querySelector("#editButton");
+editebleDivs = Array.from(document.querySelectorAll(".editableDivs-accountPage"));
+function editProfile () {
+  profileButton.textContent = "Save";
+  profileButton.removeEventListener("click", editProfile);
+  profileButton.addEventListener("click", saveProfileEdits);
+    editebleDivs.forEach(element => {
+      element.setAttribute("contenteditable", true);
     });
+    editebleDivs[0].focus();
+}
 
-    fetchFunction(userPatchRequest);
+function saveProfileEdits () {
+  profileButton.textContent = "Edit profile";
+  profileButton.removeEventListener("click", saveProfileEdits);
+  profileButton.addEventListener("click", editProfile);
+  editebleDivs.forEach(element => {
+    element.setAttribute("contenteditable", false);
+  });
+  const userPatchRequest = new Request("../../API/account.php", {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      user: current_user,
+      profile_info: {
+        fullname: editebleDivs[0].textContent,
+        discord: editebleDivs[1].textContent,
+        bio: editebleDivs[2].textContent,
+      },
+    }),
+});
+
+fetchFunction(userPatchRequest);
+
+}
+profileButton.addEventListener("click", editProfile);
+
+// let form = document.querySelector("form");
+// form.addEventListener("submit",  function (event) {
+//     event.preventDefault();
+//     modal.close();
+//     const values = form.querySelectorAll("input");
+//     const bioText = form.querySelector("textarea").value;
+//     console.log(bioText);
+//     document.querySelector(".userInfo").innerHTML = `
+//         <div class="infoParent">
+//             <div class="info">${values[0].value}</div>
+//             <div class="info">${values[1].value}</div>
+//         </div>
+//         <div class='profileBio'>${bioText}</div>
+//     `;
+
+//     const userPatchRequest = new Request("../../API/account.php", {
+//         method: "PATCH",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           user: current_user,
+//           profile_info: {
+//             fullname: values[0].value,
+//             discord: values[1].value,
+//             bio: bioText,
+//           },
+//         }),
+//     });
+
+//     fetchFunction(userPatchRequest);
             
-})
+// })
 
-modal.addEventListener("click", e => {
-    const dialogDimensions = modal.getBoundingClientRect()
-    if (
-      e.clientX < dialogDimensions.left ||
-      e.clientX > dialogDimensions.right ||
-      e.clientY < dialogDimensions.top ||
-      e.clientY > dialogDimensions.bottom
-    ) {
-      modal.close()
-    }
-  })
+// modal.addEventListener("click", e => {
+//     const dialogDimensions = modal.getBoundingClientRect()
+//     if (
+//       e.clientX < dialogDimensions.left ||
+//       e.clientX > dialogDimensions.right ||
+//       e.clientY < dialogDimensions.top ||
+//       e.clientY > dialogDimensions.bottom
+//     ) {
+//       modal.close()
+//     }
+//   })
 
 
   const form_dom = document.getElementById("formUpload");

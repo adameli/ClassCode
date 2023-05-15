@@ -102,10 +102,10 @@
         <?php
             echo "<div class='userInfo'>";
                 echo "<div class='infoParent'>";
-                    echo "<div class='info'>$fullname</div>";
-                    echo "<div class='info'>$discord</div>";
+                    echo "<div class='info editableDivs-accountPage' contenteditable='false'>$fullname</div>";
+                    echo "<div class='info editableDivs-accountPage' contenteditable='false'>$discord</div>";
                 echo "</div>";
-                echo "<div class='profileBio'>$bio</div>";
+                echo "<div class='profileBio editableDivs-accountPage' contenteditable='false'>$bio</div>";
             echo "</div>";
         echo "</div>";
         ?>
