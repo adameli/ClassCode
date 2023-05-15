@@ -88,10 +88,58 @@ async function AppendLoadingAnimation( AnimContainer) {
     return;
 }
 
-// Fetch GetParams value Via javascript, recieves stringquery returns value in get param
-function getGetSearchParam( searchParam) {
-    const searchQuery = window.location.search;
-    const urlParams = new URLSearchParams( searchQuery);
-    const searchParamValue = urlParams.get( searchParam);
-    return searchParamValue;
+
+async function loadThreads (arrayOfThreads, noResultMessage) {
+    
+    const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
+    mainThreadAllThreads.innerHTML = ``;
+    
+    if( arrayOfThreads.length === 0) {
+        mainThreadAllThreads.innerHTML = noResultMessage;
+    }
+    
+    //loops all users and creates postContainers
+    arrayOfThreads.forEach(threadObject => {
+        const postContainerDOM = document.createElement("div");
+        postContainerDOM.classList.add("postContainer-mainThread");
+
+        postContainerDOM.innerHTML = `
+        <div class="userInfoContainer-mainThread">
+                <div class"postTitleContainer-mainThread">
+                    <h3 class="post_title-mainThread">${threadObject.title}</h3>
+                    <div class="time_stamp-mainThread"> ${threadObject.timestamp["time"]} - ${threadObject.timestamp["date"]}</div>
+                    </div>
+                
+                <div class="usersPost-mainThread">
+                    <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_name}">
+                    <p class="user_name-mainThread">${threadObject.username}</p>
+                </div>                    
+            </div>
+
+            <div class="postContent-mainThread">${threadObject.description}</div>
+            <div class="threadTags">#${threadObject.tags.join(" #")}</div>
+        `;
+        document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
+        
+        // create link to threadPage
+        const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
+        linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
+
+        linkToThreadpageElement.addEventListener( "click", event => {
+            event.stopPropagation();
+            const threadID = event.explicitOriginalTarget.dataset.thread_id;
+            window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
+        })
+
+        // create link to userpage
+        const linkToUserPage = document.querySelector( ".userInfoPostPicture");
+        linkToUserPage.dataset.username = threadObject.username;
+
+        linkToUserPage.addEventListener( "click", event => {
+            event.stopPropagation();
+            const dataUsername = event.explicitOriginalTarget.dataset.username;
+            window.location = `${serverEndpoint}/PAGE/user.php?un=${dataUsername}`;
+        })
+        
+    });
 }
