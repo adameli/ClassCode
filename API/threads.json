@@ -270,7 +270,7 @@
             "css",
             "php"
         ],
-        "img_name": "default.jpg"
+        "img_name": "test.jpg"
     },
     {
         "username": "hej",
@@ -480,7 +480,7 @@
             "css",
             "php"
         ],
-        "img_name": "default.jpg"
+        "img_name": "test.jpg"
     },
     {
         "username": "hej",
@@ -544,6 +544,6 @@
             "code",
             "help"
         ],
-        "img_name": "default.jpg"
+        "img_name": "test.jpg"
     }
 ]

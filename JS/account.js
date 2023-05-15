@@ -57,6 +57,30 @@ fetchFunction(userPatchRequest);
 }
 profileButton.addEventListener("click", editProfile);
 
+const form_dom = document.getElementById("formUpload");
+form_dom.addEventListener("submit", async function (event) {
+
+  event.preventDefault();
+
+  const formData = new FormData(form_dom);
+  formData.append("username", JSON.parse(window.localStorage.getItem("user")));
+  const profileImgRequest = new Request("../../API/account.php", {
+      method: "POST",
+      body: formData,
+  });
+
+  let patchToImage = await fetchFunction(profileImgRequest);
+
+  if(patchToImage.resource["message"]){
+    document.querySelector(".imgMessage").textContent = patchToImage.resource.message;
+  }
+  
+  setTimeout( () => {
+    location.reload();
+  }, 1000);  
+})
+
+
 // let form = document.querySelector("form");
 // form.addEventListener("submit",  function (event) {
 //     event.preventDefault();
@@ -102,21 +126,3 @@ profileButton.addEventListener("click", editProfile);
 //   })
 
 
-  const form_dom = document.getElementById("formUpload");
-  form_dom.addEventListener("submit", async function (event) {
-
-    event.preventDefault();
-
-    const formData = new FormData(form_dom);
-    formData.append("username", JSON.parse(window.localStorage.getItem("user")));
-    const profileImgRequest = new Request("../../API/account.php", {
-        method: "POST",
-        body: formData,
-    });
-
-    let patchToImage = await fetchFunction(profileImgRequest);
-    
-    setTimeout( () => {
-      location.reload();
-    }, 1000);  
-  })

@@ -69,7 +69,7 @@
     echo "<div class='profilePicture-accountPage'><img src='$server_endpoint/API/PROFILE_IMG/$img_name'></div>";
     ?>
             <form>
-                <div class="inputContainer">
+                <div class="inputContainer">  
                 <?php
                 echo "<input value='$fullname' id='name' type='text' />";
                 echo "<input value='$discord' id='discord' type='text' />";
@@ -98,6 +98,7 @@
     <?php
     echo "<div class='profilePicture-accountPage'><img src=$server_endpoint/API/PROFILE_IMG/$img_name></div>";
     ?>
+    <p class="imgMessage"></p>
     </div>
         <?php
             echo "<div class='userInfo'>";
