@@ -37,7 +37,7 @@
                     "username" => $username, 
                     "content" => $content,
                     "timestamp" => $timestamp,
-                    "likes" => 0,
+                    "likes" => ["total" => 0, "accounts" => []],
                     "id" => $next_id,
                     "img_name" => $comment_img
                 ];
@@ -56,6 +56,7 @@
     {
         $thread_id = $request_data[ "thread_id"];
         $comment_id = $request_data[ "comment_id"];
+        $username = $request_data[ "username"];
 
         foreach( $threads as $thread_index => $thread) 
         {
@@ -67,10 +68,18 @@
                 {   
                     if( $comment_id == $comment[ "id"])
                     {
-                        $likes_total = $threads[ $thread_index][ "comments"][ $comment_index][ "likes"] += 1;
-                        $json = json_encode( $threads, JSON_PRETTY_PRINT);
-                        file_put_contents( $threads_file, $json);
-                        send_JSON( $likes_total);
+                        $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"][] = $username;
+                        if( in_array( $username, $comment[ "likes"][ "accounts"])) {
+                            $message = [ "message" => "You have already liked this comment"];
+                            send_JSON( $message, 400);
+                        }
+                        else
+                        {
+                            $total = $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "total"] += 1;
+                            $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                            file_put_contents( $threads_file, $json);
+                            send_JSON( $total);
+                        }
                     }
                 }
             }
