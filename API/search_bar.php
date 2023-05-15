@@ -35,6 +35,7 @@
                 //lowercase
                 $title = strtolower( $thread[ "title"]); 
                 $username = strtolower( $thread[ "username"]);
+                $description = strtolower ( $thread[ "description"]);
 
                 //Adds search_points depending on the lenght of the word/s that has been typed in the search-bar
                 //and depending on if the word/s match/es a thread´s title, creator or tag/s
@@ -55,6 +56,12 @@
                     if( str_contains( $username, $word) && str_contains( $title, $word)) 
                     {
                         $search_points += 10;
+                    }
+
+                    //Checks if search word contains a description
+                    if( str_contains( $description, $word)) 
+                    {
+                        $search_points += strlen( $word) / 2;
                     }
 
                     //Checks if search words match/are similar with a tag
