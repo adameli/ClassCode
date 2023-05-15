@@ -1,5 +1,3 @@
-// POST thread.php -> body: threadID, UN, Timestamp: date, time;
-// returns ThreadObject, fill Conent based on Response
 
 const threadId = getGetSearchParam( "thread_id");
 
@@ -20,9 +18,6 @@ const requestThreadPage = new Request( `${serverEndpoint}/API/thread.php`, {
     })
 })
 
-
-console.log( requestThreadPage);
-
 const threadContainer = document.querySelector( ".postContainer-pageThread");
 fillThreadPage();
 
@@ -40,46 +35,44 @@ async function fillThreadPage() {
     <div class='topInfoFlexContainer-pageThread'>
         
         <div class='userInfoContainer-pageThread'>
-            <img class='profileImg userInfoPostPicture' src='${server_endpoint}/API/PROFILE_IMG/${threadObject.img_name}'>
-            <div class='user_name-pageThread'>${threadObject.username}</div>                 
+            <img class='profileImg userInfoPostPicture' src='${serverEndpoint}/API/PROFILE_IMG/${threadObject.resource.img_name}'>
+            <div class='user_name-pageThread'>${threadObject.resource.username}</div>                 
         </div>
 
         <div class='postInformationZone-pageThread'>
-            <div class='views'><span class='InformationText-tread'>Views: ${threadObject.views}</span></div>
-            <div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: ${threadObject.timestamp.time}</span><br>
-                <span class='InformationText-tread'>Date: ${threadObject.timestamp.date}</span></div>
+            <div class='views'><span class='InformationText-tread'>Views: ${threadObject.resource.views}</span></div>
+            <div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: ${threadObject.resource.timestamp.time}</span><br>
+                <span class='InformationText-tread'>Date: ${threadObject.resource.timestamp.date}</span></div>
             </div>
         </div>
 
 
         <div class='postTitleContainer-pageThread'>
-            <h2 class='post_title-pageThread'>${threadObject.title}</h2>
+            <h2 class='post_title-pageThread'>${threadObject.resource.title}</h2>
         </div>
 
         <div class='usersPost-pageThread'>
-            <p class='postDescription-pageThread'></p>
-            <div class='postContent-pageThread'></div>           
+            <p class='postDescription-pageThread'>${threadObject.resource.description}</p>
+            <div class='postContent-pageThread'>${threadObject.resource.content}</div>           
         </div>
     </div>
     `;
-    
-    document.querySelector( ".postDescription-pageThread").textContent = threadObject.description;
-    document.querySelector( ".postContent-pageThread").textContent = threadObject.content;
 
-    if( threadObject.comments.length != 0) {
+    const commentContainer = document.querySelector( ".commentsContainer-threadPage");
+    if( threadObject.resource.comments.length != 0) {
         fillComments()
+        function fillComments() {
+
+        }
     }else {
-        document.querySelector( ".commentsContainer-threadPage").innerHTML += `
-        No comments exists on this page...
-        `;
+        commentContainer.innerHTML += `No comments exists on this page...`;
     }
 
-    function fillComments() {
-
-    }
+    hljs.highlightAll();
 }
 
-hljs.highlightAll();
+
+
 
 const openCreateCommentButton = document.querySelector( ".openModalButton-comment");
 const CommentContainer = document.querySelector( ".createCommentModal-comment");
