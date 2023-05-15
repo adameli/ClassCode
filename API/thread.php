@@ -4,9 +4,53 @@
     // Get all threads
     if( $request_method == "GET") 
     {   
-        if( $_GET[ "threads"] == "all") 
+        if( isset($_GET[ "threads"])) 
         {
-            send_JSON( $threads);
+            if($_GET[ "threads"] == "all")
+            {
+                send_JSON( $threads);
+            }
+            else
+            {
+                $message = [ "message" => "Error in GET parameter. Value on ?threads is not correct. Check API documentation."];
+                send_JSON( $message);
+            }
+        }
+        else if( isset( $_GET[ "un"])) 
+        {
+            $current_user = $_GET[ "un"];
+            $current_user_threads = [];
+
+            foreach( $users as $user) 
+            {
+                if( $current_user == $user[ "username"]) 
+                {
+                    foreach( $threads as $thread) 
+                    {
+                        if( $user[ "id"] == $thread[ "username_id"]) 
+                        {
+                            $current_user_threads[] = $thread;
+
+                            $data = [
+                                "threads" => $current_user_threads,
+                                "profile_info" => $user[ "profile_info"]
+                            ];
+                            send_JSON( $data);
+                        }
+        
+                    }
+                }
+                else
+                {
+                    $message = ["message" => "Error in GET parameter. User does not exist."];
+                    send_JSON( $message, 400);
+                }
+            }
+
+        }
+        else {
+            $message = ["message" => "Error in GET parameter. Chech API documentation."];
+            send_JSON( $message, 400);
         }
     } 
 
