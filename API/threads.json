@@ -430,7 +430,7 @@
             "date": "05-05-2023",
             "time": "15:14:53"
         },
-        "views": 4,
+        "views": 5,
         "comments": [],
         "tags": [
             "html",
@@ -472,7 +472,7 @@
             "date": "07-05-2023",
             "time": "10:57:00"
         },
-        "views": 56,
+        "views": 57,
         "comments": [],
         "tags": [
             "html",
@@ -513,7 +513,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 45,
+        "views": 65,
         "comments": [
             {
                 "username": "Isak",
@@ -539,5 +539,23 @@
             "help"
         ],
         "img_name": "test.jpg"
+    },
+    {
+        "username": "Isak",
+        "username_id": 1,
+        "thread_id": 26,
+        "title": "s",
+        "description": "s",
+        "content": "s",
+        "timestamp": {
+            "date": "15-05-2023",
+            "time": "15:02:11"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "s"
+        ],
+        "img_name": "Isak.jpg"
     }
 ]
