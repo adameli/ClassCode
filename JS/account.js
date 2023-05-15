@@ -1,6 +1,10 @@
 async function renderAccountPage () {
 
-  const userInfoRequest = new Request( "../../API/thread.php?un=" + current_user);
+  const searchQuery = window.location.search;
+  const urlParams = new URLSearchParams( searchQuery);
+  const userPageName = urlParams.get( "un");
+
+  const userInfoRequest = new Request( "../../API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
   // resourse {
   //   threads: [],
@@ -20,7 +24,7 @@ async function renderAccountPage () {
   const profileInfo = userObjekt.resource.profile_info
   document.querySelector( ".profilSettings-accountPage").innerHTML = `
     <div class="imgEditContainer"> 
-    <div class='profilePicture-accountPage'><img src=${serverEndpoint}/API/PROFILE_IMG/${profileInfo.img_name}></div>
+    <div class='profilePicture-accountPage'><img src=${serverEndpoint}/API/PROFILE_IMG/${userObjekt.resource.img_name}></div>
     <p class="imgMessage"></p> 
     </div>
     <div class='userInfo'>
@@ -32,10 +36,6 @@ async function renderAccountPage () {
     </div>
     </div> 
   `;
-
-  const searchQuery = window.location.search;
-  const urlParams = new URLSearchParams( searchQuery);
-  const userPageName = urlParams.get( "un");
 
   if(current_user === userPageName){
     document.querySelector(".imgEditContainer").innerHTML += `
