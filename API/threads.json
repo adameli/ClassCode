@@ -525,7 +525,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 35,
+        "views": 41,
         "comments": [
             {
                 "username": "Isak",
@@ -537,6 +537,17 @@
                 "likes": 0,
                 "id": 1,
                 "img_name": "Isak.jpg"
+            },
+            {
+                "username": "test",
+                "content": "erik testar<br>    <pre><code>\n       const e = \"werwer\";\n    <\/code><\/pre><br>    <pre><code>\n        Write Code Here\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "15-05-2023",
+                    "time": "10:54:19"
+                },
+                "likes": 0,
+                "id": 2,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [

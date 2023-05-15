@@ -11,7 +11,7 @@ const searchQuery = window.location.search;
       </form>
       `
     }
-
+    
     if(current_user === userPageName){
       document.querySelector(".imgEditContainer").innerHTML += `
       <button id='editButton'> Edit profile </button>
