@@ -18,39 +18,7 @@
         }
         else if( isset( $_GET[ "un"])) 
         {
-            $current_user = $_GET[ "un"];
-            $current_user_threads = [];
-
-            foreach( $users as $user) 
-            {
-                if( $current_user == $user[ "username"]) 
-                {
-                    foreach( $threads as $thread) 
-                    {
-                        if( $user[ "id"] == $thread[ "username_id"]) 
-                        {
-                            $current_user_threads[] = $thread;
-
-                            $data = [
-                                "threads" => $current_user_threads,
-                                "profile_info" => $user[ "profile_info"]
-                            ];
-                            send_JSON( $data);
-                        }
-        
-                    }
-                }
-                else
-                {
-                    $message = ["message" => "Error in GET parameter. User does not exist."];
-                    send_JSON( $message, 400);
-                }
-            }
-
-        }
-        else {
-            $message = ["message" => "Error in GET parameter. Chech API documentation."];
-            send_JSON( $message, 400);
+            send_JSON("HEJ");
         }
     } 
 
