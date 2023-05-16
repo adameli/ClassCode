@@ -6,6 +6,7 @@ async function renderAccountPage () {
 
   const userInfoRequest = new Request( "../../API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
+  console.log(userObjekt);
   // resourse {
   //   threads: [],
   //   profileInfo: {
