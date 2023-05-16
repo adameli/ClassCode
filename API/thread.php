@@ -18,7 +18,40 @@
         }
         else if( isset( $_GET[ "un"])) 
         {
-            send_JSON("HEJ");
+            $current_user_threads = [];
+            $user_found = false;
+            
+            foreach( $users as $user) 
+            {   
+                if( $user["username"] == $_GET["un"]) 
+                {
+                    $user_found = true;
+                    $profile_info = $user[ "profile_info"];
+                    $img_name = $user[ "img_name"];
+
+                    foreach( $threads as $thread) 
+                    {
+                        if( $thread[ "username_id"] == $user[ "id"])
+                        {
+                            $current_user_threads[] = $thread;
+                        }
+                    }
+                }
+            }
+
+            if( !$user_found) 
+            {
+                $message = ["message" => "User does not exist."];
+                send_JSON($message, 400);
+            }
+
+            $data = [
+                "profile_info" => $profile_info,
+                "img_name" => $img_name,
+                "threads" => $current_user_threads
+            ];
+
+            send_JSON( $data);
         }
     } 
 
@@ -90,7 +123,7 @@
         }
         else 
         {
-            $message = ["message" => "Error in POST body. Wrong keys used. Read API dokumentation"];
+            $message = ["message" => "Error in POST body. Wrong keys used. Read API documentation."];
             send_JSON($message);
         }
     }

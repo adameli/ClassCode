@@ -388,7 +388,7 @@
             "date": "05-05-2023",
             "time": "14:32:35"
         },
-        "views": 1,
+        "views": 2,
         "comments": [],
         "tags": [
             "html",
@@ -409,7 +409,7 @@
             "date": "05-05-2023",
             "time": "14:36:56"
         },
-        "views": 2,
+        "views": 3,
         "comments": [],
         "tags": [
             "html",
@@ -430,7 +430,7 @@
             "date": "05-05-2023",
             "time": "15:14:53"
         },
-        "views": 7,
+        "views": 6,
         "comments": [],
         "tags": [
             "html",
@@ -493,7 +493,7 @@
             "date": "10-05-2023",
             "time": "15:54:40"
         },
-        "views": 18,
+        "views": 19,
         "comments": [],
         "tags": [
             "javascript",
@@ -513,7 +513,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 65,
+        "views": 66,
         "comments": [
             {
                 "username": "Isak",
@@ -524,8 +524,8 @@
                 },
                 "likes": {
                     "accounts": [
-                        "isak",
-                        "teo"
+                        "Isak",
+                        "test"
                     ],
                     "total": 2
                 },
@@ -539,23 +539,5 @@
             "help"
         ],
         "img_name": "test.jpg"
-    },
-    {
-        "username": "Isak",
-        "username_id": 1,
-        "thread_id": 26,
-        "title": "s",
-        "description": "s",
-        "content": "s",
-        "timestamp": {
-            "date": "15-05-2023",
-            "time": "15:02:11"
-        },
-        "views": 0,
-        "comments": [],
-        "tags": [
-            "s"
-        ],
-        "img_name": "Isak.jpg"
     }
 ]
