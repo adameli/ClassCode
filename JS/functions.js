@@ -88,6 +88,12 @@ async function AppendLoadingAnimation( AnimContainer) {
     return;
 }
 
+function getGetSearchParam( searchParam) {
+    const searchQuery = window.location.search;
+    const urlParams = new URLSearchParams( searchQuery);
+    const searchParamValue = urlParams.get( searchParam);
+    return searchParamValue;
+}
 
 async function loadThreads (arrayOfThreads, noResultMessage) {
     
