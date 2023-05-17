@@ -73,6 +73,7 @@
 .profileBio {
     height: 105px;
     margin-top: 50px;
+    overflow: scroll;
 }
 
 input[type="file"] {

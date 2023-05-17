@@ -18,8 +18,8 @@ function createTag(numberOfTags) {
         // We get the X mark symbol so the user can remove a current tag
         const deleteTags = document.querySelectorAll( ".removeTag");
         deleteTags.forEach(element => {
-            element.removeEventListener("click", removeTag);
-            element.addEventListener("click", removeTag);
+            element.removeEventListener( "click", removeTag);
+            element.addEventListener( "click", removeTag);
         });
         if(numberOfTags > 8){
             document.getElementById( "tagErrorMessage").textContent = "You can not have more then 8 tags";
