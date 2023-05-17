@@ -79,7 +79,8 @@ function loginRegisterPage(type, changeTypeMessage) {
                 
                 if( phpFileName === "login.php"){
                     if( post.response.ok) {
-                        window.localStorage.setItem( "user", JSON.stringify( post.resource));
+                        window.localStorage.setItem( "user", JSON.stringify( post.resource.username));
+                        window.localStorage.setItem( "img_name", JSON.stringify( post.resource.img_name));
     
                         renderMainThread();
                     } else {
