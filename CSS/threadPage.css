@@ -109,4 +109,13 @@
     padding: var(--paddingCardContainer);   
 }
 
+/* Likes Css___________________________________________________________________ */
 
+.likedComment-pseudo::after {
+    content: '';
+    display: block;
+}
+.unlikedComment-pseudo::after {
+    content: '';
+    display: block;
+}

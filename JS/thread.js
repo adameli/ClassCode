@@ -60,60 +60,99 @@ async function fillThreadPage() {
 
     const commentContainer = document.querySelector( ".commentsContainer-threadPage");
     if( threadObject.resource.comments.length != 0) {
-        fillComments()
-        function fillComments() {
+        threadObject.resource.comments.forEach( comment => {
+            commentContainer.innerHTML += `
+                <div class='comment-threadPage'>
+                    <div class='likeContainer-comment'>
+                        <div class='numberLikes-comment'>${comment.likes.total}</div>
+                    </div>
+                    
+                    <div class='commentContainer-comment'>
+        
+                        <div class='topInfoFlexContainer-pageThread'>
+        
+                            <div class='userInfoContainer-comment'>
+                                <img class='profileImg userInfoPostPicture-comment' src='${serverEndpoint}/API/PROFILE_IMG/${comment.img_name}'> 
+                                <div class='user_name-comment'>${comment.username}</div>                   
+                            </div>
+        
+                            <div class='information-comment'>
+                                <p>Posted: ${comment.timestamp.time}<br>Date: ${comment.timestamp.date}</p>
+                            </div>
+        
+                        </div>
 
-        }
+                        <p>${comment.content}</p>
+                    
+                    </div>
+                </div>`;
+            
+            comment.likes.accounts.forEach( like => {
+                if( like === getCurrentUserLocalStorage()) {
+                    document.querySelector( ".numberLikes-comment").classList.add( "likedComment-pseudo");
+                    console.log( "like")
+                }else {
+                    document.querySelector( ".numberLikes-comment").classList.add( "unlikedComment-pseudo");
+                    console.log( "bottom")
+                }
+            })
+        });
+
     }else {
         commentContainer.innerHTML += `No comments exists on this page...`;
     }
 
+
     hljs.highlightAll();
+    prepareAddComments();
 }
 
 
-
-
-const openCreateCommentButton = document.querySelector( ".openModalButton-comment");
-const CommentContainer = document.querySelector( ".createCommentModal-comment");
-const closeCommentContainer = document.querySelector( ".closeCommentModal");
-
-
-// opens modal
-openCreateCommentButton.addEventListener( "click", () => {
-    if( localStorage.getItem( "user")) {
-        CommentContainer.show();
-    }else {
-        // error, not logged in
-    }
-})
-
-// closes Modal
-closeCommentContainer.addEventListener( "click", () => {
-    CommentContainer.close();
-})
-
-// Add Codeblock
-document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
-
-// Post Comment
-document.querySelector( ".sendComment-modal").addEventListener( "click", postComment);
-
-async function postComment() {
-    // convert codeblocks and retain new lines \n
-    let unconvertedContentInput = document.getElementById( "content").value;
-    const convertedComment = convertToCodeblock( unconvertedContentInput);
+function prepareAddComments() {
+    const openCreateCommentButton = document.querySelector( ".openModalButton-comment");
+    const CommentContainer = document.querySelector( ".createCommentModal-comment");
+    const closeCommentContainer = document.querySelector( ".closeCommentModal");
     
-    const commentPost = new Request(`${serverEndpoint}/API/comment.php`, {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                username: getCurrentUserLocalStorage(), 
-                content: convertedComment, 
-                thread_id: threadId
-            })
-        });
+    
+    // opens modal
+    openCreateCommentButton.addEventListener( "click", () => {
+        if( localStorage.getItem( "user")) {
+            CommentContainer.show();
+        }else {
+            // error, not logged in
+        }
+    })
+    
+    // closes Modal
+    closeCommentContainer.addEventListener( "click", () => {
+        CommentContainer.close();
+    })
+    
+    // Add Codeblock
+    document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
+    
+    // Post Comment
+    document.querySelector( ".sendComment-modal").addEventListener( "click", postComment);
+    
+    async function postComment() {
+        // convert codeblocks and retain new lines \n
+        let unconvertedContentInput = document.getElementById( "content").value;
+        const convertedComment = convertToCodeblock( unconvertedContentInput);
         
-    const response = await fetchFunction( commentPost);
-    setTimeout( () => { location.reload();}, 1000);  
+        const commentPost = new Request(`${serverEndpoint}/API/comment.php`, {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    username: getCurrentUserLocalStorage(), 
+                    content: convertedComment, 
+                    thread_id: threadId
+                })
+            });
+            
+        const response = await fetchFunction( commentPost);
+
+        setTimeout( () => { location.reload();}, 1000);  
+
+    }
+
 }

@@ -1,51 +1,3 @@
-<?php
-    require_once "../API/index.php";
-
-    $threads_file = "../API/threads.json";
-    $users_file = "../API/users.json";
-
-    $comments_exist = false;
-    
-    if( file_exists( $threads_file)) 
-    {
-        $json = file_get_contents( $threads_file);
-        $threads = json_decode( $json, true);
-    }
-
-    if( file_exists( $users_file)) 
-    {
-        $json = file_get_contents( $users_file);
-        $users = json_decode( $json, true);
-    }
-
-    //URL - GET. PAGE/thread.php?thread_id=thread_id
-    foreach( $threads as $index => $thread) 
-    {
-
-        if( $thread[ "thread_id"] == $_GET[ "thread_id"]) 
-        {
-            $selected_thread = $thread;
-            $username = $thread[ "username"];
-            $title = $thread[ "title"];
-            $description = $thread[ "description"];
-            $content = $thread[ "content"];
-            $date = $thread[ "timestamp"][ "date"];
-            $time = $thread[ "timestamp"][ "time"];
-            $creator_img_name = $thread[ "img_name"];
-            
-            $threads[ $index][ "views"] += 1;
-            $json = json_encode( $threads, JSON_PRETTY_PRINT);
-            file_put_contents( $threads_file, $json);
-
-            if( count( $threads[ $index][ "comments"]) != 0) 
-            {
-                $comments_exist = true;
-            }
-            $views = $thread[ "views"];
-        }
-    }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +58,9 @@
         
         <div class="commentsContainer-threadPage">
 
-            <button class="openModalButton-comment">Write a Comment!</button>
+
+        </div>
+        <button class="openModalButton-comment">Write a Comment!</button>
             
             <dialog class="createCommentModal-comment" -data-thread-id="">
                 <h3>Create Comment</h3>
@@ -115,8 +69,6 @@
                     <button class="closeCommentModal">Close</button>
                     <button class="sendComment-modal">Post</button>
             </dialog>
-            
-        </div>
     </main>
     <footer></footer>
     <!-- Highlights.js SourceCode -->

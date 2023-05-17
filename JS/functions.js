@@ -19,7 +19,7 @@ function removeUserLocalStorage() {
 }
 
  function getCurrentUserLocalStorage() {
-    return localStorage.getItem( "user");
+    return JSON.parse( localStorage.getItem( "user"));
  }
 
 function checkIfLoggedIn() {
@@ -33,12 +33,13 @@ function addCodeBlocktoTextArea( event) {
     *+*
         Write Code Here
     *-*`;
+
     codefield = document.querySelector( "#content");
     codefield.value += codeBlock;
    
     // Get the index of the start and end symbols
-    const startIndex = codefield.value.lastIndexOf("*+*") + 3;
-    const endIndex = codefield.value.lastIndexOf("*-*");
+    const startIndex = codefield.value.lastIndexOf("*+*") + 4;
+    const endIndex = codefield.value.lastIndexOf("*-*") - 5;
 
     // Set the selection range to focus on the text between the start and end symbols
     codefield.setSelectionRange(startIndex, endIndex);
