@@ -36,7 +36,8 @@
                 "bio" => "",
                 "discord" => ""
             ],
-            "img_name" => "$un.jpg"
+            "img_name" => "$un.jpg",
+            "date_visited_thread" => []
         ];
 
         //Checking if the user forgot to type

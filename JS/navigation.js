@@ -1,9 +1,10 @@
 function renderNavigationLoggedIn(user) {
     const parentContainer = document.querySelector(".userInformation")
+    const imgName = JSON.parse(localStorage.getItem( "img_name"));
 
     parentContainer.innerHTML = `
     <div class="profile">
-        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${user}.jpg">
+        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${imgName}">
     </div>
     `;
 
@@ -15,7 +16,7 @@ function renderNavigationLoggedIn(user) {
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
-                        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${user}.jpg">
+                        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${imgName}">
                     </div>
                     <div class="profile-loggedInAs">
                         <p>Account:</p>

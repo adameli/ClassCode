@@ -15,7 +15,7 @@
         }
 
         date_default_timezone_set( "Europe/Stockholm");
-        $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
+        $timestamp = [ "date" => date( "Y-m-d"), "time" => date( "H:i:s")];
 
         foreach( $threads as $index => $thread) 
         {
@@ -46,8 +46,7 @@
                 
                 $json = json_encode( $threads, JSON_PRETTY_PRINT);
                 file_put_contents( $threads_file, $json);
-                $message = ["message" => "Post Success"];
-                send_JSON( $message);
+                send_JSON( "Post Success");
             } 
         }
     }

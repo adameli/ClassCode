@@ -283,3 +283,33 @@ header > h3 {
     animation-delay: .6s;
 }
 
+.inputAnimationContainer {
+    position: relative;
+}
+
+.inputAnimationContainer span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.252);
+    transition: .5s;
+}
+
+.inputAnimationContainer input:valid ~ span,
+.inputAnimationContainer input:focus ~ span {
+    color: var(--pointOfInterest);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid var(--pointOfInterest);
+    border-right: 1px solid var(--pointOfInterest);
+    letter-spacing: .2em;
+}
+
+.inputAnimationContainer input:valid,
+.inputAnimationContainer input:focus {
+    border: 1px solid var(--pointOfInterest);
+}

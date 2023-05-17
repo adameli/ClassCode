@@ -14,7 +14,12 @@
             {
                 if( $un == $user[ "username"] && password_verify( $pw, $user[ "password"])) 
                 {
-                    send_JSON( $user[ "username"]);
+                    $data = [ 
+                        "username" => $user[ "username"],
+                        "img_name" => $user[ "img_name"]  
+                    ];
+                    
+                    send_JSON( $data);
                 }
             }
 

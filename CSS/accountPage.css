@@ -1,5 +1,6 @@
 .profilSettings-accountPage {
     display: flex;
+    gap: 40px;
     margin: 2%;
 }
 
@@ -8,6 +9,10 @@
     overflow: hidden;
     margin: 15px;
     max-width: 200px;
+}
+
+.imgEditContainer {
+    position: relative;
 }
 
 .profilePicture-accountPage img {
@@ -30,8 +35,7 @@
 }
 
 .userInfo {
-    padding: 20px;
-    width: 500px;
+    width: 600px;
 }
 
 .infoParent {
@@ -42,16 +46,55 @@
 }
 
 .info {
-    padding: 10px;
+    position: relative;
+    padding: 15px 10px;
     background-color: #ffffff0c;
     width: 100%;
-    border: 1px solid white;
+}
+
+.info::before {
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    color: #576bbc;
+    font-size: 20px;
+}
+
+.fullname::before {
+    content: "Fullname";
+}
+.discord::before {
+    content: "Discord";
+}
+.profileBio::before {
+    content: "Bio";
 }
 
 .profileBio {
-    max-width: 700px;
     height: 105px;
     margin-top: 50px;
-    padding: 20px;
-    background-color: #ffffff0c;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.editProfileImage {
+    background-color: var(--pointOfInterest);
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 11px;
+    position: absolute;
+    bottom: 58px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.pushNotification::before {
+    content: "❕";
+    background-color: #c92f0d;
+    border-radius: 50%;
+    position: absolute;
+    left: -4px;
+    top: -9px;
 }

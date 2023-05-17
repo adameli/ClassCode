@@ -40,6 +40,7 @@ async function renderMainThread() {
         <div class="mainThread-allThreads"><div>
     </section>
     `;
+    const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
         window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
@@ -65,6 +66,7 @@ async function renderMainThread() {
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
     const allThreadsRequest = new Request( "../API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
+    // console.log(objectWithThreads);
     if( objectWithThreads.response.ok){
         loadThreads( objectWithThreads.resource, "No search results...");
     }else {
@@ -80,8 +82,9 @@ async function renderMainThread() {
         const requestString = new Request( "../API/search_bar.php?s=" + searchInputValue + "&f");
         await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction( requestString);
+        console.log(thredResults);
         // Here we call the loadthread function to uppdate the new threads that match the search
-        loadThreads( thredResults);
+        loadThreads( thredResults.resource, "No search results...");
     })
 
     // When the user clicks on the "Enter" key, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 
@@ -92,7 +95,7 @@ async function renderMainThread() {
             const requestString = new Request( "../API/search_bar.php?s=" + searchValue + "&f");
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
-            loadThreads( thredResults);
+            loadThreads( thredResults.resource, "No search results...");
         }
     });
 
@@ -103,7 +106,7 @@ async function renderMainThread() {
             const requestString = new Request ( "../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
-            loadThreads( thredResults);
+            loadThreads( thredResults.resource, "No search results...");
         });
     });
 

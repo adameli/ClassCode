@@ -16,8 +16,14 @@ function loginRegisterPage(type, changeTypeMessage) {
             <h2>${type}</h2>
             <p id=message></p>
             <form>
-                <input type=text id=username placeholder=Username>
-                <input type=password id=password placeholder=Password>
+                <div class="inputAnimationContainer">
+                    <input type="text" id="username" required="required">
+                    <span>Username</span>
+                </div>
+                <div class="inputAnimationContainer">
+                    <input type="password" id="password" required="required">
+                    <span>Password</span>
+                </div>
                 <button type=submit>${type}</button>
             </form>
             <button id=change>${changeTypeMessage}</button>
@@ -73,7 +79,8 @@ function loginRegisterPage(type, changeTypeMessage) {
                 
                 if( phpFileName === "login.php"){
                     if( post.response.ok) {
-                        window.localStorage.setItem( "user", JSON.stringify( post.resource));
+                        window.localStorage.setItem( "user", JSON.stringify( post.resource.username));
+                        window.localStorage.setItem( "img_name", JSON.stringify( post.resource.img_name));
     
                         renderMainThread();
                     } else {
