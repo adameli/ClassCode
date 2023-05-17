@@ -28,6 +28,7 @@
                     $user_found = true;
                     $profile_info = $user[ "profile_info"];
                     $img_name = $user[ "img_name"];
+                    $date_visited_thread = $user[ "date_visited_thread"];
 
                     foreach( $threads as $thread) 
                     {
@@ -48,7 +49,8 @@
             $data = [
                 "profile_info" => $profile_info,
                 "img_name" => $img_name,
-                "threads" => $current_user_threads
+                "threads" => $current_user_threads,
+                "date_visited_thread" =>  $date_visited_thread
             ];
 
             send_JSON( $data);
@@ -112,10 +114,32 @@
         }
         else if( count( array_intersect( $required_keys_one_specific_thread, array_keys( $request_data))) === count( $required_keys_one_specific_thread))
         {
-            foreach( $threads as $index => $thread) 
+
+            $timestamp = $request_data[ "timestamp"];
+            $username = $request_data[ "username"];
+            $thread_id = $request_data[ "thread_id"];
+
+            foreach( $users as $index => $user) 
             {
-        
-                if( $thread[ "thread_id"] == $request_data[ "thread_id"]) 
+                if( $user[ "username"] == $username ) 
+                {   
+                    $date_visited_thread = $users[$index]["date_visited_thread"];
+                    foreach( $threads as $thread) 
+                    {
+                        if( $thread[ "username_id"] == $user[ "id"] && $thread[ "thread_id"] == $thread_id) 
+                        {
+                            $users[ $index][ "date_visited_thread"][$thread_id] = $timestamp;
+
+                            $json = json_encode($users, JSON_PRETTY_PRINT);
+                            file_put_contents($users_file, $json);
+                        }
+                    }
+                }
+            }
+
+            foreach( $threads as $thread) 
+            {
+                if( $thread[ "thread_id"] == $thread_id) 
                 {
                     send_JSON($thread);
                 }

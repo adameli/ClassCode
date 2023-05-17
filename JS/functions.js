@@ -19,7 +19,7 @@ function removeUserLocalStorage() {
 }
 
  function getCurrentUserLocalStorage() {
-    return localStorage.getItem( "user");
+    return JSON.parse(localStorage.getItem( "user"));
  }
 
 function checkIfLoggedIn() {
