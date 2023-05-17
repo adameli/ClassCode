@@ -4,9 +4,9 @@
     if( $request_method == "POST") 
     {
         
-        if( $_FILES["file"]["size"] > 1000) 
+        if( $_FILES["file"]["size"] > 2000000) 
         {
-            $message = ["message" => "Image too large, max limit is 1 Megabyte."];
+            $message = ["message" => "Image too large, max limit is 2 Megabyte."];
             send_JSON($message, 400);
         }
         
