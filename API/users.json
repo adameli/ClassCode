@@ -89,7 +89,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_name": "OHLEG.jpg",
+        "img_name": "default.jpg",
         "date_visited_thread": []
     },
     {
@@ -102,6 +102,18 @@
             "bio": ""
         },
         "img_name": "default.jpg",
+        "date_visited_thread": []
+    },
+    {
+        "id": 9,
+        "username": "TEST",
+        "password": "$2y$10$MSQR7EGQT6\/YXtvh4rL.m.wZNi6uzfQT8MzGXEMaI\/K1jN\/AZuQcS",
+        "profile_info": {
+            "fullname": "Buffa",
+            "discord": "Buffa.007",
+            "bio": "woof"
+        },
+        "img_name": "TEST.png",
         "date_visited_thread": []
     }
 ]

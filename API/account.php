@@ -9,21 +9,33 @@
             $message = ["message" => "Image too large, max limit is 2 Megabyte."];
             send_JSON($message, 400);
         }
-        
+
         $filename = $_FILES[ "file"][ "name"];
 
-        if( !str_contains($filename, ".jpg")) 
+        if( !str_contains($filename, ".jpg") && !str_contains($filename, ".png")) 
         {
-            $message = ["message" => "Image must be of file-type jpg."];
+            $message = ["message" => "Image must be of file-type jpg or png."];
             send_JSON($message, 400);
         }
+
 
         foreach( $users as $index => $user) 
         {
             if( $user[ "username"] == $_POST["username"]) 
             {
-                $filename = $user[ "username"] . ".jpg";
-                $users[ $index][ "img_name"] = $filename;
+                if( str_contains( $filename, ".jpg")) 
+                {
+                    $filename = $user[ "username"] . ".jpg";
+                }
+                else if( str_contains( $filename, ".png")) 
+                {
+                    $filename = $user[ "username"] . ".png";
+                }
+                if( str_contains( $filename, $user[ "username"])) 
+                {
+                    $users[ $index][ "img_name"] = $filename;
+                }
+                
                 $json = json_encode( $users, JSON_PRETTY_PRINT);
                 file_put_contents( $users_file, $json);
 
@@ -51,6 +63,7 @@
                 $source = $_FILES["file"]["tmp_name"];
                 $destination = "PROFILE_IMG/$filename";
                 move_uploaded_file($source, $destination);
+                send_JSON( $filename);
             }
         }
 
