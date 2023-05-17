@@ -15,7 +15,7 @@
         }
 
         date_default_timezone_set( "Europe/Stockholm");
-        $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
+        $timestamp = [ "date" => date( "Y-m-d"), "time" => date( "H:i:s")];
 
         foreach( $threads as $index => $thread) 
         {

@@ -89,3 +89,12 @@ input[type="file"] {
     left: 20px;
     cursor: pointer;
 }
+
+.pushNotification::before {
+    content: "❕";
+    background-color: #c92f0d;
+    border-radius: 50%;
+    position: absolute;
+    left: -4px;
+    top: -9px;
+}

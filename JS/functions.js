@@ -95,7 +95,7 @@ function getGetSearchParam( searchParam) {
     return searchParamValue;
 }
 
-async function loadThreads (arrayOfThreads, noResultMessage) {
+async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[]) {
     
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     mainThreadAllThreads.innerHTML = ``;
@@ -111,7 +111,7 @@ async function loadThreads (arrayOfThreads, noResultMessage) {
 
         postContainerDOM.innerHTML = `
         <div class="userInfoContainer-mainThread">
-                <div class"postTitleContainer-mainThread">
+                <div class="postTitleContainer-mainThread">
                     <h3 class="post_title-mainThread">${threadObject.title}</h3>
                     <div class="time_stamp-mainThread"> ${threadObject.timestamp["time"]} - ${threadObject.timestamp["date"]}</div>
                     </div>
@@ -130,6 +130,11 @@ async function loadThreads (arrayOfThreads, noResultMessage) {
         // create link to threadPage
         const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
         linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
+
+        // This if statment checks the user have a comment on thier post that they have not yet seen
+        if(pushNotifications.includes(parseInt(linkToThreadpageElement.dataset.thread_id))){
+            document.querySelector(".postTitleContainer-mainThread").classList.add("pushNotification");
+        }
 
         linkToThreadpageElement.addEventListener( "click", event => {
             event.stopPropagation();

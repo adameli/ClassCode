@@ -6,17 +6,33 @@ async function renderAccountPage () {
 
   const userInfoRequest = new Request( "../../API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
-  // resourse {
-  //   threads: [],
-  //   img_name: #,
-  //   profileInfo: {
-  //     fullname: #,
-  //     discord: #,
-  //     bio: #
-  //   }
-  // }
+
+  let lastVisitedThread = userObjekt.resource.date_visited_thread
+  let userThreads = userObjekt.resource.threads
+  let threadsUserNotSeen = [];
+
+  for ( const lastVisitedThreadId in lastVisitedThread) {
+    
+    for ( const thread of userThreads){
+      if( parseInt( lastVisitedThreadId) === thread.thread_id){
+        let lastVisitedThreadDate = lastVisitedThread[lastVisitedThreadId].date + " " + lastVisitedThread[lastVisitedThreadId].time;
+        console.log("last visited thread date", lastVisitedThreadDate);
+        let latestCommentDate = thread.comments[thread.comments.length-1].timestamp.date + " " + thread.comments[thread.comments.length-1].timestamp.time;
+        console.log("comment date", latestCommentDate);
+
+        const date1 = new Date(lastVisitedThreadDate);
+        const date2 = new Date(latestCommentDate);
+        if (date1 < date2) {
+          console.log('date2(comment) is the newest');
+          threadsUserNotSeen.push(thread.thread_id);
+        }
+      }
+
+    }
+  }
+
   if(userObjekt.response.ok){
-    loadThreads( userObjekt.resource.threads, "You have no threads, Post a thread here...");
+    loadThreads( userObjekt.resource.threads, "You have no threads, Post a thread here...", threadsUserNotSeen);
   }else {
     loadThreads( [], "Something went wrong... Please try again");
   }
@@ -45,7 +61,6 @@ async function renderAccountPage () {
     <button id='editButton'> Edit profile </button>
     `
   }
-
 
   const profileButton = document.querySelector("#editButton");
   editebleDivs = Array.from(document.querySelectorAll(".editableDivs-accountPage"));

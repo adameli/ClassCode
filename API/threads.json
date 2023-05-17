@@ -115,8 +115,8 @@
                 "username": "Isak",
                 "content": "hello",
                 "timestamp": {
-                    "date": "17-05-2023",
-                    "time": "12:27:24"
+                    "date": "2023-5-17",
+                    "time": "12:26:24"
                 },
                 "likes": {
                     "total": 0,
@@ -193,7 +193,7 @@
                 "username": "Isak",
                 "content": "hello",
                 "timestamp": {
-                    "date": "17-05-2023",
+                    "date": "2023-5-17",
                     "time": "12:27:20"
                 },
                 "likes": {
@@ -201,6 +201,20 @@
                     "accounts": []
                 },
                 "id": 1,
+                "img_name": "Isak.jpg"
+            },
+            {
+                "username": "Isak",
+                "content": "this is a new comment",
+                "timestamp": {
+                    "date": "2023-05-17",
+                    "time": "14:16:41"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 2,
                 "img_name": "Isak.jpg"
             }
         ],
