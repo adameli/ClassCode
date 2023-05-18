@@ -73,12 +73,17 @@
         "username": "hej",
         "password": "$2y$10$SiEyUwNh7LVuso5hoJ17ZO5c7FFfDZsUVxcqqjQP5kJ\/\/nMuq66TG",
         "profile_info": {
-            "fullname": "Teo Hardemo",
+            "fullname": "Hej Hejsan Hejd\u00e5",
             "discord": "Lazy#2211",
-            "bio": "MEDIETEKNIK KAN SUGA MIN ****"
+            "bio": "hej, det \u00e4r en v\u00e4ldigt trevlig mening, det har sagts m\u00e5nga hej under skapelsen av denna webbapp. Hejd\u00e5."
         },
         "img_name": "hej.jpg",
-        "date_visited_thread": []
+        "date_visited_thread": {
+            "24": {
+                "date": "2023-5-18",
+                "time": "17:17:28"
+            }
+        }
     },
     {
         "id": 7,

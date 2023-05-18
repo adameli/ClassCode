@@ -17,7 +17,6 @@
 
 .topInfoFlexContainer-pageThread > div {
     padding: var(--paddingButtons);
-
 }
 
 .userInfoContainer-pageThread,
@@ -66,6 +65,14 @@
     overflow: scroll;
 }
 
+.notLoggedInMessage {
+    padding: var( --paddingButtons);
+    border-radius: var( --borderradiusSmall);
+    background-color: var( --mainBackgroundColor);
+
+    text-align: center;
+}
+
 /* COMMENT CSS ____________________________________________________________ */
 
 .commentsContainer-threadPage {
@@ -79,18 +86,12 @@
     margin-top: 10px;
     
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 50px 1fr;
 }
 
 .likeContainer-comment, 
 .commentContainer-comment {
     padding: var( --paddingButtons);
-}
-
-.likeContainer-comment {
-    background-color: var(--darkMorphism);
-    color: var(--pointOfInterest);
-    border-left: 2px solid var( --pointOfInterest);
 }
 
 .createCommentModal-comment {
@@ -111,11 +112,46 @@
 
 /* Likes Css___________________________________________________________________ */
 
-.likedComment-pseudo::after {
-    content: '';
-    display: block;
+.likeContainer-comment {
+    background-color: var(--darkMorphism);
+    color: var(--pointOfInterest);
+    border-left: 2px solid var( --pointOfInterest);
 }
+
+.numberLikes-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: var(--usernames);
+    /* color: var( --darkMorphism); */
+    font-weight: bold;
+}
+
+.likedComment-pseudo::after,
 .unlikedComment-pseudo::after {
     content: '';
     display: block;
+
+    margin-top: 5px;
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+
+    transition: all .2s ease-in-out;
+
+}
+
+.likedComment-pseudo::after {
+    background-image: url( "../RESOURCES/likedPost.png");
+}
+.unlikedComment-pseudo::after {
+    background-image: url( "../RESOURCES/unlikedPost.png");
+}
+
+.likedComment-pseudo:hover::after,
+.unlikedComment-pseudo:hover::after {
+    cursor: pointer;
+    transform: scale( 1.2);
 }

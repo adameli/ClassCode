@@ -1,10 +1,21 @@
 
+const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
+const threadContainer = document.querySelector( ".postContainer-pageThread");
+
+// control if logged in (true => display navigation user) (false => viewing mode message)
+if( loggedInBoolean) {
+    renderNavigationLoggedIn( getCurrentUserLocalStorage());
+}else {
+    threadContainer.innerHTML = `<p class="notLoggedInMessage">You are now in viewing Mode, <a href='${serverEndpoint}'>Sign In or Register</a> to Comment & Like</p>`;
+}
+
 const threadId = getGetSearchParam( "thread_id");
 
 const currentDate = new Date();
 const date = currentDate.getFullYear()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getDate();
 const time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 
+// declare request for given thread 
 const requestThreadPage = new Request( `${serverEndpoint}/API/thread.php`, {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
@@ -18,20 +29,22 @@ const requestThreadPage = new Request( `${serverEndpoint}/API/thread.php`, {
     })
 })
 
-const threadContainer = document.querySelector( ".postContainer-pageThread");
-fillThreadPage();
 
+fillThreadPage();
 async function fillThreadPage() {
     const threadObject = await fetchFunction( requestThreadPage);
     
+    // If no Object is returned, (falsy) the thread wasnt found or doesnt exist. display message and abort
     if( !threadObject) {
-        document.querySelector( "main").innerHTML = `
-            <h3>Thread Nr: ${threadId} is on vacation...</h3>
+        AppendLoadingAnimation( document.querySelector( "main"))
+        document.querySelector( "main").innerHTML += `
+            <h3 style="text-align:center;">Thread Nr: ${threadId} is on vacation or does not exist...<br><a href='${serverEndpoint}'>RETURN HOME</a></h3>
         `;
         return;
     }
     
-    threadContainer.innerHTML = ` 
+    // fill ThreadContainer with Thread
+    threadContainer.innerHTML += ` 
     <div class='topInfoFlexContainer-pageThread'>
         
         <div class='userInfoContainer-pageThread'>
@@ -58,13 +71,17 @@ async function fillThreadPage() {
     </div>
     `;
 
+    // control if comments exist or not
     const commentContainer = document.querySelector( ".commentsContainer-threadPage");
     if( threadObject.resource.comments.length != 0) {
+        
+        let likeIdentifyer = 0;
         threadObject.resource.comments.forEach( comment => {
+
             commentContainer.innerHTML += `
                 <div class='comment-threadPage'>
                     <div class='likeContainer-comment'>
-                        <div class='numberLikes-comment'>${comment.likes.total}</div>
+                        <div class='numberLikes-comment LI${likeIdentifyer}' data-comment_id="${comment.id}">${comment.likes.total}</div>
                     </div>
                     
                     <div class='commentContainer-comment'>
@@ -86,27 +103,71 @@ async function fillThreadPage() {
                     
                     </div>
                 </div>`;
-            
-            comment.likes.accounts.forEach( like => {
-                if( like === getCurrentUserLocalStorage()) {
-                    document.querySelector( ".numberLikes-comment").classList.add( "likedComment-pseudo");
-                    console.log( "like")
-                }else {
-                    document.querySelector( ".numberLikes-comment").classList.add( "unlikedComment-pseudo");
-                    console.log( "bottom")
-                }
-            })
-        });
 
+                // detirmines unique class to identify during assigning of like or not
+                const likeQuery = document.querySelector( `.LI${likeIdentifyer}`);
+                
+                // if logged in = true, enable like functions 
+                if( loggedInBoolean) {
+                    // control if current user has already liked comment
+                    if( comment.likes.accounts.includes( getCurrentUserLocalStorage())) {
+                        likeQuery.classList.add( "likedComment-pseudo");
+
+                    // controls if there are no likes in comment
+                    }else if( comment.likes.accounts.length === 0){
+                        likeQuery.classList.add( "unlikedComment-pseudo"); 
+                        document.querySelector( ".unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
+                        
+                    // there are likes but current user has not liked
+                    }else {
+                        likeQuery.classList.add( "unlikedComment-pseudo"); 
+                        document.querySelector( ".unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
+                    }
+                }
+            
+            likeIdentifyer ++;
+        }); 
     }else {
         commentContainer.innerHTML += `No comments exists on this page...`;
     }
-
-
+    
+    // highlights all code within precodecodepre
     hljs.highlightAll();
-    prepareAddComments();
+
+    // if logged in = true allow comments else remove button.
+    if( loggedInBoolean) {
+        prepareAddComments();
+    }else {
+      document.querySelector( ".openModalButton-comment").remove();  
+    }
 }
 
+async function likeCommentEvent( e) {
+
+    const currentCommentId = e.explicitOriginalTarget.dataset.comment_id;
+    
+    const likeRequest = new Request( 
+        `${serverEndpoint}/API/comment.php`, {
+            method: "PATCH",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                thread_id: threadId,
+                comment_id: currentCommentId,
+                username: getCurrentUserLocalStorage()
+            })
+    });        
+    
+    const response = await fetchFunction( likeRequest);
+    console.log( response);
+    
+    if( response.resource) {
+        e.explicitOriginalTarget.classList.remove( "unlikedComment-pseudo");
+        e.explicitOriginalTarget.classList.add( "likedComment-pseudo");
+        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource;
+    }
+
+    
+};
 
 function prepareAddComments() {
     const openCreateCommentButton = document.querySelector( ".openModalButton-comment");

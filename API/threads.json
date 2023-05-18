@@ -553,7 +553,24 @@
             "time": "15:54:40"
         },
         "views": 19,
-        "comments": [],
+        "comments": [
+            {
+                "username": "hej",
+                "content": "I'll like my own comment just because i can muuuhahahahaha",
+                "timestamp": {
+                    "date": "2023-05-18",
+                    "time": "17:10:39"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "hej"
+                    ]
+                },
+                "id": 1,
+                "img_name": "hej.jpg"
+            }
+        ],
         "tags": [
             "javascript",
             "js",
@@ -584,9 +601,10 @@
                 "likes": {
                     "accounts": [
                         "Isak",
-                        "test"
+                        "test",
+                        "hej"
                     ],
-                    "total": 2
+                    "total": 3
                 },
                 "id": 1,
                 "img_name": "Isak.jpg"
@@ -599,11 +617,45 @@
                     "time": "12:26:26"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "hej"
+                    ]
                 },
                 "id": 2,
                 "img_name": "Isak.jpg"
+            },
+            {
+                "username": "hej",
+                "content": "testing Likes<br>",
+                "timestamp": {
+                    "date": "2023-05-18",
+                    "time": "16:53:14"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "hej"
+                    ]
+                },
+                "id": 3,
+                "img_name": "hej.jpg"
+            },
+            {
+                "username": "hej",
+                "content": "testComment<br><br><br>    <pre><code>\nconst addLike = \"please work first try\"\n    <\/code><\/pre><br><br>:)",
+                "timestamp": {
+                    "date": "2023-05-18",
+                    "time": "17:54:30"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "hej"
+                    ]
+                },
+                "id": 4,
+                "img_name": "hej.jpg"
             }
         ],
         "tags": [
