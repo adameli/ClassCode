@@ -115,18 +115,32 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
                 <div class="postTitleContainer-mainThread">
                     <h3 class="post_title-mainThread">${threadObject.title}</h3>
                     <div class="time_stamp-mainThread"> ${threadObject.timestamp["time"]} - ${threadObject.timestamp["date"]}</div>
-                    </div>
+                </div>
                 
                 <div class="usersPost-mainThread">
                     <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_name}">
                     <p class="user_name-mainThread">${threadObject.username}</p>
                 </div>                    
             </div>
+            <div class="threadTags-container"></div>
 
             <div class="postContent-mainThread">${threadObject.description}</div>
-            <div class="threadTags">#${threadObject.tags.join(" #")}</div>
+
+            <div class="informationContainer-interactions-mainThread">
+                <div class="NR-comments-interactions">${threadObject.comments.length}</div>
+                <div class="NR-views-interactions">${threadObject.views}</div>
+            </div>
         `;
         document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
+        
+        if( threadObject.tags.length != 0) {
+            threadObject.tags.forEach( tag => {
+                const tagContainerDOM = document.createElement( "div");
+                tagContainerDOM.textContent = `#${tag}`;
+                tagContainerDOM.classList.add( "tagContainer-mainThread");
+                document.querySelector( `.threadTags-container`).append( tagContainerDOM);
+            })
+        }
         
         // create link to threadPage
         const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");

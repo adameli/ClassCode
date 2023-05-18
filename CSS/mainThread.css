@@ -27,6 +27,17 @@ main {
     position: relative;
 }
 
+.usersPost-mainThread {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.usersPost-mainThread p {
+    font-size: var( --smallText);
+}
+
 .userInfoPostPicture {
     height: 35px;
     width: 35px;
@@ -34,6 +45,23 @@ main {
 
 .postContent-mainThread {
     padding: var(--paddingCardContainer);
+    max-height: 150px;
+    overflow: scroll;
+}
+
+
+/* Standardized overflowScrollbar Edge & Chrome */
+.postContent-mainThread::-webkit-scrollbar {
+    width: 12px;
+}
+
+.postContent-mainThread::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.postContent-mainThread::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var( --darkMorphism);
 }
 
 .post_title-mainThread {
@@ -123,8 +151,52 @@ main {
 }
 
 .filterModalActive { 
-    /* border: 2px solid var( --pointOfInterest); */
     transition: transform .2s;
     background-color: var( --pointOfInterestHover);
     transform: scale(1.1);
+}
+
+/* Tags _______________________________________________________________________ */
+.threadTags-container,
+.informationContainer-interactions-mainThread {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.tagContainer-mainThread {
+    background-color: var(--glassMorphism);
+    border-radius: var(--borderradiusSmall);
+    padding: var(--paddingCardContainer);
+
+    font-size: calc( var( --smallText) - 1px);
+    font-style: italic;
+}
+
+.NR-comments-interactions,
+.NR-views-interactions {
+    display: flex;
+    align-items: center;
+    min-width: 3rem;
+    gap: 10px;
+
+    color: black;
+}
+
+.NR-comments-interactions::before,
+.NR-views-interactions::before {
+    content: '';
+    display: block;
+    height: 25px;
+    width: 25px;
+
+    background-size: cover;
+}
+
+.NR-views-interactions::before {
+    background-image: url( "../RESOURCES/views.png");
+}
+.NR-comments-interactions::before {
+    background-image: url( "../RESOURCES/comment.png");
 }

@@ -2,6 +2,8 @@
 .commentsContainer-threadPage {
     padding: var(--paddingSections);
     background-color: var(--darkMorphism);
+    max-width: 90rem;
+    margin: 0 auto; 
 }
 
 .topInfoFlexContainer-pageThread {

@@ -27,48 +27,23 @@
 
     </header>
     <main>
-        
-        <div class='postContainer-pageThread'>
-
-            <!-- <div class='topInfoFlexContainer-pageThread'>
-                <div class='userInfoContainer-pageThread'>
-                    <img class='profileImg userInfoPostPicture' src='$server_endpoint/API/PROFILE_IMG/$creator_img_name'>
-                    <div class='user_name-pageThread'>$username</div>                 
-                </div>
-                    
-                <div class='postInformationZone-pageThread'>
-                    <div class='views'><span class='InformationText-tread'>Views: $views</span></div>
-                    <div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: $time</span><br>
-                        <span class='InformationText-tread'>Date: $date</span></div>";
-                    </div>
-                </div>
-                    
-                
-                <div class='postTitleContainer-pageThread'>
-                    <h2 class='post_title-pageThread'>$title</h2>
-                </div>
-                
-                <div class='usersPost-pageThread'>
-                    <p class='postDescription-pageThread'>$description</p>
-                    <div class='postContent-pageThread'>$content</div>           
-                </div>    
-
-            </div> -->
-        </div>
-        
-        <div class="commentsContainer-threadPage">
-
-
-        </div>
-        <button class="openModalButton-comment">Write a Comment!</button>
+        <section>
+            <div class='postContainer-pageThread'>
+            </div>
             
-            <dialog class="createCommentModal-comment" -data-thread-id="">
-                <h3>Create Comment</h3>
-                <button class="addCodeField-event">Add Code</button>
-                    <textarea type=text id=content placeholder=Content!></textarea>
-                    <button class="closeCommentModal">Close</button>
-                    <button class="sendComment-modal">Post</button>
-            </dialog>
+            <div class="commentsContainer-threadPage">
+            </div>
+
+            <button class="openModalButton-comment">Write a Comment!</button>
+            
+                <dialog class="createCommentModal-comment" -data-thread-id="">
+                    <h3>Create Comment</h3>
+                    <button class="addCodeField-event">Add Code</button>
+                        <textarea type=text id=content placeholder=Content!></textarea>
+                        <button class="closeCommentModal">Close</button>
+                        <button class="sendComment-modal">Post</button>
+                </dialog>
+        </section>
     </main>
     <footer></footer>
     <!-- Highlights.js SourceCode -->
