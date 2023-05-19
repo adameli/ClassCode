@@ -3,13 +3,12 @@
 
     if( $request_method == "POST") 
     {
-        
-        if( $_FILES["file"]["size"] > 2000000) 
+        if( $_FILES["file"]["size"] > 200000 || $_FILES[ "file"] ["size"] == 0) 
         {
             $message = ["message" => "Image too large, max limit is 2 Megabyte."];
             send_JSON($message, 400);
         }
-
+        
         $filename = $_FILES[ "file"][ "name"];
 
         if( !str_contains($filename, ".jpg") && !str_contains($filename, ".png")) 
