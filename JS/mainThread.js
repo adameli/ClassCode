@@ -10,10 +10,10 @@ async function renderMainThread() {
     <section class="topInformation-mainThread">
         <div class="profile">
             <h2>Hello ${currentUser}!</h2>
+            <p> You are know in the feedpage </p>
         </div>
-        <p> You are know in the feedpage </p>
         
-        <div class="createQuestionContainer">
+        <div class="createQuestionContainer clearButton buttonAnimation">
             <p>Ask a Question</p>
         </div>
     </section>
@@ -39,7 +39,30 @@ async function renderMainThread() {
     <section>
         <div class="mainThread-allThreads"><div>
     </section>
-    `;
+    <div class="backToTop" id="hiddenUntilLimit"></div>`;
+
+    //backToTop function on limit
+    // backToTopDisplayOnLimit( 100);
+    const limiter = 700;
+    const backToTopButton = document.querySelector( ".backToTop");
+
+    const scrollContainer = () => {
+        return document.documentElement || document.body;
+    }
+
+    document.addEventListener( "scroll", () => {
+        if( scrollContainer().scrollTop > limiter) {
+            console.log( "here");
+            backToTopButton.removeAttribute( "id");
+        }else {
+            backToTopButton.id = "hiddenUntilLimit";
+        }
+    })
+
+    backToTopButton.addEventListener( "click", e => {
+        document.body.scrollIntoView();
+    })
+
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
