@@ -42,7 +42,12 @@
             "bio": "The moonlanding was fake - Drake"
         },
         "img_name": "test.jpg",
-        "date_visited_thread": []
+        "date_visited_thread": {
+            "25": {
+                "date": "2023-5-19",
+                "time": "10:5:45"
+            }
+        }
     },
     {
         "id": 4,
