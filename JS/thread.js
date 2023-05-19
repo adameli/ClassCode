@@ -48,7 +48,7 @@ async function fillThreadPage() {
     <div class='topInfoFlexContainer-pageThread'>
         
         <div class='userInfoContainer-pageThread'>
-            <img class='profileImg userInfoPostPicture' src='${serverEndpoint}/API/PROFILE_IMG/${threadObject.resource.img_name}'>
+            <img class='profileImg userInfoPostPicture' data-username="${threadObject.resource.username}" src='${serverEndpoint}/API/PROFILE_IMG/${threadObject.resource.img_name}'>
             <div class='user_name-pageThread'>${threadObject.resource.username}</div>                 
         </div>
 
@@ -71,6 +71,9 @@ async function fillThreadPage() {
     </div>
     `;
 
+    // link to Threads creators UserPage
+    document.querySelector( ".userInfoPostPicture").addEventListener( "click", changeToUserPageEvent);
+
     // control if comments exist or not
     const commentContainer = document.querySelector( ".commentsContainer-threadPage");
     if( threadObject.resource.comments.length != 0) {
@@ -89,7 +92,7 @@ async function fillThreadPage() {
                         <div class='topInfoFlexContainer-pageThread'>
         
                             <div class='userInfoContainer-comment'>
-                                <img class='profileImg userInfoPostPicture-comment' src='${serverEndpoint}/API/PROFILE_IMG/${comment.img_name}'> 
+                                <img class='profileImg userInfoPostPicture-comment UI${likeIdentifyer}' data-username="${comment.username}" src='${serverEndpoint}/API/PROFILE_IMG/${comment.img_name}'> 
                                 <div class='user_name-comment'>${comment.username}</div>                   
                             </div>
         
@@ -127,6 +130,10 @@ async function fillThreadPage() {
             
             likeIdentifyer ++;
         }); 
+
+        document.querySelectorAll( ".userInfoPostPicture-comment").forEach( user => {
+            user.addEventListener( "click", changeToUserPageEvent);
+        })
     }else {
         commentContainer.innerHTML += `No comments exists on this page...`;
     }

@@ -677,7 +677,22 @@
             "time": "20:05:33"
         },
         "views": 0,
-        "comments": [],
+        "comments": [
+            {
+                "username": "hej",
+                "content": "test<br>",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "00:34:21"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "hej.jpg"
+            }
+        ],
         "tags": [
             "lorem",
             "test"

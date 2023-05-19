@@ -84,8 +84,8 @@
                 "time": "17:17:28"
             },
             "26": {
-                "date": "2023-5-18",
-                "time": "20:48:56"
+                "date": "2023-5-19",
+                "time": "1:50:7"
             }
         }
     },
@@ -111,6 +111,18 @@
             "bio": ""
         },
         "img_name": "default.jpg",
+        "date_visited_thread": []
+    },
+    {
+        "id": 9,
+        "username": "DeoHard",
+        "password": "$2y$10$gldgTq486L\/R3iedHtFA4eaG.1sa27TPCgKr7lG4VdJLh1iodVTd.",
+        "profile_info": {
+            "fullname": "Teo Hardemo",
+            "discord": "Lazy#2211",
+            "bio": "ClassCode Co-Creator, Here WDU Everything to help YOU! Support Our Work : <a href=\"https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\">Click Here<\/a>"
+        },
+        "img_name": "DeoHard.png",
         "date_visited_thread": []
     }
 ]

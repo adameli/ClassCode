@@ -3,6 +3,12 @@ main {
     grid-template-columns: 1fr;
 }
 
+.topInformation-mainThread {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .mainThread-allThreads {
     padding: var( --paddingSections);
     background-color: var(--lightMorphism);

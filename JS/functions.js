@@ -133,6 +133,7 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
         `;
         document.querySelector( ".mainThread-allThreads").prepend( postContainerDOM);
         
+        // add Tags if they exist
         if( threadObject.tags.length != 0) {
             threadObject.tags.forEach( tag => {
                 const tagContainerDOM = document.createElement( "div");
@@ -146,26 +147,49 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
         const linkToThreadpageElement = document.querySelector( ".post_title-mainThread");
         linkToThreadpageElement.dataset.thread_id = threadObject.thread_id;
 
-        // This if statment checks the user have a comment on thier post that they have not yet seen
-        if(pushNotifications.includes(parseInt(linkToThreadpageElement.dataset.thread_id))){
-            document.querySelector(".postTitleContainer-mainThread").classList.add("pushNotification");
-        }
-
-        linkToThreadpageElement.addEventListener( "click", event => {
-            event.stopPropagation();
-            const threadID = event.explicitOriginalTarget.dataset.thread_id;
-            window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
-        })
+        linkToThreadpageElement.addEventListener( "click", changeToThreadPageEvent);
 
         // create link to userpage
         const linkToUserPage = document.querySelector( ".userInfoPostPicture");
         linkToUserPage.dataset.username = threadObject.username;
 
-        linkToUserPage.addEventListener( "click", event => {
-            event.stopPropagation();
-            const dataUsername = event.explicitOriginalTarget.dataset.username;
-            window.location = `${serverEndpoint}/PAGE/user.php?un=${dataUsername}`;
-        })
+        linkToUserPage.addEventListener( "click", changeToUserPageEvent);
+        
+        // This if statment checks the user have a comment on thier post that they have not yet seen
+        if(pushNotifications.includes(parseInt(linkToThreadpageElement.dataset.thread_id))){
+            document.querySelector(".postTitleContainer-mainThread").classList.add("pushNotification");
+        }
+        
         
     });
+}
+
+function changeToUserPageEvent( event) {
+    event.stopPropagation();
+    const dataUsername = event.explicitOriginalTarget.dataset.username;
+    window.location = `${serverEndpoint}/PAGE/user.php?un=${dataUsername}`;
+}
+
+function changeToThreadPageEvent( event) {
+    event.stopPropagation();
+    const threadID = event.explicitOriginalTarget.dataset.thread_id;
+    window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
+}
+
+
+function backToTopDisplayOnLimit( limiter) {
+    const backToTopButton = document.querySelector( ".backToTop");
+
+    const scrollContainer = () => {
+        return document.documentElement || document.body;
+    }
+
+    document.addEventListener( "scroll", () => {
+        console.log( "here");
+        if( scrollContainer().scrollTop > limiter) {
+            backToTopButton.classList.remove("hidden");
+        }else {
+            backToTopButton.classList.add("hidden");
+        }
+    })
 }
