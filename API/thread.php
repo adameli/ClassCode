@@ -72,9 +72,9 @@
             $tags = $request_data[ "tags"];
     
             date_default_timezone_set( "Europe/Stockholm");
-            $timestamp = [ "date" => date( "d-m-Y"), "time" => date( "H:i:s")];
+            $timestamp = [ "date" => date( "Y-m-d"), "time" => date( "H:i:s")];
     
-            foreach( $users as $user) 
+            foreach( $users as $index => $user) 
             {
                 if( $user[ "username"] == $request_data[ "username"]) 
                 {
@@ -106,7 +106,19 @@
                 "tags" => $tags,
                 "img_name" => $user_img
             ];
-    
+            
+            //Saves time last visited/time when thread was created in the specific user object
+            foreach( $users as $index => $user) 
+            {
+                if( $user[ "username"] == $request_data[ "username"]) 
+                {
+                    $users[ $index][ "date_visited_thread"][$next_id] = $timestamp;
+                    $json = json_encode($users, JSON_PRETTY_PRINT);
+                    file_put_contents($users_file, $json);
+
+                }
+            }
+
             $threads[] = $thread;
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
             file_put_contents( $threads_file, $json);
@@ -123,7 +135,6 @@
             {
                 if( $user[ "username"] == $username ) 
                 {   
-                    $date_visited_thread = $users[$index]["date_visited_thread"];
                     foreach( $threads as $thread) 
                     {
                         if( $thread[ "username_id"] == $user[ "id"] && $thread[ "thread_id"] == $thread_id) 
