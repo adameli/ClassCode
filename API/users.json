@@ -112,7 +112,12 @@
             "bio": ""
         },
         "img_name": "OHLEG.png",
-        "date_visited_thread": []
+        "date_visited_thread": {
+            "6": {
+                "date": "2023-5-19",
+                "time": "12:6:2"
+            }
+        }
     },
     {
         "id": 8,
@@ -137,5 +142,26 @@
         },
         "img_name": "DeoHard.png",
         "date_visited_thread": []
+    },
+    {
+        "id": 10,
+        "username": "testAccount",
+        "password": "$2y$10$4AFCt2hvuujb5l2mPqE03OLK7ginZzIiYSkJPX4lwEL2A8v6ixZce",
+        "profile_info": {
+            "fullname": "Testing Account",
+            "discord": "ClassCode#6969",
+            "bio": "DevTool ClassCode"
+        },
+        "img_name": "testAccount.jpg",
+        "date_visited_thread": {
+            "28": {
+                "date": "2023-5-19",
+                "time": "12:22:45"
+            },
+            "29": {
+                "date": "2023-5-19",
+                "time": "12:34:41"
+            }
+        }
     }
 ]

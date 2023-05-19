@@ -115,6 +115,7 @@ async function fillThreadPage() {
                     // control if current user has already liked comment
                     if( comment.likes.accounts.includes( getCurrentUserLocalStorage())) {
                         likeQuery.classList.add( "likedComment-pseudo");
+                        document.querySelector( ".likedComment-pseudo").addEventListener( "click", likeCommentEvent); 
 
                     // controls if there are no likes in comment
                     }else if( comment.likes.accounts.length === 0){
@@ -152,6 +153,7 @@ async function fillThreadPage() {
 async function likeCommentEvent( e) {
 
     const currentCommentId = e.explicitOriginalTarget.dataset.comment_id;
+    const removeOrLikeBoolean = document.querySelector( "likedComment-pseudo") ? true : false;
     
     const likeRequest = new Request( 
         `${serverEndpoint}/API/comment.php`, {
@@ -160,17 +162,23 @@ async function likeCommentEvent( e) {
             body: JSON.stringify({
                 thread_id: threadId,
                 comment_id: currentCommentId,
-                username: getCurrentUserLocalStorage()
+                username: getCurrentUserLocalStorage(),
+                remove: removeOrLikeBoolean 
             })
     });        
     
     const response = await fetchFunction( likeRequest);
     console.log( response);
     
-    if( response.resource) {
+    if( response.resource.boolean) {
         e.explicitOriginalTarget.classList.remove( "unlikedComment-pseudo");
         e.explicitOriginalTarget.classList.add( "likedComment-pseudo");
-        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource;
+        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
+
+    }else if( response.resource.boolean) {
+        e.explicitOriginalTarget.classList.remove( "likedComment-pseudo");
+        e.explicitOriginalTarget.classList.add( "unlikedComment-pseudo");
+        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
     }
 
     

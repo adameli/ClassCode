@@ -24,7 +24,7 @@
         }
         $user_id = $highest_id + 1;
 
-        copy("PROFILE_IMG/default.jpg", "PROFILE_IMG/$un.jpg");
+        copy("PROFILE_IMG/default.png", "PROFILE_IMG/$un.png");
 
         //Creates the user
         $new_user = [ 
@@ -36,7 +36,7 @@
                 "bio" => "",
                 "discord" => ""
             ],
-            "img_name" => "$un.jpg",
+            "img_name" => "$un.png",
             "date_visited_thread" => []
         ];
 
