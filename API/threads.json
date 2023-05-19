@@ -116,7 +116,22 @@
             "time": "19:54:28"
         },
         "views": 2,
-        "comments": [],
+        "comments": [
+            {
+                "username": "testAccount",
+                "content": "hey son",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "12:05:28"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "testAccount.jpg"
+            }
+        ],
         "tags": [
             "html",
             "java",
@@ -481,7 +496,24 @@
             "time": "15:18:08"
         },
         "views": 97,
-        "comments": [],
+        "comments": [
+            {
+                "username": "testAccount",
+                "content": "Hejsan hospans<br><br><br>    <pre><code>\nconst hello = \"hello\";\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "12:00:59"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "testAccount"
+                    ]
+                },
+                "id": 1,
+                "img_name": "testAccount.jpg"
+            }
+        ],
         "tags": [
             "html",
             "java",
@@ -570,11 +602,10 @@
                 },
                 "likes": {
                     "accounts": [
-                        "Isak",
                         "test",
                         "hej"
                     ],
-                    "total": 3
+                    "total": 2
                 },
                 "id": 1,
                 "img_name": "Isak.jpg"
@@ -724,6 +755,20 @@
                 },
                 "id": 11,
                 "img_name": "test.jpg"
+            },
+            {
+                "username": "Isak",
+                "content": null,
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "14:07:36"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 12,
+                "img_name": "Isak.jpg"
             }
         ],
         "tags": [
@@ -816,5 +861,68 @@
             "fewfw"
         ],
         "img_name": "test.jpg"
+    },
+    {
+        "username": "testAccount",
+        "username_id": 10,
+        "thread_id": 28,
+        "title": "Testing ClassCode",
+        "description": "description",
+        "content": "content<br><br>    <pre><code>\nconst codeClass = \"best\";\n\/\/hello world!\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "2023-05-19",
+            "time": "12:03:33"
+        },
+        "views": 0,
+        "comments": [
+            {
+                "username": "testAccount",
+                "content": "testing comments on own comment",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "12:04:27"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "testAccount.jpg"
+            },
+            {
+                "username": "OHLEG",
+                "content": "hey son",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "12:06:39"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 2,
+                "img_name": "OHLEG.png"
+            }
+        ],
+        "tags": [
+            "testing"
+        ],
+        "img_name": "testAccount.jpg"
+    },
+    {
+        "username": "testAccount",
+        "username_id": 10,
+        "thread_id": 29,
+        "title": "",
+        "description": "",
+        "content": "",
+        "timestamp": {
+            "date": "2023-05-19",
+            "time": "12:19:26"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [],
+        "img_name": "testAccount.jpg"
     }
 ]
