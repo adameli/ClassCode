@@ -27,22 +27,22 @@
             if( $un == "" && $pw =="") 
             {
                 $message = [ "message" => "You forgot to type username and password"];
-                send_JSON( $message, 404);                                                
+                send_JSON( $message, 400);                                                
             }
             else if( $un == "") 
             {
                 $message = [ "message" => "You forgot to type username"];
-                send_JSON( $message, 404); 
+                send_JSON( $message, 400); 
             }
             else if( $pw == "") 
             {
                 $message = [ "message" => "You forgot to type password"];
-                send_JSON( $message, 404); 
+                send_JSON( $message, 400); 
             }
 
             //User not Found
             $message = [ "message" => "Wrong username or password"];             
-            send_JSON( $message, 404);
+            send_JSON( $message, 400);
         }
     }
 ?>

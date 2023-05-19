@@ -148,7 +148,7 @@
         else 
         {
             $message = ["message" => "Error in POST body. Wrong keys used. Read API documentation."];
-            send_JSON($message);
+            send_JSON($message, 400);
         }
     }
 ?>

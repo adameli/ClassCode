@@ -10,7 +10,7 @@
         foreach( $users as $user) {
             if( $un == $user[ "username"]) {
                 $message = [ "message" => "Username already exists"];
-                send_JSON( $message, 403);                    
+                send_JSON( $message, 400);                    
             }
 
         }
@@ -44,23 +44,23 @@
         if( $un == "" && $pw =="") 
         {
             $message = [ "message" => "You forgot to type username and password"];
-            send_JSON( $message, 404);                                                
+            send_JSON( $message, 400);                                                
         }
         else if( $un == "") 
         {
             $message = [ "message" => "You forgot to type username"];
-            send_JSON( $message, 404); 
+            send_JSON( $message, 400); 
         }
         else if( $pw == "") 
         {
             $message = [ "message" => "You forgot to type password"];
-            send_JSON( $message, 404); 
+            send_JSON( $message, 400); 
         }
 
         //Checking if your username starts or ends with "space"
         if( str_starts_with( $new_user[ "username"], " ") || str_ends_with( $new_user[ "username"], " ")) {
             $message = [ "message" => 'The username can not start or end with a spacebar-input']; 
-            send_JSON( $message, 403);           
+            send_JSON( $message, 400);           
         }
 
         $users[] = $new_user;
