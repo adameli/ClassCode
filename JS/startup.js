@@ -17,18 +17,20 @@ function loginRegisterPage(type, changeTypeMessage) {
             <p id=message></p>
             <form>
                 <div class="inputAnimationContainer">
-                    <input type="text" id="username" required="required">
+                    <input class="inputMaxCharacters" type="text" id="username" required="required" maxlength="20" >
                     <span>Username</span>
                 </div>
                 <div class="inputAnimationContainer">
-                    <input type="password" id="password" required="required">
+                    <input class="inputMaxCharacters" type="password" id="password" required="required" maxlength="20" >
                     <span>Password</span>
                 </div>
                 <button type=submit>${type}</button>
             </form>
-            <button id=change>${changeTypeMessage}</button>
+            <div id=change>${changeTypeMessage}</div>
         </div>
     `;
+
+    deployCharacterLimit();
 
     // These variables are the input elements where we will get the users credentials
     const usernameInput = document.getElementById("username");
@@ -70,12 +72,9 @@ function loginRegisterPage(type, changeTypeMessage) {
                 // We fetch and get back an object with {response: serversresponse and resource: the data the server sent back(username)}
                 let post = await fetchFunction(request);
 
-                console.log( post);
-                console.log( post.response.ok);
-
                 // controlls if the serverresponse is ok (true or false)
-                // if the users credentials is correct, they access their account and lands on to the feedpage
-                // else will we send that the credentials are wrong
+                // if the users credentials is correct, they access their account and redirects to the MainThreadPage
+                // else will let the user know that the credentials are wrong
                 
                 if( phpFileName === "login.php"){
                     if( post.response.ok) {

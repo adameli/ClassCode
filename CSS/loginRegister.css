@@ -4,7 +4,7 @@
     border-radius: var(--borderradiusMedium);
 
     height: 30rem;
-    width: 45rem;
+    width: 25rem;
     margin: 25px auto;
 
     display: flex;
@@ -27,5 +27,7 @@
 }
 
 .loginRegisterContainer h2 {
-    font-size: var(--bodyText);
+    font-size: var(--titles);
+    text-align: center;
 }
+

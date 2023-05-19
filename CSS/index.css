@@ -355,3 +355,14 @@ header > h3 {
 .inputAnimationContainer input:focus {
     border: 1px solid var(--pointOfInterest);
 }
+
+.maxCharacters {
+    border: 1px solid rgb(109, 29, 29);
+    animation: maxCharactersInput .3s;
+}
+
+@keyframes maxCharactersInput {
+    25% { transform: translateX(4px);}
+    50% { transform: translateX(-4px);}
+    75% { transform: translateX(4px);}
+}

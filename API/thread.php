@@ -4,15 +4,16 @@
     // Get all threads
     if( $request_method == "GET") 
     {   
-        if( isset($_GET[ "threads"])) 
+        //Checks if GET-request has the correct parameters
+        if( isset( $_GET[ "threads"])) 
         {
-            if($_GET[ "threads"] == "all")
+            if( $_GET[ "threads"] == "all")
             {
                 send_JSON( $threads);
             }
             else
             {
-                $message = [ "message" => "Error in GET parameter. Value on ?threads is not correct. Check API documentation."];
+                $message = [ "message" => "Error, value in the GET-request is not correct."];
                 send_JSON( $message);
             }
         }
@@ -23,6 +24,7 @@
             
             foreach( $users as $user) 
             {   
+                //Checks if the user from the GET-request exists
                 if( $user["username"] == $_GET["un"]) 
                 {
                     $user_found = true;
@@ -32,6 +34,7 @@
 
                     foreach( $threads as $thread) 
                     {
+                        //Finds all the threads that were created by the specific user
                         if( $thread[ "username_id"] == $user[ "id"])
                         {
                             $current_user_threads[] = $thread;
@@ -43,7 +46,7 @@
             if( !$user_found) 
             {
                 $message = ["message" => "User does not exist."];
-                send_JSON($message, 400);
+                send_JSON($message, 404);
             }
 
             $data = [
@@ -55,34 +58,45 @@
 
             send_JSON( $data);
         }
+        else 
+        {
+            $message = [ "message" => "Error, incorrect GET parameters"];
+            send_JSON( $message, 422);
+        }
     } 
 
-    // Create thread
+    
+    //ROW 69 -  POST create 
+    //ROW 144 - POST get one thread
+    $required_keys_POST_create = ["username", "title", "description", "content", "tags"];
+    $required_keys_POST_get_one_thread = ["username", "timestamp", "thread_id"];
+
     if( $request_method == "POST") 
     {
-        $required_keys_thread_creation = ["username", "title", "description", "content", "tags"];
-        $required_keys_one_specific_thread = ["username", "timestamp", "thread_id"];
-
-        if( count( array_intersect( $required_keys_thread_creation, array_keys( $request_data))) === count( $required_keys_thread_creation)) 
+        //Checks if the POST-request has the correct body
+        if( count( array_intersect( $required_keys_POST_create, array_keys( $request_data))) === count( $required_keys_POST_create)) 
         {
             $username = $request_data[ "username"];
             $title = $request_data[ "title"];
             $description = $request_data[ "description"];
             $content = $request_data[ "content"];
             $tags = $request_data[ "tags"];
-    
+            
+            //Creates a timestamp
             date_default_timezone_set( "Europe/Stockholm");
             $timestamp = [ "date" => date( "Y-m-d"), "time" => date( "H:i:s")];
     
             foreach( $users as $index => $user) 
             {
+                //Finds the user from the POST-request
                 if( $user[ "username"] == $request_data[ "username"]) 
                 {
                     $username_id = $user[ "id"];
                     $user_img = $user[ "img_name"];
                 }
             }
-    
+            
+            //Creates an unique id for the thread
             $highest_id = 0;
             foreach( $threads as $thread) 
             {
@@ -91,6 +105,7 @@
                     $highest_id = $thread[ "thread_id"];
                 }
             }
+
             $next_id = $highest_id + 1;
     
             $thread = [
@@ -107,9 +122,10 @@
                 "img_name" => $user_img
             ];
             
-            //Saves time last visited/time when thread was created in the specific user object
             foreach( $users as $index => $user) 
             {
+                //Saves the time when the thread was created in the "date_visited_last" array in the user-object
+                //and updates the users.json file
                 if( $user[ "username"] == $request_data[ "username"]) 
                 {
                     $users[ $index][ "date_visited_thread"][$next_id] = $timestamp;
@@ -119,12 +135,13 @@
                 }
             }
 
+            //Updates the threads.json file with the new thread. 
             $threads[] = $thread;
             $json = json_encode( $threads, JSON_PRETTY_PRINT);
             file_put_contents( $threads_file, $json);
             send_JSON( $thread);
         }
-        else if( count( array_intersect( $required_keys_one_specific_thread, array_keys( $request_data))) === count( $required_keys_one_specific_thread))
+        else if( count( array_intersect( $required_keys_POST_get_one_thread, array_keys( $request_data))) === count( $required_keys_POST_get_one_thread))
         {
 
             $timestamp = $request_data[ "timestamp"];
@@ -133,10 +150,12 @@
 
             foreach( $users as $index => $user) 
             {
+                //Finds the user from the POST-request
                 if( $user[ "username"] == $username ) 
                 {   
                     foreach( $threads as $thread) 
                     {
+                        //Finds the specific thread
                         if( $thread[ "username_id"] == $user[ "id"] && $thread[ "thread_id"] == $thread_id) 
                         {
                             $users[ $index][ "date_visited_thread"][$thread_id] = $timestamp;
@@ -158,8 +177,8 @@
         }
         else 
         {
-            $message = ["message" => "Error in POST body. Wrong keys used. Read API documentation."];
-            send_JSON($message, 400);
+            $message = [ "message" => "Error in the POST-request body."];
+            send_JSON( $message, 422);
         }
     }
 ?>
