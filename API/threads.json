@@ -216,6 +216,20 @@
                 },
                 "id": 2,
                 "img_name": "Isak.jpg"
+            },
+            {
+                "username": "test",
+                "content": "test",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "10:51:27"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 3,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
@@ -656,6 +670,20 @@
                 },
                 "id": 4,
                 "img_name": "hej.jpg"
+            },
+            {
+                "username": "test",
+                "content": "love is in the air",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "10:06:52"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 5,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
@@ -702,8 +730,10 @@
                     "time": "10:00:58"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "test"
+                    ]
                 },
                 "id": 2,
                 "img_name": "test.jpg"
