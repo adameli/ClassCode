@@ -115,18 +115,18 @@ async function fillThreadPage() {
                 if( loggedInBoolean) {
                     // control if current user has already liked comment
                     if( comment.likes.accounts.includes( getCurrentUserLocalStorage())) {
-                        likeQuery.classList.add( "likedComment-pseudo");
-                        commentContainer.querySelector( ".likedComment-pseudo").addEventListener( "click", likeCommentEvent); 
+                        likeQuery.id = "likedComment-pseudo";
+                        commentContainer.querySelector( "#likedComment-pseudo").addEventListener( "click", likeCommentEvent); 
 
                     // controls if there are no likes in comment
                     }else if( comment.likes.accounts.length === 0){
-                        likeQuery.classList.add( "unlikedComment-pseudo"); 
-                        commentContainer.querySelector( ".unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
+                        likeQuery.id = "unlikedComment-pseudo"; 
+                        commentContainer.querySelector( "#unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
                         
                     // there are likes but current user has not liked
                     }else {
-                        likeQuery.classList.add( "unlikedComment-pseudo"); 
-                        commentContainer.querySelector( ".unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
+                        likeQuery.id = "unlikedComment-pseudo"; 
+                        commentContainer.querySelector( "#unlikedComment-pseudo").addEventListener( "click", likeCommentEvent); 
                     }
                 }
             
@@ -162,7 +162,18 @@ async function fillThreadPage() {
 async function likeCommentEvent( e) {
 
     const currentCommentId = e.explicitOriginalTarget.dataset.comment_id;
-    const removeOrLikeBoolean = document.querySelector( ".likedComment-pseudo") ? true : false;
+    // let removeOrLikeBoolean = document.querySelector( ".likedComment-pseudo") ? true : false;
+    // console.log( removeOrLikeBoolean);
+    let removeOrLikeBoolean;
+
+    if( e.explicitOriginalTarget.id === "likedComment-pseudo") {
+        removeOrLikeBoolean = true;
+    }else if( e.explicitOriginalTarget.id === "unlikedComment-pseudo") {
+        removeOrLikeBoolean = false;
+    }
+
+    console.log( removeOrLikeBoolean);
+    // return;
     
     const likeRequest = new Request( 
         `${serverEndpoint}/API/comment.php`, {
@@ -180,22 +191,22 @@ async function likeCommentEvent( e) {
     console.log( response);
     
     if( !response.resource.remove_boolean) {
-        e.explicitOriginalTarget.classList.remove( "unlikedComment-pseudo");
-        e.explicitOriginalTarget.classList.add( "likedComment-pseudo");
+        e.explicitOriginalTarget.removeAttribute( "id");
+        e.explicitOriginalTarget.id = "likedComment-pseudo";
         document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
         
-        document.querySelectorAll( ".likedComment_pseudo").forEach( like => {
-            like.addEventListener( "click", likeCommentEvent); 
-        })
+        // document.querySelectorAll( ".likedComment_pseudo").forEach( like => {
+        //     like.addEventListener( "click", likeCommentEvent); 
+        // })
 
     }else if( response.resource.remove_boolean) {
-        e.explicitOriginalTarget.classList.remove( "likedComment-pseudo");
-        e.explicitOriginalTarget.classList.add( "unlikedComment-pseudo");
+        e.explicitOriginalTarget.removeAttribute( "id");
+        e.explicitOriginalTarget.id = "unlikedComment-pseudo";
         document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
 
-        document.querySelectorAll( ".unlikedComment_pseudo").forEach( like => {
-            like.addEventListener( "click", likeCommentEvent); 
-        })
+        // document.querySelectorAll( ".unlikedComment_pseudo").forEach( like => {
+        //     like.addEventListener( "click", likeCommentEvent); 
+        // })
     }
 
     

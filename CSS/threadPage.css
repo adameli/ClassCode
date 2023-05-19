@@ -131,8 +131,8 @@
     font-weight: bold;
 }
 
-.likedComment-pseudo::after,
-.unlikedComment-pseudo::after {
+#likedComment-pseudo::after,
+#unlikedComment-pseudo::after {
     content: '';
     display: block;
 
@@ -145,15 +145,15 @@
 
 }
 
-.likedComment-pseudo::after {
+#likedComment-pseudo::after {
     background-image: url( "../RESOURCES/likedPost.png");
 }
-.unlikedComment-pseudo::after {
+#unlikedComment-pseudo::after {
     background-image: url( "../RESOURCES/unlikedPost.png");
 }
 
-.likedComment-pseudo:hover::after,
-.unlikedComment-pseudo:hover::after {
+#likedComment-pseudo:hover::after,
+#unlikedComment-pseudo:hover::after {
     cursor: pointer;
     transform: scale( 1.2);
 }
