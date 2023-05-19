@@ -117,11 +117,11 @@ async function renderAccountPage () {
     let patchToImage = await fetchFunction(profileImgRequest);
     console.log(patchToImage);
 
-    window.localStorage.setItem( "img_name", JSON.stringify( patchToImage.resource));
-
     if(patchToImage.resource["message"]){
       document.querySelector(".imgMessage").textContent = patchToImage.resource.message;
+      return
     }
+    window.localStorage.setItem( "img_name", JSON.stringify( patchToImage.resource));
     
     setTimeout( () => {
       location.reload();

@@ -686,11 +686,27 @@
                     "time": "00:34:21"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "test"
+                    ]
                 },
                 "id": 1,
                 "img_name": "hej.jpg"
+            },
+            {
+                "username": "test",
+                "content": "wow can you comment on this page?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "10:00:58"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 2,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [

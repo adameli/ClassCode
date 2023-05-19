@@ -10,10 +10,10 @@ async function renderMainThread() {
     <section class="topInformation-mainThread">
         <div class="profile">
             <h2>Hello ${currentUser}!</h2>
-            <p> You are know in the feedpage </p>
         </div>
+        <p> You are know in the feedpage </p>
         
-        <div class="createQuestionContainer clearButton buttonAnimation">
+        <div class="createQuestionContainer">
             <p>Ask a Question</p>
         </div>
     </section>
@@ -39,31 +39,7 @@ async function renderMainThread() {
     <section>
         <div class="mainThread-allThreads"><div>
     </section>
-
-    <div class="backToTop" id="hiddenUntilLimit"></div>`;
-
-    //backToTop function on limit
-    // backToTopDisplayOnLimit( 100);
-    const limiter = 700;
-    const backToTopButton = document.querySelector( ".backToTop");
-
-    const scrollContainer = () => {
-        return document.documentElement || document.body;
-    }
-
-    document.addEventListener( "scroll", () => {
-        if( scrollContainer().scrollTop > limiter) {
-            console.log( "here");
-            backToTopButton.removeAttribute( "id");
-        }else {
-            backToTopButton.id = "hiddenUntilLimit";
-        }
-    })
-
-    backToTopButton.addEventListener( "click", e => {
-        document.body.scrollIntoView();
-    })
-
+    `;
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
@@ -90,7 +66,6 @@ async function renderMainThread() {
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
     const allThreadsRequest = new Request( "../API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
-    // console.log(objectWithThreads);
     if( objectWithThreads.response.ok){
         loadThreads( objectWithThreads.resource, "No search results...");
     }else {
@@ -106,7 +81,6 @@ async function renderMainThread() {
         const requestString = new Request( "../API/search_bar.php?s=" + searchInputValue + "&f");
         await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction( requestString);
-        console.log(thredResults);
         // Here we call the loadthread function to uppdate the new threads that match the search
         loadThreads( thredResults.resource, "No search results...");
     })
@@ -133,5 +107,4 @@ async function renderMainThread() {
             loadThreads( thredResults.resource, "No search results...");
         });
     });
-
 }
