@@ -172,6 +172,10 @@ function changeToUserPageEvent( event) {
 
 function changeToThreadPageEvent( event) {
     event.stopPropagation();
+    const parentElement = event.currentTarget.parentElement;
+    if(parentElement.classList.contains("pushNotification")){
+        parentElement.classList.remove("pushNotification")
+    }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
     window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
 }

@@ -11,22 +11,7 @@
             "time": "14:41:57"
         },
         "views": 52,
-        "comments": [
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "17-05-2023",
-                    "time": "12:22:46"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            }
-        ],
+        "comments": [],
         "tags": [
             "html",
             "java",
@@ -110,22 +95,7 @@
             "time": "17:40:16"
         },
         "views": 6,
-        "comments": [
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-5-17",
-                    "time": "12:26:24"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            }
-        ],
+        "comments": [],
         "tags": [
             "html",
             "java",
@@ -153,7 +123,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.jpg"
+        "img_name": "OHLEG.png"
     },
     {
         "username": "OHLEG",
@@ -174,7 +144,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.jpg"
+        "img_name": "OHLEG.png"
     },
     {
         "username": "Isak",
@@ -189,20 +159,6 @@
         },
         "views": 0,
         "comments": [
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-5-17",
-                    "time": "12:27:20"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            },
             {
                 "username": "Isak",
                 "content": "this is a new comment",
@@ -230,20 +186,6 @@
                 },
                 "id": 3,
                 "img_name": "test.jpg"
-            },
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-05-19",
-                    "time": "11:53:28"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 4,
-                "img_name": "Isak.jpg"
             }
         ],
         "tags": [
@@ -698,6 +640,90 @@
                 },
                 "id": 5,
                 "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "you are right",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "10:58:31"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 6,
+                "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:05:23"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 7,
+                "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:14:04"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 8,
+                "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:28:09"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 9,
+                "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:30:05"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 10,
+                "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:37:30"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 11,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
@@ -751,6 +777,20 @@
                 },
                 "id": 2,
                 "img_name": "test.jpg"
+            },
+            {
+                "username": "test",
+                "content": "hello",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "11:37:15"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 3,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
@@ -758,5 +798,23 @@
             "test"
         ],
         "img_name": "hej.jpg"
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 27,
+        "title": "dewfwe",
+        "description": "fewfwe",
+        "content": "",
+        "timestamp": {
+            "date": "19-05-2023",
+            "time": "11:30:40"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "fewfw"
+        ],
+        "img_name": "test.jpg"
     }
 ]
