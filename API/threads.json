@@ -12,20 +12,6 @@
         },
         "views": 52,
         "comments": [
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "17-05-2023",
-                    "time": "12:22:46"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            }
         ],
         "tags": [
             "html",
@@ -111,20 +97,6 @@
         },
         "views": 6,
         "comments": [
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-5-17",
-                    "time": "12:26:24"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            }
         ],
         "tags": [
             "html",
@@ -191,20 +163,6 @@
         "comments": [
             {
                 "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-5-17",
-                    "time": "12:27:20"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 1,
-                "img_name": "Isak.jpg"
-            },
-            {
-                "username": "Isak",
                 "content": "this is a new comment",
                 "timestamp": {
                     "date": "2023-05-17",
@@ -230,20 +188,6 @@
                 },
                 "id": 3,
                 "img_name": "test.jpg"
-            },
-            {
-                "username": "Isak",
-                "content": "hello",
-                "timestamp": {
-                    "date": "2023-05-19",
-                    "time": "11:53:28"
-                },
-                "likes": {
-                    "total": 0,
-                    "accounts": []
-                },
-                "id": 4,
-                "img_name": "Isak.jpg"
             }
         ],
         "tags": [
