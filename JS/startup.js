@@ -26,7 +26,7 @@ function loginRegisterPage(type, changeTypeMessage) {
                 </div>
                 <button type=submit>${type}</button>
             </form>
-            <button id=change>${changeTypeMessage}</button>
+            <div id=change>${changeTypeMessage}</div>
         </div>
     `;
 
@@ -72,12 +72,9 @@ function loginRegisterPage(type, changeTypeMessage) {
                 // We fetch and get back an object with {response: serversresponse and resource: the data the server sent back(username)}
                 let post = await fetchFunction(request);
 
-                console.log( post);
-                console.log( post.response.ok);
-
                 // controlls if the serverresponse is ok (true or false)
-                // if the users credentials is correct, they access their account and lands on to the feedpage
-                // else will we send that the credentials are wrong
+                // if the users credentials is correct, they access their account and redirects to the MainThreadPage
+                // else will let the user know that the credentials are wrong
                 
                 if( phpFileName === "login.php"){
                     if( post.response.ok) {
@@ -87,7 +84,6 @@ function loginRegisterPage(type, changeTypeMessage) {
                         renderMainThread();
                     } else {
                         message.innerHTML = `${ post.resource.message}, please try agin`;
-                        displayAlert(post.resource.message)
                     }
                 }
                 else if( phpFileName === "register.php"){ 

@@ -2,7 +2,7 @@ async function renderMainThread() {
 
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/mainThread.css");
 
-    const currentUser = JSON.parse(window.localStorage.getItem( "user"));
+    const currentUser = getCurrentUserLocalStorage();
     // create logged in user button
     renderNavigationLoggedIn( currentUser);
 
@@ -41,7 +41,7 @@ async function renderMainThread() {
     </section>
     <div class="backToTop" id="hiddenUntilLimit"></div>`;
 
-    //backToTop function on limit
+    // backToTop function on limit
     // backToTopDisplayOnLimit( 100);
     const limiter = 700;
     const backToTopButton = document.querySelector( ".backToTop");
@@ -52,7 +52,6 @@ async function renderMainThread() {
 
     document.addEventListener( "scroll", () => {
         if( scrollContainer().scrollTop > limiter) {
-            console.log( "here");
             backToTopButton.removeAttribute( "id");
         }else {
             backToTopButton.id = "hiddenUntilLimit";
@@ -62,8 +61,6 @@ async function renderMainThread() {
     backToTopButton.addEventListener( "click", e => {
         document.body.scrollIntoView();
     })
-
-    const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
         window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
@@ -95,6 +92,7 @@ async function renderMainThread() {
         loadThreads( [], "Something went wrong... Please try again");
     }
 
+    const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     const searchInput = document.getElementById( "searchbar");
     const searchButton = document.querySelector( ".searchContainer button");
     
@@ -104,8 +102,12 @@ async function renderMainThread() {
         const requestString = new Request( "../API/search_bar.php?s=" + searchInputValue + "&f");
         await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction( requestString);
+        if(thredResults.response.ok){
+            loadThreads( thredResults.resource, "No search results...");
+        }else {
+            displayAlert(`Something went wrong, we got this from the server ${thredResults.response.status}, ${thredResults.response.statusText}`)
+        }
         // Here we call the loadthread function to uppdate the new threads that match the search
-        loadThreads( thredResults.resource, "No search results...");
     })
 
     // When the user clicks on the "Enter" key, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 

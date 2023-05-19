@@ -10,6 +10,7 @@ async function fetchFunction( request) {
 
     } catch (e) {
         console.log( "error in fetch func");
+        displayAlert("The server is not working at the moment, Please try again soon");
     };
 };
 

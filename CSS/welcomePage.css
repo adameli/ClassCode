@@ -44,7 +44,7 @@ section p {
     border-radius: var(--borderradiusMedium);
 
     height: 30rem;
-    width: 45rem;
+    width: 25rem;
     margin: 25px auto;
 
     display: flex;
@@ -65,7 +65,29 @@ section p {
 .loginRegisterContainer > form input {
     padding: 10px;
 }
+.loginRegisterContainer > form button {
+    margin-top: 30px;
+    font-size: var(--usernames);
+}
 
 .loginRegisterContainer h2 {
     font-size: var(--bodyText);
+    text-align: center;
+}
+
+#change {
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: color .3s;
+    border-top: 1px solid;
+    padding-top: 20px;
+}
+
+#message {
+    height: 25px;
+    margin: 13px 0px 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff8300;
 }
