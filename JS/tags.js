@@ -8,11 +8,11 @@ createTag(1);
 function createTag(numberOfTags) {
     // We keep track of how many tags the user has put in, to limit the amount of tags the user can use
     if(numberOfTags === 1) {
-        tagsContainer.innerHTML = `<input type="text" id="tagInput" placeholder="ex Javascript, CSS, Html, PHP">`;
+        tagsContainer.innerHTML = `<input class="inputMaxCharacters" type="text" id="tagInput" placeholder="ex Javascript, CSS, Html, PHP" maxlength="20">`;
     }
     if(numberOfTags !== 1){
         // We create an input element to write the name of the tag
-        tagsContainer.innerHTML += `<input type="text" id="tagInput">`;
+        tagsContainer.innerHTML += `<input class="inputMaxCharacters" type="text" id="tagInput" maxlength="20">`;
         const tagInput = document.getElementById( "tagInput");
         tagInput.focus();
         // We get the X mark symbol so the user can remove a current tag
@@ -26,6 +26,7 @@ function createTag(numberOfTags) {
             return
         }
     }
+    deployCharacterLimit();
 
     function removeTag(event) {
         const listElement = event.currentTarget.parentElement;

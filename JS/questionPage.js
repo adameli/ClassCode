@@ -6,6 +6,8 @@ checkIfLoggedIn();
 const currentUser = JSON.parse(window.localStorage.getItem("user"));
 renderNavigationLoggedIn(currentUser);
 
+deployCharacterLimit();
+
 const postContentForm = document.querySelector(".form > button");
 document.querySelector(".addCodeField-event").addEventListener("click", addCodeBlocktoTextArea);
     

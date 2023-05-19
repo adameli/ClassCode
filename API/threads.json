@@ -634,9 +634,10 @@
                     "time": "16:53:14"
                 },
                 "likes": {
-                    "total": 1,
+                    "total": 2,
                     "accounts": [
-                        "hej"
+                        "hej",
+                        "test"
                     ]
                 },
                 "id": 3,
@@ -650,9 +651,10 @@
                     "time": "17:54:30"
                 },
                 "likes": {
-                    "total": 1,
+                    "total": 2,
                     "accounts": [
-                        "hej"
+                        "hej",
+                        "test"
                     ]
                 },
                 "id": 4,
@@ -883,8 +885,10 @@
                     "time": "12:04:27"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "test"
+                    ]
                 },
                 "id": 1,
                 "img_name": "testAccount.jpg"
@@ -897,11 +901,27 @@
                     "time": "12:06:39"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "test"
+                    ]
                 },
                 "id": 2,
                 "img_name": "OHLEG.png"
+            },
+            {
+                "username": "test",
+                "content": "you are amazing at coding",
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "14:49:35"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 3,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
