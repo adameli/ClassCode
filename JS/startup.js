@@ -17,11 +17,11 @@ function loginRegisterPage(type, changeTypeMessage) {
             <p id=message></p>
             <form>
                 <div class="inputAnimationContainer">
-                    <input type="text" id="username" required="required">
+                    <input class="inputMaxCharacters" type="text" id="username" required="required" maxlength="20" >
                     <span>Username</span>
                 </div>
                 <div class="inputAnimationContainer">
-                    <input type="password" id="password" required="required">
+                    <input class="inputMaxCharacters" type="password" id="password" required="required" maxlength="20" >
                     <span>Password</span>
                 </div>
                 <button type=submit>${type}</button>
@@ -29,6 +29,8 @@ function loginRegisterPage(type, changeTypeMessage) {
             <button id=change>${changeTypeMessage}</button>
         </div>
     `;
+
+    deployCharacterLimit();
 
     // These variables are the input elements where we will get the users credentials
     const usernameInput = document.getElementById("username");
@@ -85,6 +87,7 @@ function loginRegisterPage(type, changeTypeMessage) {
                         renderMainThread();
                     } else {
                         message.innerHTML = `${ post.resource.message}, please try agin`;
+                        displayAlert(post.resource.message)
                     }
                 }
                 else if( phpFileName === "register.php"){ 

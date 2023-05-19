@@ -197,3 +197,27 @@ function backToTopDisplayOnLimit( limiter) {
         }
     })
 }
+
+function displayAlert (message) {
+    window.alert(message);
+}
+
+function deployCharacterLimit () {
+    document.querySelectorAll(".inputMaxCharacters").forEach(element => {
+        element.addEventListener("keyup", (event) => {
+            maxCharacters(event.currentTarget);
+        })
+    })
+}
+
+function maxCharacters (element) {
+    let inputValue = element.value
+        let inputMaxCharacters = element.getAttribute("maxlength");
+        if(inputValue.length == inputMaxCharacters) {
+            element.classList.add("maxCharacters");
+            const animated = document.querySelector(".maxCharacters");
+            animated.addEventListener("animationend", (event2) => {
+                event2.currentTarget.classList.remove("maxCharacters");
+            });
+        }
+}
