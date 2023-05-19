@@ -56,6 +56,7 @@
         $thread_id = $request_data[ "thread_id"];
         $comment_id = $request_data[ "comment_id"];
         $username = $request_data[ "username"];
+        $remove = $request_data[ "remove"];
 
         foreach( $threads as $thread_index => $thread) 
         {
@@ -66,19 +67,33 @@
                 foreach($comments as $comment_index => $comment) 
                 {   
                     if( $comment_id == $comment[ "id"])
-                    {
-                        $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"][] = $username;
-                        if( in_array( $username, $comment[ "likes"][ "accounts"])) {
-                            $message = [ "message" => "You have already liked this comment"];
-                            send_JSON( $message, 400);
-                        }
-                        else
+                    {   
+                        if( $remove == false)
                         {
                             $total = $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "total"] += 1;
-                            $json = json_encode( $threads, JSON_PRETTY_PRINT);
-                            file_put_contents( $threads_file, $json);
-                            send_JSON( $total);
+
+                            if( !in_array($username, $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"])) 
+                            {
+                                $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"][] = $username;
+                            }
                         }
+                        else {
+                            if( $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "total"] != 0) 
+                            {
+                                $total = $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "total"] -= 1;
+                                $index = array_search($username, $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"]);
+                                unset( $threads[ $thread_index][ "comments"][ $comment_index][ "likes"][ "accounts"][ $index]);
+                            }
+                        }     
+
+                        $data = [
+                            "number_likes" => $total,
+                            "remove_boolean" => $remove 
+                        ];
+
+                        $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                        file_put_contents( $threads_file, $json);
+                        send_JSON( $data);
                     }
                 }
             }

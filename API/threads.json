@@ -602,11 +602,10 @@
                 },
                 "likes": {
                     "accounts": [
-                        "Isak",
                         "test",
                         "hej"
                     ],
-                    "total": 3
+                    "total": 2
                 },
                 "id": 1,
                 "img_name": "Isak.jpg"
@@ -756,6 +755,20 @@
                 },
                 "id": 11,
                 "img_name": "test.jpg"
+            },
+            {
+                "username": "Isak",
+                "content": null,
+                "timestamp": {
+                    "date": "2023-05-19",
+                    "time": "14:07:36"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 12,
+                "img_name": "Isak.jpg"
             }
         ],
         "tags": [
