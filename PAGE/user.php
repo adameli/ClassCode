@@ -36,6 +36,7 @@
         </section>
 
         <section>
+            <div class="threadSection-userPage"></div>
             <div class="mainThread-allThreads"></div>
         </section>
     </main>
@@ -47,10 +48,6 @@
     <script src="../../JS/functions.js"></script>
     <script src="../../JS/navigation.js"></script>
     <script src="../../index.js"></script>
-    <script>
-        const current_user = JSON.parse(window.localStorage.getItem("user"));
-        renderNavigationLoggedIn(current_user);
-    </script>
     <script src="../../JS/account.js"></script>
 </body>
 

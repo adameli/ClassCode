@@ -1,4 +1,10 @@
 async function renderAccountPage () {
+  
+  const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
+  const messageContainer = document.querySelector( ".threadSection-userPage");
+
+  controlViewingMode( loggedInBoolean, messageContainer);
+  
 
   const searchQuery = window.location.search;
   const urlParams = new URLSearchParams( searchQuery);
@@ -42,34 +48,41 @@ async function renderAccountPage () {
   }
 
   const profileInfo = userObjekt.resource.profile_info
-  document.querySelector( ".profilSettings-accountPage").innerHTML = `
-    <div class="imgEditContainer"> 
-    <div class='profilePicture-accountPage'><img src=${serverEndpoint}/API/PROFILE_IMG/${userObjekt.resource.img_name}></div>
-    <p class="imgMessage"></p> 
-    </div>
-    <div class='userInfo'>
-        <div class='infoParent'>
-            <div class='info editableDivs-accountPage fullname' contenteditable='false'>${profileInfo.fullname}</div>
-            <div class='info editableDivs-accountPage discord' contenteditable='false'>${profileInfo.discord}</div>    
+  document.querySelector( ".profilSettings-accountPage").innerHTML += `
+    <div class="userContainer-userPage">  
+      <div class="userFlexItem-userPage">
+        <div class="imgEditContainer"> 
+          <div class='profilePicture-accountPage' style="background-image:url( '${serverEndpoint}/API/PROFILE_IMG/${userObjekt.resource.img_name}');"></div>
+          <p class="imgMessage"></p> 
         </div>
-        <div class='info profileBio editableDivs-accountPage' contenteditable='false'>${profileInfo.bio}</div>
-    </div> 
-  `;
+        <div class='userInfo'>
+            <div class='infoParent'>
+                <div class='info editableDivs-accountPage fullname' contenteditable='false'>${profileInfo.fullname}</div>
+                <div class='info editableDivs-accountPage discord' contenteditable='false'>${profileInfo.discord}</div>    
+            </div>
+            <div class='info profileBio editableDivs-accountPage' contenteditable='false'>${profileInfo.bio}</div>
+        </div>
+      </div>
+    </div>`;
 
-  if(current_user === userPageName){
+  if(getCurrentUserLocalStorage() === userPageName){
     document.querySelector(".imgEditContainer").innerHTML += `
     <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">
       <input type="file" id="profileImage" name="file">
-      <label for="profileImage" class="editProfileImage">Edit</label>
+      <label for="profileImage" class="editProfileImage"></label>
     </form>
-    <button id='editButton'> Edit profile </button>
+    `;
+
+    document.querySelector( ".userInfo").innerHTML += `
+      <button id='editButton' class="editProfileInfo"></button>
     `
   }
 
   const profileButton = document.querySelector("#editButton");
   editebleDivs = Array.from(document.querySelectorAll(".editableDivs-accountPage"));
   function editProfile () {
-    profileButton.textContent = "Save";
+    profileButton.classList.remove( "editProfileInfo");
+    profileButton.classList.add( "saveProfileInfo");
     profileButton.removeEventListener("click", editProfile);
     profileButton.addEventListener("click", saveProfileEdits);
       editebleDivs.forEach(element => {
@@ -79,7 +92,8 @@ async function renderAccountPage () {
   }
 
   function saveProfileEdits () {
-    profileButton.textContent = "Edit profile";
+    profileButton.classList.remove( "saveProfileInfo");
+    profileButton.classList.add( "editProfileInfo");
     profileButton.removeEventListener("click", saveProfileEdits);
     profileButton.addEventListener("click", editProfile);
     editebleDivs.forEach(element => {

@@ -3,11 +3,7 @@ const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
 const threadContainer = document.querySelector( ".postContainer-pageThread");
 
 // control if logged in (true => display navigation user) (false => viewing mode message)
-if( loggedInBoolean) {
-    renderNavigationLoggedIn( getCurrentUserLocalStorage());
-}else {
-    threadContainer.innerHTML = `<p class="notLoggedInMessage">You are now in viewing Mode, <a href='${serverEndpoint}'>Sign In or Register</a> to Comment & Like</p>`;
-}
+controlViewingMode( loggedInBoolean, threadContainer);
 
 const threadId = getGetSearchParam( "thread_id");
 

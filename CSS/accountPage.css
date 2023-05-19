@@ -1,54 +1,48 @@
-.profilSettings-accountPage {
+
+.userContainer-userPage {
+    max-width: var( --maxWidthMainThread);
+    margin: 0 auto;
+    padding: var( --paddingCardContainer);
+    
+}
+.userFlexItem-userPage {
     display: flex;
-    gap: 40px;
-    margin: 2%;
+    align-items: center;
+    gap: 25px;
 }
 
+
+/* UserInfo Container__________________________________ */
 .profilePicture-accountPage {
-    border-radius: 50%;
-    overflow: hidden;
+    border-radius: var( --CIRKLE);
+    height: 250px;
+    width: 250px;
+    background-size: cover;
+
     margin: 15px;
-    max-width: 200px;
 }
 
 .imgEditContainer {
     position: relative;
 }
 
-.profilePicture-accountPage img {
-    height: 200px;
-}
-
-#accountDialog {
-    background-color: #484545;
-    width: 650px;
-}
-
-.inputContainer {
-    display: flex;
-    gap: 10px;
-    margin: 10px;
-}
-
-.profilSettings-accountPage button {
-    width: 200px;
-}
-
 .userInfo {
-    width: 600px;
+    position: relative;
+    width: 100%;
 }
 
 .infoParent {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: var( --paddingCardContainer) 0;
     gap: 20px;
 }
 
 .info {
     position: relative;
-    padding: 15px 10px;
-    background-color: #ffffff0c;
+    padding: var(--paddingButtons);
+    background-color: var( --glassMorphism);
+    border-radius: var(--borderradiusSmall);
     width: 100%;
 }
 
@@ -56,8 +50,8 @@
     position: absolute;
     top: -30px;
     left: 0px;
-    color: #576bbc;
-    font-size: 20px;
+    color: var( --pointOfInterest);
+    font-size: var(--usernames);
 }
 
 .fullname::before {
@@ -79,15 +73,33 @@ input[type="file"] {
     display: none;
 }
 
+
+/* Buttons Edit ______________________________________________ */
 .editProfileImage {
     background-color: var(--pointOfInterest);
-    padding: 5px 10px;
-    border: 1px solid white;
-    border-radius: 11px;
+    border-radius: var( --borderradiusSmall);
+    padding: var( --paddingCardContainer);
+
     position: absolute;
-    bottom: 58px;
+    bottom: 10px;
     left: 20px;
     cursor: pointer;
+
+    transition: all .2s ease-in;
+}
+
+.editProfileImage::before {
+    content: '';
+    display: block;
+    height: 15px;
+    width: 15px;
+
+    background-image: url( "../RESOURCES/changePI.png");
+    background-size: cover;
+}
+.editProfileImage:hover {
+    transform: scale( 1.1);
+    background-color: var( --pointOfInterestHover);
 }
 
 .pushNotification::before {
@@ -97,4 +109,42 @@ input[type="file"] {
     position: absolute;
     left: -4px;
     top: -9px;
+}
+
+#editButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    transition: all .3s ease;
+}
+
+#editButton:hover {
+    transform: scale( 1.2);
+}
+
+#editButton::after {
+    content: '';
+    display: block;
+    height: 15px;
+    width: 15px;
+
+    background-size: cover;
+    transform: scale( 1.5);
+}
+
+.editProfileInfo::after {
+    background-image: url( "../RESOURCES/editProfileInfo.png");
+}
+
+.saveProfileInfo::after {
+    background-image: url( "../RESOURCES/saveEditProfileInfo.png");
+}
+
+.saveProfileInfo {
+    background-color: var( --saveOfInterest);
 }

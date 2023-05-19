@@ -15,7 +15,16 @@ async function fetchFunction( request) {
 
 function removeUserLocalStorage() {
     localStorage.removeItem( "user");
+    localStorage.removeItem( "img_name")
     window.location = `${serverEndpoint}`;
+}
+
+function controlViewingMode( loggedInBoolean, messageContainer) {
+    if( loggedInBoolean) {
+        renderNavigationLoggedIn( getCurrentUserLocalStorage());
+    }else {
+        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='${serverEndpoint}'>Sign In or Register</a> to Comment & Like</p>`;
+    }
 }
 
  function getCurrentUserLocalStorage() {
