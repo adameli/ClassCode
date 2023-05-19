@@ -15,6 +15,9 @@ async function renderAccountPage () {
     for ( const lastVisitedThreadId in lastVisitedThread) {
       
       for ( const thread of userThreads){
+        if(thread.comments.length === 0){
+          continue
+        }
         if( parseInt( lastVisitedThreadId) === thread.thread_id){
           let lastVisitedThreadDate = lastVisitedThread[lastVisitedThreadId].date + " " + lastVisitedThread[lastVisitedThreadId].time;
           console.log("last visited thread date", lastVisitedThreadDate);
