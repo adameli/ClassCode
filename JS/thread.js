@@ -43,26 +43,29 @@ async function fillThreadPage() {
     threadContainer.innerHTML += ` 
     <div class='topInfoFlexContainer-pageThread'>
         
-        <div class='userInfoContainer-pageThread'>
-            <img class='profileImg userInfoPostPicture' data-username="${threadObject.resource.username}" src='${serverEndpoint}/API/PROFILE_IMG/${threadObject.resource.img_name}'>
-            <div class='user_name-pageThread'>${threadObject.resource.username}</div>                 
+        <div class="threadUserContainerFlexItem">
+            <div class='userInfoContainer-pageThread'>
+                <img class='profileImg userInfoPostPicture' data-username="${threadObject.resource.username}" src='${serverEndpoint}/API/PROFILE_IMG/${threadObject.resource.img_name}'>
+                <div class='user_name-pageThread'><a href="${serverEndpoint}/PAGE/user.php?un=${threadObject.resource.username}">${threadObject.resource.username}</a></div>                 
+            </div>
+            <div class='views'><span class='InformationText-tread NRviews-pageThread'>${threadObject.resource.views}</span></div>
         </div>
 
         <div class='postInformationZone-pageThread'>
-            <div class='views'><span class='InformationText-tread'>Views: ${threadObject.resource.views}</span></div>
-            <div class='time_stamp-pageThread'><span class='InformationText-tread'>Posted: ${threadObject.resource.timestamp.time}</span><br>
-                <span class='InformationText-tread'>Date: ${threadObject.resource.timestamp.date}</span></div>
+            <p class='time_stamp-pageThread'><span class='InformationText-tread'>${threadObject.resource.timestamp.time}</span> -
+                <span class='InformationText-tread'>${threadObject.resource.timestamp.date}</span></div>
+            </p>
+        </div>
+
+        <div class="thread-PostContainer">
+            <div class='postTitleContainer-pageThread'>
+                <h2 class='postTitle-pageThread'>${threadObject.resource.title}</h2>
             </div>
-        </div>
 
-
-        <div class='postTitleContainer-pageThread'>
-            <h2 class='post_title-pageThread'>${threadObject.resource.title}</h2>
-        </div>
-
-        <div class='usersPost-pageThread'>
-            <p class='postDescription-pageThread'>${threadObject.resource.description}</p>
-            <div class='postContent-pageThread'>${threadObject.resource.content}</div>           
+            <div class='usersPost-pageThread'>
+                <p class='postDescription-pageThread'>${threadObject.resource.description}</p>
+                <div class='postContent-pageThread'>${threadObject.resource.content}</div>           
+            </div>
         </div>
     </div>
     `;
@@ -89,11 +92,11 @@ async function fillThreadPage() {
         
                             <div class='userInfoContainer-comment'>
                                 <img class='profileImg userInfoPostPicture-comment UI${likeIdentifyer}' data-username="${comment.username}" src='${serverEndpoint}/API/PROFILE_IMG/${comment.img_name}'> 
-                                <div class='user_name-comment'>${comment.username}</div>                   
+                                <p class='user_name-comment'><a href="${serverEndpoint}/PAGE/user.php?un=${comment.username}">${comment.username}</a></p>                   
                             </div>
         
                             <div class='information-comment'>
-                                <p>Posted: ${comment.timestamp.time}<br>Date: ${comment.timestamp.date}</p>
+                                <p>${comment.timestamp.time} - ${comment.timestamp.date}</p>
                             </div>
         
                         </div>
@@ -141,7 +144,7 @@ async function fillThreadPage() {
             user.addEventListener( "click", changeToUserPageEvent);
         })
     }else {
-        commentContainer.innerHTML += `No comments exists on this page...`;
+        document.querySelector( ".commentsContainer-threadPage").innerHTML += `No comments exists on this page...`;
     }
     
     // highlights all code within precodecodepre

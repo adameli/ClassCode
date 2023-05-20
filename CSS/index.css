@@ -23,6 +23,8 @@
     --pointOfInterest: #576bbc;
     --pointOfInterestHover: #82cde7; 
     --saveOfInterest: #61bc57;
+    --redPointOfInterestHover: #ff0080;
+    --redPointOfInterest: #c20b66;
     
     --darkMorphism: #100f15af;
     --glassMorphism: #ffffff0c;
@@ -76,6 +78,12 @@ header {
 
 main {
     margin: 2%;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--smallText);
 }
 
 .backgroundImage {

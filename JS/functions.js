@@ -58,8 +58,10 @@ function addCodeBlocktoTextArea( event) {
 
 // Converts *-* & *+* into pre code tags, later converted into hljs higlights.
 function convertToCodeblock( input) {
-    let firstStageConversion = input.replaceAll("*+*", "<pre><code>");
-    const contentInput = firstStageConversion.replaceAll("*-*", "</code></pre>");
+    const firstStageConversion = input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    
+    const secondStageConversion = firstStageConversion.replaceAll("*+*", "<pre><code>");
+    const contentInput = secondStageConversion.replaceAll("*-*", "</code></pre>");
     
     function replaceNewLinesWithExceptions( input) { 
         const placeholderPrefix = "PLACEHOLDER"; 
@@ -78,6 +80,7 @@ function convertToCodeblock( input) {
             }); 
             return input;
         }
+    
     const finalOutput = replaceNewLinesWithExceptions( contentInput);
     return finalOutput;
 }
@@ -129,7 +132,7 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
                 
                 <div class="usersPost-mainThread">
                     <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_name}">
-                    <p class="user_name-mainThread">${threadObject.username}</p>
+                    <p class="user_name-mainThread"><a href="${serverEndpoint}/PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
                 </div>                    
             </div>
             <div class="threadTags-container"></div>

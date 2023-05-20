@@ -944,5 +944,50 @@
         "comments": [],
         "tags": [],
         "img_name": "testAccount.jpg"
+    },
+    {
+        "username": "testAccount",
+        "username_id": 10,
+        "thread_id": 30,
+        "title": "Testing HTML",
+        "description": "Hopefully you will now be able to write html in your posts :)\nVery cool!",
+        "content": "My HTML:<br><br>    &lt;pre&gt;&lt;code&gt;<br>&lt;div&gt;<br>      &lt;p&gt;hello world&gt;<br>&lt;\/div&gt;<br>    &lt;\/code&gt;&lt;\/pre&gt;",
+        "timestamp": {
+            "date": "2023-05-20",
+            "time": "14:46:03"
+        },
+        "views": 0,
+        "comments": [
+            {
+                "username": "testAccount",
+                "content": "Didnt work First time, Second Attempt here:<br><br>    <pre><code>\n&lt;div&gt;\n     &lt;p&gt;HelloWorld&lt;\/p&gt;\n&lt;\/div&gt;\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "2023-05-20",
+                    "time": "14:53:54"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "testAccount.jpg"
+            },
+            {
+                "username": "testAccount",
+                "content": "LEEETSSSGOOOOOOO",
+                "timestamp": {
+                    "date": "2023-05-20",
+                    "time": "14:54:16"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 2,
+                "img_name": "testAccount.jpg"
+            }
+        ],
+        "tags": [],
+        "img_name": "testAccount.jpg"
     }
 ]

@@ -8,8 +8,7 @@
 
 .topInfoFlexContainer-pageThread {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     
     /* padding: var(--paddingButtons); */
     background-color: var(--glassMorphism);
@@ -18,7 +17,7 @@
 }
 
 .topInfoFlexContainer-pageThread > div {
-    padding: var(--paddingButtons);
+    padding: var(--paddingCardContainer);
 }
 
 .userInfoContainer-pageThread,
@@ -30,6 +29,30 @@
     padding: 5px;
 }
 
+.threadUserContainerFlexItem {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.NRviews-pageThread {
+    display: flex;
+    align-items: center;
+    min-width: 3rem;
+    gap: 10px;
+    
+    color: black;
+}    
+
+.NRviews-pageThread::before {
+    content: '';
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-image: url( "../RESOURCES/views.png");
+    background-size: cover;
+}
+
 .postInformationZone-pageThread,
 .information-comment {
     background-color: var(--darkMorphism);
@@ -37,22 +60,40 @@
 
 .InformationText-tread,
 .information-comment > p {
-    color: var(--pointOfInterest);
     font-size: var(--smallText);
+    font-style: italic;
+}
+
+/* THREAD BODY STYLES _______________________________________________________ */
+
+.thread-PostContainer {
+    padding-left: var( --paddingCardContainer);
+    background-color: var( --glassMorphism);
+
+    border-left: 2px solid transparent;
+    border-image: linear-gradient(1turn, var(--pointOfInterestHover), var(--redPointOfInterestHover), var(--mainBackgroundColor));
+    border-image-slice: 1;
+    width:100%;
 }
 
 .postTitleContainer-pageThread {
-    /* margin: 1.5rem 0; */
-    border-bottom: 1.5px solid var(--pointOfInterest);
-    padding: var(--paddingButtons) var(--paddingButtons) 0 0;
-    border-radius: var(--borderradiusSmall);
-
+    padding: var(--paddingButtons);
+    padding-left: 0;
 }
 
+.postTitle-pageThread {
+    font-weight: normal;
+    padding: 5px;
+    border-bottom: 2px solid var(--darkMorphism);
+    color: var( --redPointOfInterest);
+}
 
 .postDescription-pageThread {
-    padding: var(--paddingSections);
-
+    font-size: var(--smallText);
+    font-style: italic;
+    padding: 5px;
+    padding-right: var( --paddingSections);
+    line-height: 22.5px;
 }
 
 .postContent-pageThread {
@@ -117,7 +158,7 @@
 .likeContainer-comment {
     background-color: var(--darkMorphism);
     color: var(--pointOfInterest);
-    border-left: 2px solid var( --pointOfInterest);
+    border-left: 2px solid var( --pointOfInterestHover);
 }
 
 .numberLikes-comment {
