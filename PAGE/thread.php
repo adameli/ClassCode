@@ -33,16 +33,19 @@
             
             <div class="commentsContainer-threadPage">
             </div>
-
-            <button class="openModalButton-comment">Write a Comment!</button>
             
-                <dialog class="createCommentModal-comment" -data-thread-id="">
-                    <h3>Create Comment</h3>
-                    <button class="addCodeField-event">Add Code</button>
-                        <textarea type=text id=content placeholder=Content!></textarea>
-                        <button class="closeCommentModal">Close</button>
-                        <button class="sendComment-modal">Post</button>
+            <div class="addComment-threadPage">
+                <button class="openModalButton-comment">Write a Comment!</button>
+                
+                <dialog class="createCommentModal-comment">
+                    <button class="addCodeField-event clearButton">Add Code</button>
+                    <textarea type=text id=content placeholder=Content!></textarea>
+                    <div class="buttonsAddComment">
+                        <button class="closeCommentModal">Exit</button>
+                        <button class="sendComment-modal">Comment</button>
+                    </div>
                 </dialog>
+            <div>
         </section>
     </main>
     <footer></footer>

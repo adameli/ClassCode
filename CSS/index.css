@@ -124,13 +124,16 @@ button {
     border: none;
     cursor: pointer;
 
-    transition: background-color .5s;
+    transition: all .3s;
 }
 
 button:hover {
     background-color: var( --pointOfInterestHover);
 }
 
+button:active {
+    transform: scale( 1.1);
+}
 /* Clear Version _________________*/
 .clearButton {
     padding: var( --paddingButtons);

@@ -1,9 +1,15 @@
 .postContainer-pageThread, 
-.commentsContainer-threadPage {
+.commentsContainer-threadPage,
+.addComment-threadPage {
     padding: var(--paddingSections);
     background-color: var(--darkMorphism);
     max-width: 90rem;
     margin: 0 auto; 
+}
+
+.commentsContainer-threadPage,
+.addComment-threadPage {
+    padding-bottom: 0;
 }
 
 .topInfoFlexContainer-pageThread {
@@ -98,7 +104,7 @@
 
 .postContent-pageThread {
     background-color: var(--lightMorphism);
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     padding: var(--paddingSections);
 }
 
@@ -138,12 +144,12 @@
 }
 
 .createCommentModal-comment {
-    /* min-height: 200px; */
-    width: 95%;
-    margin: 25px auto;
+    position: relative;
+    width: 100%;
+    /* margin: 35px auto; */
     border: none;
-    
-    background-color: var(--glassMorphism);
+    border-radius: var( --borderradiusSmall);
+    background-color: transparent;
 }
 
 .createCommentModal-comment textarea {
@@ -152,6 +158,26 @@
     resize: vertical;
     padding: var(--paddingCardContainer);   
 }
+
+.buttonsAddComment {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var( --paddingCardContainer);
+    gap: 10px;
+}
+
+.addCodeField-event {
+    margin: 5px;
+}
+
+.closeCommentModal {
+    background-color: transparent;
+    border-radius: var( --borderradiusMedium);
+}
+.closeCommentModal:hover {
+    background-color: var( --glassMorphism);
+} 
 
 /* Likes Css___________________________________________________________________ */
 

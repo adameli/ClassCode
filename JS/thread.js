@@ -219,15 +219,13 @@ function prepareAddComments() {
     
     // opens modal
     openCreateCommentButton.addEventListener( "click", () => {
-        if( localStorage.getItem( "user")) {
-            CommentContainer.show();
-        }else {
-            // error, not logged in
-        }
+        CommentContainer.show();
+        window.scrollTo(0, document.body.scrollHeight);
     })
     
     // closes Modal
     closeCommentContainer.addEventListener( "click", () => {
+        document.querySelector( ".createCommentModal-comment > textarea").value = "";
         CommentContainer.close();
     })
     
