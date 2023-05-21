@@ -6,6 +6,7 @@ section {
     height: 60rem;
     padding: var(--paddingSections);
     margin-left: 2%;
+    overflow: hidden;
 }
 
 section h1 {
@@ -235,8 +236,8 @@ section:last-child {
 /* OBSERVER */
 .hidden {
     opacity: 0;
-    /* filter: blur( 5px);
-    transform: translateX( -100%); */
+    filter: blur( 5px);
+    transform: translateX( 100%); 
     transition: all 1s;
 }
 

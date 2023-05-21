@@ -234,3 +234,15 @@ function maxCharacters (element) {
             });
         }
 }
+
+function switchViewMode() {
+    if( localStorage.getItem( "lightMode")) {
+        localStorage.removeItem( "lightMode");
+        document.documentElement.setAttribute( "data-theme", "dark");
+        document.querySelector( "body > img").src = `${serverEndpoint}/RESOURCES/backgroundImageBlur.jpg`;
+    }else {
+        localStorage.setItem( "lightMode", true);
+        document.documentElement.setAttribute( "data-theme", "light");
+        document.querySelector( "body > img").src = `${serverEndpoint}/RESOURCES/lightmodeBackground.jpg`;
+    }
+}

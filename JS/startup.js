@@ -108,7 +108,7 @@ function renderWelcomePage() {
     <section>
         <div>
             <h1>Welcome to <span>ClassCode!<span></h1>
-            <p class="hidden welcomeTextUH">The place where WDU helps You!<br>Let's Get Going.</p>
+            <p class="welcomeTextUH">The place where WDU helps You!<br>Let's Get Going.</p>
         </div>
 
         <a href="#findAnswers"><div class="bouncingArrow"></div></a>
@@ -122,18 +122,18 @@ function renderWelcomePage() {
             And the best thing! <span>Everyone</span> can Contribute with their own input!</p>
         </div>
 
-        <div class"">
-            <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=25" title="threadInsight"></iframe> 
+        <div class="hidden">
+            <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=${Math.floor(Math.random() * 30)}" title="threadInsight"></iframe> 
         </div>
-        <div class""></div>
-        <div class""></div>
+        <div class="hidden"></div>
+        <div class="hidden"></div>
         </section>
         
-        <section class="hidden">
-            <h1>The AIT HELPER</h1>
+        <section>
+            <h1 class="hidden">The AIT HELPER</h1>
         </section>
 
-        <section class="hidden">
+        <section>
             <h1>Join the community</h1>
             <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
         </section>
