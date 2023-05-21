@@ -11,3 +11,7 @@ const observer = new IntersectionObserver( entries => {
 
 const hiddenElements = document.querySelectorAll( ".hidden");
 hiddenElements.forEach( element => observer.observe( element));
+
+
+const firstSectionText = document.querySelectorAll( "animateBottomToTop");
+firstSectionText.forEach( element => observer.observe( element));

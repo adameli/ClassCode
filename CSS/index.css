@@ -93,9 +93,11 @@ a {
     position: fixed;
     z-index: -1;
     filter: blur(35px);
+    transform: scale(1.1);
     
     /* mix-blend-mode: difference; */
     object-fit: cover;
+    /* animation: backgroundImageMovement 10s ease-in-out infinite; */
 }
 
 /* INPUTS__________________________________________________________________________ */
@@ -376,4 +378,12 @@ header > h3 {
     25% { transform: translateX(4px);}
     50% { transform: translateX(-4px);}
     75% { transform: translateX(4px);}
+}
+
+@keyframes backgroundImageMovement {
+    10%{ transform: skew( 5deg 5deg);}
+    25%{ transform: scale( 1.05) skew( 5deg);}
+
+    75%{ transform: translate(12px) scale( 1.1) skew( -5deg);}
+    90%{ transform: skew(-1deg 6deg);}
 }

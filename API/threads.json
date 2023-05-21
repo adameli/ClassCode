@@ -11,7 +11,22 @@
             "time": "14:41:57"
         },
         "views": 52,
-        "comments": [],
+        "comments": [
+            {
+                "username": "DeoHard",
+                "content": "<br>    <pre><code>\nfunction MAJA() {\n      console.log( &quot;MAJA&quot;);\n      MAJA();\n}\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "2023-05-20",
+                    "time": "17:55:12"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "DeoHard.png"
+            }
+        ],
         "tags": [
             "html",
             "java",

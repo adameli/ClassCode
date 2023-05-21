@@ -106,20 +106,40 @@ function renderWelcomePage() {
 
     document.querySelector( "main").innerHTML = `
     <section>
-        <h1>Welcome to ClassCode!</h1>
-        <p class="hidden">The place where WDU helps You!<br>Let's Get Going.</p>
+        <div>
+            <h1>Welcome to <span>ClassCode!<span></h1>
+            <p class="hidden welcomeTextUH">The place where WDU helps You!<br>Let's Get Going.</p>
+        </div>
+
+        <a href="#findAnswers"><div class="bouncingArrow"></div></a>
     </section>
 
-    <section class="hidden">
-        <h1>The AIT HELPER</h1>
-    </section>
+    <section id="findAnswers">
+        <div>
+            <h1>Find your Answers!</h1>
+            <p><span>ClassCode</span> is designed with you in mind,<br>
+            Here You can ask all <span>questions</span> or share a discovery with your class,<br>
+            And the best thing! <span>Everyone</span> can Contribute with their own input!</p>
+        </div>
 
-    <section class="hidden">
-        <h1>Join the community</h1>
-        <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
-    </section>
-    `;
+        <div class"">
+            <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=25" title="threadInsight"></iframe> 
+        </div>
+        <div class""></div>
+        <div class""></div>
+        </section>
+        
+        <section class="hidden">
+            <h1>The AIT HELPER</h1>
+        </section>
+
+        <section class="hidden">
+            <h1>Join the community</h1>
+            <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
+        </section>
+        `;
 
     document.querySelector( ".loginButtonHeader").addEventListener("click", () => loginRegisterPage( "Login", "Not a user? Register here!"));
     document.querySelector( ".registerButtonHeader").addEventListener("click", () => loginRegisterPage( "Register", "Already got an account? Login here"));
 }
+        // <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=25" title="threadInsight"></iframe> 
