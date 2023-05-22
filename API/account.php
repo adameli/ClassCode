@@ -61,7 +61,7 @@
     if( $request_method == "PATCH") 
     {   
         //Checks if the PATCH-request body has the correct body
-        if( count( array_intersect( $required_keys_PATCH, array_keys( $request_data))) === count( $required_keys_POST)) 
+        if( count( array_intersect( $required_keys_PATCH, array_keys( $request_data))) === count( $required_keys_PATCH)) 
         {
             $profile_info = $request_data[ "profile_info"];
             $username = $request_data[ "user"];
