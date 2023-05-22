@@ -4,10 +4,10 @@
     //POST UPLOAD IMAGE
     if( $request_method == "POST") 
     {
-        //CHECKS FILE SIZE, MAX SIZE: 500 kb (500 000 Bytes)
-        if( $_FILES[ "file"][ "size"] > 500000 || $_FILES[ "file"][ "size"] == 0) 
+        //CHECKS FILE SIZE, MAX SIZE: 50 kb (50 000 Bytes)
+        if( $_FILES[ "file"][ "size"] > 50000 || $_FILES[ "file"][ "size"] == 0) 
         {
-            $message = [ "message" => "Image-size too big, max-limit is 500 Kb."];
+            $message = [ "message" => "Image-size too big, max-limit is 50 Kb."];
             send_JSON( $message, 403);
         }
 
