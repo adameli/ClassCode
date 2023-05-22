@@ -80,9 +80,6 @@ async function renderMainThread() {
         }
     })
 
-    //when event is triggered (onclick button), its adds syntax in textarea which will later be converted to <pre>+<code>
-    // document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
-
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
     const allThreadsRequest = new Request( "../API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
