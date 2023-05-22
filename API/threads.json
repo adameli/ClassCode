@@ -153,7 +153,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.png"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "OHLEG",
@@ -174,7 +174,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.png"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "Isak",
@@ -633,9 +633,10 @@
                     "time": "12:26:26"
                 },
                 "likes": {
-                    "total": 1,
+                    "total": 2,
                     "accounts": [
-                        "hej"
+                        "hej",
+                        "Isak"
                     ]
                 },
                 "id": 2,

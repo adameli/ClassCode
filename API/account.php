@@ -55,7 +55,6 @@
                             if( $comment[ "username"] == $username) 
                             {
                                 $threads[$thread_index]["comments"][$comment_index][ "img_name"] = $filename;
-                                send_JSON( $comments);
                             }
                         }
 
