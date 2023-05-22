@@ -9,7 +9,7 @@ async function fetchFunction( request) {
         return { response: serverResponse, resource: resource };
 
     } catch (e) {
-        console.log( "error in fetch function, controll the prefix and the body structure");
+        console.log(e, "error in fetch function, controll the prefix and the body structure");
         displayAlert("The server is not working at the moment, the wizards are working on it!! Please try again soon");
     };
 };

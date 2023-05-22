@@ -148,3 +148,7 @@ input[type="file"] {
 .saveProfileInfo {
     background-color: var( --saveOfInterest);
 }
+
+.imgMessage {
+    position: absolute;
+}

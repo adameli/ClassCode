@@ -34,9 +34,8 @@
     <main>
         <section class="profilSettings-accountPage">
         </section>
-
+        
         <section>
-            <div class="threadSection-userPage"></div>
             <div class="mainThread-allThreads"></div>
         </section>
     </main>
