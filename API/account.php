@@ -52,9 +52,10 @@
 
                         foreach( $comments as $comment_index => $comment) 
                         {
-                            if( $comment["username"] == $username) 
+                            if( $comment[ "username"] == $username) 
                             {
-                                $threads[$thread_index]["comments"][$comment_index]["img_name"] = $filename;
+                                $threads[$thread_index]["comments"][$comment_index][ "img_name"] = $filename;
+                                send_JSON( $comments);
                             }
                         }
 
