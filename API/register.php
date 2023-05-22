@@ -75,6 +75,11 @@
             $json = json_encode( $users, JSON_PRETTY_PRINT);
             file_put_contents( $users_file, $json);
             send_JSON( $new_user[ "username"]);
+        }
+        else 
+        {
+            $message = [ "message" => "Error in the POST-request body."];
+            send_JSON( $message, 422);
         } 
     }
 ?>
