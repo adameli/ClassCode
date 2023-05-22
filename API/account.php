@@ -24,6 +24,8 @@
         {
             if( $user[ "username"] == $_POST[ "username"]) 
             {
+                $username = $user[ "username"];
+
                 //REMOVES OLD IMAGE
                 $old_filename = $users[ $index][ "img_name"];
                 unlink( "PROFILE_IMG/$old_filename");
@@ -41,6 +43,26 @@
                 //Changes the filename to username.jpg/png
                 $users[ $index][ "img_name"] = $filename;
                 
+                foreach( $threads as $thread_index => $thread) 
+                {
+                    if ($thread["username"] == $username) 
+                    {
+                        $threads[ $thread_index][ "img_name"] = $filename;
+                        $comments = $thread[ "comments"];
+
+                        foreach( $comments as $comment_index => $comment) 
+                        {
+                            if( $comment["username"] == $username) 
+                            {
+                                $threads[$thread_index]["comments"][$comment_index]["img_name"] = $filename;
+                            }
+                        }
+
+                    }
+
+
+                }
+
                 //Saves the new information in the json files
                 $json = json_encode( $users, JSON_PRETTY_PRINT);
                 file_put_contents( $users_file, $json);
