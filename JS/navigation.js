@@ -22,6 +22,7 @@ function renderNavigationLoggedIn(user) {
                         <p>Account:</p>
                         <p>${user}</p>
                     </div>
+                    <button class="switchViewMode">LightMode|DarkMode</button>
                 </div>
     
                 <div class="profileMenuNav-userOptionsContainer">
@@ -39,6 +40,8 @@ function renderNavigationLoggedIn(user) {
             document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
                 window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
             });
+
+            document.querySelector( ".switchViewMode").addEventListener( "click", switchViewMode);
 
         } else {
             document.querySelector(".profileMenuNav-shortcut").remove();

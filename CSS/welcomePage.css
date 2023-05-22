@@ -1,6 +1,12 @@
+main {
+    margin: 0;
+}
+
 section {
-    height: 100vh;
+    height: 60rem;
     padding: var(--paddingSections);
+    margin-left: 2%;
+    overflow: hidden;
 }
 
 section h1 {
@@ -15,28 +21,10 @@ section p {
     cursor: pointer;
 }
 
-/* .loginButtonHeader, 
-.registerButtonHeader {
-    font-size: var(--usernames);
-    padding: var(--paddingButtons);
-    cursor: pointer;
-    background-color: var(--glassMorphism);
-    border-radius: var(--borderradiusSmall);
-} */
-
-.hidden {
-    opacity: 0;
-    filter: blur( 5px);
-    transform: translateX( -100%);
-    transition: all 1s;
-
+span {
+    color: var( --pointOfInterestHover);
 }
 
-.show {
-    opacity: 1;
-    filter: blur( 0);
-    transform: translateX( 0);
-}
 
 .loginRegisterContainer {
     background-color: var(--mainBackgroundColor);
@@ -90,4 +78,173 @@ section p {
     text-align: center;
     font-size: 14px;
     color: #ff8300;
+}
+
+section:nth-child(2),
+section:nth-child(4) {
+    background-color: var(--darkMorphism);
+}
+
+/* FIRST SECTION */
+section:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-left: 2px solid transparent;
+    border-image: linear-gradient(1turn, var(--pointOfInterestHover), var(--redPointOfInterestHover), var(--mainBackgroundColor));
+    border-image-slice: 1;
+}
+
+section:nth-child(1) > div {
+    background-color: var( --glassMorphism);
+    padding: var( --paddingSections);
+    border-radius: var( --borderradiusMedium);
+}
+
+section:nth-child(1) div,
+section:nth-child(1) a {
+    margin-top: 15%;
+}
+
+.bouncingArrow {
+    height: 50px;
+    width: 50px;
+    background-color: var( --redPointOfInterest);
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.bouncingArrow::before {
+    content: '';
+    display: block;
+
+    height: 30px;
+    width: 30px;
+
+    background-image: url( "../RESOURCES/down-arrow.png");
+    background-size: cover;
+}
+
+.welcomeTextUH {
+    text-align: center;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY( 0);
+    }
+    50% {
+        transform: translateY( 25px) scale( 1.1);
+    }
+
+    to {
+        transform: translateY( 0);
+    }
+}
+
+/* findAnswers_______________________________________________ */
+section:nth-child(2){
+    border-left: 2px solid var( --pointOfInterestHover);
+    position: relative;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+    overflow: hidden;
+
+    /* transform: rotate( -25deg); */
+}
+
+section:nth-child(2) div {
+    border-radius: var( --borderradiusSmall);
+}
+
+section:nth-child(2) > div:nth-child(1) {
+    position: absolute;
+    top: 75px;
+    left: 50px;
+    padding: var( --paddingSections);
+    
+}
+
+section:nth-child(2) > div:nth-child(2){
+    background-color: white;
+    height: 35rem;
+    width: 35rem;
+
+    position: absolute;
+
+    bottom: 45px;
+    left: 150px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+section:nth-child(2) > div:nth-child(3) {
+    background-color: white;
+    height: 25rem;
+    width: 20rem;
+    
+    position: absolute;
+    top: 20%;
+    right: 5%;
+}
+section:nth-child(2) > div:nth-child(4) {
+    background-color: white;
+    height: 25rem;
+    width: 20rem;
+
+    position: absolute;
+    right: 27%;
+    bottom: 15%;
+}
+
+section:nth-child(2) > div h1 {
+    color: var( --redPointOfInterest);
+    text-align: center;
+}
+
+section:nth-child(2) > div p {
+    text-align: center;
+    padding: var( --paddingButtons);
+}
+
+/* AIT HELPER */
+
+section:nth-child(3) {
+    border-left: 2px solid var( --pointOfInterestHover);
+}
+
+/* WHO ARE WE */
+
+/* SIGN UP */
+section:last-child {
+    border-left: 2px solid transparent;
+    border-image: linear-gradient( var(--pointOfInterestHover), var(--redPointOfInterestHover), var(--mainBackgroundColor));
+    border-image-slice: 1;
+}
+
+
+/* OBSERVER */
+.hidden {
+    opacity: 0;
+    filter: blur( 5px);
+    transform: translateX( 100%); 
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur( 0);
+    transform: translateX( 0);
+    transform: translateY( 0);
+
 }

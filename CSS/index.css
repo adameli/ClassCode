@@ -16,9 +16,9 @@
 :root {
 
     /* COLORS________________________________________________________________ */
-    --mainBackgroundColor: #0d1116;
-    --lightModeBackgroundColor: #ededed;
-    --textColor: #f5f5f5;
+    /* --mainBackgroundColor: #0d1116;
+    --lightModeBackgroundColor: #ededed; */
+    /* --textColor: #f5f5f5; */
     
     --pointOfInterest: #576bbc;
     --pointOfInterestHover: #82cde7; 
@@ -26,9 +26,9 @@
     --redPointOfInterestHover: #ff0080;
     --redPointOfInterest: #c20b66;
     
-    --darkMorphism: #100f15af;
+    /* --darkMorphism: #100f15af;
     --glassMorphism: #ffffff0c;
-    --lightMorphism: #100f156f;
+    --lightMorphism: #100f156f; */
 
     /* FONTSIZES______________________________________________________________ */
     --titles: 52px;
@@ -50,6 +50,38 @@
 
     /* Widths__________________________________________________________________ */
     --maxWidthMainThread: 75rem;
+}
+:root[data-theme="light"] {
+    --mainBackgroundColor: #ededed;
+    --blendModeBP: difference;
+    --textColor: #343434;
+
+    --darkMorphism: #5959596b;
+    --glassMorphism: #ffffff93;
+    --lightMorphism: #b7b7b79b;
+
+    --pointOfInterest: #91C788;
+    --pointOfInterestHover: #DDFFBC; 
+    --saveOfInterest: #FEFFDE;
+    --redPointOfInterestHover: #ff0080;
+    --redPointOfInterest: #c20b66;
+}
+
+:root[data-theme="dark"]{
+    --mainBackgroundColor: #0d1116;
+    --blendModeBP: none;
+    --textColor: #f5f5f5;
+
+    --darkMorphism: #100f15af;
+    --glassMorphism: #ffffff0c;
+    --lightMorphism: #100f156f;
+
+    --pointOfInterest: #576bbc;
+    --pointOfInterestHover: #82cde7; 
+    --saveOfInterest: #61bc57;
+    --redPointOfInterestHover: #ff0080;
+    --redPointOfInterest: #c20b66;
+
 }
 
 
@@ -93,9 +125,11 @@ a {
     position: fixed;
     z-index: -1;
     filter: blur(35px);
+    transform: scale(1.1);
     
-    /* mix-blend-mode: difference; */
+    /* mix-blend-mode: var(--blendModeBP); */
     object-fit: cover;
+    /* animation: backgroundImageMovement 10s ease-in-out infinite; */
 }
 
 /* INPUTS__________________________________________________________________________ */
@@ -208,10 +242,6 @@ header > h3 {
     border-radius: var(--borderradiusSmall);
     padding: var(--paddingButtons);
     cursor: pointer;
-}
-
-.profileMenuNav-userOptions:hover {
-    background: var(--darkMorphism);
 }
 
 .profileImg {
@@ -376,4 +406,12 @@ header > h3 {
     25% { transform: translateX(4px);}
     50% { transform: translateX(-4px);}
     75% { transform: translateX(4px);}
+}
+
+@keyframes backgroundImageMovement {
+    10%{ transform: skew( 5deg 5deg);}
+    25%{ transform: scale( 1.05) skew( 5deg);}
+
+    75%{ transform: translate(12px) scale( 1.1) skew( -5deg);}
+    90%{ transform: skew(-1deg 6deg);}
 }

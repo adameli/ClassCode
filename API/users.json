@@ -141,7 +141,12 @@
             "bio": "ClassCode Co-Creator, Here WDU Everything to help YOU! Support Our Work : <a href=\"https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\">Click Here<\/a>"
         },
         "img_name": "DeoHard.png",
-        "date_visited_thread": []
+        "date_visited_thread": {
+            "31": {
+                "date": "2023-5-22",
+                "time": "0:25:55"
+            }
+        }
     },
     {
         "id": 10,
@@ -163,9 +168,21 @@
                 "time": "12:34:41"
             },
             "30": {
-                "date": "2023-5-20",
-                "time": "16:4:18"
+                "date": "2023-5-21",
+                "time": "21:12:7"
             }
         }
+    },
+    {
+        "id": 11,
+        "username": "bullen",
+        "password": "$2y$10$wpzXLvyv4DV29shPFMVArOHu4r8kv9uieAjmYIvYReAur.sTM6deK",
+        "profile_info": {
+            "fullname": "",
+            "bio": "",
+            "discord": ""
+        },
+        "img_name": "bullen.png",
+        "date_visited_thread": []
     }
 ]

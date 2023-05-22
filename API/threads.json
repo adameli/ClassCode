@@ -11,7 +11,22 @@
             "time": "14:41:57"
         },
         "views": 52,
-        "comments": [],
+        "comments": [
+            {
+                "username": "DeoHard",
+                "content": "<br>    <pre><code>\nfunction MAJA() {\n      console.log( &quot;MAJA&quot;);\n      MAJA();\n}\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "2023-05-20",
+                    "time": "17:55:12"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "DeoHard.png"
+            }
+        ],
         "tags": [
             "html",
             "java",
@@ -985,9 +1000,44 @@
                 },
                 "id": 2,
                 "img_name": "testAccount.jpg"
+            },
+            {
+                "username": "DeoHard",
+                "content": "Hej",
+                "timestamp": {
+                    "date": "2023-05-21",
+                    "time": "23:54:04"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "DeoHard"
+                    ]
+                },
+                "id": 3,
+                "img_name": "DeoHard.png"
             }
         ],
         "tags": [],
         "img_name": "testAccount.jpg"
+    },
+    {
+        "username": "DeoHard",
+        "username_id": 9,
+        "thread_id": 31,
+        "title": "Hej fr\u00e5n Julius",
+        "description": "detta \u00e4r bullens post, mycket coolt",
+        "content": "koden julle vill f\u00f6rmedla<br><br><br>    <pre><code>\nconst array = [1, 2, 3, 4, 5, 6, 7, 8];\n    <\/code><\/pre><br><br>s\u00e5d\u00e4r!",
+        "timestamp": {
+            "date": "2023-05-21",
+            "time": "23:56:19"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "curry",
+            "kod"
+        ],
+        "img_name": "DeoHard.png"
     }
 ]
