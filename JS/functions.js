@@ -117,7 +117,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
     if( arrayOfThreads.length === 0) {
         mainThreadAllThreads.innerHTML = noResultMessage;
     }
-    
+    console.log(arrayOfThreads);
     //loops all users and creates postContainers
     arrayOfThreads.forEach( threadObject => {
         const postContainerDOM = document.createElement( "div");
@@ -211,8 +211,10 @@ function backToTopDisplayOnLimit( limiter) {
     })
 }
 
-function displayAlert ( message) {
-    window.alert( message);
+function displayAlert ( alertMessage, serverMessage) {
+    window.alert( alertMessage);
+    console.log(serverMessage);
+
 }
 
 function deployCharacterLimit () {

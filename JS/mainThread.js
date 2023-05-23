@@ -83,9 +83,11 @@ async function renderMainThread() {
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
     const allThreadsRequest = new Request( "../API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
+    console.log(objectWithThreads);
     if( objectWithThreads.response.ok){
         loadThreads( objectWithThreads.resource, "No search results...");
     }else {
+        console.log(objectWithThreads.resource.message);
         loadThreads( [], "Something went wrong... Please try again");
     }
 
@@ -99,10 +101,10 @@ async function renderMainThread() {
         const requestString = new Request( "../API/search_bar.php?s=" + searchInputValue + "&f");
         await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction( requestString);
-        if(thredResults.response.ok){
+        if( thredResults.response.ok){
             loadThreads( thredResults.resource, "No search results...");
         }else {
-            displayAlert(`Something went wrong, we got this from the server ${thredResults.response.status}, ${thredResults.response.statusText}`)
+            displayAlert( `Something went wrong, check the console for more info`, thredResults.resource.message);
         }
         // Here we call the loadthread function to uppdate the new threads that match the search
     })
@@ -115,7 +117,11 @@ async function renderMainThread() {
             const requestString = new Request( "../API/search_bar.php?s=" + searchValue + "&f");
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
-            loadThreads( thredResults.resource, "No search results...");
+            if( thredResults.response.ok){
+                loadThreads( thredResults.resource, "No search results...");
+            }else {
+                displayAlert( `Something went wrong, check the console for more info`, thredResults.resource.message);
+            }
         }
     });
 
@@ -126,7 +132,11 @@ async function renderMainThread() {
             const requestString = new Request ( "../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
-            loadThreads( thredResults.resource, "No search results...");
+            if( thredResults.response.ok){
+                loadThreads( thredResults.resource, "No search results...");
+            }else {
+                displayAlert( `Something went wrong, check the console for more info`, thredResults.resource.message);
+            }
         });
     });
 }
