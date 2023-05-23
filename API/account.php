@@ -30,7 +30,7 @@
                 $old_filename = $users[ $index][ "img_name"];
                 unlink( "PROFILE_IMG/$old_filename");
 
-                //Checks if file is JPG or PNG
+                //Renames filename depending on if it´s JPG or PNG
                 if( str_contains( $filename, ".jpg")) 
                 {
                     $filename = $user[ "username"] . ".jpg";
@@ -40,7 +40,7 @@
                     $filename = $user[ "username"] . ".png";
                 }
 
-                //Changes the filename to username.jpg/png
+                //Changes the filename to username.jpg/png in users.json
                 $users[ $index][ "img_name"] = $filename;
                 
                 foreach( $threads as $thread_index => $thread) 
