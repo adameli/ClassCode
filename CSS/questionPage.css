@@ -90,3 +90,9 @@ textarea {
     padding-left: 5px;
     cursor: pointer;
 }
+
+.emptyValue::after {
+    content: "❋";
+    color: red;
+    margin-left: 10px;
+}

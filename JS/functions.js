@@ -9,8 +9,8 @@ async function fetchFunction( request) {
         return { response: serverResponse, resource: resource };
 
     } catch (e) {
-        console.log( "error in fetch func");
-        displayAlert("The server is not working at the moment, Please try again soon");
+        console.log( e, "error in fetch function, controll the prefix and the body structure");
+        displayAlert( "The server is not working at the moment, the wizards are working on it!! Please try again soon");
     };
 };
 
@@ -48,11 +48,11 @@ function addCodeBlocktoTextArea( event) {
     codefield.value += codeBlock;
    
     // Get the index of the start and end symbols
-    const startIndex = codefield.value.lastIndexOf("*+*") + 4;
-    const endIndex = codefield.value.lastIndexOf("*-*") - 5;
+    const startIndex = codefield.value.lastIndexOf( "*+*") + 4;
+    const endIndex = codefield.value.lastIndexOf( "*-*") - 5;
 
     // Set the selection range to focus on the text between the start and end symbols
-    codefield.setSelectionRange(startIndex, endIndex);
+    codefield.setSelectionRange( startIndex, endIndex);
     codefield.focus();
 }
 
@@ -60,8 +60,8 @@ function addCodeBlocktoTextArea( event) {
 function convertToCodeblock( input) {
     const firstStageConversion = input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     
-    const secondStageConversion = firstStageConversion.replaceAll("*+*", "<pre><code>");
-    const contentInput = secondStageConversion.replaceAll("*-*", "</code></pre>");
+    const secondStageConversion = firstStageConversion.replaceAll( "*+*", "<pre><code>");
+    const contentInput = secondStageConversion.replaceAll( "*-*", "</code></pre>");
     
     function replaceNewLinesWithExceptions( input) { 
         const placeholderPrefix = "PLACEHOLDER"; 
@@ -109,7 +109,7 @@ function getGetSearchParam( searchParam) {
     return searchParamValue;
 }
 
-async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[]) {
+async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=[]) {
     
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     mainThreadAllThreads.innerHTML = ``;
@@ -119,9 +119,9 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
     }
     
     //loops all users and creates postContainers
-    arrayOfThreads.forEach(threadObject => {
-        const postContainerDOM = document.createElement("div");
-        postContainerDOM.classList.add("postContainer-mainThread");
+    arrayOfThreads.forEach( threadObject => {
+        const postContainerDOM = document.createElement( "div");
+        postContainerDOM.classList.add( "postContainer-mainThread");
 
         postContainerDOM.innerHTML = `
         <div class="userInfoContainer-mainThread">
@@ -169,8 +169,8 @@ async function loadThreads (arrayOfThreads, noResultMessage, pushNotifications=[
         linkToUserPage.addEventListener( "click", changeToUserPageEvent);
         
         // This if statment checks the user have a comment on thier post that they have not yet seen
-        if(pushNotifications.includes(parseInt(linkToThreadpageElement.dataset.thread_id))){
-            document.querySelector(".postTitleContainer-mainThread").classList.add("pushNotification");
+        if(pushNotifications.includes( parseInt( linkToThreadpageElement.dataset.thread_id))){
+            document.querySelector( ".postTitleContainer-mainThread").classList.add( "pushNotification");
         }
         
         
@@ -186,8 +186,8 @@ function changeToUserPageEvent( event) {
 function changeToThreadPageEvent( event) {
     event.stopPropagation();
     const parentElement = event.currentTarget.parentElement;
-    if(parentElement.classList.contains("pushNotification")){
-        parentElement.classList.remove("pushNotification")
+    if(parentElement.classList.contains( "pushNotification")){
+        parentElement.classList.remove( "pushNotification")
     }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
     window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
@@ -204,33 +204,33 @@ function backToTopDisplayOnLimit( limiter) {
     document.addEventListener( "scroll", () => {
         console.log( "here");
         if( scrollContainer().scrollTop > limiter) {
-            backToTopButton.classList.remove("hidden");
+            backToTopButton.classList.remove( "hidden");
         }else {
-            backToTopButton.classList.add("hidden");
+            backToTopButton.classList.add( "hidden");
         }
     })
 }
 
-function displayAlert (message) {
-    window.alert(message);
+function displayAlert ( message) {
+    window.alert( message);
 }
 
 function deployCharacterLimit () {
-    document.querySelectorAll(".inputMaxCharacters").forEach(element => {
-        element.addEventListener("keyup", (event) => {
+    document.querySelectorAll( ".inputMaxCharacters").forEach(element => {
+        element.addEventListener( "keyup", (event) => {
             maxCharacters(event.currentTarget);
         })
     })
 }
 
-function maxCharacters (element) {
+function maxCharacters ( element) {
     let inputValue = element.value
-        let inputMaxCharacters = element.getAttribute("maxlength");
-        if(inputValue.length == inputMaxCharacters) {
-            element.classList.add("maxCharacters");
-            const animated = document.querySelector(".maxCharacters");
-            animated.addEventListener("animationend", (event2) => {
-                event2.currentTarget.classList.remove("maxCharacters");
+        let inputMaxCharacters = element.getAttribute( "maxlength");
+        if( inputValue.length == inputMaxCharacters) {
+            element.classList.add( "maxCharacters");
+            const animated = document.querySelector( ".maxCharacters");
+            animated.addEventListener( "animationend", ( event2) => {
+                event2.currentTarget.classList.remove( "maxCharacters");
             });
         }
 }

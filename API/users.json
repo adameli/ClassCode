@@ -6,9 +6,9 @@
         "profile_info": {
             "fullname": "Isak Makra",
             "discord": "isakmakra01",
-            "bio": "hello... im a witcher"
+            "bio": "Wassup brothers and sisters"
         },
-        "img_name": "Isak.jpg",
+        "img_name": "Isak.png",
         "date_visited_thread": {
             "8": {
                 "date": "2023-5-19",
@@ -41,19 +41,27 @@
         "username": "test",
         "password": "$2y$10$Tlq\/XMCd8C.RMZt1daeXauY4ecegNJSYhXFdA5\/Pm6L8jv5xTp6CW",
         "profile_info": {
-            "fullname": "Adamo Gonzales",
+            "fullname": "Adam Eliasson",
             "discord": "bruh112",
             "bio": "The moonlanding was fake - Drake"
         },
         "img_name": "test.jpg",
         "date_visited_thread": {
             "25": {
-                "date": "2023-5-19",
-                "time": "14:50:6"
+                "date": "2023-5-22",
+                "time": "10:11:59"
             },
             "27": {
-                "date": "2023-5-19",
-                "time": "11:33:22"
+                "date": "2023-5-22",
+                "time": "10:11:26"
+            },
+            "32": {
+                "date": "2023-05-22",
+                "time": "11:37:33"
+            },
+            "33": {
+                "date": "2023-5-22",
+                "time": "13:47:7"
             }
         }
     },
@@ -111,7 +119,7 @@
             "discord": "",
             "bio": ""
         },
-        "img_name": "OHLEG.png",
+        "img_name": "OHLEG.jpg",
         "date_visited_thread": {
             "6": {
                 "date": "2023-5-19",

@@ -2,6 +2,7 @@ async function renderAccountPage () {
   
   const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
   const messageContainer = document.querySelector( ".threadSection-userPage");
+  const currentUser = getCurrentUserLocalStorage();
 
   controlViewingMode( loggedInBoolean, messageContainer);
   
@@ -63,7 +64,9 @@ async function renderAccountPage () {
             <div class='info profileBio editableDivs-accountPage' contenteditable='false'>${profileInfo.bio}</div>
         </div>
       </div>
-    </div>`;
+    </div>
+ 
+    `;
 
   if(getCurrentUserLocalStorage() === userPageName){
     document.querySelector(".imgEditContainer").innerHTML += `
@@ -91,7 +94,7 @@ async function renderAccountPage () {
       editebleDivs[0].focus();
   }
 
-  function saveProfileEdits () {
+  async function saveProfileEdits () {
     profileButton.classList.remove( "saveProfileInfo");
     profileButton.classList.add( "editProfileInfo");
     profileButton.removeEventListener("click", saveProfileEdits);
@@ -104,7 +107,7 @@ async function renderAccountPage () {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        user: current_user,
+        user: currentUser,
         profile_info: {
           fullname: editebleDivs[0].textContent,
           discord: editebleDivs[1].textContent,
@@ -113,7 +116,12 @@ async function renderAccountPage () {
       }),
   });
 
-  fetchFunction(userPatchRequest);
+  const userBio = await fetchFunction( userPatchRequest);
+  if( userBio.response.ok === false){
+    displayAlert( "Error!! Check the console");
+    console.log( userBio.resource.message);
+  }
+
 }
   profileButton.addEventListener("click", editProfile);
 
@@ -126,14 +134,13 @@ async function renderAccountPage () {
     event.preventDefault();
 
     const formData = new FormData(formDom);
-    formData.append("username", JSON.parse(window.localStorage.getItem("user")));
+    formData.append("username", getCurrentUserLocalStorage());
     const profileImgRequest = new Request("../../API/account.php", {
         method: "POST",
         body: formData,
     });
 
     let patchToImage = await fetchFunction(profileImgRequest);
-    console.log(patchToImage);
 
     if(patchToImage.resource["message"]){
       document.querySelector(".imgMessage").textContent = patchToImage.resource.message;

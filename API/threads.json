@@ -117,7 +117,7 @@
             "css",
             "php"
         ],
-        "img_name": "Isak.jpg"
+        "img_name": "Isak.png"
     },
     {
         "username": "OHLEG",
@@ -153,7 +153,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.png"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "OHLEG",
@@ -174,7 +174,7 @@
             "css",
             "php"
         ],
-        "img_name": "OHLEG.png"
+        "img_name": "OHLEG.jpg"
     },
     {
         "username": "Isak",
@@ -201,7 +201,7 @@
                     "accounts": []
                 },
                 "id": 2,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "test",
@@ -224,7 +224,7 @@
             "css",
             "php"
         ],
-        "img_name": "Isak.jpg"
+        "img_name": "Isak.png"
     },
     {
         "username": "hej",
@@ -623,7 +623,7 @@
                     "total": 2
                 },
                 "id": 1,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "Isak",
@@ -633,13 +633,14 @@
                     "time": "12:26:26"
                 },
                 "likes": {
-                    "total": 1,
+                    "total": 2,
                     "accounts": [
-                        "hej"
+                        "hej",
+                        "Isak"
                     ]
                 },
                 "id": 2,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "hej",
@@ -785,7 +786,21 @@
                     "accounts": []
                 },
                 "id": 12,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
+            },
+            {
+                "username": "test",
+                "content": "does it work know?",
+                "timestamp": {
+                    "date": "2023-05-22",
+                    "time": "10:11:46"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 13,
+                "img_name": "test.jpg"
             }
         ],
         "tags": [
@@ -1033,11 +1048,62 @@
             "time": "23:56:19"
         },
         "views": 0,
-        "comments": [],
+        "comments": [
+            {
+                "username": "test",
+                "content": "bra j\u00e4vla kod ",
+                "timestamp": {
+                    "date": "2023-05-22",
+                    "time": "10:10:56"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "test.jpg"
+            }
+        ],
         "tags": [
             "curry",
             "kod"
         ],
         "img_name": "DeoHard.png"
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 32,
+        "title": "Length on Array",
+        "description": "This is an array with numbers. How to i get the length on the array???",
+        "content": "<br>    <pre><code>\nlet array = [1, 2, 3, 4, 5];\nconsole.log(array);\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "2023-05-22",
+            "time": "11:37:33"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "javascript",
+            "array",
+            "length"
+        ],
+        "img_name": "test.jpg"
+    },
+    {
+        "username": "test",
+        "username_id": 3,
+        "thread_id": 33,
+        "title": "test",
+        "description": "test",
+        "content": "",
+        "timestamp": {
+            "date": "2023-05-22",
+            "time": "11:49:12"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [],
+        "img_name": "test.jpg"
     }
 ]
