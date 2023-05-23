@@ -54,6 +54,8 @@ async function renderMainThread() {
         "The only way to learn a new programming language is by writing programs in it. - Dennis Ritchie",
         "Programming is the art of telling another human being what one wants the computer to do. - Donald Knuth",
         "Knowledge is power - Francis Bacon",
+        "The Medium is The Message - Marshall Mcluhan",
+        "Wax On, Wax Of - Erik Pineiro",
       ];
 
     const randomQuote = programmerQuotes[Math.floor(Math.random() * programmerQuotes.length)];
