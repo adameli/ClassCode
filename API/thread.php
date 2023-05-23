@@ -150,9 +150,12 @@
 
             foreach( $threads as $index => $thread) 
             {
-                $threads[ $index][ "views"] += 1;
-                $json = json_encode($threads, JSON_PRETTY_PRINT);
-                file_put_contents($threads_file, $json);
+                if ($thread_id == $thread[ "thread_id"]) 
+                {
+                    $threads[ $index][ "views"] += 1;
+                    $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                    file_put_contents( $threads_file, $json);
+                }
             }
 
             foreach( $users as $index => $user) 
