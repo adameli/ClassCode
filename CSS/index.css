@@ -136,10 +136,10 @@ a {
 
 input,
 textarea {
-    color: black;
+    color: var( --textColor);
     width: 100%;
     background-color: var(--glassMorphism);
-    color: white;
+    /* color: white; */
     border: none;
     font-size: 16px;
 }
