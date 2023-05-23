@@ -5,7 +5,7 @@
     if( $request_method == "POST") 
     {
         //CHECKS FILE SIZE, MAX SIZE: 50 kb (50 000 Bytes)
-        if( $_FILES[ "file"][ "size"] > 50000 || $_FILES[ "file"][ "size"] == 0) 
+        if( $_FILES[ "file"][ "size"] >= 50000 || $_FILES[ "file"][ "size"] == 0) 
         {
             $message = [ "message" => "Image-size too big, max-limit is 50 Kb."];
             send_JSON( $message, 403);
@@ -52,9 +52,9 @@
 
                         foreach( $comments as $comment_index => $comment) 
                         {
-                            if( $comment["username"] == $username) 
+                            if( $comment[ "username"] == $username) 
                             {
-                                $threads[$thread_index]["comments"][$comment_index]["img_name"] = $filename;
+                                $threads[$thread_index]["comments"][$comment_index][ "img_name"] = $filename;
                             }
                         }
 
