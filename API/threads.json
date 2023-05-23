@@ -606,7 +606,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 85,
+        "views": 88,
         "comments": [
             {
                 "username": "Isak",
@@ -623,7 +623,7 @@
                     "total": 2
                 },
                 "id": 1,
-                "img_name": "Isak.png"
+                "img_name": "Isak.jpg"
             },
             {
                 "username": "Isak",
@@ -640,7 +640,7 @@
                     ]
                 },
                 "id": 2,
-                "img_name": "Isak.png"
+                "img_name": "Isak.jpg"
             },
             {
                 "username": "hej",
@@ -786,7 +786,7 @@
                     "accounts": []
                 },
                 "id": 12,
-                "img_name": "Isak.png"
+                "img_name": "Isak.jpg"
             },
             {
                 "username": "test",
@@ -905,7 +905,7 @@
             "date": "2023-05-19",
             "time": "12:03:33"
         },
-        "views": 17,
+        "views": 21,
         "comments": [
             {
                 "username": "testAccount",
@@ -986,7 +986,7 @@
             "date": "2023-05-20",
             "time": "14:46:03"
         },
-        "views": 17,
+        "views": 20,
         "comments": [
             {
                 "username": "testAccount",
@@ -1047,7 +1047,7 @@
             "date": "2023-05-21",
             "time": "23:56:19"
         },
-        "views": 17,
+        "views": 25,
         "comments": [
             {
                 "username": "test",
