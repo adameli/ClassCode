@@ -6,10 +6,7 @@ async function renderAccountPage () {
 
   controlViewingMode( loggedInBoolean, messageContainer);
   
-
-  const searchQuery = window.location.search;
-  const urlParams = new URLSearchParams( searchQuery);
-  const userPageName = urlParams.get( "un");
+  const userPageName = getGetSearchParam( "un");
 
   const userInfoRequest = new Request( "../../API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
@@ -117,9 +114,8 @@ async function renderAccountPage () {
   });
 
   const userBio = await fetchFunction( userPatchRequest);
-  if( userBio.response.ok === false){
-    displayAlert( "Error!! Check the console");
-    console.log( userBio.resource.message);
+  if( !userBio.response.ok){
+    displayAlert( "Error!! Check the console", userBio.resource.message);
   }
 
 }

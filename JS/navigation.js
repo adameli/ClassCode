@@ -30,8 +30,7 @@ function renderNavigationLoggedIn(user) {
                     <button class="profileMenuNav-userOptions profileMenuNav-questionPage">Ask a Question</button>
                     <button class="profileMenuNav-userOptions profileMenuNav-logoutButton">Logout</button>
                 </div>
-            </nav>
-        `;
+            </nav>`;
 
             document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
             document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {

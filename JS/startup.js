@@ -137,4 +137,4 @@ function renderWelcomePage() {
     document.querySelector( ".loginButtonHeader").addEventListener( "click", () => loginRegisterPage( "Login", "Not a user? Register here!"));
     document.querySelector( ".registerButtonHeader").addEventListener( "click", () => loginRegisterPage( "Register", "Already got an account? Login here"));
 }
-        // <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=25" title="threadInsight"></iframe> 
+    

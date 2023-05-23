@@ -38,7 +38,7 @@
                 $description = strtolower ( $thread[ "description"]);
 
                 //Adds search-points depending on the lenght of the word/words that has been typed in the search-bar
-                //and depending on if the word/wordss match with a thread´s title, creator, description or tag/tags
+                //and depending on if the word/words match with a thread´s title, creator, description or tag/tags
                 foreach( $words_array as $word) 
                 {
                     //Checks if the search words match with a thread´s title
