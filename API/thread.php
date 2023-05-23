@@ -14,7 +14,7 @@
             else
             {
                 $message = [ "message" => "Error, value in the GET-request is not correct."];
-                send_JSON( $message);
+                send_JSON( $message, 422);
             }
         }
         else if( isset( $_GET[ "un"])) 
@@ -148,12 +148,19 @@
             $username = $request_data[ "username"];
             $thread_id = $request_data[ "thread_id"];
 
+            foreach( $threads as $index => $thread) 
+            {
+                $threads[ $index][ "views"] += 1;
+                $json = json_encode($threads, JSON_PRETTY_PRINT);
+                file_put_contents($threads_file, $json);
+            }
+
             foreach( $users as $index => $user) 
             {
                 //Finds the user from the POST-request
                 if( $user[ "username"] == $username ) 
                 {   
-                    foreach( $threads as $thread) 
+                    foreach( $threads as $thread_index => $thread) 
                     {
                         //Finds the specific thread
                         if( $thread[ "username_id"] == $user[ "id"] && $thread[ "thread_id"] == $thread_id) 
