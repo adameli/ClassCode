@@ -9,10 +9,11 @@ async function renderMainThread() {
     document.querySelector( "main").innerHTML = `
     <section class="topInformation-mainThread">
         <div class="profile">
-            <h2>Hello ${currentUser}!</h2>
-            <p> You are know in the feedpage </p>
+            <h1>Hello <span>${currentUser}</span></h1>
         </div>
-        
+        <div id="quoteParent">
+            <p id="quoteOfTheDay"></p>
+        </div>
         <div class="createQuestionContainer clearButton buttonAnimation">
             <p>Ask a Question</p>
         </div>
@@ -40,6 +41,24 @@ async function renderMainThread() {
         <div class="mainThread-allThreads"><div>
     </section>
     <div class="backToTop" id="hiddenUntilLimit"></div>`;
+
+    const programmerQuotes = [
+        "The best error message is the one that never shows up. - Thomas Fuchs",
+        "Programming is not about typing, it's about thinking. - Rich Hickey",
+        "Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime.",
+        "First, solve the problem. Then, write the code. - John Johnson",
+        "Simplicity is the soul of efficiency. - Austin Freeman",
+        "It's not a bug, it's an undocumented feature! - Anonymous",
+        "Programs must be written for people to read, and only incidentally for machines to execute. - Harold Abelson",
+        "The sooner you start to code, the longer the program will take. - Roy Carlson",
+        "The only way to learn a new programming language is by writing programs in it. - Dennis Ritchie",
+        "Programming is the art of telling another human being what one wants the computer to do. - Donald Knuth",
+        "Knowledge is power - Francis Bacon",
+      ];
+
+    const randomQuote = programmerQuotes[Math.floor(Math.random() * programmerQuotes.length)];
+    document.getElementById("quoteOfTheDay").textContent = randomQuote;
+    // console.log(randomQuote);
 
     // backToTop function on limit
     // backToTopDisplayOnLimit( 100);
@@ -83,11 +102,10 @@ async function renderMainThread() {
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
     const allThreadsRequest = new Request( "../API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
-    console.log(objectWithThreads);
     if( objectWithThreads.response.ok){
         loadThreads( objectWithThreads.resource, "No search results...");
     }else {
-        console.log(objectWithThreads.resource.message);
+        console.log( objectWithThreads.resource.message);
         loadThreads( [], "Something went wrong... Please try again");
     }
 

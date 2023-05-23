@@ -117,7 +117,6 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
     if( arrayOfThreads.length === 0) {
         mainThreadAllThreads.innerHTML = noResultMessage;
     }
-    console.log(arrayOfThreads);
     //loops all users and creates postContainers
     arrayOfThreads.forEach( threadObject => {
         const postContainerDOM = document.createElement( "div");

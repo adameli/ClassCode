@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="../CSS/threadPage.css">
-
-    <!-- Highlight.js Style-->
+    <link rel="icon" type="image/png" sizes="32x32" href="/RESOURCES/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/RESOURCES/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="../../RESOURCES/github-dark-dimmed.min.css">
 
     <title>ClassCode</title>
