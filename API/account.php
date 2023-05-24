@@ -50,6 +50,7 @@
                     {
                         $threads[ $thread_index][ "img_name"] = $filename;
                         $comments = $thread[ "comments"];
+                        
                         foreach( $comments as $comment_index => $comment) 
                         {
                             if( $comment[ "username"] == $username) 
@@ -59,7 +60,7 @@
                         }
                     }
                 }
-                
+
                 //Saves the new information in the json files
                 $json = json_encode( $users, JSON_PRETTY_PRINT);
                 file_put_contents( $users_file, $json);
