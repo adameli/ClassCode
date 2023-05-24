@@ -127,7 +127,7 @@ section:nth-child(1) a {
     height: 30px;
     width: 30px;
 
-    background-image: url( "../RESOURCES/down-arrow.png");
+    background-image: url( "/RESOURCES/ICONS/down-arrow.png");
     background-size: cover;
 }
 
