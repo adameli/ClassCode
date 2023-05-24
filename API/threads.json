@@ -10,7 +10,7 @@
             "date": "2023-05-24",
             "time": "16:02:28"
         },
-        "views": 10,
+        "views": 12,
         "comments": [
             {
                 "username": "Isak",
@@ -20,13 +20,28 @@
                     "time": "16:04:21"
                 },
                 "likes": {
-                    "total": 1,
+                    "total": 2,
                     "accounts": [
-                        "Isak"
+                        "Isak",
+                        "AdamE"
                     ]
                 },
                 "id": 1,
                 "img_name": "Isak.png"
+            },
+            {
+                "username": "AdamE",
+                "content": "I love ClassCode",
+                "timestamp": {
+                    "date": "2023-05-24",
+                    "time": "16:32:26"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 2,
+                "img_name": "AdamE.jpg"
             }
         ],
         "tags": [
@@ -35,5 +50,26 @@
             "classcode"
         ],
         "img_name": "Isak.png"
+    },
+    {
+        "username": "AdamE",
+        "username_id": 2,
+        "thread_id": 2,
+        "title": "What are the different array methods??",
+        "description": "I am starting to learn the different array methods, it is kind of tricky. ",
+        "content": "These are the ones i have learnd so far.<br><br><br>    <pre><code>\nconst array = [1, 2, 3, 4, 5];\n\narray.forEach(element =&gt; {console.log(element);});\narray.find(element =&gt; {element === 2});\n    <\/code><\/pre><br><br>Can someone comment if they have any more of the array methods.",
+        "timestamp": {
+            "date": "2023-05-24",
+            "time": "16:32:05"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [
+            "array",
+            "methods",
+            "javascript",
+            "blessed"
+        ],
+        "img_name": "AdamE.jpg"
     }
 ]
