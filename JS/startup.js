@@ -79,7 +79,6 @@ function loginRegisterPage( type, changeTypeMessage) {
                 if( post.response.ok) {
                     window.localStorage.setItem( "user", JSON.stringify( post.resource.username));
                     window.localStorage.setItem( "img_name", JSON.stringify( post.resource.img_name));
-                    message.classList.add( "succses");
 
                     renderMainThread();
                 } else {
