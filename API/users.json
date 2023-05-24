@@ -15,5 +15,17 @@
                 "time": "16:18:51"
             }
         }
+    },
+    {
+        "id": 2,
+        "username": "DeoHard",
+        "password": "$2y$10$SgHbwz8p5HfiHc3G4mbO4eJp2DcXKrbbEQB3conEJ3yYBbOgJWiOC",
+        "profile_info": {
+            "fullname": "Teo Hardemo",
+            "discord": "Lazy#2211",
+            "bio": "I love ClassCode, it is a very great tool, 100% not biased. "
+        },
+        "img_name": "DeoHard.jpg",
+        "date_visited_thread": []
     }
 ]
