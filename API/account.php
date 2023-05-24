@@ -143,6 +143,21 @@
                         }
                     }
                     
+                    //Changes all the comments created by the user
+                    foreach( $threads as $thread_index => $thread) 
+                    {
+                        $comments = $thread[ "comments"];
+
+                        foreach( $comments as $comment_index => $comment) 
+                        {
+                            if( $username == $comment[ "username"]) 
+                            {
+                                $threads[ $thread_index][ "comments"][ $comment_index][ "username"] = "[DELETED ACCOUNT]";
+                                $threads[ $thread_index][ "comments"][ $comment_index][ "img_name"] = "default.png";
+                            }
+                        }
+                    }
+
                     //Deletes the user from users.json
                     unset( $users[ $user_index]);
                     $users = array_values( $users);

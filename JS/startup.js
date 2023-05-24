@@ -79,17 +79,21 @@ function loginRegisterPage( type, changeTypeMessage) {
                 if( post.response.ok) {
                     window.localStorage.setItem( "user", JSON.stringify( post.resource.username));
                     window.localStorage.setItem( "img_name", JSON.stringify( post.resource.img_name));
+                    message.classList.add( "succses");
 
                     renderMainThread();
                 } else {
                     message.innerHTML = `${ post.resource.message}, please try agin`;
+                    message.classList.add( "notSuccses");
                 }
             }
             else if( phpFileName === "register.php"){ 
                 if (post.response.ok) {
                     message.innerHTML = `The registration was a success, welcome to ClassCode ${post.resource}`;
+                    message.classList.add( "succses");
                 } else {
                     message.innerHTML = `Something went wrong, ${post.resource.message}`;
+                    message.classList.add( "notSuccses");
                 }
             }
         });   
