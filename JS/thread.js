@@ -134,14 +134,6 @@ async function fillThreadPage() {
             likeIdentifyer ++;
         }); 
 
-        // document.querySelectorAll( ".likedComment_pseudo").forEach( like => {
-        //     like.addEventListener( "click", likeCommentEvent); 
-        // });
-
-        // document.querySelectorAll( ".unlikedComment_pseudo").forEach( like => {
-        //     like.addEventListener( "click", likeCommentEvent); 
-        // });
-
         document.querySelectorAll( ".userInfoPostPicture-comment").forEach( user => {
             user.addEventListener( "click", changeToUserPageEvent);
         })
@@ -162,19 +154,11 @@ async function fillThreadPage() {
 
 async function likeCommentEvent( e) {
 
+    // Gets targeted event containers ID
     const currentCommentId = e.explicitOriginalTarget.dataset.comment_id;
-    // let removeOrLikeBoolean = document.querySelector( ".likedComment-pseudo") ? true : false;
-    // console.log( removeOrLikeBoolean);
-    let removeOrLikeBoolean;
-
-    if( e.explicitOriginalTarget.id === "likedComment-pseudo") {
-        removeOrLikeBoolean = true;
-    }else if( e.explicitOriginalTarget.id === "unlikedComment-pseudo") {
-        removeOrLikeBoolean = false;
-    }
-
-    console.log( removeOrLikeBoolean);
-    // return;
+    
+    // Determines if it is a like or Unlike
+    let removeOrLikeBoolean = e.explicitOriginalTarget.id === "likedComment-pseudo" ? true : false;
     
     const likeRequest = new Request( 
         `/API/comment.php`, {
@@ -189,27 +173,20 @@ async function likeCommentEvent( e) {
     });        
     
     const response = await fetchFunction( likeRequest);
-    console.log( response);
     
+    // Sent fetch change the class to display like or unlike
     if( !response.resource.remove_boolean) {
-        e.explicitOriginalTarget.removeAttribute( "id");
-        e.explicitOriginalTarget.id = "likedComment-pseudo";
-        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
-        
-        // document.querySelectorAll( ".likedComment_pseudo").forEach( like => {
-        //     like.addEventListener( "click", likeCommentEvent); 
-        // })
+        setIdLikeOrUnLike( "likedComment-pseudo");
 
     }else if( response.resource.remove_boolean) {
-        e.explicitOriginalTarget.removeAttribute( "id");
-        e.explicitOriginalTarget.id = "unlikedComment-pseudo";
-        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
-
-        // document.querySelectorAll( ".unlikedComment_pseudo").forEach( like => {
-        //     like.addEventListener( "click", likeCommentEvent); 
-        // })
+        setIdLikeOrUnLike( "unlikedComment-pseudo");
     }
 
+    function setIdLikeOrUnLike( idName) {
+        e.explicitOriginalTarget.removeAttribute( "id");
+        e.explicitOriginalTarget.id = idName;
+        document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
+    }
     
 };
 

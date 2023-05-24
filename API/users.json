@@ -32,7 +32,7 @@
                 "time": "16:32:05"
             }
         }
-    }, 
+    },
     {
         "id": 3,
         "username": "DeoHard",
@@ -44,5 +44,22 @@
         },
         "img_name": "DeoHard.jpg",
         "date_visited_thread": []
+    },
+    {
+        "id": 4,
+        "username": "ClassCode",
+        "password": "$2y$10$.aSgnl7mmmm53wWjk5mnZORCmB.BG92aKt3w94VYiWeFukqLRmlT2",
+        "profile_info": {
+            "fullname": "ClassCode ",
+            "discord": "ClassCode",
+            "bio": "The official ClassCode Account. Developer Tool & Observer, I am ClassCode and ClassCode is me. I see everything\u00a0 "
+        },
+        "img_name": "ClassCode.png",
+        "date_visited_thread": {
+            "1": {
+                "date": "2023-5-24",
+                "time": "20:37:38"
+            }
+        }
     }
 ]

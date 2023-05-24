@@ -94,7 +94,7 @@
 body {
     background-color: var(--mainBackgroundColor);
     margin: 0;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 header {
@@ -102,8 +102,6 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: var(--paddingSections);
-    /* background-color: var(--glassMorphism); */
-    /* background: linear-gradient( var( --redDetailColor), #ffffff00, #ffffff00); */
 }
 
 main {
@@ -113,6 +111,7 @@ main {
 footer {
     background-color: var( --mainBackgroundColor);
     padding: 5vw;
+    margin-top: 70px;
 }
 
 footer p,

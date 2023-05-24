@@ -60,7 +60,6 @@ async function renderMainThread() {
 
     const randomQuote = programmerQuotes[Math.floor(Math.random() * programmerQuotes.length)];
     document.getElementById("quoteOfTheDay").textContent = randomQuote;
-    // console.log(randomQuote);
 
     // backToTop function on limit
     // backToTopDisplayOnLimit( 100);

@@ -31,14 +31,11 @@ async function renderAccountPage () {
         }
         if( parseInt( lastVisitedThreadId) === thread.thread_id){
           let lastVisitedThreadDate = lastVisitedThread[lastVisitedThreadId].date + " " + lastVisitedThread[lastVisitedThreadId].time;
-          console.log("last visited thread date", lastVisitedThreadDate);
           let latestCommentDate = thread.comments[thread.comments.length-1].timestamp.date + " " + thread.comments[thread.comments.length-1].timestamp.time;
-          console.log("comment date", latestCommentDate);
 
           const date1 = new Date(lastVisitedThreadDate);
           const date2 = new Date(latestCommentDate);
           if (date1 < date2) {
-            console.log('date2(comment) is the newest');
             threadsUserNotSeen.push(thread.thread_id);
           }
         }

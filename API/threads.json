@@ -1,7 +1,7 @@
 [
     {
-        "username": "Isak",
-        "username_id": 1,
+        "username": "ClassCode",
+        "username_id": 4,
         "thread_id": 1,
         "title": "Welcome to ClassCode!",
         "description": "Welcome dear student! ClassCode is a platform where everyone can share newfound discoveries and solve problems togheter! WE ARE ONE\nTHIS IS THE WAY\n\n<a href=\"https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\">CLICK ME :)<\/a>",
@@ -10,7 +10,7 @@
             "date": "2023-05-24",
             "time": "16:02:28"
         },
-        "views": 12,
+        "views": 23,
         "comments": [
             {
                 "username": "Isak",
@@ -20,10 +20,11 @@
                     "time": "16:04:21"
                 },
                 "likes": {
-                    "total": 2,
+                    "total": 3,
                     "accounts": [
                         "Isak",
-                        "AdamE"
+                        "AdamE",
+                        "ClassCode"
                     ]
                 },
                 "id": 1,
@@ -37,11 +38,31 @@
                     "time": "16:32:26"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 3,
+                    "accounts": [
+                        "DeoHard",
+                        "ClassCode"
+                    ]
                 },
                 "id": 2,
                 "img_name": "AdamE.jpg"
+            },
+            {
+                "username": "DeoHard",
+                "content": "ClassCode saved my otter that had climbed a tree!<br><br>    <pre><code>\nconst I_LOVE_CLASSCODE = true;\n    <\/code><\/pre>",
+                "timestamp": {
+                    "date": "2023-05-24",
+                    "time": "16:45:12"
+                },
+                "likes": {
+                    "total": 2,
+                    "accounts": [
+                        "DeoHard",
+                        "ClassCode"
+                    ]
+                },
+                "id": 3,
+                "img_name": "DeoHard.jpg"
             }
         ],
         "tags": [
@@ -49,7 +70,7 @@
             "to",
             "classcode"
         ],
-        "img_name": "Isak.png"
+        "img_name": "ClassCode.png"
     },
     {
         "username": "AdamE",
