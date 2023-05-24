@@ -50,7 +50,7 @@ async function renderAccountPage () {
     <div class="userContainer-userPage">  
       <div class="userFlexItem-userPage">
         <div class="imgEditContainer"> 
-          <div class='profilePicture-accountPage' style="background-image:url( '${serverEndpoint}/API/PROFILE_IMG/${userObjekt.resource.img_name}');"></div>
+          <div class='profilePicture-accountPage' style="background-image:url( '/API/PROFILE_IMG/${userObjekt.resource.img_name}');"></div>
           <p class="imgMessage"></p> 
         </div>
         <div class='userInfo'>

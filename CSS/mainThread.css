@@ -170,7 +170,7 @@ main {
     transform: scale(2);
     height: 25px;
     width: 25px;
-    background-image: url( "../RESOURCES/search.png");
+    background-image: url( "/RESOURCES/ICONS/search.png");
     background-size: cover;
 }
 
@@ -179,7 +179,7 @@ main {
     display: block;
     height: 25px;
     width: 25px;
-    background-image: url( "../RESOURCES/sort.png");
+    background-image: url( "/RESOURCES/ICONS/sort.png");
     background-size: cover;
 }
 
@@ -228,8 +228,8 @@ main {
 }
 
 .NR-views-interactions::before {
-    background-image: url( "../RESOURCES/views.png");
+    background-image: url( "/RESOURCES/ICONS/views.png");
 }
 .NR-comments-interactions::before {
-    background-image: url( "../RESOURCES/comment.png");
+    background-image: url( "/RESOURCES/ICONS/comment.png");
 }

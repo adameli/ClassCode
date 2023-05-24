@@ -16,10 +16,17 @@
             foreach( $users as $user) {
                 if( $username == $user[ "username"]) 
                 {
+                    $user_found = true;
                     $comment_img = $user[ "img_name"];
                 }
             }
 
+            if( !$user_found) 
+            {
+                $message = [ "message" => "Error, user not found."];
+                send_JSON( $message, 404);
+            }
+            
             //Creates a timestamp
             date_default_timezone_set( "Europe/Stockholm");
             $timestamp = [ "date" => date( "Y-m-d"), "time" => date( "H:i:s")];
@@ -28,6 +35,8 @@
             {
                 if( $thread[ "thread_id"] == $thread_id) 
                 {
+                    $thread_found = true;
+
                     //Creates an unique id for every comment
                     $comments = $threads[ $index][ "comments"];
                     $highest_id = 0;
@@ -55,9 +64,15 @@
                     $threads[ $index][ "comments"][] = $comment;
                     $json = json_encode( $threads, JSON_PRETTY_PRINT);
                     file_put_contents( $threads_file, $json);
-                    $message = ["message" => "Comment succesfully posted."];
+                    $message = ["message" => "POST success."];
                     send_JSON( $message);
                 } 
+            }
+
+            if( !$thread_found) 
+            {
+                $message = [ "message" => "Error, thread not found."];
+                send_JSON( $message, 404);
             }
         }
         else 
@@ -83,12 +98,30 @@
             {
                 if( $thread_id == $thread[ "thread_id"])
                 {
+                    $thread_found = true;
                     $comments = $thread["comments"];
                     
+                    //Checks if username exists
+                    foreach( $users as $user) 
+                    {
+                        if( $username == $user[ "username"]) 
+                        {
+                            $user_found = true;
+                        }
+                    }
+
+                    if( !$user_found) 
+                    {
+                        $message = [ "message" => "Error, user not found."];
+                        send_JSON( $message, 404);
+                    }
+
                     foreach( $comments as $comment_index => $comment) 
                     {   
                         if( $comment_id == $comment[ "id"])
                         {   
+                            $comment_found = true;
+
                             //Checks if the intention of the PATCH-request was to add a like or remove a like
                             if( $remove == false)
                             {
@@ -120,7 +153,19 @@
                             send_JSON( $data);
                         }
                     }
+
+                    if( !$comment_found) 
+                    {
+                        $message = [ "message" => "Error, comment not found."];
+                        send_JSON( $message, 404);
+                    }
                 }
+            }
+
+            if( !$thread_found) 
+            {
+                $message = [ "message" => "Error, thread not found."];
+                send_JSON( $message, 404);
             }
         }
         else 

@@ -20,7 +20,6 @@
         else if( isset( $_GET[ "un"])) 
         {
             $current_user_threads = [];
-            $user_found = false;
             
             foreach( $users as $user) 
             {   
@@ -45,7 +44,7 @@
 
             if( !$user_found) 
             {
-                $message = ["message" => "User does not exist."];
+                $message = ["message" => "Error, user not found."];
                 send_JSON($message, 404);
             }
 
@@ -65,13 +64,10 @@
         }
     } 
 
-    
-    //ROW 69 -  POST create 
-    //ROW 144 - POST get one thread
     $required_keys_POST_create = ["username", "title", "description", "content", "tags"];
     $required_keys_POST_get_one_thread = ["username", "timestamp", "thread_id"];
 
-    if( $request_method == "POST") 
+    if( $request_method == "POST") //POST - CREATE THREAD
     {
         //Checks if the POST-request has the correct body
         if( count( array_intersect( $required_keys_POST_create, array_keys( $request_data))) === count( $required_keys_POST_create)) 
@@ -91,9 +87,16 @@
                 //Finds the user from the POST-request
                 if( $user[ "username"] == $request_data[ "username"]) 
                 {
+                    $user_found = true;
                     $username_id = $user[ "id"];
                     $user_img = $user[ "img_name"];
                 }
+            }
+            
+            if( !$user_found) 
+            {
+                $message = [ "message" => "Error, user not found."];
+                send_JSON( $message, 404);
             }
             
             //Creates an unique id for the thread
@@ -142,7 +145,7 @@
             send_JSON( $thread);
         }
         else if( count( array_intersect( $required_keys_POST_get_one_thread, array_keys( $request_data))) === count( $required_keys_POST_get_one_thread))
-        {
+        { //POST - GET ONE THREAD
 
             $timestamp = $request_data[ "timestamp"];
             $username = $request_data[ "username"];
@@ -152,10 +155,17 @@
             {
                 if ($thread_id == $thread[ "thread_id"]) 
                 {
+                    $thread_found = true;
                     $threads[ $index][ "views"] += 1;
                     $json = json_encode( $threads, JSON_PRETTY_PRINT);
                     file_put_contents( $threads_file, $json);
                 }
+            }
+
+            if(!$thread_found) 
+            {
+                $message = [ "message" => "Error, thread not found."];
+                send_JSON( $message, 404);
             }
 
             foreach( $users as $index => $user) 
@@ -163,6 +173,8 @@
                 //Finds the user from the POST-request
                 if( $user[ "username"] == $username ) 
                 {   
+                    $user_found = true;
+
                     foreach( $threads as $thread_index => $thread) 
                     {
                         //Finds the specific thread
@@ -175,6 +187,12 @@
                         }
                     }
                 }
+            }
+
+            if( !$user_found)
+            {
+                $message = [ "message" => "Error, user not found."];
+                send_JSON( $message, 404);
             }
 
             foreach( $threads as $thread) 

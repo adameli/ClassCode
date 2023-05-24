@@ -12,7 +12,7 @@
 
             if( !in_array($filter, $allowed_filters)) 
             {
-                $message = [ "message" => "Error, incorrect GET parameters"];
+                $message = [ "message" => "Error, incorrect GET parameters."];
                 send_JSON( $message, 422);
             }
 
@@ -84,7 +84,7 @@
                 //Does not remove any threads if a filter has been clicked and the search-bar is empty
                 if( !$search == "" && $threads[ $index][ "search_points"] == 0) 
                 {
-                    unset($threads[$index]);
+                    unset( $threads[ $index]);
                 }
             }
             
@@ -114,7 +114,7 @@
         }
         else
         {
-            $message = [ "message" => "Error, incorrect GET parameters"];
+            $message = [ "message" => "Error, incorrect GET parameters."];
             send_JSON( $message, 422);
         }
     }
