@@ -118,7 +118,7 @@ function renderWelcomePage() {
         </div>
 
         <div class="hidden">
-            <iframe src="${serverEndpoint}/PAGE/thread.php?thread_id=${Math.floor(Math.random() * 30)}" title="threadInsight"></iframe> 
+            <iframe src="/PAGE/thread.php?thread_id=${Math.floor(Math.random() * 30)}" title="threadInsight"></iframe> 
         </div>
         <div class="hidden"></div>
         <div class="hidden"></div>
@@ -129,8 +129,30 @@ function renderWelcomePage() {
         </section>
 
         <section>
-            <h1>Join the community</h1>
-            <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
+            <h1>Join your Class</h1>
+            <p><span>CodeClass</span> is a community based platform, it works because of our contributing <span>classmates</span>. We all exist for each other, here we strive to learn and <span>help</span> each other become better programmers each and every day.<br><strong><span>Join You too!</span></strong></p>
+            <div class="hoveringUsers-WelcomePage hidden">
+                <div class="hoveringUser hidden">
+                    <img src="/API/PROFILE_IMG/hej.jpg">
+                </div>
+                <div class="hoveringUser HU-transform hidden">
+                    <img src="/API/PROFILE_IMG/testAccount.jpg">
+                </div>
+                <div class="hoveringUser HU-transform hidden">
+                    <img src="/API/PROFILE_IMG/Isak.jpg">
+                </div>
+                <div class="hoveringUser hidden">
+                    <img src="/API/PROFILE_IMG/test.jpg">
+                </div>
+            </div>
+
+            <div class="flexItem-joinClass">
+                <div>
+                    <p><strong><span>Create your account here!</span></strong>
+                    <br>And lets get going...</p> 
+                </div>
+                <div class="registerButtonHeader clearButton buttonAnimation">Sign Up</div>
+            </div>
         </section>
         `;
 

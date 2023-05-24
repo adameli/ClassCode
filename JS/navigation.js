@@ -4,7 +4,7 @@ function renderNavigationLoggedIn(user) {
 
     parentContainer.innerHTML = `
     <div class="profile">
-        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${imgName}">
+        <img class="profileImg" src="/API/PROFILE_IMG/${imgName}">
     </div>
     `;
 
@@ -16,7 +16,7 @@ function renderNavigationLoggedIn(user) {
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
-                        <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${imgName}">
+                        <img class="profileImg" src="/API/PROFILE_IMG/${imgName}">
                     </div>
                     <div class="profile-loggedInAs">
                         <p>Account:</p>
@@ -34,10 +34,10 @@ function renderNavigationLoggedIn(user) {
 
             document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
             document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
-                window.location = `${serverEndpoint}/PAGE/user.php/?un=${user}`;
+                window.location = `/PAGE/user.php/?un=${user}`;
             });
             document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
-                window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
+                window.location = `/PAGE/AskQuestion.html`;
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", switchViewMode);

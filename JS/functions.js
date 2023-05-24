@@ -1,4 +1,3 @@
-const serverEndpoint = "http://localhost:9999";
 
 async function fetchFunction( request) {
 
