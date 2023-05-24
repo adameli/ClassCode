@@ -279,7 +279,7 @@
             "date": "03-05-2023",
             "time": "09:51:41"
         },
-        "views": 29,
+        "views": 30,
         "comments": [],
         "tags": [
             "html",
@@ -321,7 +321,7 @@
             "date": "05-05-2023",
             "time": "11:14:45"
         },
-        "views": 24,
+        "views": 25,
         "comments": [],
         "tags": [
             "html",
@@ -426,7 +426,7 @@
             "date": "05-05-2023",
             "time": "14:28:49"
         },
-        "views": 28,
+        "views": 29,
         "comments": [],
         "tags": [
             "html",
@@ -510,7 +510,7 @@
             "date": "05-05-2023",
             "time": "15:18:08"
         },
-        "views": 115,
+        "views": 116,
         "comments": [
             {
                 "username": "testAccount",
@@ -821,7 +821,7 @@
             "date": "18-05-2023",
             "time": "20:05:33"
         },
-        "views": 21,
+        "views": 22,
         "comments": [
             {
                 "username": "hej",
@@ -887,7 +887,7 @@
             "date": "19-05-2023",
             "time": "11:30:40"
         },
-        "views": 20,
+        "views": 22,
         "comments": [],
         "tags": [
             "fewfw"
@@ -1130,8 +1130,23 @@
             "date": "2023-05-22",
             "time": "11:49:12"
         },
-        "views": 25,
-        "comments": [],
+        "views": 27,
+        "comments": [
+            {
+                "username": "AdamEliasson",
+                "content": "hello",
+                "timestamp": {
+                    "date": "2023-05-24",
+                    "time": "14:16:48"
+                },
+                "likes": {
+                    "total": 0,
+                    "accounts": []
+                },
+                "id": 1,
+                "img_name": "AdamEliasson.png"
+            }
+        ],
         "tags": [],
         "img_name": "test.jpg"
     },

@@ -199,14 +199,14 @@
     },
     {
         "id": 12,
-        "username": "aaaaaaaaaaaaaaaaaaaa",
-        "password": "$2y$10$pEJwl4\/Hd1U5v\/AflflK8eEyTbLHDZ4zJh8u2e5CrS.gp.ijunfDa",
+        "username": "AdamEliasson",
+        "password": "$2y$10$86wxUtWbQZFWO79XxlFVg.IIu9xnMilAJYaPaxNCBTAOiTgKYbUOe",
         "profile_info": {
-            "fullname": "Adamksi",
-            "discord": "hejhopp",
-            "bio": ""
+            "fullname": "",
+            "bio": "",
+            "discord": ""
         },
-        "img_name": "aaaaaaaaaaaaaaaaaaaa.png",
+        "img_name": "AdamEliasson.png",
         "date_visited_thread": []
     }
 ]

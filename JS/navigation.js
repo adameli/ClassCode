@@ -55,7 +55,7 @@ function renderNavigationLoggedIn(user) {
             document.getElementById( "cancelDeleteAccount").addEventListener( "click", event => {
                 myDialog.close();
             })
-            document.getElementById( "deleteAccount").addEventListener( "click", event => {
+            document.getElementById( "deleteAccount").addEventListener( "click", async function (event) {
                 event.preventDefault();
                 const currentUser = getCurrentUserLocalStorage();
                 const deleteUserRequest = new Request( "/API/account.php", {
@@ -65,7 +65,7 @@ function renderNavigationLoggedIn(user) {
                       username: currentUser,
                     }),
                 });
-                fetchFunction( deleteUserRequest);
+                await fetchFunction( deleteUserRequest);
                 removeUserLocalStorage();
             })
 
