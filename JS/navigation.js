@@ -6,6 +6,11 @@ function renderNavigationLoggedIn(user) {
     <div class="profile">
         <img class="profileImg" src="${serverEndpoint}/API/PROFILE_IMG/${imgName}">
     </div>
+    <dialog class="dialogDeleteAccount">
+        <p>Are you sure that you want to delete your account?</p>
+        <button id="cancelDeleteAccount">No</button>
+        <button id="deleteAccount">Yes</button>
+    </dialog>
     `;
 
     const profileButton = document.querySelector(".profile");
@@ -29,6 +34,7 @@ function renderNavigationLoggedIn(user) {
                     <button class="profileMenuNav-userOptions profileMenuNav-accountPage">Account Page</button>
                     <button class="profileMenuNav-userOptions profileMenuNav-questionPage">Ask a Question</button>
                     <button class="profileMenuNav-userOptions profileMenuNav-logoutButton">Logout</button>
+                    <div id="openModalDelete">Delete Account</div>
                 </div>
             </nav>`;
 
@@ -41,6 +47,27 @@ function renderNavigationLoggedIn(user) {
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", switchViewMode);
+
+            const myDialog = document.querySelector( ".dialogDeleteAccount");
+            document.getElementById( "openModalDelete").addEventListener( "click", event => {
+                myDialog.showModal();
+            })
+            document.getElementById( "cancelDeleteAccount").addEventListener( "click", event => {
+                myDialog.close();
+            })
+            document.getElementById( "deleteAccount").addEventListener( "click", event => {
+                event.preventDefault();
+                const currentUser = getCurrentUserLocalStorage();
+                const deleteUserRequest = new Request( "/API/account.php", {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      username: currentUser,
+                    }),
+                });
+                fetchFunction( deleteUserRequest);
+                removeUserLocalStorage();
+            })
 
         } else {
             document.querySelector(".profileMenuNav-shortcut").remove();

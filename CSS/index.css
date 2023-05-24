@@ -252,6 +252,35 @@ header > h3 {
     cursor: pointer;
 }
 
+#openModalDelete {
+    text-align: center;
+    color: rgb(179, 50, 50);
+    cursor: pointer;
+    background-color: var(--mainBackgroundColor);
+    padding: var(--paddingButtons);
+    border-radius: var(--borderradiusSmall);
+}
+
+.dialogDeleteAccount {
+    position: fixed;
+    top: 50%;
+    left: 38%;
+    background-color: #1c2b3a;
+    border: none;
+    border-radius: var(--borderradiusSmall);
+}
+
+.dialogDeleteAccount p {
+    padding: 20px 0;
+}
+
+.dialogDeleteAccount #cancelDeleteAccount {
+    background-color: rgb(179, 50, 50);
+}
+.dialogDeleteAccount #deleteAccount {
+    background-color: rgb(52, 179, 50);
+}
+
 /* backToTopButton */
 #hiddenUntilLimit {
     /* display: none; */
@@ -415,3 +444,5 @@ header > h3 {
     75%{ transform: translate(12px) scale( 1.1) skew( -5deg);}
     90%{ transform: skew(-1deg 6deg);}
 }
+
+

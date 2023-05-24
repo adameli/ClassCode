@@ -40,7 +40,7 @@ async function renderAccountPage () {
     }
   }
   if(userObjekt.response.ok){
-    loadThreads( userObjekt.resource.threads, "You have no threads, Post a thread here...", threadsUserNotSeen);
+    loadThreads( userObjekt.resource.threads, "You have no threads, Go and Ask a Question", threadsUserNotSeen);
   }else {
     loadThreads( [], "Something went wrong... Please try again");
   }
