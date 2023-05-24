@@ -48,7 +48,11 @@
             <div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <h3>2023 || Malmö University</h3> 
+        <p>Projekt Du3 || Webbaserad Design & Utvecklig</p>
+        <p>Created by: Adam Eliasson, Isak Makra & Teo Hardemo</p>
+    </footer>
     <!-- Highlights.js SourceCode -->
     <script src="/RESOURCES/HIGHLIGHT/highlight.min.js"></script>
     <script src="/JS/functions.js"></script>

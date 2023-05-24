@@ -33,11 +33,16 @@
         </section>
         
         <section>
+            <div class="threadSection-userPage"></div>
             <div class="mainThread-allThreads"></div>
         </section>
     </main>
 
-    <footer></footer>
+    <footer>
+        <h3>2023 || Malmö University</h3> 
+        <p>Projekt Du3 || Webbaserad Design & Utvecklig</p>
+        <p>Created by: Adam Eliasson, Isak Makra & Teo Hardemo</p>
+    </footer>
 
     <script src="/JS/functions.js"></script>
     <script src="/JS/navigation.js"></script>

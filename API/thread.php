@@ -65,7 +65,7 @@
     } 
 
     $required_keys_POST_create = ["username", "title", "description", "content", "tags"];
-    $required_keys_POST_get_one_thread = ["username", "timestamp", "thread_id"];
+    $required_keys_POST_get_one_thread = ["username", "timestamp", "thread_id", "viewmode"];
 
     if( $request_method == "POST") //POST - CREATE THREAD
     {
@@ -150,6 +150,7 @@
             $timestamp = $request_data[ "timestamp"];
             $username = $request_data[ "username"];
             $thread_id = $request_data[ "thread_id"];
+            $view_mode = $request_data[ "viewmode"];
 
             foreach( $threads as $index => $thread) 
             {
@@ -189,7 +190,7 @@
                 }
             }
 
-            if( !$user_found)
+            if( !$user_found && !$view_mode)
             {
                 $message = [ "message" => "Error, user not found."];
                 send_JSON( $message, 404);

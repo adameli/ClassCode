@@ -1,5 +1,6 @@
 
 const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
+const viewmode = getCurrentUserLocalStorage() ? false : true;
 const threadContainer = document.querySelector( ".postContainer-pageThread");
 
 // control if logged in (true => display navigation user) (false => viewing mode message)
@@ -21,7 +22,8 @@ const requestThreadPage = new Request( `/API/thread.php`, {
         timestamp: {
             date: date,
             time: time
-        }
+        },
+        viewmode: viewmode
     })
 })
 

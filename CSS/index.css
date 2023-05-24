@@ -53,7 +53,6 @@
 }
 :root[data-theme="light"] {
     --mainBackgroundColor: #ededed;
-    --blendModeBP: difference;
     --textColor: #343434;
 
     --darkMorphism: #59595953;
@@ -69,7 +68,6 @@
 
 :root[data-theme="dark"]{
     --mainBackgroundColor: #0d1116;
-    --blendModeBP: none;
     --textColor: #f5f5f5;
 
     --darkMorphism: #100f15af;
@@ -112,6 +110,17 @@ main {
     margin: 2%;
 }
 
+footer {
+    background-color: var( --mainBackgroundColor);
+    padding: 5vw;
+    margin-top: 250px;
+}
+
+footer p,
+footer h3 {
+    text-align: center;
+    padding: var( --paddingCardContainer);
+}
 a {
     text-decoration: none;
     font-weight: bold;
