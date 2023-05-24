@@ -20,62 +20,57 @@
             send_JSON( $message, 403);
         }
 
-        if( in_array("username", $request_data))
+        foreach( $users as $index => $user) 
         {
-            foreach( $users as $index => $user) 
+            if( $user[ "username"] == $_POST[ "username"]) 
             {
-                if( $user[ "username"] == $request_data[ "username"]) 
-                {
-                    $user_found = true;
+                $user_found = true;
+                $username = $user[ "username"];
 
-                    $username = $user[ "username"];
-    
-                    //REMOVES OLD IMAGE
-                    $old_filename = $users[ $index][ "img_name"];
-                    unlink( "PROFILE_IMG/$old_filename");
-    
-                    //Renames filename depending on if it´s JPG or PNG
-                    if( str_contains( $filename, ".jpg")) 
+                //REMOVES OLD IMAGE
+                $old_filename = $users[ $index][ "img_name"];
+                unlink( "PROFILE_IMG/$old_filename");
+
+                //Renames filename depending on if it´s JPG or PNG
+                if( str_contains( $filename, ".jpg")) 
+                {
+                    $filename = $user[ "username"] . ".jpg";
+                }
+                else if( str_contains( $filename, ".png")) 
+                {
+                    $filename = $user[ "username"] . ".png";
+                }
+
+                //Changes the filename to username.jpg/png in users.json
+                $users[ $index][ "img_name"] = $filename;
+
+                foreach( $threads as $thread_index => $thread) 
+                {
+                    if ($username == $thread["username"]) 
                     {
-                        $filename = $user[ "username"] . ".jpg";
-                    }
-                    else if( str_contains( $filename, ".png")) 
-                    {
-                        $filename = $user[ "username"] . ".png";
-                    }
-    
-                    //Changes the filename to username.jpg/png in users.json
-                    $users[ $index][ "img_name"] = $filename;
-                    
-                    foreach( $threads as $thread_index => $thread) 
-                    {
-                        if ($thread["username"] == $username) 
+                        $threads[ $thread_index][ "img_name"] = $filename;
+                        $comments = $thread[ "comments"];
+                        foreach( $comments as $comment_index => $comment) 
                         {
-                            $threads[ $thread_index][ "img_name"] = $filename;
-                            $comments = $thread[ "comments"];
-    
-                            foreach( $comments as $comment_index => $comment) 
+                            if( $comment[ "username"] == $username) 
                             {
-                                if( $comment[ "username"] == $username) 
-                                {
-                                    $threads[$thread_index]["comments"][$comment_index][ "img_name"] = $filename;
-                                }
+                                $threads[$thread_index]["comments"][$comment_index][ "img_name"] = $filename;
                             }
                         }
                     }
-    
-                    //Saves the new information in the json files
-                    $json = json_encode( $users, JSON_PRETTY_PRINT);
-                    file_put_contents( $users_file, $json);
-                    $json = json_encode( $threads, JSON_PRETTY_PRINT);
-                    file_put_contents( $threads_file, $json);
-    
-                    //Uploads the new image
-                    $source = $_FILES[ "file"][ "tmp_name"];
-                    $destination = "PROFILE_IMG/$filename";
-                    move_uploaded_file( $source, $destination);
-                    send_JSON( $filename);
                 }
+                
+                //Saves the new information in the json files
+                $json = json_encode( $users, JSON_PRETTY_PRINT);
+                file_put_contents( $users_file, $json);
+                $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                file_put_contents( $threads_file, $json);
+
+                //Uploads the new image
+                $source = $_FILES[ "file"][ "tmp_name"];
+                $destination = "PROFILE_IMG/$filename";
+                move_uploaded_file( $source, $destination);
+                send_JSON( $filename);
             }
 
             if( !$user_found) 
@@ -83,11 +78,6 @@
                 $message = [ "message" => "Error, user not found."];
                 send_JSON( $message, 404);
             }
-        }
-        else 
-        {
-            $message = [ "message" => "Error in the POST-request body."];
-            send_JSON( $message, 422);
         }
     }
 
