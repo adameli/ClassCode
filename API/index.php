@@ -1,7 +1,6 @@
 <?php
     require_once "functions.php";
     
-    $server_endpoint = "http://localhost:9999";
     $request_method = $_SERVER[ "REQUEST_METHOD"];
 
     //CORS error

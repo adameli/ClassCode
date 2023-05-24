@@ -115,35 +115,45 @@
         if( count( array_intersect( $required_keys_DELETE, array_keys( $request_data))) === count( $required_keys_DELETE))
         {
             $username = $request_data[ "username"]; 
+            $user_found = false;
 
             foreach( $users as $user_index => $user) 
             {
-                //Changes all the threads created by the user
-                foreach( $threads as $thread_index => $threads) 
+                if( $username == $user[ "username"]) 
                 {
-                    if( $user[ "id"] == $thread[ "username_id"]) 
+                    $user_found = true;
+                    
+                    //Changes all the threads created by the user
+                    foreach( $threads as $thread_index => $thread) 
                     {
-                        $threads[ $thread_index][ "username"] == "[DELETED ACCOUNT]";
-                        $threads[ $thread_index][ "username_id"] == -1;
-                        $threads[ $thread_index][ "img_name"] == "default.png";
+                        if( $user[ "id"] == $thread[ "username_id"]) 
+                        {
+                            $threads[ $thread_index][ "username"] = "[DELETED ACCOUNT]";
+                            $threads[ $thread_index][ "username_id"] = -1;
+                            $threads[ $thread_index][ "img_name"] = "default.png";
+                        }
                     }
-                }
-            
-                //Deletes the user from users.json
-                if( $user[ "username"] == $username) 
-                {
+                    
+                    //Deletes the user from users.json
                     unset( $users[ $user_index]);
+                    $users = array_values( $users);
+
+                    //Saves the new information to the json files
+                    $json = json_encode( $users, JSON_PRETTY_PRINT);
+                    file_put_contents( $users_file, $json);
+                    $json = json_encode( $threads, JSON_PRETTY_PRINT);
+                    file_put_contents( $threads_file, $json);
+
+                    $message = [ "message" => "DELETE success."];
+                    send_JSON( $message); 
                 }
             }
 
-            //Saves the new information to the json files
-            $json = json_encode( $users, JSON_PRETTY_PRINT);
-            file_put_contents( $users_file, $json);
-            $json = json_encode( $threads, JSON_PRETTY_PRINT);
-            file_put_contents( $threads_file, $json);
-
-            $message = [ "message" => "DELETE success."];
-            send_JSON( $message);
+            if ( !$user_found) 
+            {
+                $message = [ "message" => "Error, user not found."];
+                send_JSON( $message, 404);
+            }
         }
         else 
         {
