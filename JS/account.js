@@ -8,6 +8,13 @@ async function renderAccountPage () {
   
   const userPageName = getGetSearchParam( "un");
 
+  if( userPageName === "[DELETED ACCOUNT]") {
+    document.querySelector( ".mainThread-allThreads").innerHTML = `
+      <p style="text-align:center;">We send our regards to the dearly departed [DELETED ACCOUNT], The class will surely miss you...</p>
+    `;
+    return;
+  }
+
   const userInfoRequest = new Request( "../../API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
 
