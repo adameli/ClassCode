@@ -17,7 +17,7 @@
         header( "Access-Control-Allow-Origin: *");
     }
 
-    $allowed_methods = [ "GET","POST", "PATCH"];
+    $allowed_methods = [ "GET","POST", "PATCH", "DELETE"];
     $users_file = "users.json";
     $threads_file = "threads.json";
 

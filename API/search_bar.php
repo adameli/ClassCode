@@ -84,7 +84,7 @@
                 //Does not remove any threads if a filter has been clicked and the search-bar is empty
                 if( !$search == "" && $threads[ $index][ "search_points"] == 0) 
                 {
-                    unset($threads[$index]);
+                    unset( $threads[ $index]);
                 }
             }
             
