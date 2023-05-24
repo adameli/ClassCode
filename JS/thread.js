@@ -21,7 +21,8 @@ const requestThreadPage = new Request( `/API/thread.php`, {
         timestamp: {
             date: date,
             time: time
-        }
+        },
+        viewmode: loggedInBoolean
     })
 })
 
