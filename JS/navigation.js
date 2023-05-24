@@ -22,7 +22,7 @@ function renderNavigationLoggedIn(user) {
                         <p>Account:</p>
                         <p>${user}</p>
                     </div>
-                    <button class="switchViewMode">LightMode|DarkMode</button>
+                    <button class="switchViewMode clearButton"></button>
                 </div>
     
                 <div class="profileMenuNav-userOptionsContainer">

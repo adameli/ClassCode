@@ -55,7 +55,7 @@
     display: block;
     height: 25px;
     width: 25px;
-    background-image: url( "../RESOURCES/views.png");
+    background-image: url( "/RESOURCES/ICONS/views.png");
     background-size: cover;
 }
 
@@ -213,10 +213,10 @@
 }
 
 #likedComment-pseudo::after {
-    background-image: url( "../RESOURCES/likedPost.png");
+    background-image: url( "/RESOURCES/ICONS/likedPost.png");
 }
 #unlikedComment-pseudo::after {
-    background-image: url( "../RESOURCES/unlikedPost.png");
+    background-image: url( "/RESOURCES/ICONS/unlikedPost.png");
 }
 
 #likedComment-pseudo:hover::after,

@@ -94,7 +94,7 @@ input[type="file"] {
     height: 15px;
     width: 15px;
 
-    background-image: url( "../RESOURCES/changePI.png");
+    background-image: url( "/RESOURCES/ICONS/changePI.png");
     background-size: cover;
 }
 .editProfileImage:hover {
@@ -138,11 +138,11 @@ input[type="file"] {
 }
 
 .editProfileInfo::after {
-    background-image: url( "../RESOURCES/editProfileInfo.png");
+    background-image: url( "/RESOURCES/ICONS/editProfileInfo.png");
 }
 
 .saveProfileInfo::after {
-    background-image: url( "../RESOURCES/saveEditProfileInfo.png");
+    background-image: url( "/RESOURCES/ICONS/saveEditProfileInfo.png");
 }
 
 .saveProfileInfo {

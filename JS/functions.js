@@ -17,14 +17,14 @@ async function fetchFunction( request) {
 function removeUserLocalStorage() {
     localStorage.removeItem( "user");
     localStorage.removeItem( "img_name")
-    window.location = `${serverEndpoint}`;
+    window.location = `/`;
 }
 
 function controlViewingMode( loggedInBoolean, messageContainer) {
     if( loggedInBoolean) {
         renderNavigationLoggedIn( getCurrentUserLocalStorage());
     }else {
-        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='${serverEndpoint}'>Sign In or Register</a> to Comment & Like</p>`;
+        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='/'>Sign In or Register</a> to Comment & Like</p>`;
     }
 }
 
@@ -34,7 +34,7 @@ function controlViewingMode( loggedInBoolean, messageContainer) {
 
 function checkIfLoggedIn() {
     if( !localStorage.getItem( "user")) {
-        window.location = `${serverEndpoint}`;
+        window.location = `/`;
     }
 }
 
@@ -117,6 +117,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
     if( arrayOfThreads.length === 0) {
         mainThreadAllThreads.innerHTML = noResultMessage;
     }
+    console.log(arrayOfThreads);
     //loops all users and creates postContainers
     arrayOfThreads.forEach( threadObject => {
         const postContainerDOM = document.createElement( "div");
@@ -130,8 +131,8 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
                 </div>
                 
                 <div class="usersPost-mainThread">
-                    <img class="profileImg userInfoPostPicture" src="${serverEndpoint}/API/PROFILE_IMG/${threadObject.img_name}">
-                    <p class="user_name-mainThread"><a href="${serverEndpoint}/PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
+                    <img class="profileImg userInfoPostPicture" src="/API/PROFILE_IMG/${threadObject.img_name}">
+                    <p class="user_name-mainThread"><a href="/PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
                 </div>                    
             </div>
             <div class="threadTags-container"></div>
@@ -179,7 +180,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
 function changeToUserPageEvent( event) {
     event.stopPropagation();
     const dataUsername = event.explicitOriginalTarget.dataset.username;
-    window.location = `${serverEndpoint}/PAGE/user.php?un=${dataUsername}`;
+    window.location = `/PAGE/user.php?un=${dataUsername}`;
 }
 
 function changeToThreadPageEvent( event) {
@@ -189,7 +190,7 @@ function changeToThreadPageEvent( event) {
         parentElement.classList.remove( "pushNotification")
     }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
-    window.location = `${serverEndpoint}/PAGE/thread.php?thread_id=${threadID}`;
+    window.location = `/PAGE/thread.php?thread_id=${threadID}`;
 }
 
 
@@ -240,10 +241,10 @@ function switchViewMode() {
     if( localStorage.getItem( "lightMode")) {
         localStorage.removeItem( "lightMode");
         document.documentElement.setAttribute( "data-theme", "dark");
-        document.querySelector( "body > img").src = `${serverEndpoint}/RESOURCES/backgroundImageBlur.jpg`;
+        document.querySelector( "body > img").src = `/RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
     }else {
         localStorage.setItem( "lightMode", true);
         document.documentElement.setAttribute( "data-theme", "light");
-        document.querySelector( "body > img").src = `${serverEndpoint}/RESOURCES/lightmodeBackground.jpg`;
+        document.querySelector( "body > img").src = `/RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
     }
 }
