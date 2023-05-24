@@ -60,26 +60,26 @@
                         }
                     }
                 }
-
-                //Saves the new information in the json files
-                $json = json_encode( $users, JSON_PRETTY_PRINT);
-                file_put_contents( $users_file, $json);
-                $json = json_encode( $threads, JSON_PRETTY_PRINT);
-                file_put_contents( $threads_file, $json);
-
-                //Uploads the new image
-                $source = $_FILES[ "file"][ "tmp_name"];
-                $destination = "PROFILE_IMG/$filename";
-                move_uploaded_file( $source, $destination);
-                send_JSON( $filename);
-            }
-
-            if( !$user_found) 
-            {
-                $message = [ "message" => "Error, user not found."];
-                send_JSON( $message, 404);
             }
         }
+
+        if( !$user_found) 
+        {
+            $message = [ "message" => "Error, user not found."];
+            send_JSON( $message, 404);
+        }
+
+        //Saves the new information in the json files
+        $json = json_encode( $users, JSON_PRETTY_PRINT);
+        file_put_contents( $users_file, $json);
+        $json = json_encode( $threads, JSON_PRETTY_PRINT);
+        file_put_contents( $threads_file, $json);
+
+        //Uploads the new image
+        $source = $_FILES[ "file"][ "tmp_name"];
+        $destination = "PROFILE_IMG/$filename";
+        move_uploaded_file( $source, $destination);
+        send_JSON( $filename);
     }
 
     $required_keys_PATCH = [ "profile_info", "user"];
@@ -143,6 +143,21 @@
                         }
                     }
                     
+                    //Changes all the comments created by the user
+                    foreach( $threads as $thread_index => $thread) 
+                    {
+                        $comments = $thread[ "comments"];
+
+                        foreach( $comments as $comment_index => $comment) 
+                        {
+                            if( $username == $comment[ "username"]) 
+                            {
+                                $threads[ $thread_index][ "comments"][ $comment_index][ "username"] = "[DELETED ACCOUNT]";
+                                $threads[ $thread_index][ "comments"][ $comment_index][ "img_name"] = "default.png";
+                            }
+                        }
+                    }
+
                     //Deletes the user from users.json
                     unset( $users[ $user_index]);
                     $users = array_values( $users);

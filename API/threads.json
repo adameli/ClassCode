@@ -1,1 +1,39 @@
-[]
+[
+    {
+        "username": "Isak",
+        "username_id": 1,
+        "thread_id": 1,
+        "title": "Welcome to ClassCode!",
+        "description": "Welcome dear student! ClassCode is a platform where everyone can share newfound discoveries and solve problems togheter! WE ARE ONE\nTHIS IS THE WAY\n\n<a href=\"https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\">CLICK ME :)<\/a>",
+        "content": "<br>    <pre><code>\nlet the_fun = &quot;start now&quot;;\n\nconst welcome = {\n     to: &quot;ClassCode&quot;,\n     fellow: &quot;comrade&quot;\n};\n    <\/code><\/pre>",
+        "timestamp": {
+            "date": "2023-05-24",
+            "time": "16:02:28"
+        },
+        "views": 10,
+        "comments": [
+            {
+                "username": "Isak",
+                "content": "WELCOME TO CLASSCODE!",
+                "timestamp": {
+                    "date": "2023-05-24",
+                    "time": "16:04:21"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "Isak"
+                    ]
+                },
+                "id": 1,
+                "img_name": "Isak.png"
+            }
+        ],
+        "tags": [
+            "welcome",
+            "to",
+            "classcode"
+        ],
+        "img_name": "Isak.png"
+    }
+]
