@@ -84,7 +84,7 @@ async function renderMainThread() {
     })
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
-        window.location = `${serverEndpoint}/PAGE/AskQuestion.html`;
+        window.location = `/PAGE/AskQuestion.html`;
     });
 
     // SearchBar Open + Close

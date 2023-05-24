@@ -54,7 +54,7 @@ postContentForm.addEventListener( "click", async function (event) {
 
     // controlls if the serverresponse is ok (true or false)
     if ( post.response.ok) {
-        window.location = `${serverEndpoint}`;
+        window.location = `/`;
     } else {
         displayAlert( "Error!! Check the console", post.resource.message);
     }

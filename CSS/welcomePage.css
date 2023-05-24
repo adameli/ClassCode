@@ -3,7 +3,7 @@ main {
 }
 
 section {
-    height: 60rem;
+    min-height: 110vh;
     padding: var(--paddingSections);
     margin-left: 2%;
     overflow: hidden;
@@ -177,8 +177,8 @@ section:nth-child(2) > div:nth-child(1) {
 
 section:nth-child(2) > div:nth-child(2){
     background-color: white;
-    height: 35rem;
-    width: 35rem;
+    height: 65vh;
+    width: 35vw;
 
     position: absolute;
 
@@ -190,8 +190,8 @@ section:nth-child(2) > div:nth-child(2){
 
 section:nth-child(2) > div:nth-child(3) {
     background-color: white;
-    height: 25rem;
-    width: 20rem;
+    height: 50vh;
+    width: 20vw;
     
     position: absolute;
     top: 20%;
@@ -199,8 +199,8 @@ section:nth-child(2) > div:nth-child(3) {
 }
 section:nth-child(2) > div:nth-child(4) {
     background-color: white;
-    height: 25rem;
-    width: 20rem;
+    height: 50vh;
+    width: 20vw;
 
     position: absolute;
     right: 27%;
@@ -225,13 +225,70 @@ section:nth-child(3) {
 
 /* WHO ARE WE */
 
-/* SIGN UP */
+/* join The Community _______________________________________________ */
 section:last-child {
     border-left: 2px solid transparent;
     border-image: linear-gradient( var(--pointOfInterestHover), var(--redPointOfInterestHover), var(--mainBackgroundColor));
     border-image-slice: 1;
 }
 
+section:last-child p,
+section:last-child h1 {
+    text-align: center;
+    margin: 10px 10vw;
+}
+
+section:last-child h1 {
+    color: var( --saveOfInterest);
+}
+
+
+.hoveringUsers-WelcomePage {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;
+    
+    height: 35vh;
+    margin-top: 10vh;
+    gap: 1vw;
+    padding: var( --paddingSections);
+}
+
+.HU-transform {
+    /* transform: translateY( 100px); */
+    margin-top: 100px;
+}
+
+.hoveringUser {
+    height: 100%;
+    border-radius: var( --borderradiusLarge);
+    overflow: hidden;
+}
+
+.hoveringUser img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.flexItem-joinClass {
+    background-color: var( --glassMorphism);
+    padding: var(--paddingSections);
+    margin-top: 10%;
+}
+
+.registerButtonHeader {
+    background-color: var(--textColor);
+    color: var( --mainBackgroundColor);
+    width: 25%;
+    margin: 5px auto;
+
+    transition: all .3s ease-in;
+}
+
+.registerButtonHeader:hover {
+    transform: scale(.9);
+}
 
 /* OBSERVER */
 .hidden {

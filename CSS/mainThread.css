@@ -108,6 +108,10 @@ main {
 }
 
 /* Search Section _________________________________________________________ */
+.createQuestionContainer {
+    font-size: var( --smallText);
+}
+
 .sortSearchContainer-mainThread {
     padding: var(--paddingSections); 
     gap: var(--paddingButtons);
