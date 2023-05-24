@@ -19,10 +19,8 @@
             $message = [ "message" => "Error, image must have the filetype jpg or png."];
             send_JSON( $message, 403);
         }
-        
-        $required_keys_POST = [ "username"];
 
-        if( count( array_intersect( $required_keys_POST, array_keys( $request_data))) === count( $required_keys_POST))
+        if( in_array("username", $request_data))
         {
             foreach( $users as $index => $user) 
             {
