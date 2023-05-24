@@ -33,7 +33,7 @@ async function fillThreadPage() {
     const threadObject = await fetchFunction( requestThreadPage);
     
     // If no Object is returned, (falsy) the thread wasnt found or doesnt exist. display message and abort
-    if( !threadObject) {
+    if( !threadObject.response.ok) {
         AppendLoadingAnimation( document.querySelector( "main"))
         document.querySelector( "main").innerHTML += `
             <h3 style="text-align:center;">Thread Nr: ${threadId} is on vacation or does not exist...<br><a href='/'>RETURN HOME</a></h3>

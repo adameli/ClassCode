@@ -104,7 +104,7 @@ section:nth-child(1) > div {
 
 section:nth-child(1) div,
 section:nth-child(1) a {
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .bouncingArrow {
