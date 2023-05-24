@@ -14,7 +14,7 @@
     <title>ClassCode</title>
 </head>
 <body>
-    <img src="../../RESOURCES/backgroundImageBlur.jpg" alt="Hand on a electrical lamp" class="backgroundImage">
+    <img src="" alt="Hand on a electrical lamp" class="backgroundImage">
     <header>
         <div>
             <div class="homebutton-navigation">

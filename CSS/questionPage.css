@@ -2,13 +2,16 @@
     padding: var(--paddingSections);
 }
 
+section > h1 {
+    text-align: center;
+}
 .form {
     display: flex;
     flex-direction: column;
 
     gap: 50px;
     max-width: 65rem;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     padding: var(--paddingSections);
     background-color: var(--glassMorphism);
     border-radius: var(--borderradiusMedium);

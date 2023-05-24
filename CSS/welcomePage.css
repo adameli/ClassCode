@@ -162,10 +162,11 @@ section:nth-child(2){
 }
 
 iframe {
-    height: 100%;
+    height: 200vh;
     width: 100%;
     border: none;
     overflow: hidden;
+    pointer-events: none;
 
     /* transform: rotate( -25deg); */
 }
@@ -192,7 +193,7 @@ section:nth-child(2) > div:nth-child(2){
     bottom: 45px;
     left: 150px;
     border-radius: 25px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 section:nth-child(2) > div:nth-child(3) {
@@ -269,13 +270,22 @@ section:last-child h1 {
 .hoveringUser {
     height: 100%;
     border-radius: var( --borderradiusLarge);
-    overflow: hidden;
 }
 
 .hoveringUser img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: var( --borderradiusLarge);
+    box-shadow: var(--mainBackgroundColor) 0px 19px 38px, var(--mainBackgroundColor) 0px 15px 12px;
+}
+
+.hoveringUser div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var( --usernames);
+    padding: var( --paddingCardContainer);
 }
 
 .flexItem-joinClass {

@@ -181,6 +181,12 @@
 
 /* Likes Css___________________________________________________________________ */
 
+.commentsContainer-threadPage div:last-child > .likeContainer-comment {
+    border-left: 2px solid transparent;
+    border-image: linear-gradient( var(--pointOfInterestHover), var(--redPointOfInterestHover), var(--mainBackgroundColor));
+    border-image-slice: 1;
+}
+
 .likeContainer-comment {
     background-color: var(--darkMorphism);
     color: var(--pointOfInterest);
