@@ -23,7 +23,7 @@
     //Checks if the HTTP method is allowed
     if( !in_array($request_method, $allowed_methods)) 
     {
-        $message = [ "message" => "Error, invalid HTTP method"];
+        $message = [ "message" => "Error, invalid HTTP method."];
         send_JSON( $message, 405);
     }
 
@@ -50,7 +50,7 @@
     {
         if( !$_SERVER = "application/json") 
         {
-            $message = [ "message" => "Error, invalid content type"];
+            $message = [ "message" => "Error, invalid content type."];
             send_JSON( $message, 415);          
         }
     }
@@ -58,4 +58,8 @@
     //Gets the information from the POST- and the PATCH-requests
     $request_JSON = file_get_contents( "php://input");
     $request_data = json_decode( $request_JSON, true);
+    
+    $thread_found = false;
+    $comment_found = false;
+    $user_found = false;
 ?>

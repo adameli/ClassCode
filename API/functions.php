@@ -8,10 +8,10 @@
         exit();
     }
 
-    function sort_by_date($thread_1, $thread_2) {
+    function sort_by_date( $thread_1, $thread_2) {
         //strtotime - parses the date into a unix timestamp
-        $timestamp_1 = strtotime( $thread_1["timestamp"]["date"] . ' ' . $thread_1["timestamp"]["time"]);
-        $timestamp_2 = strtotime( $thread_2["timestamp"]["date"] . ' ' . $thread_2["timestamp"]["time"]);
+        $timestamp_1 = strtotime( $thread_1[ "timestamp"][ "date"] . ' ' . $thread_1[ "timestamp"][ "time"]);
+        $timestamp_2 = strtotime( $thread_2[ "timestamp"][ "date"] . ' ' . $thread_2[ "timestamp"][ "time"]);
     
         // Sorting oldest to latest)
         return $timestamp_1 - $timestamp_2;

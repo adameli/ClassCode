@@ -12,7 +12,7 @@
 
             if( !in_array($filter, $allowed_filters)) 
             {
-                $message = [ "message" => "Error, incorrect GET parameters"];
+                $message = [ "message" => "Error, incorrect GET parameters."];
                 send_JSON( $message, 422);
             }
 
@@ -114,7 +114,7 @@
         }
         else
         {
-            $message = [ "message" => "Error, incorrect GET parameters"];
+            $message = [ "message" => "Error, incorrect GET parameters."];
             send_JSON( $message, 422);
         }
     }
