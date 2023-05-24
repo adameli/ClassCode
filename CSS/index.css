@@ -300,6 +300,7 @@ header > h3 {
 
 .dialogDeleteAccount #cancelDeleteAccount {
     background-color: rgb(179, 50, 50);
+    margin-right: 70%;
 }
 .dialogDeleteAccount #deleteAccount {
     background-color: rgb(52, 179, 50);
