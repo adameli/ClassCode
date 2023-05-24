@@ -22,7 +22,7 @@
 
         foreach( $users as $index => $user) 
         {
-            if( $user[ "username"] == $_POST[ "username"]) 
+            if( $user[ "username"] == $request_data[ "username"]) 
             {
                 $username = $user[ "username"];
 
@@ -96,7 +96,7 @@
                     $json = json_encode($users, JSON_PRETTY_PRINT);
                     file_put_contents($users_file, $json);
 
-                    $message = ["message" => "Profile Updated"];
+                    $message = ["message" => "Profile updated"];
                     send_JSON( $message);
                 }
             }
@@ -104,6 +104,50 @@
         else
         {
             $message = [ "message" => "Error in the PATCH-request body."];
+            send_JSON( $message, 422);
+        }
+    }
+
+    $required_keys_DELETE = [ "username"];
+
+    if( $request_method == "DELETE") 
+    {
+        if( count( array_intersect( $required_keys_DELETE, array_keys( $request_data))) === count( $required_keys_DELETE))
+        {
+            $username = $request_data[ "username"]; 
+
+            foreach( $users as $user_index => $user) 
+            {
+                //Changes all the threads created by the user
+                foreach( $threads as $thread_index => $threads) 
+                {
+                    if( $user[ "id"] == $thread[ "username_id"]) 
+                    {
+                        $threads[ $thread_index][ "username"] == "[DELETED ACCOUNT]";
+                        $threads[ $thread_index][ "username_id"] == -1;
+                        $threads[ $thread_index][ "img_name"] == "default.png";
+                    }
+                }
+            
+                //Deletes the user from users.json
+                if( $user[ "username"] == $username) 
+                {
+                    unset( $users[ $user_index]);
+                }
+            }
+
+            //Saves the new information to the json files
+            $json = json_encode( $users, JSON_PRETTY_PRINT);
+            file_put_contents( $users_file, $json);
+            $json = json_encode( $threads, JSON_PRETTY_PRINT);
+            file_put_contents( $threads_file, $json);
+
+            $message = [ "message" => "DELETE success."];
+            send_JSON( $message);
+        }
+        else 
+        {
+            $message = [ "message" => "Error in the DELETE-request body."];
             send_JSON( $message, 422);
         }
     }
