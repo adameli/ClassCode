@@ -117,7 +117,7 @@
             "css",
             "php"
         ],
-        "img_name": "Isak.jpg"
+        "img_name": "Isak.png"
     },
     {
         "username": "OHLEG",
@@ -201,7 +201,7 @@
                     "accounts": []
                 },
                 "id": 2,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "test",
@@ -224,7 +224,7 @@
             "css",
             "php"
         ],
-        "img_name": "Isak.jpg"
+        "img_name": "Isak.png"
     },
     {
         "username": "hej",
@@ -887,7 +887,7 @@
             "date": "19-05-2023",
             "time": "11:30:40"
         },
-        "views": 22,
+        "views": 23,
         "comments": [],
         "tags": [
             "fewfw"
