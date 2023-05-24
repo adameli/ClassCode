@@ -606,7 +606,7 @@
             "date": "12-05-2023",
             "time": "12:58:01"
         },
-        "views": 91,
+        "views": 92,
         "comments": [
             {
                 "username": "Isak",
@@ -623,7 +623,7 @@
                     "total": 2
                 },
                 "id": 1,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "Isak",
@@ -640,7 +640,7 @@
                     ]
                 },
                 "id": 2,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "hej",
@@ -786,7 +786,7 @@
                     "accounts": []
                 },
                 "id": 12,
-                "img_name": "Isak.jpg"
+                "img_name": "Isak.png"
             },
             {
                 "username": "test",
