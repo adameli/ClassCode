@@ -59,7 +59,7 @@ function loginRegisterPage( type, changeTypeMessage) {
             let message = main.querySelector( "#message");
 
             // We make an Requst that we will send to the fetchFunction
-            let request = new Request(`../API/${phpFileName}`, {
+            let request = new Request(`API/${phpFileName}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

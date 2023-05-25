@@ -40,10 +40,10 @@ function renderNavigationLoggedIn(user) {
 
             document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
             document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
-                window.location = `/PAGE/user.php/?un=${user}`;
+                window.location = `PAGE/user.php/?un=${user}`;
             });
             document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
-                window.location = `/PAGE/AskQuestion.html`;
+                window.location = `PAGE/AskQuestion.html`;
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", switchViewMode);
@@ -58,7 +58,7 @@ function renderNavigationLoggedIn(user) {
             document.getElementById( "deleteAccount").addEventListener( "click", async function (event) {
                 event.preventDefault();
                 const currentUser = getCurrentUserLocalStorage();
-                const deleteUserRequest = new Request( "/API/account.php", {
+                const deleteUserRequest = new Request( "API/account.php", {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

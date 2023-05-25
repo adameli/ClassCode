@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Rubik-Bold', sans-serif;
-    src: url("/RESOURCES/FONTS/Rubik-Regular.ttf");
+    src: url("RESOURCES/FONTS/Rubik-Regular.ttf");
 }
 
 @font-face {
     font-family: 'Rubik', sans-serif;
-    src: url("/RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
+    src: url("RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
 }
 
 @font-face {
     font-family: 'MINIMALHARD2';
-    src: url("/RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
+    src: url("RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
 }
 
 :root {
@@ -215,7 +215,7 @@ header > h3 {
     height: 25px;
     width: 25px;
 
-    background-image: url( "/RESOURCES/ICONS/darkLightMode.png");
+    background-image: url( "RESOURCES/ICONS/darkLightMode.png");
     background-size: cover;
 }
 
@@ -340,7 +340,7 @@ header > h3 {
     height: 50px;
     width: 50px;
 
-    background-image: url( "/RESOURCES/ICONS/toTop.png");
+    background-image: url( "RESOURCES/ICONS/toTop.png");
     background-size: cover;
 }
 

@@ -129,8 +129,8 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
                 </div>
                 
                 <div class="usersPost-mainThread">
-                    <img class="profileImg userInfoPostPicture" src="/API/PROFILE_IMG/${threadObject.img_name}">
-                    <p class="user_name-mainThread"><a href="/PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
+                    <img class="profileImg userInfoPostPicture" src="../API/PROFILE_IMG/${threadObject.img_name}">
+                    <p class="user_name-mainThread"><a href="PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
                 </div>                    
             </div>
             <div class="threadTags-container"></div>
@@ -178,7 +178,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
 function changeToUserPageEvent( event) {
     event.stopPropagation();
     const dataUsername = event.explicitOriginalTarget.dataset.username;
-    window.location = `/PAGE/user.php?un=${dataUsername}`;
+    window.location = `PAGE/user.php?un=${dataUsername}`;
 }
 
 function changeToThreadPageEvent( event) {
@@ -188,7 +188,7 @@ function changeToThreadPageEvent( event) {
         parentElement.classList.remove( "pushNotification")
     }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
-    window.location = `/PAGE/thread.php?thread_id=${threadID}`;
+    window.location = `PAGE/thread.php?thread_id=${threadID}`;
 }
 
 
@@ -238,10 +238,10 @@ function switchViewMode() {
     if( localStorage.getItem( "lightMode")) {
         localStorage.removeItem( "lightMode");
         document.documentElement.setAttribute( "data-theme", "dark");
-        document.querySelector( "body > img").src = `/RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
+        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
     }else {
         localStorage.setItem( "lightMode", true);
         document.documentElement.setAttribute( "data-theme", "light");
-        document.querySelector( "body > img").src = `/RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
+        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
     }
 }

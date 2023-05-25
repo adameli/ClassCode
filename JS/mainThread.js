@@ -83,7 +83,7 @@ async function renderMainThread() {
     })
 
     document.querySelector( ".createQuestionContainer").addEventListener( "click", event => {
-        window.location = `/PAGE/AskQuestion.html`;
+        window.location = `PAGE/AskQuestion.html`;
     });
 
     // SearchBar Open + Close
@@ -101,7 +101,7 @@ async function renderMainThread() {
     })
 
     // Here we get all the threads from the server, then we call the function "loadThreads" to redner all the threads on the mainpage
-    const allThreadsRequest = new Request( "../API/thread.php?threads=all");
+    const allThreadsRequest = new Request( "API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
     if( objectWithThreads.response.ok){
         loadThreads( objectWithThreads.resource, "No search results...");
@@ -117,7 +117,7 @@ async function renderMainThread() {
     // When the user click the searchButton, We send the searchInputValue to the server and we get back a sorted array with threads that match the searchInputValue 
     searchButton.addEventListener( "click", async event => {
         const searchInputValue = searchInput.value;
-        const requestString = new Request( "../API/search_bar.php?s=" + searchInputValue + "&f");
+        const requestString = new Request( "API/search_bar.php?s=" + searchInputValue + "&f");
         await AppendLoadingAnimation( mainThreadAllThreads);
         let thredResults = await fetchFunction( requestString);
         if( thredResults.response.ok){
@@ -133,7 +133,7 @@ async function renderMainThread() {
         let searchValue = event.currentTarget.value;
         let key = event.key;
         if (key === "Enter") {
-            const requestString = new Request( "../API/search_bar.php?s=" + searchValue + "&f");
+            const requestString = new Request( "API/search_bar.php?s=" + searchValue + "&f");
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
             if( thredResults.response.ok){
@@ -148,7 +148,7 @@ async function renderMainThread() {
     document.querySelectorAll( ".filterButtons-mainThread").forEach(element => {
         element.addEventListener( "click", async event =>{
             let filterValue = event.currentTarget.dataset.filtervalue;
-            const requestString = new Request ( "../API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
+            const requestString = new Request ( "API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
             if( thredResults.response.ok){
