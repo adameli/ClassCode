@@ -121,7 +121,7 @@ function renderWelcomePage() {
         </div>
 
         <div class="iframeContainer hidden">
-            <iframe src="/PAGE/thread.php?thread_id=1" title="threadInsight"></iframe> 
+            <iframe src="PAGE/thread.php?thread_id=1" title="threadInsight"></iframe> 
         </div>
         <div class="hidden"></div>
         <div class="hidden"></div>
@@ -132,19 +132,19 @@ function renderWelcomePage() {
             <p><span>CodeClass</span> is a community based platform, it works because of our contributing <span>classmates</span>. We all exist for each other, here we strive to learn and <span>help</span> each other become better programmers each and every day.<br><strong><span>Join You too!</span></strong></p>
             <div class="hoveringUsers-WelcomePage hidden">
                 <div class="hoveringUser hidden">
-                    <img src="/API/PROFILE_IMG/AdamE.jpg">
+                    <img src="API/PROFILE_IMG/AdamE.jpg">
                     <div>AdamE</div>
                 </div>
                 <div class="hoveringUser HU-transform hidden">
-                    <img src="/API/PROFILE_IMG/DeoHard.jpg">
+                    <img src="API/PROFILE_IMG/DeoHard.jpg">
                     <div>DeoHard</div>
                 </div>
                 <div class="hoveringUser HU-transform hidden">
-                    <img src="/API/PROFILE_IMG/Isak.png">
+                    <img src="API/PROFILE_IMG/Isak.png">
                     <div>Isak</div>
                 </div>
                 <div class="hoveringUser hidden">
-                    <img src="/API/PROFILE_IMG/ClassCode.png">
+                    <img src="API/PROFILE_IMG/ClassCode.png">
                     <div>ClassCode</div>
                 </div>
             </div>
