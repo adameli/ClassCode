@@ -78,7 +78,8 @@ function renderNavigationLoggedIn( user, endpointDecider) {
                     }),
                 });
                 await fetchFunction( deleteUserRequest);
-                removeUserLocalStorage();
+                homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
+                removeUserLocalStorage( homeButtonEndpoint);
             })
 
         } else {
