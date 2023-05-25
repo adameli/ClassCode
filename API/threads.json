@@ -10,7 +10,7 @@
             "date": "2023-05-24",
             "time": "16:02:28"
         },
-        "views": 67,
+        "views": 75,
         "comments": [
             {
                 "username": "Isak",
@@ -83,7 +83,7 @@
             "date": "2023-05-24",
             "time": "16:32:05"
         },
-        "views": 14,
+        "views": 15,
         "comments": [
             {
                 "username": "DeoHard",
@@ -93,8 +93,10 @@
                     "time": "22:34:51"
                 },
                 "likes": {
-                    "total": 0,
-                    "accounts": []
+                    "total": 1,
+                    "accounts": [
+                        "DeoHard"
+                    ]
                 },
                 "id": 1,
                 "img_name": "DeoHard.jpg"
