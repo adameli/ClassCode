@@ -8,7 +8,8 @@
         exit();
     }
 
-    //Added these functions because str_starts_with() and str_ends_with does not work on old php versions
+    //Added these functions because str_starts_with(), str_ends_with, str_contains() 
+    //does not work on old php versions
     function str_start( $string, $substring)
     {
         $len = strlen( $substring);
@@ -33,6 +34,11 @@
         return substr( $string, -$len) === $substring;
     }
 
+    function str_contain($haystack, $needle) {
+        return strpos($haystack, $needle) !== false;
+    }
+
+    //Sort functions
     function sort_by_date( $thread_1, $thread_2) {
         //strtotime - parses the date into a unix timestamp
         $timestamp_1 = strtotime( $thread_1[ "timestamp"][ "date"] . ' ' . $thread_1[ "timestamp"][ "time"]);
