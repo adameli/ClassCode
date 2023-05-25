@@ -1,10 +1,11 @@
 async function renderAccountPage () {
-  
+  activeTheme( "../");
+
   const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
   const messageContainer = document.querySelector( ".threadSection-userPage");
   const currentUser = getCurrentUserLocalStorage();
 
-  controlViewingMode( loggedInBoolean, messageContainer);
+  controlViewingMode( loggedInBoolean, messageContainer, "PAGE");
   
   const userPageName = getGetSearchParam( "un");
 
@@ -44,7 +45,7 @@ async function renderAccountPage () {
     }
   }
   if(userObjekt.response.ok){
-    loadThreads( userObjekt.resource.threads, "You have no threads, Go and Ask a Question", threadsUserNotSeen);
+    loadThreads( userObjekt.resource.threads, "You have no threads, Go and Ask a Question", "PAGE", threadsUserNotSeen);
   }else {
     loadThreads( [], "Something went wrong... Please try again");
   }

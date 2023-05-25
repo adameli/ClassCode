@@ -1,10 +1,13 @@
-function renderNavigationLoggedIn(user) {
+function renderNavigationLoggedIn(user, endpointDecider) {
+
+    createEndPointVars( endpointDecider);
+
     const parentContainer = document.querySelector(".userInformation")
     const imgName = JSON.parse(localStorage.getItem( "img_name"));
 
     parentContainer.innerHTML = `
     <div class="profile">
-        <img class="profileImg" src="/API/PROFILE_IMG/${imgName}">
+        <img class="profileImg" src="${endpointAPI}/PROFILE_IMG/${imgName}">
     </div>
     <dialog class="dialogDeleteAccount">
         <p>Are you sure that you want to delete your account?</p>
@@ -21,7 +24,7 @@ function renderNavigationLoggedIn(user) {
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
-                        <img class="profileImg" src="/API/PROFILE_IMG/${imgName}">
+                        <img class="profileImg" src="${endpointAPI}/PROFILE_IMG/${imgName}">
                     </div>
                     <div class="profile-loggedInAs">
                         <p>Account:</p>
@@ -40,13 +43,15 @@ function renderNavigationLoggedIn(user) {
 
             document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
             document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
-                window.location = `PAGE/user.php/?un=${user}`;
+                window.location = `${endpointACCOUNT}?un=${user}`;
             });
             document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
-                window.location = `PAGE/AskQuestion.html`;
+                window.location = `${endpointQUESTION}`;
             });
 
-            document.querySelector( ".switchViewMode").addEventListener( "click", switchViewMode);
+            document.querySelector( ".switchViewMode").addEventListener( "click", e => {
+                switchViewMode( endpointDecider);
+            });
 
             const myDialog = document.querySelector( ".dialogDeleteAccount");
             document.getElementById( "openModalDelete").addEventListener( "click", event => {
@@ -58,7 +63,7 @@ function renderNavigationLoggedIn(user) {
             document.getElementById( "deleteAccount").addEventListener( "click", async function (event) {
                 event.preventDefault();
                 const currentUser = getCurrentUserLocalStorage();
-                const deleteUserRequest = new Request( "API/account.php", {
+                const deleteUserRequest = new Request( `${endpointAPI}/account.php`, {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

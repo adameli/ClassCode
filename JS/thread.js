@@ -1,10 +1,11 @@
+activeTheme( "../");
 
 const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
 const viewmode = getCurrentUserLocalStorage() ? false : true;
 const threadContainer = document.querySelector( ".postContainer-pageThread");
 
 // control if logged in (true => display navigation user) (false => viewing mode message)
-controlViewingMode( loggedInBoolean, threadContainer);
+controlViewingMode( loggedInBoolean, threadContainer, "PAGE");
 
 const threadId = getGetSearchParam( "thread_id");
 

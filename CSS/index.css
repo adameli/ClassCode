@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Rubik-Bold', sans-serif;
-    src: url("RESOURCES/FONTS/Rubik-Regular.ttf");
+    src: url("../RESOURCES/FONTS/Rubik-Regular.ttf");
 }
 
 @font-face {
     font-family: 'Rubik', sans-serif;
-    src: url("RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
+    src: url("../RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
 }
 
 @font-face {
     font-family: 'MINIMALHARD2';
-    src: url("RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
+    src: url("../RESOURCES/FONTS/MINIMALHARD2\ Regular.ttf");
 }
 
 :root {

@@ -1,3 +1,28 @@
+let endpointAPI; 
+let endpointACCOUNT;
+let endpointTHREAD;
+let endpointQUESTION;
+let endpointCSS;
+
+function createEndPointVars( decider) {
+
+    if( decider === "MAIN") {
+        endpointAPI = "API" 
+        endpointACCOUNT = "PAGE/user.php"
+        endpointQUESTION = "PAGE/AskQuestion.html"
+        endpointTHREAD = "PAGE/thread.php";
+        endpointCSS = "RESOURCE";
+
+    }else if( decider === "PAGE") {
+        endpointAPI = "../API"
+        endpointACCOUNT = "user.php"
+        endpointTHREAD = "thread.php";
+        endpointQUESTION = "AskQuestion.html"
+        endpointCSS = "../RESOURCE";
+
+    }
+}
+
 
 async function fetchFunction( request) {
 
@@ -19,9 +44,9 @@ function removeUserLocalStorage() {
     window.location = `/`;
 }
 
-function controlViewingMode( loggedInBoolean, messageContainer) {
+function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     if( loggedInBoolean) {
-        renderNavigationLoggedIn( getCurrentUserLocalStorage());
+        renderNavigationLoggedIn( getCurrentUserLocalStorage(), endpoint);
     }else {
         messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='/'>Sign In or Register</a> to Comment & Like</p>`;
     }
@@ -108,8 +133,10 @@ function getGetSearchParam( searchParam) {
     return searchParamValue;
 }
 
-async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=[]) {
+async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, pushNotifications=[]) {
     
+    createEndPointVars( endpointDECIDER);
+
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     mainThreadAllThreads.innerHTML = ``;
     
@@ -129,8 +156,8 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
                 </div>
                 
                 <div class="usersPost-mainThread">
-                    <img class="profileImg userInfoPostPicture" src="../API/PROFILE_IMG/${threadObject.img_name}">
-                    <p class="user_name-mainThread"><a href="PAGE/user.php?un=${threadObject.username}">@${threadObject.username}</a></p>
+                    <img class="profileImg userInfoPostPicture" src="${endpointAPI}/PROFILE_IMG/${threadObject.img_name}">
+                    <p class="user_name-mainThread"><a href="${endpointACCOUNT}?un=${threadObject.username}">@${threadObject.username}</a></p>
                 </div>                    
             </div>
             <div class="threadTags-container"></div>
@@ -178,7 +205,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, pushNotifications=
 function changeToUserPageEvent( event) {
     event.stopPropagation();
     const dataUsername = event.explicitOriginalTarget.dataset.username;
-    window.location = `PAGE/user.php?un=${dataUsername}`;
+    window.location = `${endpointACCOUNT}?un=${dataUsername}`;
 }
 
 function changeToThreadPageEvent( event) {
@@ -188,7 +215,7 @@ function changeToThreadPageEvent( event) {
         parentElement.classList.remove( "pushNotification")
     }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
-    window.location = `PAGE/thread.php?thread_id=${threadID}`;
+    window.location = `${endpointTHREAD}?thread_id=${threadID}`;
 }
 
 
@@ -234,14 +261,29 @@ function maxCharacters ( element) {
         }
 }
 
-function switchViewMode() {
+function switchViewMode( endpointDecider) {
+    createEndPointVars( endpointDecider);
+
     if( localStorage.getItem( "lightMode")) {
         localStorage.removeItem( "lightMode");
         document.documentElement.setAttribute( "data-theme", "dark");
-        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
+        document.querySelector( "body > img").src = `${endpointCSS}/BACKGROUND/backgroundImageBlur.jpg`;
     }else {
         localStorage.setItem( "lightMode", true);
         document.documentElement.setAttribute( "data-theme", "light");
-        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
+        document.querySelector( "body > img").src = `${endpointCSS}/BACKGROUND/lightmodeBackground.jpg`;
+    }
+
+    location.reload();
+}
+
+function activeTheme( endpoint = "") {
+    console.log( "here");
+    if( localStorage.getItem( "lightMode")) {
+        document.documentElement.setAttribute( "data-theme", "light");
+        document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
+    }else {
+        document.documentElement.setAttribute( "data-theme", "dark");
+        document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
     }
 }

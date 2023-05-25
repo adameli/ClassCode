@@ -100,6 +100,7 @@ function loginRegisterPage( type, changeTypeMessage) {
 }
 
 function renderWelcomePage() {
+    activeTheme();
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/welcomePage.css");
 
     document.querySelector( "main").innerHTML = `
