@@ -200,8 +200,13 @@ header > h3 {
 
     object-fit: cover;
     cursor: pointer;
-    background-color: var( --textColor);
-    border-radius: var(--CIRKLE);
+}
+
+.homebutton-navigation {
+    transition: all .2s ease-in;
+}
+.homebutton-navigation:hover {
+    transform: scale( 1.1);
 }
 
 .switchViewMode {
