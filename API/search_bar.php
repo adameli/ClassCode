@@ -41,6 +41,11 @@
                 //and depending on if the word/words match with a thread´s title, creator, description or tag/tags
                 foreach( $words_array as $word) 
                 {
+                    // THIS IS A SOLUTION BECAUSE OF THE OUTDATED PHP ON FILEZILLA, WE HAVE A WORKING VERSION WITH A REAL SOLUTION
+                    if( $word == "") 
+                    {
+                        $word = ".";
+                    }
                     //Checks if the search words match with a thread´s title
                     if( str_contain( $title, $word)) 
                     {

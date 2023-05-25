@@ -141,6 +141,7 @@
 .likeContainer-comment, 
 .commentContainer-comment {
     padding: var( --paddingButtons);
+    overflow: hidden;
 }
 
 .createCommentModal-comment {

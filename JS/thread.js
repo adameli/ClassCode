@@ -199,6 +199,7 @@ function prepareAddComments() {
     
     // opens modal
     openCreateCommentButton.addEventListener( "click", () => {
+        document.querySelector( ".createCommentModal-comment > textarea").value = "";
         CommentContainer.show();
         window.scrollTo(0, document.body.scrollHeight);
     })

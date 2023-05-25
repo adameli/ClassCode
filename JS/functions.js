@@ -54,7 +54,7 @@ function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     if( loggedInBoolean) {
         renderNavigationLoggedIn( getCurrentUserLocalStorage(), endpoint);
     }else {
-        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='/'>Sign In or Register</a> to Comment & Like</p>`;
+        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='../'>Sign In or Register</a> to Comment & Like</p>`;
     }
 }
 
