@@ -41,7 +41,10 @@ function renderNavigationLoggedIn(user, endpointDecider) {
                 </div>
             </nav>`;
 
-            document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", removeUserLocalStorage);
+            document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", e => {
+                homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
+                removeUserLocalStorage( homeButtonEndpoint);
+            });
             document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
                 window.location = `${endpointACCOUNT}?un=${user}`;
             });

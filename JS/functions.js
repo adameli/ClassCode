@@ -38,10 +38,10 @@ async function fetchFunction( request) {
     };
 };
 
-function removeUserLocalStorage() {
+function removeUserLocalStorage( endpointDecider) {
     localStorage.removeItem( "user");
     localStorage.removeItem( "img_name")
-    window.location = `ClassCode/`;
+    window.location = `${endpointDecider}ClassCode/`;
 }
 
 function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
@@ -56,9 +56,9 @@ function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     return JSON.parse(localStorage.getItem( "user"));
  }
 
-function checkIfLoggedIn() {
+function checkIfLoggedIn( endpointDecider) {
     if( !localStorage.getItem( "user")) {
-        window.location = `ClassCode/`;
+        window.location = `${endpointDecider}ClassCode/`;
     }
 }
 

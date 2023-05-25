@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../CSS/threadPage.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../RESOURCES/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../RESOURCES/favicon/favicon-16x16.png">
-    <link rel="stylesheet" href="/RESOURCES/HIGHLIGHT/github-dark-dimmed.min.css">
+    <link rel="stylesheet" href="../RESOURCES/HIGHLIGHT/github-dark-dimmed.min.css">
 
     <title>ClassCode</title>
 </head>

@@ -1,7 +1,7 @@
 activeTheme( "../");
 assignHomeButton( "../../");
 
-checkIfLoggedIn();
+checkIfLoggedIn( "../../");
 // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
 
 const currentUser = getCurrentUserLocalStorage();
