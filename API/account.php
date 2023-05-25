@@ -14,7 +14,7 @@
         $filename = $_FILES[ "file"][ "name"];
 
         //Checks if file-type is JPG or PNG
-        if( !str_contains( $filename, ".jpg") && !str_contains( $filename, ".png")) 
+        if( !strpos( $filename, ".jpg") && !strpos( $filename, ".png")) 
         {
             $message = [ "message" => "Error, image must have the filetype jpg or png."];
             send_JSON( $message, 403);
@@ -32,11 +32,11 @@
                 unlink( "PROFILE_IMG/$old_filename");
 
                 //Renames filename depending on if it´s JPG or PNG
-                if( str_contains( $filename, ".jpg")) 
+                if( strpos( $filename, ".jpg")) 
                 {
                     $filename = $user[ "username"] . ".jpg";
                 }
-                else if( str_contains( $filename, ".png")) 
+                else if( strpos( $filename, ".png")) 
                 {
                     $filename = $user[ "username"] . ".png";
                 }

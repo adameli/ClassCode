@@ -20,7 +20,7 @@
             $filter_lowercase = strtolower( $filter);
 
             //Creates array of the searched word/words
-            if( str_contains( $search_lowercase, " ")) 
+            if( strpos( $search_lowercase, " ")) 
             {
                 $words_array = explode( " ", $search_lowercase);
             }
@@ -42,25 +42,25 @@
                 foreach( $words_array as $word) 
                 {
                     //Checks if the search words match with a thread´s title
-                    if( str_contains( $title, $word)) 
+                    if( strpos( $title, $word)) 
                     {
                         $search_points += strlen( $word);
                     }
                     
                     //Checks if the search words match with a username
-                    if( str_contains( $username, $word))
+                    if( strpos( $username, $word))
                     {
                         $search_points += strlen( $word);
                     }
 
                     //Checks if the words match with both a username and a title, then 10 search-points gets added
-                    if( str_contains( $username, $word) && str_contains( $title, $word)) 
+                    if( strpos( $username, $word) && strpos( $title, $word)) 
                     {
                         $search_points += 10;
                     }
 
                     //Checks if the search words match with a description
-                    if( str_contains( $description, $word)) 
+                    if( strpos( $description, $word)) 
                     {
                         $search_points += strlen( $word) / 2;
                     }
@@ -70,7 +70,7 @@
                     {
                         $tag = strtolower( $tag);
                         
-                        if( str_contains( $tag, $word))
+                        if( strpos( $tag, $word))
                         {
                             $search_points += 10;
                         }
