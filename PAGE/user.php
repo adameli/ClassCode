@@ -46,7 +46,6 @@
 
     <script src="../JS/functions.js"></script>
     <script src="../JS/navigation.js"></script>
-    <script src="../index.js"></script>
     <script src="../JS/account.js"></script>
 </body>
 

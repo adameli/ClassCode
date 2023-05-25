@@ -1,3 +1,5 @@
+// observer in welcome page, observes all hidden classes during scroll, if viewport intersects with element, .show is assigned and element-
+// animates into view
 const observer = new IntersectionObserver( entries => {
     entries.forEach( entry => {
         

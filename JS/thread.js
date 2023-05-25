@@ -154,13 +154,13 @@ async function fillThreadPage() {
     }
 }
 
-async function likeCommentEvent( e) {
+async function likeCommentEvent( event) {
 
     // Gets targeted event containers ID
-    const currentCommentId = e.explicitOriginalTarget.dataset.comment_id;
+    const currentCommentId = event.explicitOriginalTarget.dataset.comment_id;
     
     // Determines if it is a like or Unlike
-    let removeOrLikeBoolean = e.explicitOriginalTarget.id === "likedComment-pseudo" ? true : false;
+    let removeOrLikeBoolean = event.explicitOriginalTarget.id === "likedComment-pseudo" ? true : false;
     
     const likeRequest = new Request( `../API/comment.php`, {
             method: "PATCH",
@@ -184,8 +184,8 @@ async function likeCommentEvent( e) {
     }
 
     function setIdLikeOrUnLike( idName) {
-        e.explicitOriginalTarget.removeAttribute( "id");
-        e.explicitOriginalTarget.id = idName;
+        event.explicitOriginalTarget.removeAttribute( "id");
+        event.explicitOriginalTarget.id = idName;
         document.querySelector( `[data-comment_id='${currentCommentId}']`).textContent = response.resource.number_likes;
     }
     

@@ -1,4 +1,4 @@
-
+// control if logged in or not
 if( !localStorage.getItem( "user")) {
     renderWelcomePage();
 }else {

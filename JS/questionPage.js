@@ -10,21 +10,26 @@ deployCharacterLimit();
 
 document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
 const postContentForm = document.querySelector( ".form > button");
+
+// on click send created thread || control if title, description is filled in
 postContentForm.addEventListener( "click", async function (event) {
     const titleInput = document.getElementById( "title").value;
     const descriptionInput = document.getElementById( "description").value;
     let unconvertedContentInput = document.getElementById( "content").value;
 
-    if ( titleInput.length === 0 || titleInput.trim() === "") {
+    if( titleInput.length === 0 || titleInput.trim() === "") {
         document.getElementById( "title").focus()
         document.body.scrollIntoView();
         document.querySelector( ".titleContainer div p").classList.add( "emptyValue");
-        if ( descriptionInput.length === 0 || descriptionInput.trim() === ""){
+
+        if( descriptionInput.length === 0 || descriptionInput.trim() === ""){
             document.querySelector( ".descriptionContainer div p").classList.add( "emptyValue");
-        } else {
+        }else {
             document.querySelector( ".descriptionContainer div p").classList.remove( "emptyValue");
         }
-        return
+
+        return;
+
     } else {
         document.querySelector( ".titleContainer div p").classList.remove( "emptyValue");
     }
@@ -32,7 +37,7 @@ postContentForm.addEventListener( "click", async function (event) {
     if (descriptionInput.length === 0 || descriptionInput.trim() === "") {
         document.getElementById( "description").focus()
         document.querySelector( ".descriptionContainer div p").classList.add( "emptyValue");
-        return
+        return;
     }
 
     // Convert all "CODE" to <pre><code></code></pre> tags:

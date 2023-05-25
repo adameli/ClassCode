@@ -58,6 +58,5 @@
     <script src="../JS/functions.js"></script>
     <script src="../JS/navigation.js"></script>
     <script src="../JS/thread.js"></script>
-    <script src="../index.js"></script>
 </body>
 </html>

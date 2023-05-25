@@ -61,7 +61,7 @@ async function renderMainThread() {
       ];
 
     const randomQuote = programmerQuotes[Math.floor(Math.random() * programmerQuotes.length)];
-    document.getElementById("quoteOfTheDay").textContent = randomQuote;
+    document.getElementById( "quoteOfTheDay").textContent = randomQuote;
 
     // backToTop function on limit
     const limiter = 700;
@@ -133,7 +133,7 @@ async function renderMainThread() {
     searchInput.addEventListener( "keyup", async event => {
         let searchValue = event.currentTarget.value;
         let key = event.key;
-        if (key === "Enter") {
+        if( key === "Enter") {
             const requestString = new Request( "API/search_bar.php?s=" + searchValue + "&f");
             await AppendLoadingAnimation( mainThreadAllThreads);
             let thredResults = await fetchFunction( requestString);
@@ -146,7 +146,7 @@ async function renderMainThread() {
     });
 
     // This function adds a click on the filterButtons. when clicked, the searchvalue and filterValue is sent to the server and we get back an array that match the searchValue and filterValue
-    document.querySelectorAll( ".filterButtons-mainThread").forEach(element => {
+    document.querySelectorAll( ".filterButtons-mainThread").forEach( element => {
         element.addEventListener( "click", async event =>{
             let filterValue = event.currentTarget.dataset.filtervalue;
             const requestString = new Request ( "API/search_bar.php?s=" + searchInput.value + "&f=" + filterValue);

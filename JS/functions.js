@@ -1,9 +1,11 @@
+// define globals refeing to endpoints (CHANGES BASED ON POSITION IN APPLICATION)
 let endpointAPI; 
 let endpointACCOUNT;
 let endpointTHREAD;
 let endpointQUESTION;
 let endpointCSS;
 
+// defines globals based on param
 function createEndPointVars( decider) {
 
     if( decider === "MAIN") {
@@ -22,7 +24,6 @@ function createEndPointVars( decider) {
 
     }
 }
-
 
 async function fetchFunction( request) {
 
@@ -44,6 +45,11 @@ function removeUserLocalStorage( endpointDecider) {
     window.location = `${endpointDecider}ClassCode/`;
 }
 
+function getCurrentUserLocalStorage() {
+   return JSON.parse(localStorage.getItem( "user"));
+}
+
+// if not logged in, display viewingmode
 function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     if( loggedInBoolean) {
         renderNavigationLoggedIn( getCurrentUserLocalStorage(), endpoint);
@@ -52,16 +58,13 @@ function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     }
 }
 
- function getCurrentUserLocalStorage() {
-    return JSON.parse(localStorage.getItem( "user"));
- }
-
 function checkIfLoggedIn( endpointDecider) {
     if( !localStorage.getItem( "user")) {
         window.location = `${endpointDecider}ClassCode/`;
     }
 }
 
+// adds *+* & *-* into given textarea, this is later used to convert into codeblock
 function addCodeBlocktoTextArea( event) {
     codeBlock = `
     *+*
@@ -80,7 +83,7 @@ function addCodeBlocktoTextArea( event) {
     codefield.focus();
 }
 
-// Converts *-* & *+* into pre code tags, later converted into hljs higlights.
+// Converts *-* & *+* into pre code tags, later converted into hljs higlights, converts HTML into temp tags that will be displayed as html but not read.
 function convertToCodeblock( input) {
     const firstStageConversion = input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     
@@ -126,6 +129,7 @@ async function AppendLoadingAnimation( AnimContainer) {
     return;
 }
 
+// gets value of URL get param, param = GETparam name
 function getGetSearchParam( searchParam) {
     const searchQuery = window.location.search;
     const urlParams = new URLSearchParams( searchQuery);
@@ -133,6 +137,7 @@ function getGetSearchParam( searchParam) {
     return searchParamValue;
 }
 
+// loads all threads and assigns html structure (DOM), based by the params, decider = position in application, pushnotifications if they exist in array.
 async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, pushNotifications=[]) {
     
     createEndPointVars( endpointDECIDER);
@@ -202,12 +207,15 @@ async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, p
     });
 }
 
+
+// event to change to userpage, event on click container
 function changeToUserPageEvent( event) {
     event.stopPropagation();
     const dataUsername = event.explicitOriginalTarget.dataset.username;
     window.location = `${endpointACCOUNT}?un=${dataUsername}`;
 }
 
+// event to change to threadpage, event on click container
 function changeToThreadPageEvent( event) {
     event.stopPropagation();
     const parentElement = event.currentTarget.parentElement;
@@ -218,7 +226,7 @@ function changeToThreadPageEvent( event) {
     window.location = `${endpointTHREAD}?thread_id=${threadID}`;
 }
 
-
+// MAIN thread on scroll till limit, back to top button appears
 function backToTopDisplayOnLimit( limiter) {
     const backToTopButton = document.querySelector( ".backToTop");
 
@@ -235,12 +243,14 @@ function backToTopDisplayOnLimit( limiter) {
     })
 }
 
+// Window alert on ERROR
 function displayAlert ( alertMessage, serverMessage) {
     window.alert( alertMessage);
     console.log(serverMessage);
 
 }
 
+// Shakes inputcontainer on char limit reach
 function deployCharacterLimit () {
     document.querySelectorAll( ".inputMaxCharacters").forEach(element => {
         element.addEventListener( "keyup", (event) => {
@@ -249,6 +259,7 @@ function deployCharacterLimit () {
     })
 }
 
+// associated with above
 function maxCharacters ( element) {
     let inputValue = element.value
         let inputMaxCharacters = element.getAttribute( "maxlength");
@@ -261,6 +272,7 @@ function maxCharacters ( element) {
         }
 }
 
+// Changes CSS DATASET beetween light and dark (viewmodes)
 function switchViewMode( endpointDecider) {
     createEndPointVars( endpointDecider);
 
@@ -277,8 +289,8 @@ function switchViewMode( endpointDecider) {
     location.reload();
 }
 
+// on pageload, controls which theme is active and appends it
 function activeTheme( endpoint = "") {
-    console.log( "here");
     if( localStorage.getItem( "lightMode")) {
         document.documentElement.setAttribute( "data-theme", "light");
         document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
@@ -288,6 +300,7 @@ function activeTheme( endpoint = "") {
     }
 }
 
+// homebutton refering to mainpage decider different based on position in application
 function assignHomeButton( endPointDECIDER) {
     document.querySelector( ".homebutton-navigation").addEventListener( "click", event => {
         window.location = `${endPointDECIDER}ClassCode/`;

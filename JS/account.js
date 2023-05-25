@@ -1,11 +1,14 @@
 async function renderAccountPage () {
+  // change the active theme & background image source based on given argument
   activeTheme( "../");
+  // assing homebutton endpoint, based on position of current page
   assignHomeButton( "../../");
 
   const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
   const messageContainer = document.querySelector( ".threadSection-userPage");
   const currentUser = getCurrentUserLocalStorage();
 
+  // Viewingmode + navigation based on position of current page
   controlViewingMode( loggedInBoolean, messageContainer, "PAGE");
   
   const userPageName = getGetSearchParam( "un");
@@ -24,6 +27,7 @@ async function renderAccountPage () {
   let userThreads = userObjekt.resource.threads
   let threadsUserNotSeen = [];
 
+  // get current logged in user, compare last visited threads against last updated comment on page, if visit < last comment, display notification
   if(getCurrentUserLocalStorage() === userPageName){
     for ( const lastVisitedThreadId in lastVisitedThread) {
       
@@ -45,6 +49,7 @@ async function renderAccountPage () {
       }
     }
   }
+
   if(userObjekt.response.ok){
     loadThreads( userObjekt.resource.threads, "You have no threads, Go and Ask a Question", "PAGE", threadsUserNotSeen);
   }else {
@@ -71,6 +76,7 @@ async function renderAccountPage () {
  
     `;
 
+  // if logged in user is on own userpage, enable edit functions
   if(getCurrentUserLocalStorage() === userPageName){
     document.querySelector(".imgEditContainer").innerHTML += `
     <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">

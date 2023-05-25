@@ -1,8 +1,8 @@
-function renderNavigationLoggedIn(user, endpointDecider) {
+function renderNavigationLoggedIn( user, endpointDecider) {
 
     createEndPointVars( endpointDecider);
 
-    const parentContainer = document.querySelector(".userInformation")
+    const parentContainer = document.querySelector( ".userInformation")
     const imgName = JSON.parse(localStorage.getItem( "img_name"));
 
     parentContainer.innerHTML = `
@@ -16,10 +16,10 @@ function renderNavigationLoggedIn(user, endpointDecider) {
     </dialog>
     `;
 
-    const profileButton = document.querySelector(".profile");
-    parentContainer.addEventListener("click", event => {
+    const profileButton = document.querySelector( ".profile");
+    parentContainer.addEventListener( "click", event => {
 
-        if (!document.querySelector(".profileMenuNav-shortcut")) {
+        if( !document.querySelector( ".profileMenuNav-shortcut")) {
             parentContainer.innerHTML += `
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
@@ -41,18 +41,20 @@ function renderNavigationLoggedIn(user, endpointDecider) {
                 </div>
             </nav>`;
 
-            document.querySelector(".profileMenuNav-logoutButton").addEventListener("click", e => {
+            document.querySelector( ".profileMenuNav-logoutButton").addEventListener( "click", event => {
                 homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
                 removeUserLocalStorage( homeButtonEndpoint);
             });
-            document.querySelector(".profileMenuNav-accountPage").addEventListener("click", event => {
+
+            document.querySelector( ".profileMenuNav-accountPage").addEventListener( "click", event => {
                 window.location = `${endpointACCOUNT}?un=${user}`;
             });
-            document.querySelector(".profileMenuNav-questionPage").addEventListener("click", event => {
+
+            document.querySelector( ".profileMenuNav-questionPage").addEventListener( "click", event => {
                 window.location = `${endpointQUESTION}`;
             });
 
-            document.querySelector( ".switchViewMode").addEventListener( "click", e => {
+            document.querySelector( ".switchViewMode").addEventListener( "click", event => {
                 switchViewMode( endpointDecider);
             });
 
@@ -60,10 +62,12 @@ function renderNavigationLoggedIn(user, endpointDecider) {
             document.getElementById( "openModalDelete").addEventListener( "click", event => {
                 myDialog.showModal();
             })
+
             document.getElementById( "cancelDeleteAccount").addEventListener( "click", event => {
                 myDialog.close();
             })
-            document.getElementById( "deleteAccount").addEventListener( "click", async function (event) {
+
+            document.getElementById( "deleteAccount").addEventListener( "click", async function( event) {
                 event.preventDefault();
                 const currentUser = getCurrentUserLocalStorage();
                 const deleteUserRequest = new Request( `${endpointAPI}/account.php`, {
