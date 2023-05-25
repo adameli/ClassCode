@@ -41,7 +41,7 @@ async function fetchFunction( request) {
 function removeUserLocalStorage() {
     localStorage.removeItem( "user");
     localStorage.removeItem( "img_name")
-    window.location = `/`;
+    window.location = `ClassCode/`;
 }
 
 function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
@@ -58,7 +58,7 @@ function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
 
 function checkIfLoggedIn() {
     if( !localStorage.getItem( "user")) {
-        window.location = `/`;
+        window.location = `ClassCode/`;
     }
 }
 
@@ -286,4 +286,10 @@ function activeTheme( endpoint = "") {
         document.documentElement.setAttribute( "data-theme", "dark");
         document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
     }
+}
+
+function assignHomeButton( endPointDECIDER) {
+    document.querySelector( ".homebutton-navigation").addEventListener( "click", event => {
+        window.location = `${endPointDECIDER}ClassCode/`;
+    })
 }

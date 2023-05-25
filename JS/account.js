@@ -1,5 +1,6 @@
 async function renderAccountPage () {
   activeTheme( "../");
+  assignHomeButton( "../../");
 
   const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
   const messageContainer = document.querySelector( ".threadSection-userPage");

@@ -1,4 +1,5 @@
 activeTheme( "../");
+assignHomeButton( "../../");
 
 const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
 const viewmode = getCurrentUserLocalStorage() ? false : true;

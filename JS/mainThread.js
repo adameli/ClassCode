@@ -1,5 +1,6 @@
 async function renderMainThread() {
     activeTheme();
+    assignHomeButton( "../");
     
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/mainThread.css");
 
