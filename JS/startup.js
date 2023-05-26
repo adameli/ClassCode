@@ -1,5 +1,5 @@
 // control if logged in or not
-if( !localStorage.getItem( "user")) {
+if( !localStorage.getItem( "classcode_user")) {
     renderWelcomePage();
 }else {
     renderMainThread();
@@ -77,7 +77,7 @@ function loginRegisterPage( type, changeTypeMessage) {
             
             if( phpFileName === "login.php"){
                 if( post.response.ok) {
-                    window.localStorage.setItem( "user", JSON.stringify( post.resource.username));
+                    window.localStorage.setItem( "classcode_user", JSON.stringify( post.resource.username));
                     window.localStorage.setItem( "img_name", JSON.stringify( post.resource.img_name));
 
                     renderMainThread();
