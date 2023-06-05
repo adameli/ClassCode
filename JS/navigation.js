@@ -45,6 +45,7 @@ function renderNavigationLoggedIn( user) {
             </nav>`;
 
             document.querySelector( ".profileMenuNav-logoutButton").addEventListener( "click", event => {
+                // homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
                 removeUserLocalStorage();
             });
 
@@ -57,7 +58,7 @@ function renderNavigationLoggedIn( user) {
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", event => {
-                switchViewMode();
+                switchViewMode( );
             });
 
             const myDialog = document.querySelector( ".dialogDeleteAccount");
@@ -80,6 +81,7 @@ function renderNavigationLoggedIn( user) {
                     }),
                 });
                 await fetchFunction( deleteUserRequest);
+                // homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
                 removeUserLocalStorage();
             })
 

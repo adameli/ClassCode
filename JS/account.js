@@ -1,15 +1,11 @@
 async function renderAccountPage () {
-  // change the active theme & background image source based on given argument
-  activeTheme( "../");
-  // assing homebutton endpoint, based on position of current page
-  assignHomeButton( "../../");
-
+  activeTheme();
   const loggedInBoolean = getCurrentUserLocalStorage() ? true : false;
   const messageContainer = document.querySelector( ".threadSection-userPage");
   const currentUser = getCurrentUserLocalStorage();
 
   // Viewingmode + navigation based on position of current page
-  controlViewingMode( loggedInBoolean, messageContainer, "PAGE");
+  controlViewingMode( loggedInBoolean, messageContainer);
   
   const userPageName = getGetSearchParam( "un");
 
