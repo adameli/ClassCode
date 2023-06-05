@@ -75,7 +75,7 @@ async function renderAccountPage () {
   // if logged in user is on own userpage, enable edit functions
   if(getCurrentUserLocalStorage() === userPageName){
     document.querySelector(".imgEditContainer").innerHTML += `
-    <form  id="formUpload" method="PATCH" enctype="multipart/form-data">
+    <form action="../API/register.php" id="formUpload" method="PATCH" enctype="multipart/form-data">
       <input type="file" id="profileImage" name="file">
       <label for="profileImage" class="editProfileImage"></label>
     </form>

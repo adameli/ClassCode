@@ -1,7 +1,21 @@
-function renderNavigationLoggedIn( user) {
+function renderNavigationLoggedIn( user, endpointDecider) {
+
+    // createEndPointVars( endpointDecider);
 
     const parentContainer = document.querySelector( ".userInformation")
     const imgName = JSON.parse(localStorage.getItem( "img_name"));
+
+    // document.querySelector( "header").innerHTML = `
+    // <div>
+    //     <div class="homebutton-navigation">
+    //         <img src="RESOURCES/ICONS/home.png" alt="HOMEBUTTON">
+    //     </div>
+    // </div>
+    // <h3>ClassCode</h3>
+    // <div class="userInformation">
+    //     <div class="loginButtonHeader clearButton buttonAnimation">Login</div>
+    // </div> 
+    // `;
 
     document.querySelector( "footer").innerHTML = `
         <h3>2023 || Malmö University</h3> 
@@ -58,7 +72,7 @@ function renderNavigationLoggedIn( user) {
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", event => {
-                switchViewMode( );
+                switchViewMode( endpointDecider);
             });
 
             const myDialog = document.querySelector( ".dialogDeleteAccount");
