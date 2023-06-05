@@ -1,10 +1,11 @@
-activeTheme();
+activeTheme( "../");
+assignHomeButton( "../../");
 
-checkIfLoggedIn();
+checkIfLoggedIn( "../../");
 // We add a submit function to the form element, when the user submits we send the a new Request to try an login as a user
 
 const currentUser = getCurrentUserLocalStorage();
-renderNavigationLoggedIn( currentUser);
+renderNavigationLoggedIn( currentUser, "PAGE");
 deployCharacterLimit();
 
 document.querySelector( ".addCodeField-event").addEventListener( "click", addCodeBlocktoTextArea);
@@ -60,7 +61,7 @@ postContentForm.addEventListener( "click", async function (event) {
 
     // controlls if the serverresponse is ok (true or false)
     if ( post.response.ok) {
-        window.location = `./`;
+        window.location = `index.html`;
     } else {
         displayAlert( "Error!! Check the console", post.resource.message);
     }

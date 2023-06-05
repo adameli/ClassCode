@@ -1,10 +1,12 @@
 async function renderMainThread() {
     activeTheme();
+    assignHomeButton( "../");
+    
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/mainThread.css");
 
     const currentUser = getCurrentUserLocalStorage();
     // create logged in user button
-    renderNavigationLoggedIn( currentUser);
+    renderNavigationLoggedIn( currentUser, "MAIN");
 
     document.querySelector( "main").innerHTML = `
     <section class="topInformation-mainThread">
@@ -103,7 +105,7 @@ async function renderMainThread() {
     const allThreadsRequest = new Request( "API/thread.php?threads=all");
     let objectWithThreads = await fetchFunction( allThreadsRequest);
     if( objectWithThreads.response.ok){
-        loadThreads( objectWithThreads.resource, "No search results...");
+        loadThreads( objectWithThreads.resource, "No search results...", "MAIN");
     }else {
         console.log( objectWithThreads.resource.message);
         loadThreads( [], "Something went wrong... Please try again");
