@@ -15,7 +15,7 @@ const date = currentDate.getFullYear()+'-'+(currentDate.getMonth()+1)+'-'+curren
 const time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 
 // declare request for given thread 
-const requestThreadPage = new Request( `../API/thread.php`, {
+const requestThreadPage = new Request( `API/thread.php`, {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
@@ -49,8 +49,8 @@ async function fillThreadPage() {
         
         <div class="threadUserContainerFlexItem">
             <div class='userInfoContainer-pageThread'>
-                <img class='profileImg userInfoPostPicture' data-username="${threadObject.resource.username}" src='../API/PROFILE_IMG/${threadObject.resource.img_name}'>
-                <div class='user_name-pageThread'><a href="user.php?un=${threadObject.resource.username}">${threadObject.resource.username}</a></div>                 
+                <img class='profileImg userInfoPostPicture' data-username="${threadObject.resource.username}" src='API/PROFILE_IMG/${threadObject.resource.img_name}'>
+                <div class='user_name-pageThread'><a href="user.html?un=${threadObject.resource.username}">${threadObject.resource.username}</a></div>                 
             </div>
             <div class='views'><span class='InformationText-tread NRviews-pageThread'>${threadObject.resource.views}</span></div>
         </div>
@@ -95,8 +95,8 @@ async function fillThreadPage() {
                         <div class='topInfoFlexContainer-pageThread'>
         
                             <div class='userInfoContainer-comment'>
-                                <img class='profileImg userInfoPostPicture-comment UI${likeIdentifyer}' data-username="${comment.username}" src='../API/PROFILE_IMG/${comment.img_name}'> 
-                                <p class='user_name-comment'><a href="user.php?un=${comment.username}">${comment.username}</a></p>                   
+                                <img class='profileImg userInfoPostPicture-comment UI${likeIdentifyer}' data-username="${comment.username}" src='API/PROFILE_IMG/${comment.img_name}'> 
+                                <p class='user_name-comment'><a href="user.html?un=${comment.username}">${comment.username}</a></p>                   
                             </div>
         
                             <div class='information-comment'>
@@ -162,7 +162,7 @@ async function likeCommentEvent( event) {
     // Determines if it is a like or Unlike
     let removeOrLikeBoolean = event.explicitOriginalTarget.id === "likedComment-pseudo" ? true : false;
     
-    const likeRequest = new Request( `../API/comment.php`, {
+    const likeRequest = new Request( `API/comment.php`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -221,7 +221,7 @@ function prepareAddComments() {
         let unconvertedContentInput = document.getElementById( "content").value;
         const convertedComment = convertToCodeblock( unconvertedContentInput);
         
-        const commentPost = new Request(`../API/comment.php`, {
+        const commentPost = new Request(`API/comment.php`, {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({

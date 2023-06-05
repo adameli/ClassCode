@@ -44,7 +44,7 @@ postContentForm.addEventListener( "click", async function (event) {
     const contentInput = convertToCodeblock( unconvertedContentInput);
 
     // We make an Requst that we will send to the fetchFunction
-    const registerRequest = new Request( "../API/thread.php", {
+    const registerRequest = new Request( "API/thread.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -61,7 +61,7 @@ postContentForm.addEventListener( "click", async function (event) {
 
     // controlls if the serverresponse is ok (true or false)
     if ( post.response.ok) {
-        window.location = `../../ClassCode/`;
+        window.location = `index.html`;
     } else {
         displayAlert( "Error!! Check the console", post.resource.message);
     }

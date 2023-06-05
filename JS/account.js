@@ -20,7 +20,7 @@ async function renderAccountPage () {
     return;
   }
 
-  const userInfoRequest = new Request( "../API/thread.php?un=" + userPageName);
+  const userInfoRequest = new Request( "API/thread.php?un=" + userPageName);
   let userObjekt = await fetchFunction( userInfoRequest);
 
   let lastVisitedThread = userObjekt.resource.date_visited_thread
@@ -61,7 +61,7 @@ async function renderAccountPage () {
     <div class="userContainer-userPage">  
       <div class="userFlexItem-userPage">
         <div class="imgEditContainer"> 
-          <div class='profilePicture-accountPage' style="background-image:url( '../API/PROFILE_IMG/${userObjekt.resource.img_name}');"></div>
+          <div class='profilePicture-accountPage' style="background-image:url( 'API/PROFILE_IMG/${userObjekt.resource.img_name}');"></div>
           <p class="imgMessage"></p> 
         </div>
         <div class='userInfo'>
@@ -112,7 +112,7 @@ async function renderAccountPage () {
       element.setAttribute("contenteditable", false);
     });
 
-    const userPatchRequest = new Request("../API/account.php", {
+    const userPatchRequest = new Request("API/account.php", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -143,7 +143,7 @@ async function renderAccountPage () {
 
     const formData = new FormData(formDom);
     formData.append("username", getCurrentUserLocalStorage());
-    const profileImgRequest = new Request("../API/account.php", {
+    const profileImgRequest = new Request("API/account.php", {
         method: "POST",
         body: formData,
     });

@@ -1,13 +1,30 @@
 function renderNavigationLoggedIn( user, endpointDecider) {
 
-    createEndPointVars( endpointDecider);
+    // createEndPointVars( endpointDecider);
 
     const parentContainer = document.querySelector( ".userInformation")
     const imgName = JSON.parse(localStorage.getItem( "img_name"));
 
+    // document.querySelector( "header").innerHTML = `
+    // <div>
+    //     <div class="homebutton-navigation">
+    //         <img src="RESOURCES/ICONS/home.png" alt="HOMEBUTTON">
+    //     </div>
+    // </div>
+    // <h3>ClassCode</h3>
+    // <div class="userInformation">
+    //     <div class="loginButtonHeader clearButton buttonAnimation">Login</div>
+    // </div> 
+    // `;
+
+    document.querySelector( "footer").innerHTML = `
+        <h3>2023 || Malmö University</h3> 
+        <p>Projekt Du3 || Webbaserad Design & Utvecklig</p>
+        <p>Created by: Adam Eliasson, Isak Makra & Teo Hardemo</p>`;
+
     parentContainer.innerHTML = `
     <div class="profile">
-        <img class="profileImg" src="${endpointAPI}/PROFILE_IMG/${imgName}">
+        <img class="profileImg" src="API/PROFILE_IMG/${imgName}">
     </div>
     <dialog class="dialogDeleteAccount">
         <p>Are you sure that you want to delete your account?</p>
@@ -24,7 +41,7 @@ function renderNavigationLoggedIn( user, endpointDecider) {
             <nav class="profileMenuNav-shortcut">
                 <div class="profileMenuNav-loggedInUser">
                     <div class="profile">
-                        <img class="profileImg" src="${endpointAPI}/PROFILE_IMG/${imgName}">
+                        <img class="profileImg" src="API/PROFILE_IMG/${imgName}">
                     </div>
                     <div class="profile-loggedInAs">
                         <p>Account:</p>
@@ -42,16 +59,16 @@ function renderNavigationLoggedIn( user, endpointDecider) {
             </nav>`;
 
             document.querySelector( ".profileMenuNav-logoutButton").addEventListener( "click", event => {
-                homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
-                removeUserLocalStorage( homeButtonEndpoint);
+                // homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
+                removeUserLocalStorage();
             });
 
             document.querySelector( ".profileMenuNav-accountPage").addEventListener( "click", event => {
-                window.location = `${endpointACCOUNT}?un=${user}`;
+                window.location = `user.html?un=${user}`;
             });
 
             document.querySelector( ".profileMenuNav-questionPage").addEventListener( "click", event => {
-                window.location = `${endpointQUESTION}`;
+                window.location = `AskQuestion.html`;
             });
 
             document.querySelector( ".switchViewMode").addEventListener( "click", event => {
@@ -70,7 +87,7 @@ function renderNavigationLoggedIn( user, endpointDecider) {
             document.getElementById( "deleteAccount").addEventListener( "click", async function( event) {
                 event.preventDefault();
                 const currentUser = getCurrentUserLocalStorage();
-                const deleteUserRequest = new Request( `${endpointAPI}/account.php`, {
+                const deleteUserRequest = new Request( `API/account.php`, {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -78,8 +95,8 @@ function renderNavigationLoggedIn( user, endpointDecider) {
                     }),
                 });
                 await fetchFunction( deleteUserRequest);
-                homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
-                removeUserLocalStorage( homeButtonEndpoint);
+                // homeButtonEndpoint = endpointDecider === "PAGE" ? "../../" : "../";
+                removeUserLocalStorage();
             })
 
         } else {

@@ -10,7 +10,7 @@
             "date": "2023-05-24",
             "time": "16:02:28"
         },
-        "views": 75,
+        "views": 96,
         "comments": [
             {
                 "username": "Isak",
@@ -83,7 +83,7 @@
             "date": "2023-05-24",
             "time": "16:32:05"
         },
-        "views": 15,
+        "views": 16,
         "comments": [
             {
                 "username": "DeoHard",
@@ -107,6 +107,41 @@
             "methods",
             "javascript",
             "blessed"
+        ],
+        "img_name": "AdamE.jpg"
+    },
+    {
+        "username": "AdamE",
+        "username_id": 2,
+        "thread_id": 3,
+        "title": "test",
+        "description": "test",
+        "content": "test",
+        "timestamp": {
+            "date": "2023-06-05",
+            "time": "10:54:20"
+        },
+        "views": 4,
+        "comments": [
+            {
+                "username": "AdamE",
+                "content": "wow",
+                "timestamp": {
+                    "date": "2023-06-05",
+                    "time": "10:59:41"
+                },
+                "likes": {
+                    "total": 1,
+                    "accounts": [
+                        "AdamE"
+                    ]
+                },
+                "id": 1,
+                "img_name": "AdamE.jpg"
+            }
+        ],
+        "tags": [
+            "hej"
         ],
         "img_name": "AdamE.jpg"
     }

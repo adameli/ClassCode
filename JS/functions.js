@@ -1,29 +1,29 @@
-// define globals refeing to endpoints (CHANGES BASED ON POSITION IN APPLICATION)
-let endpointAPI; 
-let endpointACCOUNT;
-let endpointTHREAD;
-let endpointQUESTION;
-let endpointCSS;
+// // define globals refeing to endpoints (CHANGES BASED ON POSITION IN APPLICATION)
+// let endpointAPI; 
+// let endpointACCOUNT;
+// let endpointTHREAD;
+// let endpointQUESTION;
+// let endpointCSS;
 
-// defines globals based on param
-function createEndPointVars( decider) {
+// // defines globals based on param
+// function createEndPointVars( decider) {
 
-    if( decider === "MAIN") {
-        endpointAPI = "API" 
-        endpointACCOUNT = "PAGE/user.php"
-        endpointQUESTION = "PAGE/AskQuestion.html"
-        endpointTHREAD = "PAGE/thread.php";
-        endpointCSS = "RESOURCE";
+//     if( decider === "MAIN") {
+//         endpointAPI = "API" 
+//         endpointACCOUNT = "PAGE/user.php"
+//         endpointQUESTION = "PAGE/AskQuestion.html"
+//         endpointTHREAD = "PAGE/thread.php";
+//         endpointCSS = "RESOURCE";
 
-    }else if( decider === "PAGE") {
-        endpointAPI = "../API"
-        endpointACCOUNT = "user.php"
-        endpointTHREAD = "thread.php";
-        endpointQUESTION = "AskQuestion.html"
-        endpointCSS = "../RESOURCE";
+//     }else if( decider === "PAGE") {
+//         endpointAPI = "../API"
+//         endpointACCOUNT = "user.php"
+//         endpointTHREAD = "thread.php";
+//         endpointQUESTION = "AskQuestion.html"
+//         endpointCSS = "../RESOURCE";
 
-    }
-}
+//     }
+// }
 
 async function fetchFunction( request) {
 
@@ -39,10 +39,10 @@ async function fetchFunction( request) {
     };
 };
 
-function removeUserLocalStorage( endpointDecider) {
+function removeUserLocalStorage() {
     localStorage.removeItem( "classcode_user");
     localStorage.removeItem( "img_name")
-    window.location = `${endpointDecider}ClassCode/`;
+    window.location = `index.html`;
 }
 
 function getCurrentUserLocalStorage() {
@@ -54,13 +54,13 @@ function controlViewingMode( loggedInBoolean, messageContainer, endpoint) {
     if( loggedInBoolean) {
         renderNavigationLoggedIn( getCurrentUserLocalStorage(), endpoint);
     }else {
-        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='../'>Sign In or Register</a> to Comment & Like</p>`;
+        messageContainer.innerHTML = `<p class="notLoggedInMessage" style="text-align:center;">You are now in viewing Mode, <a href='index.html'>Sign In or Register</a> to Comment & Like</p>`;
     }
 }
 
 function checkIfLoggedIn( endpointDecider) {
     if( !localStorage.getItem( "classcode_user")) {
-        window.location = `${endpointDecider}ClassCode/`;
+        window.location = `index.html`;
     }
 }
 
@@ -140,7 +140,7 @@ function getGetSearchParam( searchParam) {
 // loads all threads and assigns html structure (DOM), based by the params, decider = position in application, pushnotifications if they exist in array.
 async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, pushNotifications=[]) {
     
-    createEndPointVars( endpointDECIDER);
+    // createEndPointVars( endpointDECIDER);
 
     const mainThreadAllThreads = document.querySelector( ".mainThread-allThreads");
     mainThreadAllThreads.innerHTML = ``;
@@ -161,8 +161,8 @@ async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, p
                 </div>
                 
                 <div class="usersPost-mainThread">
-                    <img class="profileImg userInfoPostPicture" src="${endpointAPI}/PROFILE_IMG/${threadObject.img_name}">
-                    <p class="user_name-mainThread"><a href="${endpointACCOUNT}?un=${threadObject.username}">@${threadObject.username}</a></p>
+                    <img class="profileImg userInfoPostPicture" src="API/PROFILE_IMG/${threadObject.img_name}">
+                    <p class="user_name-mainThread"><a href="user.html?un=${threadObject.username}">@${threadObject.username}</a></p>
                 </div>                    
             </div>
             <div class="threadTags-container"></div>
@@ -212,7 +212,7 @@ async function loadThreads ( arrayOfThreads, noResultMessage, endpointDECIDER, p
 function changeToUserPageEvent( event) {
     event.stopPropagation();
     const dataUsername = event.explicitOriginalTarget.dataset.username;
-    window.location = `${endpointACCOUNT}?un=${dataUsername}`;
+    window.location = `user.html?un=${dataUsername}`;
 }
 
 // event to change to threadpage, event on click container
@@ -223,7 +223,7 @@ function changeToThreadPageEvent( event) {
         parentElement.classList.remove( "pushNotification")
     }
     const threadID = event.explicitOriginalTarget.dataset.thread_id;
-    window.location = `${endpointTHREAD}?thread_id=${threadID}`;
+    window.location = `thread.html?thread_id=${threadID}`;
 }
 
 // MAIN thread on scroll till limit, back to top button appears
@@ -274,16 +274,16 @@ function maxCharacters ( element) {
 
 // Changes CSS DATASET beetween light and dark (viewmodes)
 function switchViewMode( endpointDecider) {
-    createEndPointVars( endpointDecider);
+    // createEndPointVars( endpointDecider);
 
     if( localStorage.getItem( "lightMode")) {
         localStorage.removeItem( "lightMode");
         document.documentElement.setAttribute( "data-theme", "dark");
-        document.querySelector( "body > img").src = `${endpointCSS}/BACKGROUND/backgroundImageBlur.jpg`;
+        document.querySelector( "body > img").src = `RESOURCE/BACKGROUND/backgroundImageBlur.jpg`;
     }else {
         localStorage.setItem( "lightMode", true);
         document.documentElement.setAttribute( "data-theme", "light");
-        document.querySelector( "body > img").src = `${endpointCSS}/BACKGROUND/lightmodeBackground.jpg`;
+        document.querySelector( "body > img").src = `RESOURCE/BACKGROUND/lightmodeBackground.jpg`;
     }
 
     location.reload();
@@ -293,16 +293,16 @@ function switchViewMode( endpointDecider) {
 function activeTheme( endpoint = "") {
     if( localStorage.getItem( "lightMode")) {
         document.documentElement.setAttribute( "data-theme", "light");
-        document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
+        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/lightmodeBackground.jpg`;
     }else {
         document.documentElement.setAttribute( "data-theme", "dark");
-        document.querySelector( "body > img").src = `${endpoint}RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
+        document.querySelector( "body > img").src = `RESOURCES/BACKGROUND/backgroundImageBlur.jpg`;
     }
 }
 
 // homebutton refering to mainpage decider different based on position in application
-function assignHomeButton( endPointDECIDER) {
+function assignHomeButton() {
     document.querySelector( ".homebutton-navigation").addEventListener( "click", event => {
-        window.location = `${endPointDECIDER}ClassCode/`;
+        window.location = `index.html`;
     })
 }

@@ -124,7 +124,7 @@ function renderWelcomePage() {
         </div>
 
         <div class="iframeContainer hidden">
-            <iframe src="PAGE/thread.php?thread_id=1" title="threadInsight"></iframe> 
+            <iframe src="thread.html?thread_id=1" title="threadInsight"></iframe> 
         </div>
         <div class="hidden"></div>
         <div class="hidden"></div>

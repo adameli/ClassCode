@@ -21,15 +21,19 @@
         "username": "AdamE",
         "password": "$2y$10$zWN4S68zyCOBf07vGOHIe.oEdzdlyat4yS2oV7DFbF5kkzx275Nm6",
         "profile_info": {
-            "fullname": "Adam Eliasson",
+            "fullname": "Adam Eliasson lol ",
             "discord": "AdamE#3445",
             "bio": "\"There's a saying: 'Yesterday is history, tomorrow is a mystery, but today is a gift. ' That is why it's called the present.\"--Master Oogway"
         },
         "img_name": "AdamE.jpg",
         "date_visited_thread": {
             "2": {
-                "date": "2023-05-24",
-                "time": "16:32:05"
+                "date": "2023-6-5",
+                "time": "9:57:8"
+            },
+            "3": {
+                "date": "2023-6-5",
+                "time": "10:59:42"
             }
         }
     },
