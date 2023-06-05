@@ -101,10 +101,13 @@ function loginRegisterPage( type, changeTypeMessage) {
 
 function renderWelcomePage() {
     activeTheme();
-    assignHomeButton( "../");
+
     
     document.querySelector( ".modularCss").setAttribute( "href", "CSS/welcomePage.css");
 
+    document.querySelector( ".userInformation").innerHTML = `
+        <div class="loginButtonHeader clearButton buttonAnimation">Login</div>
+    `
     document.querySelector( "main").innerHTML = `
     <section>
         <div>
