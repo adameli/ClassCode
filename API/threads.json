@@ -10,7 +10,7 @@
             "date": "2023-05-24",
             "time": "16:02:28"
         },
-        "views": 96,
+        "views": 111,
         "comments": [
             {
                 "username": "Isak",
@@ -143,6 +143,22 @@
         "tags": [
             "hej"
         ],
+        "img_name": "AdamE.jpg"
+    },
+    {
+        "username": "AdamE",
+        "username_id": 2,
+        "thread_id": 4,
+        "title": "test",
+        "description": "test",
+        "content": "",
+        "timestamp": {
+            "date": "2023-06-05",
+            "time": "16:09:42"
+        },
+        "views": 0,
+        "comments": [],
+        "tags": [],
         "img_name": "AdamE.jpg"
     }
 ]
